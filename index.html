@@ -4,177 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>DeVirn Signature House Inc.</title>
-  <meta name="description" content="DeVirn Signature House Inc. — the corporate umbrella for Signature D, Kadijah’s Mango, Makaios Closett TT, and the Timeless Peace Foundation." />
+  <meta name="description" content="DeVirn Signature House Inc. — Integrity • Creativity • Legacy." />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --coffee:#5C3A21;         /* primary coffee brown */
-      --coffeeDeep:#3E2A20;     /* hover/depth */
-      --silver:#C9CED6;         /* accents/lines */
-      --silverSoft:#EEF1F5;     /* subtle bg tints */
+      /* Signature palette */
+      --coffee:#5C3A21;           /* primary coffee brown */
+      --coffeeDeep:#3E2A20;       /* deeper brown for hovers */
+      --silver:#C9CED6;           /* silver accent */
+      --silverSoft:#EEF1F5;       /* soft silver tint */
       --white:#FFFFFF;
-      --ink:#0B0E10;            /* for high-contrast text if needed */
-      --radius:18px;
-      --shadow:0 14px 40px rgba(26, 20, 16, .12);
-      --ring:0 0 0 2px rgba(201,206,214,.65);
+      --ink:#0B0E10;
+
+      /* Effects */
+      --r:18px;
+      --shadow:0 18px 50px rgba(26,20,16,.12);
+      --shine:linear-gradient(90deg,transparent,rgba(201,206,214,.75),transparent);
+      --edge:1px solid rgba(0,0,0,.06);
+      --silverEdge:1px solid rgba(201,206,214,.65);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--white);color:#222;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.7}
+    html,body{margin:0;background:var(--white);color:#1d1d1f;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.7}
     a{color:var(--coffee);text-decoration:none}
     .wrap{max-width:1120px;margin:0 auto;padding:28px}
 
-    /* HERO */
-    header{padding:72px 0 36px;text-align:center}
-    h1{font-family:"Playfair Display",serif;color:var(--coffee);font-size:2.6rem;letter-spacing:.2px;margin:.1rem 0}
-    .tag{color:#444;opacity:.9;font-weight:600}
-    .divider{width:84px;height:2px;background:linear-gradient(90deg,transparent,var(--silver),transparent);margin:16px auto 0;border-radius:2px}
-
-    .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
-    .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow);transition:transform .15s ease, box-shadow .2s, background .2s, color .2s}
-    .btn-primary{background:var(--coffee);color:var(--white)}
-    .btn-primary:hover{background:var(--coffeeDeep);transform:translateY(-2px)}
-    .btn-outline{background:var(--white);color:var(--coffee);border:1.5px solid var(--coffee)}
-    .btn-outline:hover{background:var(--silverSoft);box-shadow:var(--ring)}
-
-    /* SECTIONS */
-    section{margin:48px 0}
-    h2{font-family:"Playfair Display",serif;font-size:1.7rem;color:#1d1d1f;margin:0 0 12px}
-    .lead{max-width:860px;margin:0 auto 10px;text-align:center;color:#2c2c2e}
-    .hr{height:1px;background:linear-gradient(90deg,transparent,var(--silver),transparent);margin:28px 0}
-
-    /* DIVISIONS GRID */
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .card{
-      grid-column:span 12;
-      background:var(--white);
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);
-      padding:20px 18px;
+    /* ——— HERO ——— */
+    header{padding:72px 0 36px;position:relative}
+    .frame{
+      border:var(--silverEdge);
+      border-radius:28px;
+      padding:38px 22px;
+      background:linear-gradient(180deg,rgba(238,241,245,.4),rgba(255,255,255,.9));
       box-shadow:var(--shadow);
-      transition:transform .15s ease, box-shadow .2s, border-color .2s;
+      position:relative;
+      overflow:hidden;
     }
-    .card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(26,20,16,.16);border-color:var(--silver)}
-    @media(min-width:760px){ .card{grid-column:span 6} }
-    .pill{display:inline-block;font-size:.78rem;border:1px solid var(--silver);color:#3a3f47;padding:4px 10px;border-radius:999px;margin-bottom:10px;background:var(--silverSoft)}
-    .card h3{margin:.2rem 0 .5rem;font-size:1.18rem;color:var(--coffee)}
-    .small{margin:.35rem 0 1rem;color:#444}
-    .actions{display:flex;gap:10px;flex-wrap:wrap}
-    .mini{padding:9px 12px;border-radius:999px;font-weight:700;border:1.5px solid var(--coffee);color:var(--coffee);background:var(--white)}
-    .mini:hover{background:var(--coffee);color:var(--white)}
-
-    /* INFO BLOCKS */
-    .info{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
-    .info > div{
-      grid-column:span 12;background:var(--white);border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);padding:20px 18px;box-shadow:var(--shadow)
+    .frame::after{ /* subtle silver sweep */
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(1200px 80px at 50% -40px, rgba(201,206,214,.45), transparent 45%);
+      mix-blend-mode:screen;opacity:.6;
     }
-    @media(min-width:980px){ .info > div{grid-column:span 6} }
-
-    /* FOOTER */
-    footer{padding:30px 0 42px;text-align:center;color:#6b7280;font-variant-caps:all-small-caps;letter-spacing:.8px}
-  </style>
-</head>
-<body>
-  <header class="wrap">
-    <h1>DeVirn Signature House Inc.</h1>
-    <div class="tag">Legacy in Motion — <span style="color:var(--coffee)">Integrity · Creativity · Legacy</span></div>
-    <div class="divider" aria-hidden="true"></div>
-    <div class="cta-row" aria-label="Primary actions">
-      <a class="btn btn-primary" href="mailto:signatured.inc@outlook.com">Email Us</a>
-      <a class="btn btn-outline" href="https://calendly.com/devirn" target="_blank" rel="noopener">Book a Consultation</a>
-      <a class="btn btn-outline" href="https://devirn.com" target="_blank" rel="noopener">Visit Signature D</a>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <!-- Mission -->
-    <section>
-      <h2>Our Mission</h2>
-      <p class="lead">
-        We build enduring brands rooted in excellence, cultural integrity, and human connection—guiding creative, humanitarian, and global initiatives under one timeless vision.
-      </p>
-      <div class="hr"></div>
-    </section>
-
-    <!-- Divisions -->
-    <section aria-labelledby="divisions">
-      <h2 id="divisions">Divisions</h2>
-      <div class="grid">
-        <!-- Signature D -->
-        <article class="card" aria-label="Signature D">
-          <span class="pill">Creative & Media</span>
-          <h3>Signature D</h3>
-          <p class="small">Digital Media & Production Agency — cinematic visuals, brand systems, and experience design.</p>
-          <div class="actions">
-            <a class="mini" href="https://devirn.com" target="_blank" rel="noopener">Visit Site</a>
-            <a class="mini" href="https://calendly.com/devirn" target="_blank" rel="noopener">Book Creative Call</a>
-          </div>
-        </article>
-
-        <!-- Kadijah’s Mango -->
-        <article class="card" aria-label="Kadijah’s Mango">
-          <span class="pill">Halal Distribution</span>
-          <h3>Kadijah’s Mango</h3>
-          <p class="small">Halal-first distribution & partnerships—ethics, purity, and growth across global markets.</p>
-          <div class="actions">
-            <a class="mini" href="#" target="_blank" rel="noopener">Partner Inquiry</a> <!-- TODO: replace with MailerLite/Google Form -->
-            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Kadijah’s%20Mango%20Partnership">Email</a>
-          </div>
-        </article>
-
-        <!-- Makaios Closett TT -->
-        <article class="card" aria-label="Makaios Closett TT">
-          <span class="pill">Fashion & Footwear</span>
-          <h3>Makaios Closett TT</h3>
-          <p class="small">International footwear & styling—comfort, class, and a Caribbean edge.</p>
-          <div class="actions">
-            <a class="mini" href="#" target="_blank" rel="noopener">Shop</a> <!-- TODO: Shopify/Etsy link -->
-            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Makaios%20Closett%20Order">Customer Care</a>
-          </div>
-        </article>
-
-        <!-- Timeless Peace Foundation -->
-        <article class="card" aria-label="Timeless Peace Foundation">
-          <span class="pill">Foundation</span>
-          <h3>Timeless Peace Foundation</h3>
-          <p class="small">Global hospice & healing initiative—dignity in care, education, and Peace Homes.</p>
-          <div class="actions">
-            <a class="mini" href="#" target="_blank" rel="noopener">Learn More</a> <!-- TODO: link to future page -->
-            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Timeless%20Peace%20Foundation">Contact</a>
-          </div>
-        </article>
-      </div>
-      <div class="hr"></div>
-    </section>
-
-    <!-- Connect -->
-    <section aria-labelledby="contact">
-      <h2 id="contact">Connect</h2>
-      <div class="info">
-        <div>
-          <h3 style="margin-top:0;color:var(--coffee)">General Inquiries</h3>
-          <p class="small" style="color:#333">Salutations, we’d love to hear from you. For partnerships, media, or operations:</p>
-          <p><a href="mailto:signatured.inc@outlook.com">signatured.inc@outlook.com</a></p>
-        </div>
-        <div>
-          <h3 style="margin-top:0;color:var(--coffee)">Book a Consultation</h3>
-          <p class="small" style="color:#333">Schedule a discovery call for branding, distribution, or production.</p>
-          <p><a class="btn btn-outline" href="https://calendly.com/devirn" target="_blank" rel="noopener">Open Calendly</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Subscribe -->
-    <section aria-labelledby="newsletter">
-      <h2 id="newsletter">Stay in the Loop</h2>
-      <p class="lead">Get updates on launches, exhibitions, and partnership opportunities.</p>
-      <p><a class="btn btn-outline" href="mailto:signatured.inc@outlook.com?subject=Subscribe%20Me&body=Hi%20Signature%20House%2C%20please%20add%20me%20to%20your%20newsletter.">Subscribe via Email</a></p>
-      <!-- TODO: replace with embedded MailerLite form when ready -->
-    </section>
-  </main>
-
-  <footer class="wrap">
-    © 2025 DeVirn Signature House Inc. • All Rights Reserved
-  </footer>
-</body>
-</html>
+    h1{
+      font-family:"Playfair Display",serif;
+      color:var(--coffee);
+      font-size:2.8rem;
+      letter-spacing:.3px;
+      margin:0 0 .35rem;
+      text-align:center;
+    }
+    .tag{
+      text-align:center;
+      color:#2c2c2e;
+      font-weight:600;
+      letter-spacing:.4px;
+    }
+    .crest{
+      width:110px;height:110px;margin:0 auto 14px;border-radius:999px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), transparent 45%),
+        conic-gradient(from 0deg, #f6f7f9, #dfe4ea, #eef1f5, #c9ced6, #eef1f5, #f6f7f9);
+      border:1px solid rgba(201,206,214,.7);
+      box-shadow:0 8px 24px rgba(31,31,31,.08), inse
