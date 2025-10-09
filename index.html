@@ -64,4 +64,202 @@
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.85), transparent 45%),
         conic-gradient(from 0deg, #f6f7f9, #dfe4ea, #eef1f5, #c9ced6, #eef1f5, #f6f7f9);
       border:1px solid rgba(201,206,214,.7);
-      box-shadow:0 8px 24px rgba(31,31,31,.08), inse
+      box-shadow:0 8px 24px rgba(31,31,31,.08), inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    .divider{width:120px;height:2px;background:var(--shine);margin:18px auto 0;border-radius:2px}
+
+    .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+    .btn{
+      display:inline-block;padding:12px 18px;border-radius:999px;font-weight:700;
+      transition:transform .15s ease, box-shadow .2s, background .2s, color .2s, border-color .2s;
+      position:relative;
+    }
+    .btn-primary{
+      background:var(--coffee);color:var(--white);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);
+    }
+    .btn-primary:hover{background:var(--coffeeDeep);transform:translateY(-2px)}
+    .btn-outline{
+      background:var(--white);color:var(--coffee);border:1.5px solid var(--coffee);
+    }
+    .btn-outline:hover{
+      background:var(--silverSoft);
+      box-shadow:0 0 0 2px rgba(201,206,214,.55);
+      transform:translateY(-2px);
+    }
+
+    /* ——— BANDS ——— */
+    .band{
+      margin:36px 0 14px;
+      background:linear-gradient(180deg,var(--white),#fafbfc);
+      border:var(--silverEdge);
+      border-radius:22px;
+      padding:14px;
+      display:grid;grid-template-columns:repeat(12,1fr);gap:10px;align-items:center;
+    }
+    .stat{grid-column:span 12;text-align:center}
+    @media(min-width:820px){ .stat{grid-column:span 4;border-right:1px solid rgba(201,206,214,.5)} .stat:last-child{border-right:none} }
+    .stat b{display:block;color:var(--coffee);font-size:1.1rem}
+    .micro{font-size:.92rem;color:#4a4f57}
+
+    /* ——— DIVISIONS ——— */
+    section{margin:52px 0}
+    h2{
+      font-family:"Playfair Display",serif;font-size:1.8rem;color:var(--coffee);margin:0 0 10px;text-align:center;
+    }
+    .lede{max-width:820px;margin:0 auto 22px;text-align:center;color:#2c2c2e}
+    .hr{height:1px;background:var(--shine);margin:26px auto;border-radius:2px;width:min(84%,780px)}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .tile{
+      grid-column:span 12;background:var(--white);border:var(--silverEdge);border-radius:22px;padding:22px;
+      box-shadow:var(--shadow);position:relative;overflow:hidden;isolation:isolate;
+    }
+    .tile::before{
+      content:"";position:absolute;inset:-1px;border-radius:24px;
+      background:conic-gradient(from 180deg at 50% 0%, rgba(201,206,214,.45), transparent 30%, transparent 70%, rgba(201,206,214,.45));
+      filter:blur(10px);opacity:.35;z-index:-1;
+    }
+    .tile:hover{transform:translateY(-4px);transition:transform .15s ease}
+    @media(min-width:780px){ .tile{grid-column:span 6} }
+
+    .label{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 11px;border-radius:999px;background:var(--silverSoft);border:1px solid rgba(201,206,214,.7);
+      color:#3a3f47;font-weight:600;font-size:.82rem;margin-bottom:10px
+    }
+    .tile h3{margin:.2rem 0 .5rem;font-size:1.18rem;color:var(--coffee)}
+    .tile p{margin:.35rem 0 1rem;color:#333}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .mini{
+      padding:9px 12px;border-radius:999px;font-weight:700;border:1.5px solid var(--coffee);color:var(--coffee);background:var(--white)
+    }
+    .mini:hover{background:var(--coffee);color:var(--white)}
+
+    /* ——— CONTACT ——— */
+    .panel{
+      background:linear-gradient(180deg,#fff,#fafbfc);
+      border:var(--silverEdge);border-radius:22px;box-shadow:var(--shadow);padding:22px
+    }
+    .info{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .info > div{grid-column:span 12}
+    @media(min-width:980px){ .info > div{grid-column:span 6} }
+
+    /* ——— FOOTER ——— */
+    footer{padding:34px 0 42px;text-align:center;color:#6b7280;font-variant-caps:all-small-caps;letter-spacing:.8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HERO -->
+    <header>
+      <div class="frame">
+        <div class="crest" aria-hidden="true"></div>
+        <h1>DeVirn Signature House Inc.</h1>
+        <div class="tag">Integrity • Creativity • Legacy</div>
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="cta-row" aria-label="Primary actions">
+          <a class="btn btn-primary" href="mailto:signatured.inc@outlook.com">Email Us</a>
+          <a class="btn btn-outline" href="https://calendly.com/devirn" target="_blank" rel="noopener">Book a Consultation</a>
+          <a class="btn btn-outline" href="https://devirn.com" target="_blank" rel="noopener">Visit Signature D</a>
+        </div>
+      </div>
+
+      <!-- SILVER BAND: quick credibility hits without lists -->
+      <div class="band" role="presentation">
+        <div class="stat"><b>Creative Leadership</b><span class="micro">Signature D Studio</span></div>
+        <div class="stat"><b>Ethical Commerce</b><span class="micro">Kadijah’s Mango</span></div>
+        <div class="stat"><b>Global Style</b><span class="micro">Makaios Closett TT</span></div>
+      </div>
+    </header>
+
+    <!-- DIVISIONS -->
+    <section aria-labelledby="divisions">
+      <h2 id="divisions">Divisions</h2>
+      <p class="lede">One house. Distinct pillars. A single standard of excellence.</p>
+      <div class="hr"></div>
+
+      <div class="grid">
+        <!-- Signature D -->
+        <article class="tile" aria-label="Signature D">
+          <span class="label">Creative & Media</span>
+          <h3>Signature D</h3>
+          <p>Cinematic storytelling, brand systems, and experience design that move people and markets.</p>
+          <div class="actions">
+            <a class="mini" href="https://devirn.com" target="_blank" rel="noopener">Visit Site</a>
+            <a class="mini" href="https://calendly.com/devirn" target="_blank" rel="noopener">Creative Call</a>
+          </div>
+        </article>
+
+        <!-- Kadijah’s Mango -->
+        <article class="tile" aria-label="Kadijah’s Mango">
+          <span class="label">Halal Distribution</span>
+          <h3>Kadijah’s Mango</h3>
+          <p>Halal-first partnerships with uncompromising integrity—connecting ethical producers and global demand.</p>
+          <div class="actions">
+            <a class="mini" href="#" target="_blank" rel="noopener">Partner Inquiry</a> <!-- TODO: replace with MailerLite/Google Form -->
+            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Kadijah’s%20Mango%20Partnership">Email</a>
+          </div>
+        </article>
+
+        <!-- Makaios Closett TT -->
+        <article class="tile" aria-label="Makaios Closett TT">
+          <span class="label">Fashion & Footwear</span>
+          <h3>Makaios Closett TT</h3>
+          <p>International footwear and styling—comfort with polish, a refined Caribbean edge.</p>
+          <div class="actions">
+            <a class="mini" href="#" target="_blank" rel="noopener">Shop</a> <!-- TODO: Shopify/Etsy link -->
+            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Makaios%20Closett%20Order">Customer Care</a>
+          </div>
+        </article>
+
+        <!-- Timeless Peace Foundation -->
+        <article class="tile" aria-label="Timeless Peace Foundation">
+          <span class="label">Foundation</span>
+          <h3>Timeless Peace Foundation</h3>
+          <p>Global hospice and healing—dignity in care, education, and Peace Homes for generations.</p>
+          <div class="actions">
+            <a class="mini" href="#" target="_blank" rel="noopener">Learn More</a> <!-- TODO: link to future page -->
+            <a class="mini" href="mailto:signatured.inc@outlook.com?subject=Timeless%20Peace%20Foundation">Contact</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section aria-labelledby="connect">
+      <h2 id="connect">Connect</h2>
+      <div class="hr"></div>
+      <div class="info">
+        <div class="panel">
+          <h3 style="margin-top:0;color:var(--coffee)">General Inquiries</h3>
+          <p style="color:#333;margin:.35rem 0 1rem">Salutations — for partnerships, media, or operations:</p>
+          <p><a href="mailto:signatured.inc@outlook.com">signatured.inc@outlook.com</a></p>
+        </div>
+        <div class="panel">
+          <h3 style="margin-top:0;color:var(--coffee)">Book a Consultation</h3>
+          <p style="color:#333;margin:.35rem 0 1rem">Schedule a discovery call for branding, distribution, or production.</p>
+          <p><a class="btn btn-outline" href="https://calendly.com/devirn" target="_blank" rel="noopener">Open Calendly</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBSCRIBE -->
+    <section aria-labelledby="subscribe">
+      <h2 id="subscribe">Stay in the Loop</h2>
+      <div class="hr"></div>
+      <p class="lede">Updates on launches, showcases, and partnership openings.</p>
+      <p style="text-align:center">
+        <a class="btn btn-outline" href="mailto:signatured.inc@outlook.com?subject=Subscribe%20Me&body=Hi%20Signature%20House%2C%20please%20add%20me%20to%20your%20newsletter.">
+          Subscribe via Email
+        </a>
+      </p>
+    </section>
+
+    <footer>
+      © 2025 DeVirn Signature House Inc. • All Rights Reserved
+    </footer>
+  </div>
+</body>
+</html>
