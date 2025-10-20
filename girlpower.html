@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Girl Power — Women's Health • Sisterhood • Impact</title>
+  <meta name="description" content="Girl Power: a donor‑friendly women’s health movement providing screenings, mental health care, maternal support, and safety resources — built with love, transparency, and community." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-dark:#D9368B;
+      --pink:#FF7EB9;
+      --pink-light:#FFD1E6;
+      --rose:#F5A3C7;
+      --blush:#FFF1F7;
+      --gold:#F7D488;
+      --ink:#2A0E1A;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(217,54,139,.25);
+      --glow:0 0 20px rgba(255,126,185,.55), 0 0 40px rgba(245,163,199,.35);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background: radial-gradient(1200px 1200px at 10% -10%, var(--pink-light), transparent), radial-gradient(1000px 1000px at 120% 20%, #ffe3f2, transparent), linear-gradient(180deg, var(--blush), #fff); color:var(--ink); overflow-x:hidden}
+
+    /* Subtle floating sparkle background */
+    .sparkle-layer::before, .sparkle-layer::after{
+      content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:screen;
+      background:
+        radial-gradient(4px 4px at 10% 15%, #fff7 40%, #fff0 41%),
+        radial-gradient(3px 3px at 40% 30%, #fff5 40%, #fff0 41%),
+        radial-gradient(2px 2px at 70% 10%, #fff6 40%, #fff0 41%),
+        radial-gradient(3px 3px at 85% 40%, #fff6 40%, #fff0 41%),
+        radial-gradient(2px 2px at 25% 70%, #fff7 40%, #fff0 41%),
+        radial-gradient(3px 3px at 60% 80%, #fff5 40%, #fff0 41%);
+      animation: twinkle 6s linear infinite;
+    }
+    .sparkle-layer::after{animation-duration:9s;filter:blur(1px);opacity:.8}
+    @keyframes twinkle{0%{transform:translateY(0)}50%{transform:translateY(8px)}100%{transform:translateY(0)}}
+
+    header{
+      position:relative; isolation:isolate; padding: clamp(24px, 5vw, 48px) 20px 24px; text-align:center;
+      background: linear-gradient(135deg, var(--pink-dark), var(--pink)); color:var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    /* Glossy ribbon */
+    header::after{
+      content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:soft-light;
+      background: linear-gradient( to bottom, #fff8 0%, #fff1 15%, transparent 40%, transparent 60%, #fff1 85%, #fff6 100%);
+    }
+
+    .nav{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:16px}
+    .nav a{color:#fff; text-decoration:none; padding:10px 14px; border-radius:999px; background: rgba(255,255,255,.14); backdrop-filter: blur(6px); border:1px solid #fff3; transition:.25s; font-weight:600; box-shadow: 0 1px 0 #fff3 inset}
+    .nav a:hover{transform:translateY(-2px); box-shadow: var(--glow)}
+
+    /* Embedded Logo Badge */
+    .logo-badge{width:min(720px,92vw); margin:20px auto 12px; background: linear-gradient(145deg, #fff, #ffe9f3); border-radius: 28px; padding: 18px 22px; box-shadow: 0 2px 0 #fff inset, 0 0 0 1px #ffd8ea inset, var(--shadow)}
+    .logo-wrap{display:flex; align-items:center; justify-content:center; gap:18px}
+    .crest{
+      width:88px; height:88px; border-radius:20px; padding:10px; background: conic-gradient(from 210deg, var(--pink) 0 30%, var(--pink-dark) 30% 70%, var(--rose) 70% 100%);
+      box-shadow: var(--glow), 0 0 0 4px #fff inset; position:relative
+    }
+    .crest::after{ /* heart + wreath */
+      content:""; position:absolute; inset:0; display:block; background:
+        radial-gradient(closest-side, #fff 0 35%, #0000 36%) 50% 55%/70% 70% no-repeat,
+        radial-gradient(35% 30% at 40% 45%, var(--gold) 0 55%, #0000 56%),
+        radial-gradient(35% 30% at 60% 45%, var(--gold) 0 55%, #0000 56);
+      -webkit-mask:
+        radial-gradient(40% 35% at 50% 60%, #000 45%, #0000 46%)
+        ,linear-gradient(#000,#000);
+      -webkit-mask-composite:xor; mask-composite: exclude;
+    }
+    .wordmark{font-family:'Playfair Display',serif; font-weight:700; font-size: clamp(28px, 5vw, 42px); letter-spacing:1px; color:var(--ink)}
+    .tag{font-weight:600; color:#7a284f}
+
+    .hero{max-width:1100px; margin: 26px auto 40px; padding: clamp(18px, 3.4vw, 28px); border-radius:28px; background: linear-gradient(180deg, #fff, #fff7fc); box-shadow: var(--shadow)}
+    .hero h1{font-family:'Playfair Display',serif; font-size: clamp(30px, 5.4vw, 54px); color:var(--pink-dark); text-shadow: 0 1px 0 #fff, 0 10px 30px rgba(255,126,185,.25)}
+    .hero p{margin-top:10px; font-size: clamp(15px, 2.5vw, 18px); color:#5a1d3b}
+
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:18px}
+    .btn{border:none; border-radius:999px; padding:12px 20px; font-weight:700; cursor:pointer; transition:.2s; box-shadow: var(--shadow); position:relative}
+    .btn.primary{background:linear-gradient(135deg,var(--pink-dark),var(--pink)); color:#fff}
+    .btn.ghost{background:#fff; color:var(--pink-dark); border:1px solid #ffd7ea}
+    .btn:hover{transform:translateY(-2px); box-shadow: var(--glow)}
+
+    /* Section shells */
+    section{max-width:1200px; margin: 36px auto; padding: 0 18px}
+    .section-card{background:#fff; border-radius:24px; padding:24px; box-shadow: var(--shadow)}
+    h2.section-title{font-family:'Playfair Display',serif; font-size: clamp(22px, 4vw, 34px); color:var(--pink-dark); margin-bottom:12px}
+
+    /* Flowers + hearts separators */
+    .divider{height:16px; margin:18px auto; background:
+      radial-gradient(8px 8px at 50% 50%, var(--pink) 40%, #0000 41%),
+      radial-gradient(4px 4px at 15% 50%, var(--pink-light) 40%, #0000 41%),
+      radial-gradient(5px 5px at 85% 50%, var(--rose) 40%, #0000 41%);
+      filter: drop-shadow(0 2px 0 #fff);
+      mask: linear-gradient(90deg,#0000, #000 10% 90%, #0000)
+    }
+
+    .grid{display:grid; gap:16px}
+    @media(min-width:760px){.grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    .tile{background:linear-gradient(180deg,#fff,#fff3); border:1px solid #ffe1ef; border-radius:20px; padding:18px; box-shadow: var(--shadow)}
+    .tile h3{font-family:'Playfair Display',serif; color:#7a284f; margin-bottom:6px}
+    .pill{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700; background: linear-gradient(90deg, var(--pink-light), #fff); border:1px solid #ffd7ea}
+
+    /* Donation panel */
+    .donate-tiers{display:grid; gap:14px}
+    @media(min-width:920px){.donate-tiers{grid-template-columns: repeat(4,1fr)}}
+    .tier{background:linear-gradient(180deg,#fff, #fff0); border:1px solid #ffd7ea; border-radius:20px; padding:18px; text-align:center; box-shadow: var(--shadow)}
+    .tier h3{color:var(--pink-dark)}
+    .tier .amt{font-size:28px; font-weight:800; color:#7a284f; margin:6px 0}
+    .tier .impact{font-size:14px; color:#5a1d3b}
+
+    .disclosure{font-size:12px; color:#7a284f; opacity:.9}
+
+    /* FAQ */
+    details{background:#fff; border:1px solid #ffd7ea; border-radius:16px; padding:14px 16px; box-shadow: var(--shadow)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700; color:#7a284f}
+    details[open]{background:linear-gradient(180deg,#fff,#fff4)}
+
+    /* Message Board */
+    .board{display:grid; gap:12px}
+    .post{background:#fff; border:1px solid #ffd7ea; border-radius:16px; padding:12px 14px; box-shadow: var(--shadow)}
+    .post h4{margin-bottom:4px; color:var(--pink-dark)}
+    .muted{color:#7a284f; opacity:.8; font-size:12px}
+    .board form{display:grid; gap:10px; background:#fff; border:1px solid #ffd7ea; border-radius:16px; padding:14px; box-shadow: var(--shadow)}
+    .board input,.board textarea{width:100%; border-radius:12px; border:1px solid #ffd7ea; padding:10px; background:#fff; outline:none}
+    .board textarea{min-height:90px; resize:vertical}
+
+    /* Footer */
+    footer{margin-top:40px; background: linear-gradient(90deg, var(--pink), var(--rose)); color:#fff; text-align:center; padding:20px}
+    footer a{color:#fff; font-weight:700; text-decoration:none; border-bottom:1px dashed #fff6}
+  </style>
+</head>
+<body class="sparkle-layer">
+  <header>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#period">Period Dignity</a>
+      <a href="#impact">Impact</a>
+      <a href="#donate">Donate</a>
+      <a href="#transparency">Transparency</a>
+      <a href="#faq">FAQ</a>
+      <a href="#board">Message Board</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="logo-badge" aria-label="Girl Power crest and wordmark">
+      <div class="logo-wrap">
+        <div class="crest" title="Girl Power Crest" aria-hidden="true"></div>
+        <div>
+          <div class="wordmark">Girl Power</div>
+          <div class="tag">Women's Health • Sisterhood • Impact</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero section-card">
+      <h1>Luxury with Purpose — Glitter, Grace, and Grounded Care ✨</h1>
+      <p>Girl Power is a donor‑friendly, women‑led initiative focused on practical, life‑changing health access. We provide <strong>preventive screenings</strong>, <strong>mental health support</strong>, <strong>maternal & postpartum care</strong>, <strong>safety resources</strong>, and <strong>financial empowerment</strong> — wrapped in a loving, uplifting community. Elegance matters. Impact matters more.</p>
+      <div class="cta-row" role="group" aria-label="Primary actions">
+        <button class="btn primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Donate Now</button>
+        <button class="btn ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Partner With Us</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-card">
+        <h2 id="about-title" class="section-title">Our Cause: Women's Health Without Barriers</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-3">
+          <div class="tile">
+            <h3>Why This Matters</h3>
+            <p>Women delay care due to cost, childcare, transport, and stigma. We remove those barriers with <strong>no‑cost or low‑cost services</strong>, mobile pop‑ups, tele‑care, weekend hours, multilingual support, and trauma‑informed staff.</p>
+          </div>
+          <div class="tile">
+            <h3>What We Deliver</h3>
+            <ul>
+              <li>Breast & cervical cancer screenings</li>
+              <li>PCOS, endometriosis & hormone health navigation</li>
+              <li>Mental health counseling & peer circles</li>
+              <li>Pregnancy, postpartum & lactation support</li>
+              <li>Safety planning & legal referrals</li>
+              <li>Financial literacy & career upskill labs</li>
+            </ul>
+          </div>
+          <div class="tile">
+            <h3>How We Sustain</h3>
+            <p>Transparent budgets, independent audits, open dashboards, and a <span class="pill">Donor Bill of Rights</span>. Every program has a published <strong>cost‑per‑outcome</strong>, so you see your impact in real numbers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs" aria-labelledby="programs-title">
+      <div class="section-card">
+        <h2 id="programs-title" class="section-title">Programs & Services</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-3">
+          <div class="tile">
+            <h3>Screening & Prevention</h3>
+            <p><strong>Mammograms, Pap/HPV, A1C, blood pressure</strong> with same‑day navigation. Mobile clinics + childcare stipends.</p>
+          </div>
+          <div class="tile">
+            <h3>Mental Health & Healing</h3>
+            <p>Licensed counseling, crisis lines, support circles, breathwork and stress reduction sessions. Culturally competent and private.</p>
+          </div>
+          <div class="tile">
+            <h3>Maternal & Reproductive Health</h3>
+            <p>Prenatal classes, doulas, postpartum check‑ins, lactation consults, perinatal mood disorder screening, OB/GYN referrals.</p>
+          </div>
+          <div class="tile">
+            <h3>Safety & Advocacy</h3>
+            <p>DV/SA safety plans, shelter pathways, legal aid partners, transportation & phone‑privacy kits.</p>
+          </div>
+          <div class="tile">
+            <h3>Financial Power</h3>
+            <p>Budgeting, credit repair basics, job‑ready micro‑skills, childcare grants to attend appointments, small emergency funds.</p>
+          </div>
+          <div class="tile">
+            <h3>Pink Pop‑Ups</h3>
+            <p>Community glam + care days: free screenings, wellness classes, hair/brow stations, kids corner, and on‑site navigation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PERIOD DIGNITY -->
+    <section id="period" aria-labelledby="period-title">
+      <div class="section-card">
+        <h2 id="period-title" class="section-title">Pink Beginnings — Period Dignity & Education</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-3">
+          <div class="tile">
+            <h3>First-Time Period Kits</h3>
+            <p>Organic pads, optional reusable cloth pad, wipes, heat pack, mini pain‑relief kit, discreet pouch, and a compassionate multilingual booklet.</p>
+          </div>
+          <div class="tile">
+            <h3>Education & Support</h3>
+            <p>School & shelter workshops covering menstrual health, hygiene, cycle tracking, nutrition, and emotional wellbeing — trauma‑informed and culturally competent.</p>
+          </div>
+          <div class="tile">
+            <h3>Peer Educators</h3>
+            <p>Train local teen leaders to run sessions and distribute kits. Each leader targets 100 kits/semester with our micro‑grants and mentorship.</p>
+          </div>
+        </div>
+        <p class="disclosure" style="margin-top:10px"><strong>Goal:</strong> 10,000 kits by 2026 • <strong>Cost per kit:</strong> $15 • Transparent distribution dashboard updated quarterly.</p>
+        <div class="cta-row" role="group" aria-label="Period dignity actions">
+          <button class="btn primary" onclick="document.getElementById('donate').scrollIntoView({behavior:'smooth'})">Sponsor Kits</button>
+          <button class="btn ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Workshop</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" aria-labelledby="impact-title">
+      <div class="section-card">
+        <h2 id="impact-title" class="section-title">Impact You Can Feel</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-3">
+          <div class="tile"><h3>Cost per Screening</h3><p><strong>$65</strong> average to deliver one cervical or breast screening through partners.</p></div>
+          <div class="tile"><h3>Mental Health</h3><p><strong>$85</strong> funds one counseling session; <strong>$510</strong> supports a 6‑session healing track.</p></div>
+          <div class="tile"><h3>Maternal Support</h3><p><strong>$250</strong> covers prenatal class + postpartum kit + two check‑ins.</p></div>
+        </div>
+        <p class="disclosure">Figures are program estimates; final audited numbers are published annually.</p>
+      </div>
+    </section>
+
+    <!-- DONATE -->
+    <section id="donate" aria-labelledby="donate-title">
+      <div class="section-card">
+        <h2 id="donate-title" class="section-title">Donate with Confidence</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="donate-tiers">
+          <div class="tier">
+            <h3>Pink Beginnings</h3>
+            <div class="amt">$15</div>
+            <div class="impact">Funds one first‑period dignity kit.</div>
+            <button class="btn primary" aria-label="Donate $15">Give $15</button>
+          </div>
+          <div class="tier">
+            <h3>Rose Heart</h3>
+            <div class="amt">$25</div>
+            <div class="impact">Covers transportation for one appointment.</div>
+            <button class="btn primary" aria-label="Donate $25">Give $25</button>
+          </div>
+          <div class="tier">
+            <h3>Pink Glow</h3>
+            <div class="amt">$65</div>
+            <div class="impact">Funds a complete preventive screening.</div>
+            <button class="btn primary" aria-label="Donate $65">Give $65</button>
+          </div>
+          <div class="tier">
+            <h3>Gold Blossom</h3>
+            <div class="amt">$250</div>
+            <div class="impact">Supports a full maternal care bundle.</div>
+            <button class="btn primary" aria-label="Donate $250">Give $250</button>
+          </div>
+          <div class="tier">
+            <h3>Founder’s Circle</h3>
+            <div class="amt">$1,000+</div>
+            <div class="impact">Underwrites a pop‑up clinic day.</div>
+            <button class="btn primary" aria-label="Donate $1000">Join the Circle</button>
+          </div>
+        </div>
+        <p class="disclosure" style="margin-top:10px">We welcome in‑kind donations, corporate matching, and multi‑year pledges. Contact us for wire/ACH and sponsorship decks.</p>
+      </div>
+    </section>
+
+    <!-- TRANSPARENCY -->
+    <section id="transparency" aria-labelledby="transparency-title">
+      <div class="section-card">
+        <h2 id="transparency-title" class="section-title">Transparency & Governance</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-2">
+          <div class="tile">
+            <h3>Open Books</h3>
+            <p>Quarterly financials, program dashboards, and independent reviews published online. We follow a donor bill of rights and strict conflict‑of‑interest policies.</p>
+          </div>
+          <div class="tile">
+            <h3>Safeguarding</h3>
+            <p>Trauma‑informed operations, privacy‑first data practices, background‑checked staff and volunteers, and complaint resolution within 7 business days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="section-card">
+        <h2 id="faq-title" class="section-title">Frequently Asked Questions</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <details>
+          <summary>Are services free?</summary>
+          <p>Yes. Most care is free. Where costs exist, we provide subsidies and never turn away for inability to pay.</p>
+        </details>
+        <details>
+          <summary>Do you replace doctors?</summary>
+          <p>No. We connect you to licensed providers and coordinate navigation, transportation, and follow‑ups.</p>
+        </details>
+        <details>
+          <summary>How are donations used?</summary>
+          <p>85–90% go directly to programs. The rest supports staffing, safeguards, and compliant operations. Audited statements are published annually.</p>
+        </details>
+        <details>
+          <summary>How can I partner?</summary>
+          <p>Clinics, brands, and community orgs can co‑host Pink Pop‑Ups, sponsor a program line, or fund a scholarship. See contact below.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- MESSAGE BOARD -->
+    <section id="board" aria-labelledby="board-title">
+      <div class="section-card">
+        <h2 id="board-title" class="section-title">Message Board 💬</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="board">
+          <form id="boardForm" autocomplete="on" aria-label="Post a message">
+            <input id="name" name="name" placeholder="Your name (optional)" aria-label="Name" />
+            <textarea id="message" name="message" placeholder="Write a supportive note, a question, or share your story…" aria-label="Message" required></textarea>
+            <div style="display:flex; gap:10px; align-items:center; justify-content:flex-start; flex-wrap:wrap">
+              <button type="submit" class="btn primary">Post</button>
+              <button type="button" class="btn ghost" id="clearBoard">Clear My Posts</button>
+            </div>
+            <p class="muted">Friendly reminder: Be kind. Posts are stored in your browser only (no server) for this demo.</p>
+          </form>
+          <div id="posts" aria-live="polite" aria-relevant="additions"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-card">
+        <h2 id="contact-title" class="section-title">Contact & Partnerships</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="grid cols-2">
+          <div class="tile">
+            <h3>Collaborate</h3>
+            <p>Email: <a href="mailto:hello@girlpower.org">hello@girlpower.org</a><br/>Media & Sponsors: <a href="mailto:partners@girlpower.org">partners@girlpower.org</a></p>
+          </div>
+          <div class="tile">
+            <h3>Volunteer</h3>
+            <p>Join our Pink Pop‑Ups, navigation desk, or peer circles. Training provided; background check required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Girl Power — Designed with 💖 by DeVirn Signature House Inc. • Privacy • Terms</p>
+  </footer>
+
+  <script>
+    // Simple sparkle trail on pointer
+    (function sparkleTrail(){
+      const colors=['#ffffff','#ffe3f2','#ffd1e6'];
+      let lastTime=0; document.addEventListener('pointermove',e=>{
+        const now=performance.now(); if(now-lastTime<40) return; lastTime=now;
+        const s=document.createElement('span');
+        s.style.position='fixed'; s.style.left=e.clientX+'px'; s.style.top=e.clientY+'px';
+        s.style.width=s.style.height=(8+Math.random()*8)+'px'; s.style.borderRadius='50%';
+        s.style.pointerEvents='none'; s.style.background=colors[Math.floor(Math.random()*colors.length)];
+        s.style.boxShadow='0 0 12px rgba(255,126,185,.8)';
+        s.style.transform='translate(-50%,-50%)'; s.style.opacity='1';
+        document.body.appendChild(s);
+        const life=600+Math.random()*400; const start=Date.now();
+        (function fade(){
+          const t=Date.now()-start; const p=t/life; s.style.opacity=(1-p).toFixed(2); s.style.transform=`translate(-50%,-50%) scale(${1+p*0.8})`;
+          if(p<1) requestAnimationFrame(fade); else s.remove();
+        })();
+      });
+    })();
+
+    // Message Board using localStorage
+    const form=document.getElementById('boardForm');
+    const postsEl=document.getElementById('posts');
+    const clearBtn=document.getElementById('clearBoard');
+    const KEY='girlpower.posts';
+
+    function load(){
+      const data=JSON.parse(localStorage.getItem(KEY)||'[]');
+      postsEl.innerHTML='';
+      data.forEach(({name,msg,ts})=>{
+        const card=document.createElement('div'); card.className='post';
+        const h=document.createElement('h4'); h.textContent=name?.trim()? name.trim(): 'Anonymous';
+        const p=document.createElement('p'); p.textContent=msg; const small=document.createElement('div'); small.className='muted'; small.textContent=new Date(ts).toLocaleString();
+        card.append(h,p,small); postsEl.prepend(card);
+      });
+    }
+
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const name=document.getElementById('name').value;
+      const msg=document.getElementById('message').value.trim();
+      if(!msg) return;
+      const data=JSON.parse(localStorage.getItem(KEY)||'[]');
+      data.push({name, msg, ts:Date.now()});
+      localStorage.setItem(KEY, JSON.stringify(data));
+      form.reset(); load();
+    });
+
+    clearBtn.addEventListener('click',()=>{
+      // Only clear posts created in this browser for demo
+      localStorage.removeItem(KEY); load();
+    });
+
+    load();
+  </script>
+</body>
+</html>
