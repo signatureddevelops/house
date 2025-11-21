@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Signature Code™ | DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Signature Code™ is the operating system of DeVirn Signature House, Inc. — aligning media, communications, systems, and impact into one legacy framework." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050711;
+      --bg-alt: #070b18;
+      --card: rgba(10, 14, 30, 0.9);
+      --accent-gold: #f4c86b;
+      --accent-gold-soft: rgba(244, 200, 107, 0.18);
+      --accent-blue: #1c3a6b;
+      --accent-emerald: #0f3e3e;
+      --accent-pink: #7d3e6c;
+      --text-main: #f7f7fc;
+      --text-soft: #b1b5d1;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.85);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.28s ease-out;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #18213c 0, #050711 40%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Layout helpers */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,7,17,0.96), rgba(5,7,17,0.7) 60%, transparent 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1.5rem 0.85rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 20% 0, #fbe1a0 0, #f4c86b 38%, #9b7133 75%);
+      box-shadow: 0 10px 30px rgba(244, 200, 107, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .brand-mark svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .brand-text .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-text .brand-sub {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav a {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 0.25rem 0;
+      position: relative;
+      transition: color var(--transition-fast);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold), var(--accent-pink));
+      border-radius: 999px;
+      transition: width var(--transition-med);
+    }
+
+    .nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      margin-left: 0.75rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(244, 200, 107, 0.65);
+      background: radial-gradient(circle at 0 0, rgba(244,200,107,0.18), rgba(10,14,30,0.85));
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+    }
+
+    .nav-cta span {
+      font-size: 0.95em;
+    }
+
+    .nav-cta:hover {
+      background: radial-gradient(circle at 0 0, rgba(244,200,107,0.32), rgba(10,14,30,1));
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(244, 200, 107, 0.28);
+    }
+
+    /* Mobile nav button (hidden on desktop) */
+    .nav-toggle {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(8,10,22,0.9);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle span::before,
+    .nav-toggle span::after {
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #f4f4ff;
+      position: relative;
+      transition: all var(--transition-fast);
+      content: "";
+    }
+
+    .nav-toggle span::before {
+      position: absolute;
+      top: -5px;
+      left: 0;
+    }
+
+    .nav-toggle span::after {
+      position: absolute;
+      top: 5px;
+      left: 0;
+    }
+
+    .nav-open .nav-toggle span {
+      background: transparent;
+    }
+
+    .nav-open .nav-toggle span::before {
+      top: 0;
+      transform: rotate(42deg);
+    }
+
+    .nav-open .nav-toggle span::after {
+      top: 0;
+      transform: rotate(-42deg);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 4.5rem 0 3.75rem;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(60px);
+      opacity: 0.75;
+      z-index: -2;
+    }
+
+    .hero::before {
+      width: 320px;
+      height: 320px;
+      top: -80px;
+      right: -140px;
+      background: radial-gradient(circle, rgba(244,200,107,0.3), transparent 70%);
+    }
+
+    .hero::after {
+      width: 380px;
+      height: 380px;
+      bottom: -160px;
+      left: -200px;
+      background: radial-gradient(circle, rgba(13,95,95,0.4), transparent 70%);
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(7, 12, 27, 0.9);
+      border: 1px solid rgba(244, 200, 107, 0.25);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-badge span {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fce3a0, #f4c86b);
+      box-shadow: 0 0 12px rgba(244,200,107,0.9);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 3vw, 3.1rem);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(90deg, #ffffff, #f4c86b 50%, #f6e3b5 80%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.75rem 1.4rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 20% 0, #fbe9b8 0, #f4c86b 40%, #9b7133 82%);
+      border-color: rgba(244,200,107,0.85);
+      color: #1d1307;
+      box-shadow: 0 18px 40px rgba(244,200,107,0.5);
+      font-weight: 600;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -40%;
+      width: 35%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.7), transparent);
+      transform: skewX(-18deg);
+      opacity: 0;
+      transition: opacity 0.2s ease-out, transform 0.4s ease-out;
+    }
+
+    .btn-primary:hover::after {
+      opacity: 1;
+      transform: translateX(230%) skewX(-18deg);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 50px rgba(244,200,107,0.6);
+    }
+
+    .btn-ghost {
+      background: rgba(7, 11, 25, 0.96);
+      color: var(--text-main);
+      border-color: rgba(255,255,255,0.14);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(244,200,107,0.65);
+      color: var(--accent-gold);
+      background: rgba(10, 15, 34, 1);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.7);
+    }
+
+    .hero-metadata {
+      font-size: 0.73rem;
+      color: var(--text-soft);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .hero-metadata span {
+      color: var(--accent-gold);
+    }
+
+    .hero-visual {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .hero-orb {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      border-radius: 40px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(244,200,107,0.75), rgba(73,132,186,0.4), rgba(125,62,108,0.7));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-orb-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left, rgba(244, 200, 107, 0.08), rgba(4,7,16,1));
+      padding: 1.35rem 1.3rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .code-emblem {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .code-emblem svg {
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
+    }
+
+    .code-emblem-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .code-emblem-text h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .code-emblem-text span {
+      font-size: 0.74rem;
+      color: var(--text-soft);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .orb-matrix {
+      margin-top: 1.1rem;
+      border-radius: 18px;
+      padding: 0.8rem 0.85rem;
+      background: linear-gradient(135deg, rgba(20, 30, 65, 0.92), rgba(14, 61, 61, 0.92));
+      border: 1px solid rgba(255,255,255,0.06);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .matrix-pill {
+      padding: 0.35rem 0.45rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #f5f5ff;
+      background: rgba(15, 21, 50, 0.7);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .matrix-pill.gold {
+      background: rgba(244, 200, 107, 0.16);
+      border-color: rgba(244,200,107,0.6);
+      color: var(--accent-gold);
+    }
+
+    .hero-orb-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 1rem;
+    }
+
+    .hero-orb-footer strong {
+      color: var(--accent-gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+    }
+
+    .hero-orb-footer span {
+      font-size: 0.7rem;
+    }
+
+    .accent-ring {
+      position: absolute;
+      inset: -18%;
+      border-radius: inherit;
+      border: 1px solid rgba(244,200,107,0.10);
+      border-top-color: rgba(244,200,107,0.38);
+      border-right-color: rgba(73,132,186,0.45);
+      border-left-color: rgba(125,62,108,0.3);
+      transform: rotate(-8deg);
+      pointer-events: none;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.8rem;
+    }
+
+    /* What is section */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 2.3rem;
+      align-items: flex-start;
+    }
+
+    .text-muted-block {
+      background: linear-gradient(145deg, rgba(10, 14, 32, 0.9), rgba(10, 26, 49, 0.9));
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .text-muted-block strong {
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.1rem;
+    }
+
+    .pill {
+      font-size: 0.7rem;
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      background: rgba(6, 10, 26, 0.96);
+    }
+
+    .pill.highlight {
+      border-color: rgba(244,200,107,0.7);
+      color: var(--accent-gold);
+      background: rgba(244,200,107,0.12);
+    }
+
+    /* Anchors */
+    .anchors-grid {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .anchor-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 1rem 1rem;
+      background: radial-gradient(circle at top, rgba(21,31,68,0.9), rgba(6,8,18,0.96));
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+      overflow: hidden;
+      cursor: default;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
+    }
+
+    .anchor-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0, rgba(244,200,107,0.12), transparent 65%);
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .anchor-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(244,200,107,0.7);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.9);
+    }
+
+    .anchor-card:hover::before {
+      opacity: 1;
+    }
+
+    .anchor-tag {
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .anchor-title {
+      font-family: "Playfair Display", serif;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+    }
+
+    .anchor-sub {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .anchor-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.25rem 0.6rem;
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      background: rgba(5, 9, 22, 0.9);
+    }
+
+    .anchor-chip span {
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+    }
+
+    /* Process */
+    .process-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+      gap: 2rem;
+    }
+
+    .timeline {
+      border-left: 1px dashed rgba(255,255,255,0.15);
+      padding-left: 1.3rem;
+      margin-left: 0.4rem;
+    }
+
+    .step {
+      position: relative;
+      margin-bottom: 1.4rem;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      position: absolute;
+      left: -2.1rem;
+      top: 0.15rem;
+      width: 1.15rem;
+      height: 1.15rem;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fbe1a0, #f4c86b);
+      box-shadow: 0 0 16px rgba(244,200,107,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #1a1306;
+      font-weight: 600;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.15rem;
+    }
+
+    .step-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .badge-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(6, 9, 20, 0.96);
+      color: var(--text-soft);
+    }
+
+    .badge.gold {
+      border-color: rgba(244,200,107,0.7);
+      color: var(--accent-gold);
+      background: rgba(244,200,107,0.12);
+    }
+
+    /* Offerings */
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .offer-card {
+      border-radius: var(--radius-lg);
+      padding: 1rem 0.9rem 1rem;
+      background: radial-gradient(circle at top, rgba(20,31,68,0.9), rgba(5,8,18,0.96));
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.88);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      font-size: 0.85rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    }
+
+    .offer-card:hover {
+      transform: translateY(-4px) translateZ(0);
+      border-color: rgba(244,200,107,0.7);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.92);
+    }
+
+    .offer-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent-gold);
+    }
+
+    .offer-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .offer-anchor {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .offer-price {
+      font-size: 0.8rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .offer-timeline {
+      font-size: 0.76rem;
+      color: var(--text-soft);
+    }
+
+    .offer-freebies {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.25rem;
+    }
+
+    .offer-freebies strong {
+      color: var(--accent-gold);
+      font-weight: 500;
+    }
+
+    .offer-tagline {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: auto;
+      opacity: 0.9;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding-bottom: 3.2rem;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin: 0 auto 1.6rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.6rem 0 2.3rem;
+      font-size: 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-inner a {
+      color: var(--accent-gold);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(244,200,107,0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0,1fr);
+        gap: 2.4rem;
+      }
+
+      .hero-visual {
+        justify-content: center;
+      }
+
+      .two-column,
+      .process-grid,
+      .offerings-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .anchors-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-inline: 1.1rem;
+      }
+
+      .nav {
+        position: fixed;
+        inset: 54px 1rem auto 1rem;
+        border-radius: 18px;
+        background: rgba(5,7,17,0.98);
+        border: 1px solid rgba(255,255,255,0.08);
+        padding: 0.75rem 0.9rem;
+        flex-direction: column;
+        gap: 0.35rem;
+        transform: translateY(-16px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-med), transform var(--transition-med);
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 0.35rem;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-open .nav {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .anchors-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .offerings-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 3.4rem;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+
+      .hero-orb {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <!-- DSH Monogram Logo -->
+          <svg viewBox="0 0 64 64">
+            <defs>
+              <linearGradient id="dsh-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fdf1c4"/>
+                <stop offset="45%" stop-color="#f4c86b"/>
+                <stop offset="100%" stop-color="#9b7133"/>
+              </linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(40,25,10,0.6)" stroke-width="1.5"/>
+            <path d="M20 44V20h9.5c7.2 0 12.5 4.9 12.5 12.1 0 7.2-5.3 11.9-12.5 11.9H20z" fill="none" stroke="url(#dsh-gold)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M24 24h5.5c3.6 0 6.4 2.6 6.4 6.1 0 3.6-2.8 5.9-6.4 5.9H24" fill="none" stroke="url(#dsh-gold)" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M40 21.5c1.8 1 3.3 2.6 4.4 4.7" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">DeVirn Signature House, Inc.</div>
+          <div class="brand-sub">Global Media &amp; Communications</div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </button>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#hero">Overview</a>
+        <a href="#anchors">Anchors</a>
+        <a href="#process">Process</a>
+        <a href="#offerings">Offerings</a>
+        <a href="#cta">Alignment</a>
+        <a class="nav-cta" href="#cta">
+          <span>Book Alignment</span>
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4 12L12 4M7 4h5v5" fill="none" stroke="#1b1307" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            <span>The Signature Code™ · Operating System of the House</span>
+          </div>
+          <h1 class="hero-title">
+            <span>The Signature Code™</span>
+          </h1>
+          <p class="hero-subtitle">
+            The universal method that aligns every visual, message, system, and impact inside DeVirn Signature House, Inc. — so your brand, your work, and your legacy speak the same language.
+          </p>
+          <div class="hero-ctas">
+            <a href="#cta" class="btn btn-primary">
+              <span>Begin Alignment</span>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M3 8h9M8 3l4 4.9L8 13" fill="none" stroke="#1b1307" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#anchors" class="btn btn-ghost">
+              <span>Explore the Anchors</span>
+            </a>
+          </div>
+          <div class="hero-metadata">
+            Built for <span>media-led empires</span>, legacy brands, and humanitarian work.
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-orb">
+            <div class="accent-ring" aria-hidden="true"></div>
+            <div class="hero-orb-inner">
+              <div class="code-emblem">
+                <!-- Signature Code emblem -->
+                <svg viewBox="0 0 80 80" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="sig-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#fdf3c9"/>
+                      <stop offset="40%" stop-color="#f4c86b"/>
+                      <stop offset="100%" stop-color="#8d6530"/>
+                    </linearGradient>
+                    <radialGradient id="sig-core" cx="50%" cy="35%" r="55%">
+                      <stop offset="0%" stop-color="#fef9dc"/>
+                      <stop offset="45%" stop-color="#f4c86b"/>
+                      <stop offset="100%" stop-color="#5b3a1b"/>
+                    </radialGradient>
+                  </defs>
+                  <!-- Outer geometric frame -->
+                  <rect x="6" y="6" width="68" height="68" rx="18" fill="none" stroke="rgba(244,200,107,0.45)" stroke-width="1.4"/>
+                  <rect x="12" y="12" width="56" height="56" rx="16" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+                  <!-- Center orb -->
+                  <circle cx="40" cy="34" r="14" fill="url(#sig-core)" />
+                  <circle cx="40" cy="34" r="11" fill="none" stroke="rgba(28,58,107,0.4)" stroke-width="1.2" />
+                  <!-- Crown-like accent -->
+                  <path d="M30 30.5l4.4-6 5.6 4.5 5.6-4.5 4.4 6" fill="none" stroke="url(#sig-gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Radiant lines -->
+                  <path d="M40 17v4.2M27 21.5l2.4 3.4M53 21.5l-2.4 3.4" stroke="rgba(244,200,107,0.7)" stroke-width="1.2" stroke-linecap="round"/>
+                  <!-- Code rings -->
+                  <circle cx="40" cy="50" r="9" fill="none" stroke="rgba(244,200,107,0.55)" stroke-width="1.2" stroke-dasharray="2.5 3.2"/>
+                  <path d="M34 50h12" stroke="url(#sig-gold)" stroke-width="1.4" stroke-linecap="round"/>
+                  <path d="M37.2 47.2l2.8 2.8-2.8 2.8" fill="none" stroke="url(#sig-gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="code-emblem-text">
+                  <h2>The Signature Code™</h2>
+                  <span>Vision · Voice · Structure · Impact · Legacy</span>
+                </div>
+              </div>
+
+              <div class="orb-matrix" aria-label="Signature Code anchors">
+                <div class="matrix-pill gold">Vision</div>
+                <div class="matrix-pill">Voice</div>
+                <div class="matrix-pill">Structure</div>
+                <div class="matrix-pill">Impact</div>
+                <div class="matrix-pill">Legacy</div>
+                <div class="matrix-pill">Media</div>
+                <div class="matrix-pill">Comms</div>
+                <div class="matrix-pill">Systems</div>
+                <div class="matrix-pill">Humanity</div>
+              </div>
+
+              <div class="hero-orb-footer">
+                <div>
+                  <strong>House Standard</strong><br>
+                  <span>Applied across every division of DSH.</span>
+                </div>
+                <div>
+                  <span>From first image<br>to 100-year vision.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS THE CODE -->
+    <section id="overview">
+      <div class="container">
+        <div class="two-column">
+          <div>
+            <p class="section-kicker">Definition</p>
+            <h2 class="section-heading">What the Signature Code™ Is</h2>
+            <p class="section-subtitle">
+              The Signature Code™ is the internal law of DeVirn Signature House, Inc. — the method that keeps every visual, narrative, system, and humanitarian program in alignment with one standard of excellence.
+            </p>
+            <p style="font-size:0.9rem;color:var(--text-soft);max-width:36rem;">
+              Where most media agencies sell disconnected services, the House runs everything through a single Code. Every project is evaluated through five anchors: <strong>Vision</strong>, <strong>Voice</strong>, <strong>Structure</strong>, <strong>Impact</strong>, and <strong>Legacy</strong>. This keeps your brand coherent, your systems intelligent, your storytelling precise, and your long-term plans anchored in something bigger than a trend.
+            </p>
+            <div class="pill-row">
+              <div class="pill highlight">Global Media &amp; Communications Method</div>
+              <div class="pill">Governance System</div>
+              <div class="pill">Brand &amp; Impact Evaluator</div>
+              <div class="pill">Legacy Architecture</div>
+            </div>
+          </div>
+          <div>
+            <div class="text-muted-block">
+              The Signature Code™ organizes the entire House:
+              <br><br>
+              <strong>Signature D</strong> — Vision (visual identity &amp; cinematic storytelling)<br>
+              <strong>Kadijah’s Mango</strong> — Voice (communications &amp; cultural narrative)<br>
+              <strong>DSH Business Solutions</strong> — Structure (systems &amp; profit)<br>
+              <strong>Timeless Peace</strong> — Impact (humanitarian work &amp; documentation)<br>
+              <strong>Future Divisions</strong> — Legacy (Peace Homes, Hospitality, Air, and more)
+              <br><br>
+              The result is a media empire that behaves like a single, intelligent organism.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANCHORS -->
+    <section id="anchors">
+      <div class="container">
+        <p class="section-kicker">The Five Anchors</p>
+        <h2 class="section-heading">How the Code Evaluates Everything</h2>
+        <p class="section-subtitle">
+          Every client, project, and division is read through these five anchors. If one is weak, the Code reveals it. If all are strong, you have a brand capable of legacy.
+        </p>
+        <div class="anchors-grid">
+          <!-- Vision -->
+          <article class="anchor-card">
+            <div class="anchor-tag">Anchor I · Vision</div>
+            <h3 class="anchor-title">The Look</h3>
+            <p class="anchor-sub">Visual identity, presence, energy. How the world experiences you before you speak.</p>
+            <div class="anchor-chip"><span>Signature D</span> Visual Media</div>
+          </article>
+          <!-- Voice -->
+          <article class="anchor-card">
+            <div class="anchor-tag">Anchor II · Voice</div>
+            <h3 class="anchor-title">The Message</h3>
+            <p class="anchor-sub">The words, tone, and narrative that define what you stand for across cultures.</p>
+            <div class="anchor-chip"><span>KD Mango</span> Global Communications</div>
+          </article>
+          <!-- Structure -->
+          <article class="anchor-card">
+            <div class="anchor-tag">Anchor III · Structure</div>
+            <h3 class="anchor-title">The System</h3>
+            <p class="anchor-sub">The way your work is organized, automated, delivered, and paid for — quietly running beneath the surface.</p>
+            <div class="anchor-chip"><span>DSH</span> Business Solutions</div>
+          </article>
+          <!-- Impact -->
+          <article class="anchor-card">
+            <div class="anchor-tag">Anchor IV · Impact</div>
+            <h3 class="anchor-title">The Humanity</h3>
+            <p class="anchor-sub">The people your work touches and the dignity it protects in real communities.</p>
+            <div class="anchor-chip"><span>Timeless Peace</span> Programs</div>
+          </article>
+          <!-- Legacy -->
+          <article class="anchor-card">
+            <div class="anchor-tag">Anchor V · Legacy</div>
+            <h3 class="anchor-title">The Future</h3>
+            <p class="anchor-sub">Your 10, 25, and 100-year reality — built through Peace Homes, Hospitality, Air, and global campuses.</p>
+            <div class="anchor-chip"><span>DSH</span> Governance &amp; Future Divisions</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="container">
+        <p class="section-kicker">Process</p>
+        <h2 class="section-heading">How the Signature Code™ Works</h2>
+        <p class="section-subtitle">
+          The Code is not theory. It is a living process that every client, project, and partner moves through — whether you are a single founder, a clinic, a nonprofit, or a future Peace Home.
+        </p>
+        <div class="process-grid">
+          <div>
+            <div class="timeline">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-title">Alignment Assessment</div>
+                <p class="step-body">
+                  We map your Vision, Voice, Structure, Impact, and Legacy as they exist today. You see, often for the first time, where you are over-invested and where you have quiet gaps.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-title">Clarity Mapping</div>
+                <p class="step-body">
+                  We translate that assessment into a simple, visual picture — what needs refinement, what can be amplified, and what must be built from the ground up.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-title">Signature Strategy</div>
+                <p class="step-body">
+                  You receive a tailored pathway using the Anchors. For some, it begins with visuals. For others, it is messaging, systems, or humanitarian positioning.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-title">Execution Through the House</div>
+                <p class="step-body">
+                  The divisions of DSH activate: Signature D for visual media, Kadijah’s Mango for communications, DSH for systems, Timeless Peace for impact — working together as one agency.
+                </p>
+              </div>
+              <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-title">Continuity &amp; Guardian Standard</div>
+                <p class="step-body">
+                  Because the Code is about legacy, not quick campaigns, we protect your alignment over time through retainers, check-ins, and long-term strategic support.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="text-muted-block">
+              <strong>Every offering inside DSH is simply a doorway into the Code.</strong><br><br>
+              Whether you arrive for photos, messaging, systems, or community work, you are still moving through the same five anchors. This is why the House feels seamless. It is why clients stay. It is why partners trust Timeless Peace.<br><br>
+              <div class="badge-stack">
+                <div class="badge gold">Media-First Evaluation</div>
+                <div class="badge">Brand &amp; Impact Governance</div>
+                <div class="badge">Legacy-aware Recommendations</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFERINGS -->
+    <section id="offerings">
+      <div class="container">
+        <p class="section-kicker">Offerings</p>
+        <h2 class="section-heading">What the Code Powers in Practice</h2>
+        <p class="section-subtitle">
+          Four core suites, all priced accessibly, all delivered with DSH precision. Each one is an expression of a Signature Code anchor — Vision, Voice, Structure, or Impact.
+        </p>
+
+        <div class="offerings-grid">
+          <!-- Signature D -->
+          <article class="offer-card">
+            <div class="offer-pill">Vision · Signature D</div>
+            <h3 class="offer-title">Signature D Visual Suite</h3>
+            <div class="offer-anchor">For founders, brands, clinics, and events that need cinematic identity.</div>
+            <div class="offer-price">From $299 – $1,500</div>
+            <div class="offer-timeline">Timeline: 3–10 days</div>
+            <div class="offer-freebies">
+              <strong>Free:</strong> caption pack, mini content calendar, visual usage guide.
+            </div>
+            <p class="offer-tagline">
+              Your visuals become an instrument of authority, not just decoration.
+            </p>
+          </article>
+
+          <!-- KM -->
+          <article class="offer-card">
+            <div class="offer-pill">Voice · Kadijah’s Mango</div>
+            <h3 class="offer-title">KM Global Communications Suite</h3>
+            <div class="offer-anchor">For brands and organizations that need clear, culturally intelligent messaging.</div>
+            <div class="offer-price">From $149 – $899</div>
+            <div class="offer-timeline">Timeline: 2–14 days</div>
+            <div class="offer-freebies">
+              <strong>Free:</strong> tone guide, caption set, outreach email script.
+            </div>
+            <p class="offer-tagline">
+              Your words become your passport — opening rooms and retaining respect.
+            </p>
+          </article>
+
+          <!-- DSH Profit -->
+          <article class="offer-card">
+            <div class="offer-pill">Structure · DSH Business Solutions</div>
+            <h3 class="offer-title">DSH Profit Blueprint</h3>
+            <div class="offer-anchor">For businesses and creative houses that need systems and flow.</div>
+            <div class="offer-price">From $199 – $999</div>
+            <div class="offer-timeline">Timeline: 2–14 days</div>
+            <div class="offer-freebies">
+              <strong>Free:</strong> 10 automation ideas, planning template, SOP framework.
+            </div>
+            <p class="offer-tagline">
+              Your back-end runs like a quiet orchestra — so your work can perform.
+            </p>
+          </article>
+
+          <!-- Timeless Peace -->
+          <article class="offer-card">
+            <div class="offer-pill">Impact · Timeless Peace</div>
+            <h3 class="offer-title">Timeless Peace Programs</h3>
+            <div class="offer-anchor">For clinics, councils, nonprofits, and agencies building dignified programs.</div>
+            <div class="offer-price">Partnerships from $0 – $2,500</div>
+            <div class="offer-timeline">Timeline: 1–6 weeks</div>
+            <div class="offer-freebies">
+              <strong>Free:</strong> impact photo pack, donor-ready report, 60-second story.
+            </div>
+            <p class="offer-tagline">
+              Your impact is not only felt — it is documented, communicated, and remembered.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <div class="container cta">
+        <h2>Begin Your Signature Code™ Alignment</h2>
+        <p>
+          One 15-minute conversation. One evaluation across Vision, Voice, Structure, Impact, and Legacy. A clear starting point for the next decade of your work.
+        </p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">
+            <span>Book Alignment Call</span>
+          </a>
+          <a href="#offerings" class="btn btn-ghost">
+            <span>Review Offerings Again</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div>
+        © 2025 DeVirn Signature House, Inc. · All Rights Reserved.
+      </div>
+      <div>
+        Media &amp; Communications House · Orlando, FL · Contact: <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple nav toggle for mobile & smooth-scroll support
+    (function() {
+      const body = document.body;
+      const toggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelectorAll(".nav a[href^='#']");
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          body.classList.toggle("nav-open");
+        });
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener("click", e => {
+          const targetId = link.getAttribute("href");
+          if (!targetId || targetId === "#") return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            body.classList.remove("nav-open");
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
