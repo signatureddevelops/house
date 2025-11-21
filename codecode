@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Signature Code™ | DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Signature Code™ is the operating system of DeVirn Signature House, Inc. — a refined method that aligns vision, voice, structure, impact, and legacy for brands, businesses, and foundations." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050607;              /* Matte black */
+      --bg-elevated: #090c0d;     /* Slight gloss black */
+      --bg-soft: #0b1212;
+      --emerald: #0e3f3f;
+      --emerald-soft: #1a5452;
+      --gold: #f5c046;
+      --gold-soft: rgba(245,192,70,0.15);
+      --text-main: #f7f7f7;
+      --text-soft: #acb5bd;
+      --border-soft: rgba(255,255,255,0.08);
+      --radius-lg: 22px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.85);
+      --transition-fast: 0.16s ease-out;
+      --transition-med: 0.25s ease-out;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(14,63,63,0.48), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(245,192,70,0.18), transparent 60%),
+        #050607;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,6,7,0.98), rgba(5,6,7,0.85), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 20% 0, #fde9b0 0, #f5c046 40%, #8b6733 78%);
+      box-shadow: 0 12px 32px rgba(245,192,70,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .nav a {
+      font-size: 0.76rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      position: relative;
+      padding-bottom: 0.15rem;
+      transition: color var(--transition-fast);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--emerald-soft));
+      transition: width var(--transition-med);
+    }
+
+    .nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245,192,70,0.7);
+      background: radial-gradient(circle at 0 0, rgba(245,192,70,0.28), rgba(5,6,7,0.98));
+      font-size: 0.74rem;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition-med);
+    }
+
+    .nav-cta svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 36px rgba(245,192,70,0.38);
+      background: radial-gradient(circle at 0 0, rgba(245,192,70,0.35), #050607);
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      background: rgba(5,10,10,0.94);
+      border: 1px solid rgba(245,192,70,0.4);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #fde9b0, #f5c046);
+      box-shadow: 0 0 12px rgba(245,192,70,0.9);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.4rem, 3vw, 3.1rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(90deg, #ffffff, #f5c046 55%, #e6f6f2 90%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 0.75rem 1.4rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      transition: all var(--transition-med);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f5c046, #c28d35);
+      border-color: rgba(245,192,70,0.9);
+      color: #2b1c07;
+      box-shadow: 0 18px 40px rgba(245,192,70,0.55);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 54px rgba(245,192,70,0.7);
+    }
+
+    .btn-ghost {
+      background: rgba(9,12,13,0.98);
+      color: var(--text-main);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(245,192,70,0.7);
+      color: var(--gold);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.85);
+    }
+
+    .hero-meta {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .hero-meta span {
+      color: var(--gold);
+    }
+
+    .hero-panel {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top, rgba(14,63,63,0.9), rgba(5,6,7,0.98));
+      border: 1px solid rgba(245,192,70,0.28);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .hero-panel-title {
+      font-size: 0.86rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-panel-body {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-panel-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .chip {
+      font-size: 0.72rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(5,9,9,0.96);
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .chip.highlight {
+      border-color: rgba(245,192,70,0.7);
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .hero-panel-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 2.8rem 0;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+
+    /* Elements row */
+    .elements-row {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.8rem;
+    }
+
+    .element-card {
+      border-radius: 16px;
+      background: linear-gradient(145deg, #090c0d, #0c1413);
+      border: 1px solid var(--border-soft);
+      padding: 0.9rem 0.85rem;
+      font-size: 0.8rem;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+    }
+
+    .element-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245,192,70,0.65);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.95);
+    }
+
+    .element-label {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .element-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 0.2rem;
+    }
+
+    .element-body {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+    }
+
+    .element-note {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-top: 0.3rem;
+      opacity: 0.9;
+    }
+
+    /* Mini Code */
+    .mini {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, #090c0d, #0b1413);
+      border: 1px solid rgba(245,192,70,0.38);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem 1.5rem 1.6rem;
+    }
+
+    .mini-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .mini-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .mini-price {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+    }
+
+    .mini-body {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .mini-item-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .mini-item-body {
+      color: var(--text-soft);
+    }
+
+    .mini-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+      margin-top: 1.1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .mini-footer strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* Suites */
+    .suites {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 1.2rem;
+    }
+
+    .suite-card {
+      border-radius: 16px;
+      background: #090c0d;
+      border: 1px solid var(--border-soft);
+      padding: 0.95rem 0.9rem;
+      font-size: 0.8rem;
+      transition: transform var(--transition-med), border-color var(--transition-med), box-shadow var(--transition-med);
+    }
+
+    .suite-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(245,192,70,0.6);
+      box-shadow: 0 18px 46px rgba(0,0,0,0.95);
+    }
+
+    .suite-tag {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .suite-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.2rem;
+    }
+
+    .suite-body {
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .suite-meta {
+      font-size: 0.74rem;
+      color: var(--text-soft);
+    }
+
+    .suite-meta strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta p {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin: 0 auto 1.4rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.4rem 0 2rem;
+      font-size: 0.74rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+    }
+
+    .footer-inner a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(245,192,70,0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-inner {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .hero-panel {
+        margin-top: 0.4rem;
+      }
+
+      .elements-row {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .suites {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+
+      .mini-grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner {
+        padding-inline: 1.2rem;
+      }
+
+      .nav {
+        position: fixed;
+        inset: 56px 1rem auto 1rem;
+        border-radius: 16px;
+        background: rgba(5,6,7,0.98);
+        padding: 0.7rem 0.9rem;
+        flex-direction: column;
+        gap: 0.4rem;
+        transform: translateY(-12px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--transition-med), transform var(--transition-med);
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: #050607;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .nav-toggle span,
+      .nav-toggle span::before,
+      .nav-toggle span::after {
+        display: block;
+        width: 16px;
+        height: 2px;
+        border-radius: 999px;
+        background: #f7f7f7;
+        position: relative;
+        content: "";
+        transition: all var(--transition-fast);
+      }
+
+      .nav-toggle span::before {
+        position: absolute;
+        top: -5px;
+        left: 0;
+      }
+
+      .nav-toggle span::after {
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+
+      .nav-open .nav-toggle span {
+        background: transparent;
+      }
+
+      .nav-open .nav-toggle span::before {
+        top: 0;
+        transform: rotate(42deg);
+      }
+
+      .nav-open .nav-toggle span::after {
+        top: 0;
+        transform: rotate(-42deg);
+      }
+
+      .nav-open .nav {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .elements-row {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .suites {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .mini-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-title {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <!-- Simple DSH monogram -->
+            <svg viewBox="0 0 64 64">
+              <defs>
+                <linearGradient id="logo-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fdf3c8"/>
+                  <stop offset="50%" stop-color="#f5c046"/>
+                  <stop offset="100%" stop-color="#8b6733"/>
+                </linearGradient>
+              </defs>
+              <circle cx="32" cy="32" r="24" fill="none" stroke="rgba(0,0,0,0.5)" stroke-width="1.5"/>
+              <path d="M22 44V20h9.5c7 0 12.5 4.7 12.5 12 0 7.4-5.5 12-12.5 12H22z" fill="none" stroke="url(#logo-gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M26 24h5c3.7 0 6.6 2.5 6.6 6 0 3.5-2.9 5.8-6.6 5.8H26" fill="none" stroke="url(#logo-gold)" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">DeVirn Signature House, Inc.</div>
+            <div class="brand-sub">Media · Communications · Legacy</div>
+          </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+        </button>
+
+        <nav class="nav">
+          <a href="#hero">Overview</a>
+          <a href="#elements">The Code</a>
+          <a href="#mini">Mini Package</a>
+          <a href="#suites">Suites</a>
+          <a class="nav-cta" href="#mini">
+            <span>Mini Code · $77</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 12L12 4M7 4h5v5" fill="none" stroke="#251707" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+        <div class="container hero-inner">
+          <div>
+            <div class="hero-tag">
+              <span class="hero-tag-dot"></span>
+              <span>The Signature Code™ · House Standard</span>
+            </div>
+            <h1 class="hero-title">
+              <span>The Signature Code™</span>
+            </h1>
+            <p class="hero-subtitle">
+              A simple, serious method that reads your brand, your work, and your future across five elements: vision, voice, structure, impact, and legacy. This is how DeVirn Signature House thinks.
+            </p>
+            <div class="hero-ctas">
+              <a href="#mini" class="btn btn-primary">
+                <span>Start with the Mini Code · $77</span>
+              </a>
+              <a href="#elements" class="btn btn-ghost">
+                <span>See the Five Elements</span>
+              </a>
+            </div>
+            <div class="hero-meta">
+              For <span>real businesses, clinics, nonprofits, and founders</span> who want clarity without confusion.
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-panel-title">What the Signature Code™ Is</div>
+            <div class="hero-panel-body">
+              A quiet, disciplined way of seeing your whole ecosystem at once — visuals, words, systems, people, and long-term plans. One Code, applied to every division of the House.
+            </div>
+            <div class="hero-panel-row">
+              <span class="chip highlight">Media &amp; Communications Standard</span>
+              <span class="chip">Brand &amp; Impact Diagnostic</span>
+              <span class="chip">Built for Legacy</span>
+            </div>
+            <div class="hero-panel-note">
+              You do not have to “learn a framework.” You answer honest questions. We read you through the Code, and then we show you what needs to move first.
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ELEMENTS -->
+      <section id="elements">
+        <div class="container">
+          <p class="section-kicker">The Five Elements</p>
+          <h2 class="section-heading">How the Code Reads You</h2>
+          <p class="section-subtitle">
+            The Signature Code™ is not complicated. It simply asks: how clear is your vision, how strong is your voice, how clean is your structure, who do you impact, and what are you really building for the long term?
+          </p>
+
+          <div class="elements-row">
+            <div class="element-card">
+              <div class="element-label">I · Vision</div>
+              <div class="element-title">The Look</div>
+              <div class="element-body">
+                Cinematic presence, brand identity, visual consistency. How people see you without a single word.
+              </div>
+              <div class="element-note">Powered by Signature D.</div>
+            </div>
+
+            <div class="element-card">
+              <div class="element-label">II · Voice</div>
+              <div class="element-title">The Message</div>
+              <div class="element-body">
+                How you speak, write, and explain yourself — to clients, partners, donors, and communities.
+              </div>
+              <div class="element-note">Powered by Kadijah’s Mango.</div>
+            </div>
+
+            <div class="element-card">
+              <div class="element-label">III · Structure</div>
+              <div class="element-title">The System</div>
+              <div class="element-body">
+                The way you book, onboard, deliver, get paid, and keep order behind the scenes.
+              </div>
+              <div class="element-note">Powered by DSH Business Solutions.</div>
+            </div>
+
+            <div class="element-card">
+              <div class="element-label">IV · Impact</div>
+              <div class="element-title">The Humanity</div>
+              <div class="element-body">
+                The real people your work touches — mothers, youth, elders, staff, volunteers, patients.
+              </div>
+              <div class="element-note">Powered by Timeless Peace.</div>
+            </div>
+
+            <div class="element-card">
+              <div class="element-label">V · Legacy</div>
+              <div class="element-title">The Future</div>
+              <div class="element-body">
+                What this all becomes in 10, 25, or 100 years if you stay faithful and keep building.
+              </div>
+              <div class="element-note">Peace Homes, Hospitality, Air, estates, foundations.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MINI CODE -->
+      <section id="mini">
+        <div class="container">
+          <p class="section-kicker">Mini Package</p>
+          <h2 class="section-heading">The Mini Signature Code™ Session · $77</h2>
+          <p class="section-subtitle">
+            A focused, 45–60 minute session that gives you a clear read on where you are now, and what your next smart move is. No fluff. No overwhelm. Just truth, order, and a simple path.
+          </p>
+
+          <div class="mini">
+            <div class="mini-header">
+              <div class="mini-title">Mini Signature Code™ · One-Time Diagnostic</div>
+              <div class="mini-price">$77 · Online Session</div>
+            </div>
+
+            <div class="mini-body">
+              In this session, we quietly walk through the five elements — Vision, Voice, Structure, Impact, Legacy — and map your current reality. You leave with a written summary and one recommended next step that is actually doable.
+            </div>
+
+            <div class="mini-grid">
+              <div>
+                <div class="mini-item-title">What you get</div>
+                <div class="mini-item-body">
+                  • 45–60 minute live call<br>
+                  • Simple Signature Code score across all 5 elements<br>
+                  • 1–2 page written recap in plain language
+                </div>
+              </div>
+              <div>
+                <div class="mini-item-title">Who it’s for</div>
+                <div class="mini-item-body">
+                  • Founders and small businesses<br>
+                  • Clinics, nonprofits, community projects<br>
+                  • Anyone who feels “all over the place” and wants order
+                </div>
+              </div>
+              <div>
+                <div class="mini-item-title">Timeline</div>
+                <div class="mini-item-body">
+                  • Call scheduled within 7 days<br>
+                  • Written recap delivered within 72 hours after the call<br>
+                  • Option to apply the fee toward a larger suite
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-footer">
+              <div>
+                <strong>Promise:</strong> One honest, gentle, professional read of your work. You will leave clearer than you arrived.
+              </div>
+              <div>
+                <strong>Next:</strong> If it feels right, you can move into visuals, messaging, systems, or impact with the House.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUITES -->
+      <section id="suites">
+        <div class="container">
+          <p class="section-kicker">After the Mini</p>
+          <h2 class="section-heading">How You Can Continue with the House</h2>
+          <p class="section-subtitle">
+            The Mini Code shows you your map. From there, you only move into what is needed — not everything at once. Each suite is a focused expression of one element of the Signature Code™.
+          </p>
+
+          <div class="suites">
+            <div class="suite-card">
+              <div class="suite-tag">Vision · Signature D</div>
+              <div class="suite-title">Visual Suite</div>
+              <div class="suite-body">
+                Cinematic photos and short films that finally match who you are and how you work.
+              </div>
+              <div class="suite-meta">
+                <strong>From:</strong> $299 – $1,500<br>
+                <strong>Timeline:</strong> 3–10 days
+              </div>
+            </div>
+
+            <div class="suite-card">
+              <div class="suite-tag">Voice · Kadijah’s Mango</div>
+              <div class="suite-title">Communications Suite</div>
+              <div class="suite-body">
+                Website copy, bios, and key messages that sound like you — clear, grown, and global.
+              </div>
+              <div class="suite-meta">
+                <strong>From:</strong> $149 – $899<br>
+                <strong>Timeline:</strong> 2–14 days
+              </div>
+            </div>
+
+            <div class="suite-card">
+              <div class="suite-tag">Structure · DSH</div>
+              <div class="suite-title">Profit Blueprint</div>
+              <div class="suite-body">
+                Booking, onboarding, payment, and follow-up systems that respect your time and your clients.
+              </div>
+              <div class="suite-meta">
+                <strong>From:</strong> $199 – $999<br>
+                <strong>Timeline:</strong> 2–14 days
+              </div>
+            </div>
+
+            <div class="suite-card">
+              <div class="suite-tag">Impact · Timeless Peace</div>
+              <div class="suite-title">Program Partnerships</div>
+              <div class="suite-body">
+                Maternal support, youth literacy, and senior wellness programs with real documentation and story.
+              </div>
+              <div class="suite-meta">
+                <strong>From:</strong> $0 – $2,500<br>
+                <strong>Timeline:</strong> 1–6 weeks
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <div class="container">
+          <h2>Begin with One Honest Session</h2>
+          <p>
+            No pressure. No performance. Just one conversation and a clear read on your vision, voice, structure, impact, and legacy. From there, you decide what happens next.
+          </p>
+          <div class="cta-buttons">
+            <a href="#mini" class="btn btn-primary">
+              <span>Book the Mini Signature Code™ · $77</span>
+            </a>
+            <a href="#suites" class="btn btn-ghost">
+              <span>Review the Suites Again</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>© 2025 DeVirn Signature House, Inc. · All Rights Reserved.</div>
+        <div>Media &amp; Communications House · Orlando, FL · <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile nav toggle + smooth scroll
+    (function () {
+      const body = document.body;
+      const toggle = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".nav");
+      const links = document.querySelectorAll(".nav a[href^='#']");
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          body.classList.toggle("nav-open");
+        });
+      }
+
+      links.forEach(link => {
+        link.addEventListener("click", e => {
+          const id = link.getAttribute("href");
+          if (!id || id === "#") return;
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            body.classList.remove("nav-open");
+            const offset = 72;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
