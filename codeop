@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Signature Code™ | DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Signature Code™ is the flagship intelligence system and operating language of DeVirn Signature House, Inc. — mapping identity, House placement, ORBIT, and long-term legacy for brands, businesses, and foundations." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050607;              /* Matte black */
+      --bg-elevated: #090c0d;     /* Slight gloss black */
+      --bg-soft: #0b1212;
+      --emerald: #0e3f3f;
+      --emerald-soft: #1a5452;
+      --gold: #f5c046;
+      --gold-soft: rgba(245,192,70,0.15);
+      --text-main: #f7f7f7;
+      --text-soft: #acb5bd;
+      --border-soft: rgba(255,255,255,0.08);
+      --radius-lg: 22px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.85);
+      --transition-fast: 0.16s ease-out;
+      --transition-med: 0.25s ease-out;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(14,63,63,0.48), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(245,192,70,0.18), transparent 60%),
+        #050607;
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,6,7,0.98), rgba(5,6,7,0.85), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+
+    .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background:
+        radial-gradient(circle at 20% 0, #fde9b0 0, #f5c046 40%, #8b6733 78%);
+      box-shadow: 0 12px 32px rgba(245,192,70,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-mark svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.05rem;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex
