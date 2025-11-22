@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kadijah’s Mango | DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kadijah’s Mango is the HOUSE OF AIR of DeVirn Signature House, Inc. — a halal-friendly, culture-first studio for global brands entering the U.S. market with elegance, ethics, and storytelling." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050607;              /* matte black */
+      --bg-soft: #0a1011;         /* soft elevated black */
+      --bg-soft-alt: #101819;
+      --ink: #f8f5ef;             /* ivory ink */
+      --ink-soft: #c9c4ba;
+      --accent-mango: #f4a83a;    /* mango gold */
+      --accent-mango-soft: #d48626;
+      --accent-emerald: #0d3f37;  /* deep culture green */
+      --accent-emerald-soft: #14584f;
+      --border-soft: rgba(244, 168, 58, 0.25);
+      --chip-bg: rgba(15, 63, 55, 0.7);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.75);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(244,168,58,0.12), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(13,63,55,0.6), #020304);
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 40px;
+    }
+
+    .frame {
+      width: 100%;
+      max-width: var(--max-width);
+      background: radial-gradient(circle at top, rgba(244,168,58,0.14), transparent 60%) var(--bg-soft);
+      border-radius: 40px;
+      padding: 28px 26px 32px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(24px);
+    }
+
+    @media (min-width: 900px) {
+      .frame {
+        padding: 32px 40px 40px;
+      }
+    }
+
+    .topline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 0.83rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .badge-house {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(244, 168, 58, 0.5);
+      background: linear-gradient(135deg, rgba(13,63,55,0.75), rgba(2,3,4,0.85));
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-mango);
+      box-shadow: 0 0 10px rgba(244,168,58,0.8);
+    }
+
+    .divider-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.32);
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    .title-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 720px) {
+      .title-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 16px;
+      }
+    }
+
+    h1 {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: clamp(2.2rem, 3vw, 2.7rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    h1 span.highlight {
+      color: var(--accent-mango);
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .subtitle span {
+      opacity: 0.96;
+    }
+
+    .subtitle .pill {
+      border-radius: 999px;
+      padding: 4px 11px;
+      border: 1px solid rgba(244,168,58,0.45);
+      background: rgba(2,3,4,0.85);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+    }
+
+    .context-note {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-mango-soft);
+      text-align: right;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .intro-text {
+      margin-top: 20px;
+      max-width: 640px;
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    .intro-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    main {
+      margin-top: 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-mango);
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    @media (min-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1.05fr 1fr;
+        align-items: flex-start;
+      }
+    }
+
+    .pill-note {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px dashed rgba(255,255,255,0.18);
+      background: radial-gradient(circle at left, rgba(244,168,58,0.2), transparent 55%);
+      color: var(--ink-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .pill-note strong {
+      color: var(--accent-mango);
+      font-weight: 600;
+    }
+
+    .pill-note span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      background: linear-gradient(135deg, rgba(8,20,21,0.96), rgba(5,6,7,0.98));
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.75);
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at top right, rgba(244,168,58,0.18), transparent 60%),
+        radial-gradient(circle at bottom left, rgba(13,63,55,0.7), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+
+    .card-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 4px;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .card-title span.number {
+      color: var(--accent-mango);
+      margin-right: 6px;
+    }
+
+    .price-pill {
+      flex-shrink: 0;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      padding: 6px 11px;
+      font-size: 0.86rem;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1px;
+      background: radial-gradient(circle at top, rgba(244,168,58,0.22), rgba(3,4,5,0.94));
+    }
+
+    .price-pill span.label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(248,245,239,0.8);
+    }
+
+    .price-pill span.value {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent-mango);
+    }
+
+    .includes-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 6px;
+    }
+
+    ul.includes {
+      list-style: none;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    ul.includes li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 2px;
+    }
+
+    ul.includes li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: rgba(244,168,58,0.95);
+      font-size: 0.9rem;
+    }
+
+    .perfect-for {
+      margin-top: 10px;
+      font-size: 0.86rem;
+      color: rgba(248,245,239,0.9);
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .perfect-for span.emoji {
+      flex-shrink: 0;
+    }
+
+    .perfect-for strong {
+      font-weight: 500;
+      color: var(--accent-mango);
+    }
+
+    .two-column {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 720px) {
+      .two-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .section-block {
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .add-ons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: var(--chip-bg);
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .chip span.label {
+      opacity: 0.85;
+    }
+
+    .chip span.cost {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      color: var(--accent-mango);
+      text-transform: uppercase;
+    }
+
+    .what-we-do {
+      display: grid;
+      gap: 12px;
+    }
+
+    @media (min-width: 720px) {
+      .what-we-do {
+        grid-template-columns: 1.1fr 0.95fr;
+        gap: 18px;
+        align-items: flex-start;
+      }
+    }
+
+    .what-copy {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    .what-copy strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .checklist {
+      list-style: none;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      margin-top: 4px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .check {
+      font-size: 0.9rem;
+      color: var(--accent-mango);
+      margin-top: 1px;
+    }
+
+    .tagline-block {
+      margin-top: 6px;
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(248,245,239,0.72);
+    }
+
+    .tagline-block span.key {
+      color: var(--accent-mango-soft);
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.78rem;
+      color: rgba(248,245,239,0.6);
+    }
+
+    @media (min-width: 720px) {
+      footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+    }
+
+    footer span.note {
+      opacity: 0.75;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <!-- Topline / House identity -->
+    <div class="topline">
+      <div class="badge-house">
+        <span class="badge-dot"></span>
+        <span>House of Air</span>
+      </div>
+      <div class="divider-dot"></div>
+      <span>DeVirn Signature House, Inc.</span>
+    </div>
+
+    <!-- Hero -->
+    <header>
+      <div class="title-row">
+        <div>
+          <h1>
+            Kadijah’s <span class="highlight">Mango</span>
+          </h1>
+          <div class="subtitle">
+            <span>Halal-Friendly Branding</span>
+            <span class="divider-dot"></span>
+            <span>Global Products</span>
+            <span class="divider-dot"></span>
+            <span>Ethical Culture Experience</span>
+            <span class="pill">No Audits &mdash; Just Strategy</span>
+          </div>
+        </div>
+        <div class="context-note">
+          OFFICIAL PRICE MENU &bull; REAL VALUE
+        </div>
+      </div>
+
+      <p class="intro-text">
+        <strong>Kadijah’s Mango</strong> is where global family products become <strong>U.S.-ready, culture-rich, and ethically positioned</strong> &mdash; without religious framing or compliance language.
+        Every offer below is designed to help you name, package, and introduce your product into the U.S. market with <strong>warmth, clarity, and respect</strong>.
+      </p>
+    </header>
+
+    <main>
+      <!-- Price Menu -->
+      <section aria-labelledby="price-menu-heading">
+        <div class="section-label">Service Suite</div>
+        <div class="section-heading" id="price-menu-heading">
+          Official Price Menu &mdash; Real Value (No Audits)
+        </div>
+        <div class="grid grid-2">
+          <div>
+            <div class="pill-note">
+              <span class="dot"></span>
+              <span><strong>Business, not religion.</strong> Culture-first, market-ready guidance.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid" style="margin-top: 10px;">
+          <!-- 1. Halal-Friendly Product Branding -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Entry Brand Clarity</div>
+                  <div class="card-title">
+                    <span class="number">1.</span> Halal-Friendly Product Branding
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$188</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>Product naming</li>
+                <li>Packaging concept</li>
+                <li>Color + style guidance</li>
+                <li>Front-label wording</li>
+                <li>&ldquo;Halal-friendly / clean-standard&rdquo; messaging</li>
+                <li>Story + cultural angle</li>
+                <li>Tagline options</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>Perfect for</strong> beauty products, oils, food items, wellness items, perfumes, skincare.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. U.S. Market Readiness Kit -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Brand + Product Entry</div>
+                  <div class="card-title">
+                    <span class="number">2.</span> U.S. Market Readiness Kit
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$444</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>Full product brand identity</li>
+                <li>U.S.-friendly packaging language</li>
+                <li>Market positioning (how to stand out)</li>
+                <li>Demographic targeting</li>
+                <li>Sales channel options (Amazon, boutiques, online stores)</li>
+                <li>Sample product listing copy</li>
+                <li>30-day launch strategy</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>Great for</strong> newcomers entering the U.S. with international products.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Global Product Introduction & Cultural Experience Design -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Culture &amp; Experience</div>
+                  <div class="card-title">
+                    <span class="number">3.</span> Global Product Introduction &amp; Cultural Experience Design
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$555</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>How to introduce an exotic global product into the U.S.</li>
+                <li>Cultural storytelling (non-religious, soft, elegant)</li>
+                <li>Sensory experience branding (touch, scent, meaning)</li>
+                <li>Signature &ldquo;Culture Card&rdquo; for customers</li>
+                <li>Launch campaign: &ldquo;Meet the product&rdquo;</li>
+                <li>Social content set (10 templates)</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>Perfect for</strong> Moroccan oils, spices, soaps, perfumes, teas, artisanal items.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Halal-Friendly Product Line Creation -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Done-With-You Suite</div>
+                  <div class="card-title">
+                    <span class="number">4.</span> Halal-Friendly Product Line Creation
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$777</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>Help selecting 3&ndash;5 products to launch</li>
+                <li>Naming each product</li>
+                <li>Packaging and label direction</li>
+                <li>Halal-friendly messaging (clean ingredients, ethical sourcing)</li>
+                <li>U.S. market storyline</li>
+                <li>Price strategy</li>
+                <li>Photoshoot direction (via Signature D)</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>Perfect for</strong> entrepreneurs wanting a full product line.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Distributor & Retail Pitch Kit -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Retail &amp; Wholesale Entry</div>
+                  <div class="card-title">
+                    <span class="number">5.</span> Distributor &amp; Retail Pitch Kit
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$390</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>1-page retail pitch</li>
+                <li>Product description (U.S. copy)</li>
+                <li>Brand story</li>
+                <li>Price &amp; margin recommendations</li>
+                <li>Why U.S. buyers should carry it</li>
+                <li>&ldquo;Culture Benefit Statement&rdquo;</li>
+                <li>Email outreach template</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>For</strong> anyone wanting their products in stores, markets, spas, beauty shops.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. “Exotic to America” Product Launch Bundle -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Full Launch Bundle</div>
+                  <div class="card-title">
+                    <span class="number">6.</span> “Exotic to America” Product Launch
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Full Bundle</span>
+                  <span class="value">$999</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>Full product identity</li>
+                <li>Packaging concept</li>
+                <li>30-day community excitement campaign</li>
+                <li>Social media visuals (10)</li>
+                <li>Founder story (soft cultural angle)</li>
+                <li>Product launch photoshoot moodboard</li>
+                <li>TikTok/Reels storyline</li>
+                <li>3 launch scripts</li>
+                <li>Mini website layout</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>For</strong> oils, spices, perfumes, wellness products, cultural snacks, teas, clothing accents.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. U.S. Distribution Strategy — Halal-Friendly Edition -->
+          <article class="card">
+            <div class="card-inner">
+              <div class="card-header">
+                <div>
+                  <div class="card-kicker">Scale &amp; Distribution</div>
+                  <div class="card-title">
+                    <span class="number">7.</span> U.S. Distribution Strategy &mdash; Halal-Friendly Edition
+                  </div>
+                </div>
+                <div class="price-pill">
+                  <span class="label">Fixed Rate</span>
+                  <span class="value">$1,111</span>
+                </div>
+              </div>
+              <div class="includes-label">Includes</div>
+              <ul class="includes">
+                <li>Where to sell</li>
+                <li>Wholesale partners</li>
+                <li>Retailers to target</li>
+                <li>Cultural markets</li>
+                <li>Exhibitions / pop-up ideas</li>
+                <li>Amazon, TikTok Shop, Etsy strategy</li>
+                <li>Pricing + margins</li>
+                <li>Product bundle ideas</li>
+                <li>Brand story alignment</li>
+                <li>Shipper / packaging recommendations</li>
+              </ul>
+              <div class="perfect-for">
+                <span class="emoji">🎯</span>
+                <span>
+                  <strong>Best for</strong> international families wanting U.S. business entry (like your olive oil brand).
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Add-ons -->
+      <section class="section-block" aria-labelledby="addons-heading">
+        <div class="section-label">Add-On Studio Support</div>
+        <div class="section-heading" id="addons-heading">À La Carte Enhancements</div>
+        <p class="intro-text" style="max-width: 720px;">
+          Layer these on top of any main package when you want extra visual polish, sharper messaging, or direct distribution support.
+        </p>
+        <div class="add-ons">
+          <div class="chip">
+            <span class="label">Product Photography (Signature D rate)</span>
+            <span class="cost">$250/hr</span>
+          </div>
+          <div class="chip">
+            <span class="label">Product Packaging Rewrite</span>
+            <span class="cost">$50</span>
+          </div>
+          <div class="chip">
+            <span class="label">U.S. eCommerce Listing Copy</span>
+            <span class="cost">$45 / product</span>
+          </div>
+          <div class="chip">
+            <span class="label">Distributor Email Pitch</span>
+            <span class="cost">$40</span>
+          </div>
+          <div class="chip">
+            <span class="label">Cultural Experience Card (premium design)</span>
+            <span class="cost">$60</span>
+          </div>
+          <div class="chip">
+            <span class="label">Vendor List (beauty + cultural shops)</span>
+            <span class="cost">$85</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- What Kadijah's Mango Does -->
+      <section class="section-block" aria-labelledby="what-heading">
+        <div class="section-label">Clarity</div>
+        <div class="section-heading" id="what-heading">What Kadijah’s Mango Actually Does</div>
+        <div class="what-we-do">
+          <div class="what-copy">
+            <p>
+              <strong>Kadijah’s Mango</strong> helps brands create, package, and introduce <strong>halal-friendly, culturally rich, ethically inspired products</strong> into the U.S. market &mdash; beautifully, respectfully, and <strong>without religious framing</strong>.
+            </p>
+            <ul class="checklist">
+              <li>
+                <span class="check">✔</span>
+                <span>We keep your product <strong>clean, ethical, and welcoming</strong> to U.S. consumers.</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>We tell your story in a way that feels <strong>soft, elegant, and global</strong>, not heavy or preachy.</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>We respect <strong>faith, culture, and family</strong> &mdash; without turning your product into a religious service.</span>
+              </li>
+            </ul>
+            <div class="tagline-block">
+              <span class="key">This is business, not religion.</span><br />
+              <span>This is culture, not compliance.</span>
+            </div>
+          </div>
+
+          <div>
+            <ul class="checklist">
+              <li>
+                <span class="check">✔</span>
+                <span>Product branding</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>Packaging direction</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>Cultural storytelling</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>U.S. market adaptation</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>Distribution strategy</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>Visual identity (via Signature D)</span>
+              </li>
+              <li>
+                <span class="check">✔</span>
+                <span>Global-to-U.S. entry support</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <span class="label">Kadijah’s Mango &mdash; House of Air</span>
+      <span class="note">Part of DeVirn Signature House, Inc. &mdash; One Empire. Five Houses. One Language.</span>
+    </footer>
+  </div>
+</body>
+</html>
