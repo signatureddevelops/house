@@ -1,198 +1,1193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Timeless Peace Homes™ Certification Network</title>
-  <meta name="description" content="Join the Timeless Peace Homes™ Network — certify your hospice, maternity, or pediatric care home under Timeless Peace standards and gain global trust, recognition, and funding rewards.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Timeless Peace Foundation — Dignity in Care, Forever</title>
+  <meta name="description" content="Timeless Peace Foundation: free compassionate hospice, maternity & pediatric care, Peace Homes, medicine security, training, interfaith inclusion, and global campuses." />
+  <meta name="theme-color" content="#9FD4F0" />
+  <meta property="og:title" content="Timeless Peace Foundation" />
+  <meta property="og:description" content="Free compassionate care. Ocean-dove blue, bright white, and olive-branch green." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --ocean:#9FD4F0;
-      --oceanDeep:#62B6E5;
-      --white:#ffffff;
-      --dove:#ECF7FD;
-      --ink:#0B1B2B;
-      --olive:#7DCC8B;
-      --oliveDeep:#46B76D;
-      --petal:#FF78B5;
+      /* Timeless Peace palette */
+      --ocean: #9FD4F0;           /* soft baby blue */
+      --oceanDeep: #62B6E5;       /* deeper ocean blue */
+      --white: #ffffff;           /* bright white */
+      --dove: #ECF7FD;            /* very light blue */
+      --ink: #0B1B2B;             /* near-navy for text */
+      --olive: #7DCC8B;           /* light olive green */
+      --oliveDeep:#46B76D;        /* deeper olive */
+      --sky:#EAF6FF;              /* background wash */
+      --petal:#FF78B5;            /* Pink Girl Power */
       --petalDeep:#E85A9B;
-      --shadow:0 14px 42px rgba(11,27,43,0.10);
-      --radius:20px;
+      --shadow: 0 18px 48px rgba(11,27,43,0.18);
+      --radius: 22px;
+      --ring: 0 0 0 6px rgba(159,212,240,.35);
+      --max: 1120px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,var(--dove),var(--white));scroll-behavior:smooth}
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 0 0, #ffffff 0, transparent 55%),
+        radial-gradient(circle at 100% 0, #e2f3ff 0, transparent 60%),
+        linear-gradient(180deg,var(--sky),var(--white));
+      -webkit-font-smoothing:antialiased;
+    }
     img{max-width:100%;display:block}
     a{color:var(--oceanDeep);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1200px;margin:0 auto;padding:0 20px}
-    header{background:linear-gradient(90deg,var(--oceanDeep),var(--ocean));color:var(--white);padding:60px 0;text-align:center;box-shadow:var(--shadow)}
-    header h1{font-family:"Playfair Display",serif;font-size:48px;margin:0 0 10px}
-    header p{font-size:18px;max-width:760px;margin:0 auto}
-    section{padding:64px 0}
-    h2{font-family:"Playfair Display",serif;font-size:36px;margin:0 0 12px;color:var(--ink)}
-    .sub{opacity:.85;margin-bottom:24px}
-    .grid{display:grid;gap:18px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;position:relative}
-    .badge{display:inline-block;background:var(--dove);color:var(--oceanDeep);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px}
-    ul{margin:0;padding-left:18px}
-    li{margin:8px 0}
-    .cta{background:linear-gradient(135deg,var(--ocean),var(--oceanDeep));color:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:700;border:0;cursor:pointer;transition:transform .05s ease, box-shadow .2s ease}
-    .btn:hover{transform:translateY(-2px)}
-    .btn-petal{background:linear-gradient(135deg,var(--petalDeep),var(--petal));color:var(--white)}
-    .btn-olive{background:linear-gradient(135deg,var(--oliveDeep),var(--olive));color:var(--white)}
-    footer{background:var(--ink);color:var(--white);padding:32px 0;text-align:center}
-    @media(max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    main{padding:32px 18px 72px}
+    .shell{max-width:var(--max);margin:0 auto}
+
+    /* Sticky ribbon */
+    .ribbon{
+      position:sticky;top:0;z-index:90;
+      background:linear-gradient(90deg,var(--oceanDeep),var(--ocean));
+      color:var(--white);
+      box-shadow:0 10px 24px rgba(7,36,64,.25);
+    }
+    .ribbon-inner{
+      max-width:var(--max);margin:0 auto;
+      padding:.8rem 18px;
+      display:flex;align-items:center;justify-content:center;gap:.6rem;
+      font-size:.86rem;font-weight:600;
+    }
+    .ribbon .badge{
+      background:var(--white);color:var(--oceanDeep);
+      border-radius:999px;padding:.35rem .7rem;
+      font-size:.76rem;font-weight:800;letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    /* Header – matches Kadijah’s Mango structure */
+    header{
+      position:sticky;top:46px;z-index:80;
+      background:rgba(255,255,255,0.92);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(4,38,67,.06);
+    }
+    .nav{
+      max-width:var(--max);margin:0 auto;
+      padding:12px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+    }
+    .brand svg{width:40px;height:40px;filter:drop-shadow(0 6px 14px rgba(70,183,109,.30))}
+    .brand h1{
+      font-family:"Playfair Display",serif;
+      font-size:1.05rem;letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#163854;
+    }
+    .brand span{
+      display:block;font-size:.72rem;
+      letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(11,27,43,.62);
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+    nav a{
+      font-size:.76rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      padding:7px 11px;
+      border-radius:999px;
+      color:rgba(11,27,43,.78);
+      border:1px solid transparent;
+      transition:all .16s ease-out;
+    }
+    nav a:hover{
+      border-color:rgba(159,212,240,.8);
+      background:var(--dove);
+      color:var(--oceanDeep);
+    }
+
+    .menu-btn{display:none}
+
+    .cta-row{
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:6px;
+      padding:9px 16px;
+      border-radius:999px;
+      border:0;
+      font-size:.76rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .05s ease, box-shadow .18s ease, background .18s ease;
+      white-space:nowrap;
+    }
+    .btn:focus{outline:none;box-shadow:var(--ring);}
+    .btn:active{transform:translateY(1px);}
+    .btn-ocean{
+      background:linear-gradient(135deg,var(--oceanDeep),var(--ocean));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+    .btn-ghost{
+      background:#fff;
+      border:1px solid rgba(99,165,215,.8);
+      color:var(--oceanDeep);
+    }
+    .btn-petal{
+      background:linear-gradient(135deg,var(--petalDeep),var(--petal));
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    /* Floating CTAs */
+    .float-cta{
+      position:fixed;right:16px;bottom:16px;z-index:70;
+      display:flex;flex-direction:column;gap:10px;
+    }
+
+    /* HERO */
+    .hero{
+      margin-top:28px;
+      border-radius:32px;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,255,255,.9) 0, transparent 55%),
+        radial-gradient(circle at 110% -10%, rgba(159,212,240,.65) 0, transparent 65%),
+        linear-gradient(135deg,#ffffff,var(--dove));
+      box-shadow:var(--shadow);
+      border:1px solid rgba(156,195,224,.35);
+      padding:26px 22px;
+      display:grid;
+      grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);
+      gap:24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-kicker{
+      font-size:.76rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--oceanDeep);
+      margin-bottom:8px;
+    }
+    .hero h2{
+      font-family:"Playfair Display",serif;
+      font-size:2.3rem;
+      line-height:1.1;
+      color:#163854;
+      margin-bottom:10px;
+    }
+    .hero .lead{
+      font-size:1rem;line-height:1.7;
+      color:rgba(11,27,43,.9);
+      max-width:33rem;
+      margin-bottom:14px;
+    }
+    .hero-points{
+      display:flex;flex-wrap:wrap;gap:8px;
+      margin-bottom:18px;
+    }
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.74rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      background:var(--dove);
+      color:var(--oceanDeep);
+    }
+    .founder-note{
+      margin-top:10px;
+      padding:14px 14px 12px;
+      border-radius:18px;
+      background:#ffffff;
+      border:1px solid rgba(166,198,222,.6);
+      font-size:.9rem;
+      line-height:1.6;
+    }
+
+    .hero-side{
+      border-radius:24px;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,255,255,.9) 0, transparent 55%),
+        linear-gradient(145deg,#ffffff,var(--dove));
+      border:1px solid rgba(159,212,240,.7);
+      padding:16px 16px 18px;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .hero-side h3{
+      font-size:.98rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(11,27,43,.75);
+    }
+    .hero-side strong{
+      display:block;
+      font-size:1.05rem;
+      margin-top:4px;
+      color:#153B57;
+    }
+    .hero-side ul{
+      margin:8px 0 0;
+      padding-left:18px;
+      font-size:.86rem;
+      color:rgba(11,27,43,.9);
+      line-height:1.6;
+    }
+    .hero-side-footer{
+      margin-top:auto;
+      font-size:.8rem;
+      color:rgba(11,27,43,.75);
+    }
+
+    section{
+      margin-top:46px;
+    }
+    .section-label{
+      font-size:.76rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(11,27,43,.6);
+      margin-bottom:6px;
+    }
+    .section-title{
+      font-family:"Playfair Display",serif;
+      font-size:1.8rem;
+      color:#173856;
+      margin-bottom:6px;
+    }
+    .section-sub{
+      font-size:.96rem;
+      color:rgba(11,27,43,.85);
+      max-width:42rem;
+    }
+
+    .grid{
+      display:grid;gap:18px;margin-top:18px;
+    }
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+    .card{
+      position:relative;
+      border-radius:var(--radius);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      padding:18px 18px 16px;
+      border:1px solid rgba(179,205,225,.6);
+    }
+    .card h4{
+      font-size:1rem;margin-bottom:6px;
+      color:#163854;
+    }
+    .card p, .card li{
+      font-size:.88rem;line-height:1.7;
+      color:rgba(11,27,43,.9);
+    }
+    .badge{
+      display:inline-block;
+      margin-bottom:6px;
+      padding:5px 9px;
+      border-radius:999px;
+      background:var(--dove);
+      color:var(--oceanDeep);
+      font-size:.74rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .list{margin:0;padding-left:18px;}
+    .list li{margin:5px 0;}
+
+    /* Tabs Programs */
+    .tabs{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;
+    }
+    .tab{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(183,206,225,.9);
+      background:#ffffff;
+      font-size:.76rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      cursor:pointer;
+    }
+    .tab[aria-selected="true"]{
+      background:var(--dove);
+      border-color:var(--oceanDeep);
+      color:var(--oceanDeep);
+    }
+    .tab-panel{display:none;margin-top:16px;}
+    .tab-panel[aria-hidden="false"]{display:block;}
+
+    /* KPI band */
+    .kpi-band{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .kpi{
+      text-align:center;
+      border-radius:18px;
+      background:#ffffff;
+      padding:14px 10px 12px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(183,206,225,.7);
+    }
+    .kpi span.badge{margin-bottom:4px;}
+    .kpi-number{
+      font-size:2rem;
+      color:#163854;
+      margin:4px 0 2px;
+    }
+
+    /* Pink Girl Power band */
+    .band{
+      margin-top:40px;
+      border-radius:var(--radius);
+      padding:20px 18px;
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;
+    }
+    .band-pink{
+      background:linear-gradient(135deg,#fff,#FFE3F0);
+      border:1px solid rgba(235,159,197,.6);
+      box-shadow:var(--shadow);
+    }
+
+    /* Roadmap + Campaign simplified */
+    .timeline{
+      margin-top:10px;
+      padding-left:16px;
+      position:relative;
+    }
+    .timeline::before{
+      content:"";position:absolute;left:6px;top:0;bottom:0;width:2px;
+      background:rgba(11,27,43,.14);
+    }
+    .t{
+      position:relative;
+      margin:12px 0;
+      padding-left:16px;
+      font-size:.86rem;line-height:1.7;
+    }
+    .t::before{
+      content:"";position:absolute;left:-1px;top:4px;
+      width:11px;height:11px;border-radius:50%;
+      background:var(--oceanDeep);
+      box-shadow:0 0 0 4px rgba(159,212,240,.4);
+    }
+    .t time{
+      display:block;font-weight:700;color:var(--oceanDeep);margin-bottom:2px;
+    }
+
+    .fund-row{
+      display:grid;gap:16px;margin-top:16px;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+    /* FAQ accordion */
+    .accordion{
+      border-radius:var(--radius);
+      background:#ffffff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      border:1px solid rgba(179,205,225,.7);
+    }
+    .acc-item + .acc-item{border-top:1px solid rgba(179,205,225,.7);}
+    .acc-head{
+      padding:14px 16px;
+      display:flex;justify-content:space-between;align-items:center;
+      cursor:pointer;font-size:.9rem;
+    }
+    .acc-head span.toggle{
+      font-weight:700;color:var(--oceanDeep);margin-left:8px;
+    }
+    .acc-body{
+      max-height:0;overflow:hidden;
+      transition:max-height .3s ease;
+    }
+    .acc-body > div{
+      padding:0 16px 14px;
+      font-size:.88rem;line-height:1.7;
+    }
+
+    /* Donate & footer */
+    .donate-grid{
+      display:grid;gap:18px;margin-top:18px;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    footer{
+      background:#0B1B2B;color:#ffffff;
+      margin-top:40px;
+    }
+    .footer-shell{
+      max-width:var(--max);margin:0 auto;
+      padding:26px 18px 14px;
+    }
+    .footer-top{
+      display:grid;gap:18px;
+      grid-template-columns:2fr 1fr 1fr;
+    }
+    .footer-top h5{
+      font-size:.9rem;margin-bottom:6px;
+    }
+    .footer-top ul{list-style:none;padding-left:0;font-size:.84rem;}
+    .footer-top li{margin:3px 0;}
+    .footer-top a{color:#BFE6FF;text-decoration:none;}
+    .footer-top a:hover{text-decoration:underline;}
+    .copyright{
+      margin-top:16px;
+      padding-top:10px;
+      border-top:1px solid rgba(255,255,255,.14);
+      font-size:.76rem;
+      color:rgba(255,255,255,.82);
+      display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .hero{grid-template-columns:1fr;padding:22px 18px;}
+      .hero-side{order:-1;}
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .kpi-band{grid-template-columns:repeat(3,minmax(0,1fr));}
+      .fund-row{grid-template-columns:repeat(2,minmax(0,1fr));}
+      .footer-top{grid-template-columns:1.6fr 1fr;}
+    }
+    @media (max-width: 720px){
+      .nav{flex-wrap:wrap;gap:8px;}
+      nav ul{display:none;}
+      .menu-btn{
+        display:inline-flex;
+        align-items:center;gap:6px;
+        padding:7px 12px;
+        border-radius:12px;
+        border:1px solid rgba(179,205,225,.9);
+        background:#ffffff;
+        font-size:.8rem;
+        cursor:pointer;
+      }
+      body.nav-open nav ul{
+        display:flex;
+        flex-direction:column;
+        position:absolute;
+        right:18px;top:60px;
+        background:#ffffff;
+        padding:10px;
+        border-radius:16px;
+        box-shadow:var(--shadow);
+        min-width:200px;
+      }
+      .grid-2,.grid-3,.kpi-band,.fund-row,.donate-grid{grid-template-columns:1fr;}
+      .footer-top{grid-template-columns:1fr;}
+      .float-cta{right:10px;bottom:10px;}
+      .hero h2{font-size:1.9rem;}
+    }
+
+    /* Accessibility */
+    :focus-visible{outline:3px solid var(--oceanDeep);outline-offset:3px;}
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus-visible{
+      position:fixed;left:16px;top:16px;width:auto;height:auto;
+      background:#ffffff;padding:8px 12px;border-radius:12px;
+      box-shadow:var(--shadow);z-index:100;
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Timeless Peace Foundation",
+    "url": "https://example.org",
+    "description": "Free compassionate hospice, maternity & pediatric care with global safeguards.",
+    "foundingDate": "2025",
+    "areaServed": ["United States", "Caribbean"],
+    "email": "hello@timelesspeace.org",
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Coming Soon ribbon -->
+  <div class="ribbon" role="status">
+    <div class="ribbon-inner">
+      <span class="badge">Coming Soon · 2031</span>
+      <span>We are assembling founding donors & partners to open the Florida flagship.</span>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header>
-    <h1>Timeless Peace Homes™</h1>
-    <p>Certify your hospice, maternity, or pediatric care home under the Timeless Peace standard — and join a global network of compassion, transparency, and trust.</p>
+    <div class="nav">
+      <div class="brand">
+        <!-- Dove + olive branch logo -->
+        <svg viewBox="0 0 104 104" role="img" aria-label="Timeless Peace dove logo" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="var(--ocean)"/>
+              <stop offset="100%" stop-color="var(--oceanDeep)"/>
+            </linearGradient>
+          </defs>
+          <circle cx="52" cy="52" r="50" fill="url(#g1)" opacity=".18"/>
+          <path d="M83 40c-11 6-20 7-28 3-9-4-15-2-23 6 7 1 12 3 17 8-7 2-13 5-17 10 7 0 13-1 19-4 3 5 9 9 16 10-6-7-3-13 2-18 5-6 8-11 14-15Z" fill="var(--oceanDeep)" opacity=".95"/>
+          <path d="M86 32c-3 2-7 6-8 10 3-1 7-3 10-6" fill="none" stroke="var(--olive)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="66" cy="44" r="2" fill="var(--ink)"/>
+        </svg>
+        <div>
+          <h1>Timeless Peace Foundation</h1>
+          <span>Dignity in Care · Forever</span>
+        </div>
+      </div>
+
+      <nav aria-label="Primary navigation">
+        <button class="menu-btn" aria-label="Toggle menu" aria-controls="primary-nav" aria-expanded="false">☰ Menu</button>
+        <ul id="primary-nav">
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#governance">Safeguards</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#impact">Transparency</a></li>
+          <li><a href="#donate">Donate</a></li>
+        </ul>
+      </nav>
+
+      <div class="cta-row">
+        <a class="btn btn-petal" href="#pink">🌸 Girl Power</a>
+        <a class="btn btn-ocean" href="#donate">Donate</a>
+      </div>
+    </div>
   </header>
 
-  <section id="overview">
-    <div class="container">
-      <h2>About the Certification Network</h2>
-      <p class="sub">The <strong>Timeless Peace Homes™ Certification & Partnership Network (TPH-Net)</strong> allows existing, licensed homes to earn recognition and funding by meeting our care, dignity, and transparency standards — while serving real families today.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Why Certify</h3>
-          <ul>
-            <li>Instant credibility under an international humanitarian brand</li>
-            <li>Free publicity and inclusion in media campaigns</li>
-            <li>Access to funding rewards and micro-grants</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Who Can Join</h3>
-          <ul>
-            <li>Hospice & respite homes</li>
-            <li>Maternity & pediatric centers</li>
-            <li>Faith-based or community host homes with medical partnerships</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What You Receive</h3>
-          <ul>
-            <li>Tiered certification plaque (Bronze–Platinum)</li>
-            <li>Listing in the Timeless Peace directory</li>
-            <li>Training, toolkits, and annual review</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Floating quick actions -->
+  <div class="float-cta" aria-label="Quick actions">
+    <a class="btn btn-petal" href="#pink">🌸 Pink Girl Power</a>
+    <a class="btn btn-ocean" href="#donate">Donate</a>
+  </div>
 
-  <section id="tiers" style="background:var(--dove)">
-    <div class="container">
-      <h2>Certification Tiers</h2>
-      <p class="sub">Homes are assessed through documentation, site visit, and KPI review.</p>
-      <div class="grid grid-4" style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <div class="card"><span class="badge">Bronze (Provisional)</span><p>Meets essential safety and dignity standards. Six-month improvement plan required.</p></div>
-        <div class="card"><span class="badge">Silver (Full)</span><p>Fully compliant with all Timeless Peace standards and quarterly KPI submission.</p></div>
-        <div class="card"><span class="badge">Gold (Enhanced)</span><p>Demonstrates excellence in interfaith inclusion, family support, and medicine security.</p></div>
-        <div class="card"><span class="badge">Platinum (Center of Excellence)</span><p>Top 5% of homes globally — mentors other partners and participates in training research.</p></div>
-      </div>
-    </div>
-  </section>
+  <main id="main">
+    <div class="shell">
 
-  <section id="quota">
-    <div class="container">
-      <h2>Free Certification Through Care-Quota Partnership</h2>
-      <p class="sub">Serve with compassion, and your certification is free. Homes that commit to caring for a guaranteed number of qualifying patients per year receive <strong>free certification</strong> plus eligibility for <strong>Funding Rewards</strong> after verified impact.</p>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>How It Works</h3>
-          <ul>
-            <li>Apply for Care-Quota Track</li>
-            <li>Sign MOU outlining patient quota (e.g., 10 hospice patients/year)</li>
-            <li>Maintain standards and submit quarterly data</li>
-          </ul>
+      <!-- HERO -->
+      <section class="hero" aria-label="Timeless Peace overview">
+        <div>
+          <p class="hero-kicker">Ocean-Dove Blue · Bright White · Olive-Branch Green</p>
+          <h2>Dignity in Care, Forever.</h2>
+          <p class="lead">
+            Free, compassionate <strong>hospice</strong>, <strong>maternity</strong>, and
+            <strong>pediatric</strong> care — anchored by <strong>Peace Homes</strong>,
+            <strong>Medicine Security</strong>, <strong>Training & Education</strong>, and
+            <strong>Interfaith Sanctuaries</strong>. Designed as a 250-year institution, not a short-term project.
+          </p>
+          <div class="hero-points">
+            <span class="pill">24/7 Hospice Admissions</span>
+            <span class="pill">Free Core Services</span>
+            <span class="pill">Interfaith & Inclusive</span>
+            <span class="pill">Global Campus Vision</span>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+            <a class="btn btn-ocean" href="#mission">Explore the Foundation</a>
+            <a class="btn btn-ghost" href="#donate">Partner or Sponsor</a>
+          </div>
+          <div class="founder-note">
+            <strong>Founder’s Note</strong><br />
+            Timeless Peace was born from grief that refused to stay private. No family should face the hardest hours
+            alone, or be turned away because of cost. This Foundation turns compassion into systems — so care, dignity,
+            and sanctuary endure long after us.
+          </div>
         </div>
-        <div class="card">
-          <h3>After the Quota</h3>
-          <ul>
-            <li>Homes meeting quota qualify for performance-based funding</li>
-            <li>Funding depends on care quality, satisfaction, and duration</li>
-            <li>Rewards range from $2,000 to $50,000+</li>
-          </ul>
+
+        <aside class="hero-side" aria-label="Core commitments">
+          <div>
+            <h3>Core Commitments</h3>
+            <strong>What Timeless Peace guarantees:</strong>
+            <ul>
+              <li>24/7 hospice admissions where clinically appropriate.</li>
+              <li>Free access for qualifying hospice, maternity & pediatric care.</li>
+              <li>Protected sanctuaries, memorial gardens & Peace Homes.</li>
+              <li>Guardians of the Charter safeguarding mission & ethics.</li>
+              <li>Transparent finances, audited and published annually.</li>
+            </ul>
+          </div>
+          <div class="hero-side-footer">
+            First campuses: <strong>Florida (108 acres)</strong> and
+            <strong>Trinidad (33 acres)</strong>, followed by a global network of flagships and Peace Homes.
+          </div>
+        </aside>
+      </section>
+
+      <!-- MISSION & VISION -->
+      <section id="mission">
+        <p class="section-label">Why Timeless Peace Exists</p>
+        <h3 class="section-title">Mission & Vision</h3>
+        <p class="section-sub">
+          Timeless Peace Foundation transforms love and loss into a durable promise:
+          <strong>no one dies, gives birth, or watches a child suffer alone because of money, distance, or neglect.</strong>
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="badge">Mission</span>
+            <h4>What We Do</h4>
+            <ul class="list">
+              <li>Provide free, compassionate hospice, maternity, and pediatric care with clinical excellence.</li>
+              <li>Operate Peace Homes for respite, family lodging, and transitional care.</li>
+              <li>Safeguard essential medicines through Peace Supply Banks and secure logistics.</li>
+              <li>Train volunteers, caregivers, and clinicians via the University of Health & Compassion.</li>
+              <li>Offer interfaith sanctuaries, memorial spaces, and remembrance rituals.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="badge">Vision</span>
+            <h4>Where We’re Going</h4>
+            <ul class="list">
+              <li><strong>Florida Flagship (108 acres)</strong> — hospice, maternity, pediatric, training center, sanctuaries.</li>
+              <li><strong>Trinidad Campus (33 acres)</strong> — Caribbean hub for care & education.</li>
+              <li><strong>Global Network</strong> — 10+ flagships, 50+ Peace Homes, mobile outreach, Peace Air logistics.</li>
+              <li><strong>Legacy Goal</strong> — an institution designed for at least <em>250 years</em> of service and integrity.</li>
+            </ul>
+          </article>
         </div>
-        <div class="card">
-          <h3>Recognition</h3>
-          <ul>
-            <li>Featured in “Peace in Practice” media campaigns</li>
-            <li>Eligible for Girl Power mini-grants</li>
-            <li>Invited to annual Peace Homes Summit</li>
-          </ul>
+
+        <!-- Snapshot KPIs -->
+        <div class="kpi-band">
+          <div class="kpi">
+            <span class="badge">Comfort Index</span>
+            <div class="kpi-number"><span class="counter" data-target="98">0</span>%</div>
+            <p>Pain & symptom relief satisfaction (hospice).</p>
+          </div>
+          <div class="kpi">
+            <span class="badge">Safe Births</span>
+            <div class="kpi-number"><span class="counter" data-target="1000">0</span>+</div>
+            <p>Maternity & neonatal outcomes tracked annually.</p>
+          </div>
+          <div class="kpi">
+            <span class="badge">Continuity</span>
+            <div class="kpi-number"><span class="counter" data-target="99">0</span>%</div>
+            <p>Essential medicine availability uptime.</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <section id="funding" style="background:var(--dove)">
-    <div class="container">
-      <h2>Funding Rewards & Micro-Grants</h2>
-      <p class="sub">Performance-based, transparent, and tied directly to patient outcomes.</p>
-      <div class="grid grid-3">
-        <div class="card"><h3>Bronze</h3><p>$2,000–$5,000 for meeting minimum quota & reporting compliance.</p></div>
-        <div class="card"><h3>Silver</h3><p>$5,000–$10,000 for excellence in family dignity & comfort index ≥95%.</p></div>
-        <div class="card"><h3>Gold</h3><p>$10,000–$25,000 for extended care or >20 patients served annually.</p></div>
-        <div class="card"><h3>Platinum</h3><p>$25,000–$50,000+ for innovation, training, or research initiatives.</p></div>
-      </div>
-    </div>
-  </section>
+      <!-- PROGRAMS -->
+      <section id="programs">
+        <p class="section-label">Services Built Around Families</p>
+        <h3 class="section-title">Programs & Services</h3>
+        <p class="section-sub">
+          One Foundation, seven pillars. All programs are designed to be clinically sound, family-centered,
+          and replicable across campuses.
+        </p>
 
-  <section id="standards">
-    <div class="container">
-      <h2>Certification Standards</h2>
-      <p class="sub">Every Timeless Peace Home must meet six categories of excellence:</p>
-      <div class="grid grid-3">
-        <div class="card"><h3>Safety & Clinical</h3><p>Licensing, infection control, incident reporting, and 24-hour coverage.</p></div>
-        <div class="card"><h3>Dignity & Family Experience</h3><p>Privacy, family spaces, bereavement support, no-turn-away policy.</p></div>
-        <div class="card"><h3>Interfaith Inclusion</h3><p>Quiet rooms, clergy liaisons, and cultural sensitivity training.</p></div>
-        <div class="card"><h3>Medicine Continuity</h3><p>Peace Supply mini-banks, inventory tracking, and cold-chain security.</p></div>
-        <div class="card"><h3>Training & Workforce</h3><p>Orientation on the Care Covenant and trauma-informed communication.</p></div>
-        <div class="card"><h3>Governance & Transparency</h3><p>Public reporting, board oversight, and grievance response within 10 days.</p></div>
-      </div>
-    </div>
-  </section>
+        <div class="tabs" role="tablist">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-hospice">Hospice</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-matped">Maternity & Pediatric</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-homes">Peace Homes</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-meds">Medicine Security</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-training">Training & Education</button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-faith">Interfaith Sanctuaries</button>
+        </div>
 
-  <section id="process">
-    <div class="container">
-      <h2>Certification Process</h2>
-      <p class="sub">Simple, supportive, and built for rapid trust.</p>
-      <div class="grid grid-3">
-        <div class="card"><span class="badge">Step 1</span><h3>Apply Online</h3><p>Submit inquiry form, license copy, and photos of facilities.</p></div>
-        <div class="card"><span class="badge">Step 2</span><h3>Desk Review</h3><p>We assess policies and create an action plan within two weeks.</p></div>
-        <div class="card"><span class="badge">Step 3</span><h3>On-Site or Virtual Survey</h3><p>Walkthrough, staff interviews, and patient family feedback.</p></div>
-        <div class="card"><span class="badge">Step 4</span><h3>Decision & Tiering</h3><p>Bronze–Platinum certification valid for 12 months.</p></div>
-        <div class="card"><span class="badge">Step 5</span><h3>Training & Support</h3><p>Mandatory Care Covenant course and optional Girl Power module.</p></div>
-        <div class="card"><span class="badge">Step 6</span><h3>Annual Renewal</h3><p>Performance review, site visit, and re-certification update.</p></div>
-      </div>
-    </div>
-  </section>
+        <div id="panel-hospice" class="tab-panel" aria-hidden="false">
+          <div class="grid grid-3">
+            <article class="card">
+              <h4>Hospice Care</h4>
+              <p>24/7 admissions, symptom management, in-home and on-campus care, and bereavement support.</p>
+            </article>
+            <article class="card">
+              <h4>Family Support</h4>
+              <p>Respite, case management, grief groups, and remembrance events that honor every story.</p>
+            </article>
+            <article class="card">
+              <h4>Quality & Safety</h4>
+              <p>Interdisciplinary rounds, peer review, and transparent reporting of outcomes and incidents.</p>
+            </article>
+          </div>
+        </div>
 
-  <section id="apply" style="background:var(--petal);color:var(--white)">
-    <div class="container">
-      <h2 style="color:var(--white)">Ready to Become a Timeless Peace Home?</h2>
-      <p class="sub">Join the network shaping the future of compassionate care. Apply now or schedule a discovery call with our certification team.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-        <a class="btn btn-olive" href="#">Apply for Certification</a>
-        <a class="btn btn-petal" href="#" style="background:linear-gradient(135deg,#fff,#ffe1f0);color:#8B1E54">Schedule a Call</a>
-        <a class="btn btn-olive" href="#">Download Standards PDF</a>
-      </div>
+        <div id="panel-matped" class="tab-panel" aria-hidden="true">
+          <div class="grid grid-3">
+            <article class="card"><h4>Maternity</h4><p>Prenatal education, safe-delivery partners, lactation support, doulas, and maternal mentorship.</p></article>
+            <article class="card"><h4>Pediatric</h4><p>Child-friendly spaces, pediatric palliative care, play therapy, and social work support.</p></article>
+            <article class="card"><h4>Equity</h4><p>Transportation, nutrition support, and Pink Girl Power referrals when appropriate.</p></article>
+          </div>
+        </div>
+
+        <div id="panel-homes" class="tab-panel" aria-hidden="true">
+          <div class="grid grid-3">
+            <article class="card"><h4>Respite Stays</h4><p>Short stays so caregivers can rest while loved ones receive compassionate care.</p></article>
+            <article class="card"><h4>Transitional Lodging</h4><p>Family suites near treatment centers, with meals and transportation as capacity allows.</p></article>
+            <article class="card"><h4>Community Network</h4><p>Screened volunteers and partner homes trained under Timeless Peace standards.</p></article>
+          </div>
+        </div>
+
+        <div id="panel-meds" class="tab-panel" aria-hidden="true">
+          <div class="grid grid-3">
+            <article class="card"><h4>Peace Supply Banks</h4><p>Secure storage, expiry tracking, and cold-chain logistics for essential medicines.</p></article>
+            <article class="card"><h4>Clinical Partners</h4><p>Hospitals, pharmacies, and labs with shared quality assurance and audit trails.</p></article>
+            <article class="card"><h4>Emergency Reserves</h4><p>Dedicated stock for disasters and surges, with rapid deployment protocols.</p></article>
+          </div>
+        </div>
+
+        <div id="panel-training" class="tab-panel" aria-hidden="true">
+          <div class="grid grid-3">
+            <article class="card"><h4>University of Health & Compassion</h4><p>Volunteer training, CNA/MA pathways, hospice specialization, interfaith care.</p></article>
+            <article class="card"><h4>Simulation Labs</h4><p>Realistic training environments with micro-credentials and scholarships.</p></article>
+            <article class="card"><h4>Global Exchanges</h4><p>Rotations and research with partner universities and hospitals.</p></article>
+          </div>
+        </div>
+
+        <div id="panel-faith" class="tab-panel" aria-hidden="true">
+          <div class="grid grid-3">
+            <article class="card"><h4>Sanctuaries</h4><p>Quiet rooms and outdoor spaces that welcome every path to peace.</p></article>
+            <article class="card"><h4>Clergy & Cultural Liaisons</h4><p>Multi-faith support for rites, rituals, and grief practices.</p></article>
+            <article class="card"><h4>Nature & Memory</h4><p>Remembrance walks, memorial gardens, and protected green corridors.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PINK GIRL POWER -->
+      <section id="pink">
+        <div class="band band-pink">
+          <div>
+            <p class="section-label">Pink Girl Power Initiative</p>
+            <h3 class="section-title" style="margin-bottom:4px;">Girls’ Health, Dignity & Futures</h3>
+            <p style="font-size:.95rem;max-width:36rem;">
+              Period dignity kits, screenings, maternal mentorship, safe-space peer groups, and
+              STEM-in-Health scholarships. When we protect girls’ health, we protect generations.
+            </p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <a class="btn btn-petal" href="#donate">🌸 Fund a Kit</a>
+            <a class="btn btn-ghost" href="#donate">Partner Your School</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- GOVERNANCE & SAFEGUARDS -->
+      <section id="governance">
+        <p class="section-label">Safeguards for Centuries</p>
+        <h3 class="section-title">Governance & Eternal Protections</h3>
+        <p class="section-sub">
+          Integrity is not a slogan; it is written into land, leadership, and law. Our constitution encodes
+          mission purity, clinical safety, and donor trust.
+        </p>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h4>Guardians of the Charter</h4>
+            <p>Independent stewards who approve major changes, audit ethics and safety, and serve across generations.</p>
+            <ul class="list">
+              <li>Skill-diverse, conflict-of-interest firewall.</li>
+              <li>Public annual ethics & impact report.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Care Covenant</h4>
+            <p>24/7 hospice admissions, trauma-informed practice, and a dignity-first policy for every family.</p>
+            <ul class="list">
+              <li>No-turn-away for qualifying hospice cases.</li>
+              <li>Staff & volunteer wellbeing as a duty.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h4>Land & Sanctuaries</h4>
+            <p>Mission-locked land trusts, memorial cemeteries, sanctuaries, and protected green corridors.</p>
+            <ul class="list">
+              <li>Irrevocable conservation clauses.</li>
+              <li>Right-to-quiet & nature access.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="grid grid-3" style="margin-top:16px;">
+          <article class="card">
+            <h4>Clinical & Data Safety</h4>
+            <p>Global best practices in medicine handling, infection control, and data privacy (HIPAA/GDPR).</p>
+          </article>
+          <article class="card">
+            <h4>Financial Transparency</h4>
+            <p>Independently audited statements, program-overhead ratios, and donor-restricted funds honored by policy.</p>
+          </article>
+          <article class="card">
+            <h4>Community Voice</h4>
+            <p>Family councils, youth and clinician advisory boards, and clear grievance pathways.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ROADMAP & CAMPAIGN -->
+      <section id="roadmap">
+        <p class="section-label">From Idea to Doors Open</p>
+        <h3 class="section-title">6-Month Pre-Registration & Beyond</h3>
+        <p class="section-sub">
+          Before filing paperwork, we are building the backbone: constitution, allies, donors, and safeguards.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="card">
+            <span class="badge">First 6 Months</span>
+            <h4>Pre-Registration Roadmap</h4>
+            <ul class="list">
+              <li><strong>Months 1–2:</strong> Finalize constitution, mission deck, risk register, and brand standards.</li>
+              <li><strong>Month 3:</strong> Identify Guardians, clinical & legal advisors, and hospital/school partners.</li>
+              <li><strong>Month 4:</strong> Launch Friends of Timeless Peace pledges; Pink Girl Power pilots.</li>
+              <li><strong>Month 5:</strong> Choose founding board; draft bylaws and financial controls.</li>
+              <li><strong>Month 6:</strong> Gather letters of support; refine budgets; prepare registration & 501(c)(3).</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <span class="badge">Master Timeline</span>
+            <h4>Path to Opening the Florida Flagship</h4>
+            <div class="timeline">
+              <div class="t">
+                <time>2025–2026</time>
+                Pre-registration work; fiscal sponsorship for early gifts.
+              </div>
+              <div class="t">
+                <time>2026–2027</time>
+                Site selection, due diligence, master plan, and seed campaign.
+              </div>
+              <div class="t">
+                <time>2028–2029</time>
+                Phase I construction — hospice core, Peace Homes, sanctuaries.
+              </div>
+              <div class="t">
+                <time>2029–2030</time>
+                Phase II — maternity, pediatric, training & simulation labs.
+              </div>
+              <div class="t">
+                <time>2031</time>
+                Licensing, commissioning, staff onboarding, and
+                <strong>grand opening of the Florida flagship</strong>.
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="card" style="margin-top:18px;">
+          <span class="badge">Capital Campaign Snapshot</span>
+          <h4>Launch Goal: <strong>$3.6M</strong> for Florida Phase 0</h4>
+          <p style="margin:6px 0 10px;">
+            Right-sized to open core services while we develop long-term campus phases. Trinidad will have its own
+            dedicated campaign under shared governance.
+          </p>
+          <div class="fund-row">
+            <div class="card" style="box-shadow:none;border-style:dashed;">
+              <h4>Phase I — $1.2M</h4>
+              <p>Site control, master planning, permits, and owner’s representation.</p>
+            </div>
+            <div class="card" style="box-shadow:none;border-style:dashed;">
+              <h4>Phase II — $1.8M</h4>
+              <p>Hospice core, Peace Homes, sanctuaries, and initial equipment.</p>
+            </div>
+            <div class="card" style="box-shadow:none;border-style:dashed;">
+              <h4>Phase III — $0.6M</h4>
+              <p>Staffing ramp, commissioning, licensing, and first-year buffer.</p>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:12px;">
+            <span class="badge">Pledges (Illustrative)</span>
+            <p style="margin:6px 0 8px;">
+              <strong>Raised:</strong> $1.3M · <strong>Remaining:</strong> $2.3M
+            </p>
+            <div style="height:12px;border-radius:999px;border:1px solid rgba(31,58,95,.08);background:#EAF5FF;overflow:hidden;">
+              <span style="display:block;height:100%;width:36%;background:linear-gradient(90deg,var(--olive),var(--oceanDeep));"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRANSPARENCY + FAQ -->
+      <section id="impact">
+        <p class="section-label">Trust You Can Inspect</p>
+        <h3 class="section-title">Transparency & Questions</h3>
+
+        <div class="grid grid-2">
+          <div>
+            <article class="card">
+              <span class="badge">Transparency Hub</span>
+              <h4>Open by Design</h4>
+              <ul class="list">
+                <li>Annual reports, audited statements, and program-overhead ratios.</li>
+                <li>De-identified data sets for approved research partners.</li>
+                <li>Donation assurance: restricted gifts honored and overseen by Guardians.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div>
+            <div class="accordion" role="tablist" aria-label="Frequently asked questions">
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq1">
+                  <span>Is care really free?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq1"><div>
+                  Yes. Our founding covenant guarantees free access for qualifying hospice, maternity, and pediatric
+                  services, funded by donors, grants, and partners. Families do not receive a bill for covered services.
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq2">
+                  <span>Who qualifies for services?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq2"><div>
+                  Clinical criteria are set with hospital partners and reviewed by Guardians of the Charter.
+                  We prioritize need, safety, and appropriateness of care, with compassionate triage for urgent cases.
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq3">
+                  <span>How do you protect long-term integrity?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq3"><div>
+                  Guardians of the Charter, land trusts, financial transparency, and immutable ethical standards
+                  protect the mission. Major changes require independent review and multi-party approval.
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq4">
+                  <span>Can I volunteer or train there?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq4"><div>
+                  Yes. From volunteer caregiving to clinical residencies and research fellowships, the University of
+                  Health & Compassion offers structured, supervised pathways.
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq5">
+                  <span>Where will the first campuses be?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq5"><div>
+                  The first flagship is planned for Florida (108 acres), with a second campus in Trinidad (33 acres).
+                  Additional regions will follow with strong hospital and community partners.
+                </div></div>
+              </div>
+              <div class="acc-item">
+                <div class="acc-head" role="button" aria-expanded="false" aria-controls="faq6">
+                  <span>How can sponsors engage safely?</span><span class="toggle">+</span>
+                </div>
+                <div class="acc-body" id="faq6"><div>
+                  We provide clear KPIs, brand-safe visibility, and agreed communications plans. All partnerships pass
+                  conflict-of-interest checks and public-disclosure standards.
+                </div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DONATE & CONTACT -->
+      <section id="donate">
+        <p class="section-label">Take Your Place in the Story</p>
+        <h3 class="section-title">Donate & Partner</h3>
+
+        <div class="donate-grid">
+          <article class="card">
+            <h4>Ways to Give</h4>
+            <ul class="list">
+              <li>Online — one-time or monthly gifts.</li>
+              <li>Major gifts & naming opportunities (rooms, gardens, programs).</li>
+              <li>In-kind gifts: equipment, beds, vehicles, technology.</li>
+              <li>Legacy gifts: bequests, endowment seeds, and estate planning.</li>
+            </ul>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;">
+              <a class="btn btn-ocean" href="#">Give Online</a>
+              <a class="btn btn-ghost" href="#contact">Talk to Development</a>
+            </div>
+          </article>
+
+          <article class="card" id="contact">
+            <h4>Contact & Partnerships</h4>
+            <p style="font-size:.9rem;margin-bottom:10px;">
+              Email: <a href="mailto:hello@timelesspeace.org">hello@timelesspeace.org</a><br/>
+              Media: <a href="mailto:press@timelesspeace.org">press@timelesspeace.org</a>
+            </p>
+            <form onsubmit="event.preventDefault(); this.reset(); alert('Thank you — we\'ll be in touch shortly.');" aria-label="Contact form">
+              <div style="display:grid;gap:8px;grid-template-columns:1fr 1fr;">
+                <input required placeholder="Your name" aria-label="Your name" style="padding:10px 12px;border-radius:12px;border:1px solid #d2e1f0;">
+                <input type="email" required placeholder="Email" aria-label="Email" style="padding:10px 12px;border-radius:12px;border:1px solid #d2e1f0;">
+              </div>
+              <input placeholder="Organization (optional)" aria-label="Organization" style="margin-top:8px;width:100%;padding:10px 12px;border-radius:12px;border:1px solid #d2e1f0;">
+              <textarea required placeholder="How would you like to partner?" aria-label="Message" style="margin-top:8px;width:100%;min-height:110px;padding:10px 12px;border-radius:12px;border:1px solid #d2e1f0;"></textarea>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;align-items:center;">
+                <button type="submit" class="btn btn-ocean">Send</button>
+                <a class="btn btn-petal" href="#pink">🌸 Support Girl Power</a>
+              </div>
+            </form>
+          </article>
+        </div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
   <footer>
-    <p>© <span id="year"></span> Timeless Peace Foundation • Timeless Peace Homes™ Certification Network</p>
+    <div class="footer-shell">
+      <div class="footer-top">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <svg viewBox="0 0 104 104" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
+              <circle cx="52" cy="52" r="50" fill="var(--oceanDeep)" opacity=".18"/>
+              <path d="M83 40c-11 6-20 7-28 3-9-4-15-2-23 6 7 1 12 3 17 8-7 2-13 5-17 10 7 0 13-1 19-4 3 5 9 9 16 10-6-7-3-13 2-18 5-6 8-11 14-15Z" fill="var(--oceanDeep)"/>
+              <path d="M86 32c-3 2-7 6-8 10 3-1 7-3 10-6" fill="none" stroke="var(--olive)" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <h5 style="margin:0;">Timeless Peace Foundation</h5>
+              <p style="margin:4px 0 0;font-size:.82rem;">
+                Designed for a 250-year legacy of free, compassionate care.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5>Programs</h5>
+          <ul>
+            <li><a href="#programs">Hospice</a></li>
+            <li><a href="#programs">Maternity & Pediatric</a></li>
+            <li><a href="#programs">Peace Homes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Governance</h5>
+          <ul>
+            <li><a href="#governance">Guardians & Safeguards</a></li>
+            <li><a href="#impact">Transparency & FAQ</a></li>
+            <li><a href="#roadmap">Roadmap & Campaign</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <span>© <span id="year"></span> Timeless Peace Foundation. All rights reserved.</span>
+        <span>Built under the DeVirn Signature House standard of care and integrity.</span>
+      </div>
+    </div>
   </footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // KPI counters
+    const counters = document.querySelectorAll('.counter');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = +el.dataset.target;
+        let cur = 0;
+        const step = Math.max(1, Math.floor(target / 120));
+        const tick = () => {
+          cur = Math.min(target, cur + step);
+          el.textContent = cur;
+          if (cur < target) requestAnimationFrame(tick);
+        };
+        tick();
+        io.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => io.observe(c));
+
+    // Tabs
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
+      });
+      tab.setAttribute('aria-selected', 'true');
+      tab.setAttribute('tabindex', '0');
+
+      panels.forEach(p => p.setAttribute('aria-hidden', 'true'));
+      const panel = document.getElementById(tab.getAttribute('aria-controls'));
+      if (panel) panel.setAttribute('aria-hidden', 'false');
+    }
+
+    tabs.forEach(t => {
+      if (t.getAttribute('aria-selected') === 'true') t.setAttribute('tabindex', '0');
+      else t.setAttribute('tabindex', '-1');
+
+      t.addEventListener('click', () => activateTab(t));
+    });
+
+    // Keyboard navigation for tabs
+    document.querySelector('.tabs')?.addEventListener('keydown', e => {
+      const current = document.activeElement;
+      if (!current.classList.contains('tab')) return;
+      let index = Array.from(tabs).indexOf(current);
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        index = (index + 1) % tabs.length;
+        tabs[index].focus();
+        activateTab(tabs[index]);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        index = (index - 1 + tabs.length) % tabs.length;
+        tabs[index].focus();
+        activateTab(tabs[index]);
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        tabs[0].focus();
+        activateTab(tabs[0]);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        tabs[tabs.length - 1].focus();
+        activateTab(tabs[tabs.length - 1]);
+      }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.acc-head').forEach(head => {
+      head.addEventListener('click', () => {
+        const expanded = head.getAttribute('aria-expanded') === 'true';
+        const body = head.nextElementSibling;
+        head.setAttribute('aria-expanded', String(!expanded));
+        head.querySelector('.toggle').textContent = expanded ? '+' : '–';
+        body.style.maxHeight = expanded ? '0' : body.scrollHeight + 'px';
+      });
+    });
+    // Open first FAQ by default
+    const firstHead = document.querySelector('.acc-head');
+    if (firstHead) firstHead.click();
+
+    // Mobile menu
+    const menuBtn = document.querySelector('.menu-btn');
+    const body = document.body;
+    menuBtn?.addEventListener('click', () => {
+      const open = body.classList.toggle('nav-open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
 </body>
 </html>
