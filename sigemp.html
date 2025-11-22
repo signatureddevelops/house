@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DeVirn Signature House, Inc. | One Empire. Five Houses. One Language.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DeVirn Signature House, Inc. (DSH) is a modern legacy empire with five Houses: Signature D, Kadijah’s Mango, Timeless Peace, Narine Estate, and the Founder’s Circle. One Empire. Five Houses. One Language." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050607;              /* matte black */
+      --bg-soft: #0a1011;         /* elevated black */
+      --bg-soft-alt: #111819;
+      --ink: #f8f5ef;             /* ivory */
+      --ink-soft: #c9c4ba;
+      --accent-gold: #f5c046;
+      --accent-gold-soft: #d9a63b;
+      --accent-emerald: #0e3f3f;
+      --accent-emerald-soft: #1b5c55;
+      --border-soft: rgba(245, 192, 70, 0.4);
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.85);
+      --radius-xl: 32px;
+      --radius-lg: 22px;
+      --radius-pill: 999px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(245,192,70,0.12), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(14,63,63,0.7), #020304);
+      display: flex;
+      justify-content: center;
+      padding: 28px 16px 40px;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      background: radial-gradient(circle at top, rgba(245,192,70,0.18), transparent 60%) var(--bg-soft);
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 28px;
+      backdrop-filter: blur(26px);
+    }
+
+    @media (min-width: 900px) {
+      .shell {
+        padding: 26px 38px 34px;
+      }
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 16px;
+      margin-bottom: 18px;
+    }
+
+    @media (min-width: 780px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .brand-mark {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .logo-text {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .logo-text span {
+      color: var(--accent-gold);
+    }
+
+    .tagline-main {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--ink-soft);
+    }
+
+    .subbadges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .chip {
+      border-radius: var(--radius-pill);
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(248,245,239,0.8);
+      background: linear-gradient(135deg, rgba(14,63,63,0.85), rgba(5,6,7,0.95));
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent-gold);
+      box-shadow: 0 0 10px rgba(245,192,70,0.9);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 780px) {
+      nav {
+        justify-content: flex-end;
+      }
+    }
+
+    .nav-link {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      color: var(--ink-soft);
+      text-decoration: none;
+      background: transparent;
+      transition: all 0.18s ease-out;
+    }
+
+    .nav-link:hover {
+      border-color: rgba(245,192,70,0.65);
+      color: var(--accent-gold);
+      background: rgba(2,3,4,0.9);
+    }
+
+    .nav-link.primary {
+      border-color: rgba(245,192,70,0.8);
+      color: var(--accent-gold);
+      background: radial-gradient(circle at top, rgba(245,192,70,0.32), rgba(5,6,7,0.96));
+    }
+
+    /* Layout */
+
+    .layout {
+      display: grid;
+      gap: 18px;
+    }
+
+    @media (min-width: 880px) {
+      .layout {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        align-items: flex-start;
+        gap: 22px;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 6px 0 4px;
+    }
+
+    .hero-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: clamp(2.0rem, 3vw, 2.6rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      line-height: 1.15;
+    }
+
+    .hero-title span {
+      color: var(--accent-gold);
+    }
+
+    .hero-line {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      max-width: 540px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+
+    .hero-line strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .hero-inline {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(248,245,239,0.75);
+      margin-bottom: 16px;
+    }
+
+    .hero-inline span {
+      margin: 0 6px;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      border: 1px solid rgba(245,192,70,0.85);
+      background: radial-gradient(circle at top, rgba(245,192,70,0.32), rgba(3,4,5,0.98));
+      color: var(--ink);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn:hover {
+      background: radial-gradient(circle at top, rgba(245,192,70,0.44), rgba(3,4,5,1));
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(4,7,8,0.95);
+      color: var(--ink-soft);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(245,192,70,0.55);
+      color: var(--accent-gold);
+    }
+
+    /* Empire summary box */
+
+    .panel {
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(135deg, rgba(8,14,15,0.96), rgba(3,4,5,0.98));
+      box-shadow: 0 16px 40px rgba(0,0,0,0.7);
+    }
+
+    .panel-heading {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 6px;
+    }
+
+    .panel-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: var(--accent-gold);
+    }
+
+    .panel-text {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .house-grid {
+      display: grid;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 520px) {
+      .house-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    .house-pill {
+      border-radius: var(--radius-lg);
+      padding: 10px 11px;
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.8rem;
+      background: radial-gradient(circle at top left, rgba(14,63,63,0.5), rgba(4,7,8,0.98));
+    }
+
+    .house-pill-label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      color: rgba(248,245,239,0.75);
+      margin-bottom: 4px;
+    }
+
+    .house-pill-name {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .house-pill-desc {
+      font-size: 0.78rem;
+      color: rgba(248,245,239,0.7);
+    }
+
+    .note-small {
+      font-size: 0.75rem;
+      color: rgba(248,245,239,0.6);
+      margin-top: 8px;
+    }
+
+    /* Sections */
+
+    section {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 1.02rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+    }
+
+    .section-text {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    .how-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 720px) {
+      .how-grid {
+        grid-template-columns: repeat(3, minmax(0,1fr));
+      }
+    }
+
+    .how-card {
+      border-radius: var(--radius-lg);
+      padding: 10px 11px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(4,7,8,0.96);
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .how-number {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(245,192,70,0.9);
+      margin-bottom: 4px;
+    }
+
+    .how-title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .faq-item {
+      border-radius: 16px;
+      padding: 9px 11px 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(4,7,8,0.94);
+      font-size: 0.86rem;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      margin-bottom: 4px;
+      color: rgba(248,245,239,0.96);
+    }
+
+    .faq-a {
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* Contact */
+
+    .contact-wrapper {
+      display: grid;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 720px) {
+      .contact-wrapper {
+        grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr);
+        align-items: flex-start;
+      }
+    }
+
+    form {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(248,245,239,0.8);
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    input, textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(2,3,4,0.9);
+      color: var(--ink);
+      font-size: 0.86rem;
+      padding: 7px 9px;
+      outline: none;
+      transition: border-color 0.16s ease-out, box-shadow 0.16s ease-out;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(245,192,70,0.8);
+      box-shadow: 0 0 0 1px rgba(245,192,70,0.35);
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .contact-note strong {
+      color: var(--accent-gold-soft);
+      font-weight: 500;
+    }
+
+    .contact-details {
+      font-size: 0.8rem;
+      color: rgba(248,245,239,0.75);
+      line-height: 1.7;
+    }
+
+    .contact-details span {
+      display: block;
+    }
+
+    .contact-details a {
+      color: var(--accent-gold);
+      text-decoration: none;
+    }
+
+    .contact-details a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+
+    footer {
+      margin-top: 20px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.76rem;
+      color: rgba(248,245,239,0.65);
+    }
+
+    @media (min-width: 720px) {
+      footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    footer span.label {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <!-- Header -->
+    <header>
+      <div class="brand-mark">
+        <div class="logo-text">
+          DeVirn <span>Signature House, Inc.</span>
+        </div>
+        <div class="tagline-main">
+          One Empire. Five Houses. One Language.
+        </div>
+        <div class="subbadges">
+          <div class="chip">
+            <span class="chip-dot"></span>
+            <span>Signature D &mdash; House of Fire</span>
+          </div>
+          <div class="chip">
+            <span class="chip-dot"></span>
+            <span>Kadijah’s Mango &mdash; House of Air</span>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <a class="nav-link" href="code.html">The Signature Code™</a>
+        <a class="nav-link" href="signatured.html">Signature D</a>
+        <a class="nav-link" href="kadijahs-mango.html">Kadijah’s Mango</a>
+        <a class="nav-link primary" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Main layout -->
+    <div class="layout">
+      <!-- Left: Hero -->
+      <section class="hero" aria-label="DeVirn Signature House overview">
+        <div class="hero-kicker">Empire Overview</div>
+        <h1 class="hero-title">
+          A Legacy <span>House</span> for Vision, Care, and Culture.
+        </h1>
+        <p class="hero-line">
+          <strong>DeVirn Signature House, Inc.</strong> (DSH) is your parent company &mdash; a quiet, serious empire that holds
+          <strong>creative studios, cultural brands, and humanitarian projects</strong> under one language and one standard of excellence.
+        </p>
+        <div class="hero-inline">
+          <span>Not a marketing agency</span> &bull;
+          <span>Not a trend brand</span> &bull;
+          <span>A 100+ year legacy vision</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href="code.html">
+            Explore The Signature Code™
+          </a>
+          <a class="btn btn-secondary" href="#houses">
+            Meet the Five Houses
+          </a>
+        </div>
+      </section>
+
+      <!-- Right: Empire panel -->
+      <aside class="panel" aria-label="Empire and Houses summary">
+        <div class="panel-heading">The Empire</div>
+        <div class="panel-title">How DSH Actually Works</div>
+        <p class="panel-text">
+          DSH is the <strong>sovereign umbrella</strong>. Each House is a doorway into a world:
+          creative media, culture-first products, hospice and healing, land and harvest, and the Founder’s private circle.
+          Clients enter through a House, but the standard, philosophy, and care all come from one Empire.
+        </p>
+
+        <div class="house-grid" id="houses">
+          <div class="house-pill">
+            <div class="house-pill-label">House of Fire</div>
+            <div class="house-pill-name">Signature D</div>
+            <div class="house-pill-desc">Visual studio, direction, media, photography, brand identity.</div>
+          </div>
+          <div class="house-pill">
+            <div class="house-pill-label">House of Air</div>
+            <div class="house-pill-name">Kadijah’s Mango</div>
+            <div class="house-pill-desc">Halal-friendly, culture-rich product branding and U.S. market entry.</div>
+          </div>
+          <div class="house-pill">
+            <div class="house-pill-label">House of Water</div>
+            <div class="house-pill-name">Timeless Peace</div>
+            <div class="house-pill-desc">Global hospice, maternity, pediatric and healing foundation.</div>
+          </div>
+          <div class="house-pill">
+            <div class="house-pill-label">House of Earth</div>
+            <div class="house-pill-name">Narine Estate</div>
+            <div class="house-pill-desc">Estate-based olive oil and land-rooted products (Morocco to U.S.).</div>
+          </div>
+          <div class="house-pill">
+            <div class="house-pill-label">House of Aether</div>
+            <div class="house-pill-name">Founder’s Circle</div>
+            <div class="house-pill-desc">Signature Code™, high-trust counsel, and empire-level clients.</div>
+          </div>
+        </div>
+
+        <p class="note-small">
+          One legal entity. Multiple Houses. A single, coherent story.
+        </p>
+      </aside>
+    </div>
+
+    <!-- How it works -->
+    <section aria-labelledby="how-heading">
+      <div class="section-label">Process</div>
+      <h2 class="section-title" id="how-heading">How People Move Through the Empire</h2>
+      <p class="section-text">
+        DSH is simple on purpose. You do not sell random services. You enroll the right people into the House that fits them,
+        then guide them with calm, serious care.
+      </p>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-number">Step 1</div>
+          <div class="how-title">Choose the Right House</div>
+          <p>
+            A photographer, brand, or product line enters through <strong>Signature D</strong> or <strong>Kadijah’s Mango</strong>.
+            A health system or donor enters through <strong>Timeless Peace</strong>. Land and family estates flow through <strong>Narine Estate</strong>.
+          </p>
+        </div>
+        <div class="how-card">
+          <div class="how-number">Step 2</div>
+          <div class="how-title">Align With The Signature Code™</div>
+          <p>
+            Every client, project, or partner is measured by <strong>identity, impact, structure, and legacy</strong>.
+            This is where you decide if they belong inside the Empire &mdash; and how deep they can go.
+          </p>
+        </div>
+        <div class="how-card">
+          <div class="how-number">Step 3</div>
+          <div class="how-title">Build, Protect, and Expand</div>
+          <p>
+            Once inside, you help them build: visuals, systems, product lines, foundations, or estates.
+            Quietly, carefully, with <strong>dignity and long-term thinking</strong> at the center.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-heading">
+      <div class="section-label">Clarity</div>
+      <h2 class="section-title" id="faq-heading">FAQ &amp; Boundaries</h2>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-q">Is DeVirn Signature House a regular agency?</div>
+          <div class="faq-a">
+            No. DSH is a <strong>parent company and philosophy</strong>, not a marketing agency.
+            Some Houses create visuals or strategy, but the Empire itself is about
+            <strong>governance, standards, and long-term legacy</strong>, not chasing trends.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this religious or political?</div>
+          <div class="faq-a">
+            No. DSH honors <strong>faith, dignity, and conscience</strong>, but does not sell religion,
+            religious rulings, or political opinions. <strong>Timeless Peace</strong> and <strong>Kadijah’s Mango</strong>
+            operate with ethics, humanity, and inclusion &mdash; not compliance or doctrine.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do I know which House I belong in?</div>
+          <div class="faq-a">
+            You do not have to decide alone. You can book a conversation and share what you want to build:
+            a product, a brand, a clinic, a foundation, or an estate. DSH will recommend the <strong>House and offer</strong>
+            that fits your vision, budget, and season.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Can I move between Houses over time?</div>
+          <div class="faq-a">
+            Yes. A client may start in <strong>Signature D</strong> for visuals, move into <strong>Kadijah’s Mango</strong> for product entry,
+            and later join <strong>Timeless Peace or Aether</strong> as a donor, founder, or long-term partner.
+            The Empire is built for <strong>ascent and evolution</strong>.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What guarantees do you offer?</div>
+          <div class="faq-a">
+            DSH does not guarantee outcomes you cannot control, like viral fame or investor behavior.
+            What you do guarantee is <strong>serious effort, clear communication, strategic thinking, and integrity</strong>
+            in every engagement, under every House.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="section-label">Connection</div>
+      <h2 class="section-title" id="contact-heading">Contact DeVirn Signature House</h2>
+      <div class="contact-wrapper">
+        <div>
+          <p class="contact-note">
+            Use this form as a <strong>first door</strong> into the Empire.
+            Share who you are, what you want to build, and which House you think fits you.
+            You will be answered with <strong>honesty, clarity, and respect for your time</strong>.
+          </p>
+          <form action="mailto:narinedevirn@gmail.com" method="post" enctype="text/plain">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="Name" type="text" placeholder="Your full name" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="Email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div>
+              <label for="house">Which House feels right?</label>
+              <input id="house" name="House" type="text" placeholder="Signature D, Kadijah’s Mango, Timeless Peace, Narine Estate, or not sure" />
+            </div>
+            <div>
+              <label for="message">What do you want to build?</label>
+              <textarea id="message" name="Message" placeholder="Share your vision, your timeline, and your biggest non-negotiables."></textarea>
+            </div>
+            <button type="submit" class="btn" style="margin-top:6px;">
+              Send Message to DSH
+            </button>
+          </form>
+        </div>
+        <div class="contact-details">
+          <span><strong>DeVirn Signature House, Inc.</strong></span>
+          <span>Parent company for Signature D, Kadijah’s Mango, Timeless Peace, Narine Estate, and the Founder’s Circle.</span>
+          <span style="margin-top:6px;">Email: <a href="mailto:narinedevirn@gmail.com">narinedevirn@gmail.com</a></span>
+          <span>Location: Florida, United States</span>
+          <span style="margin-top:6px;">
+            For formal proposals, collaborations, or grants, please note:
+            all work must respect <strong>dignity, ethics, and long-term impact</strong>.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <span class="label">DeVirn Signature House, Inc.</span>
+      <span>&copy; <span id="year"></span> One Empire. Five Houses. One Language.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Simple current year for footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
