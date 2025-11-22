@@ -6,13 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-main: #050608;
-      --bg-card: #0b1014;
-      --emerald: #0e3f3f;
-      --emerald-soft: #145555;
-      --gold: #f5c046;
-      --text-main: #f5f5f5;
-      --text-muted: #b8b8b8;
+      /* Night-drive Jaguar palette */
+      --bg-main: #050507;
+      --bg-card: #07070c;
+      --bg-soft: #0d0d16;
+
+      --accent-violet: #7a4dff;
+      --accent-blue: #3042ff;
+      --accent-glow: rgba(122, 77, 255, 0.4);
+
+      --gold: #f5f5f7;
+      --text-main: #f5f5f7;
+      --text-muted: #a7acb8;
       --border-soft: #252a30;
       --error: #ff6b6b;
     }
@@ -24,33 +29,37 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #10141a 0, #050608 55%);
+      background:
+        radial-gradient(circle at 10% 0, rgba(122,77,255,0.4), transparent 58%),
+        radial-gradient(circle at 90% 100%, rgba(48,66,255,0.42), transparent 60%),
+        radial-gradient(circle at 0 100%, rgba(10,10,16,0.9), transparent 65%),
+        var(--bg-main);
       color: var(--text-main);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       padding: 2rem 1rem;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
       max-width: 900px;
       margin: 0 auto;
-      background: linear-gradient(135deg, #050608, #090d11);
-      border-radius: 20px;
-      border: 1px solid rgba(245, 192, 70, 0.18);
+      background: linear-gradient(135deg, #050507, #080813);
+      border-radius: 22px;
+      border: 1px solid rgba(122,77,255,0.3);
       padding: 2.5rem 1.75rem 2.75rem;
       box-shadow:
-        0 26px 60px rgba(0, 0, 0, 0.75),
-        0 0 40px rgba(14, 63, 63, 0.55);
+        0 26px 60px rgba(0, 0, 0, 0.85),
+        0 0 40px var(--accent-glow);
       position: relative;
       overflow: hidden;
     }
 
-    /* Subtle frame edge */
     .page::before {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: 20px;
+      border-radius: 22px;
       border: 1px solid rgba(255, 255, 255, 0.03);
       pointer-events: none;
     }
@@ -63,7 +72,7 @@
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
@@ -71,10 +80,10 @@
     }
 
     h1 {
-      font-family: "Georgia", "Times New Roman", serif;
+      font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
       font-weight: 500;
       font-size: 1.9rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
     }
@@ -87,9 +96,11 @@
     }
 
     .quiz-card {
-      background: radial-gradient(circle at top left, #111922 0, #050608 55%);
+      background:
+        radial-gradient(circle at top left, rgba(122,77,255,0.32), transparent 60%),
+        radial-gradient(circle at bottom right, #0b0b16, #050507 70%);
       border-radius: 18px;
-      border: 1px solid var(--border-soft);
+      border: 1px solid rgba(255,255,255,0.06);
       padding: 1.8rem 1.4rem 2.1rem;
       margin-bottom: 1.6rem;
       position: relative;
@@ -98,7 +109,7 @@
 
     .quiz-grid {
       display: grid;
-      gap: 1.4rem;
+      gap: 1.5rem;
     }
 
     @media (min-width: 780px) {
@@ -111,8 +122,8 @@
     }
 
     .question {
-      border-bottom: 1px solid rgba(37, 42, 48, 0.8);
-      padding-bottom: 1rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(37, 42, 48, 0.65);
     }
 
     .question:last-of-type {
@@ -123,54 +134,85 @@
     .question-title {
       font-weight: 600;
       font-size: 0.98rem;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.7rem;
     }
 
     .options {
       display: grid;
-      gap: 0.45rem;
-    }
-
-    .option-label {
-      display: flex;
-      align-items: flex-start;
       gap: 0.5rem;
-      padding: 0.4rem 0.55rem;
-      border-radius: 10px;
-      transition: background 0.15s ease, border-color 0.15s ease,
-        transform 0.08s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .option-label:hover {
-      background: rgba(14, 63, 63, 0.14);
-      border-color: rgba(245, 192, 70, 0.3);
-      transform: translateY(-1px);
-      color: var(--text-main);
-    }
-
-    .option-label span.key {
-      font-weight: 600;
-      color: var(--gold);
-      min-width: 1.3rem;
     }
 
     .option-input {
       display: none;
     }
 
-    .option-input:checked + .option-label {
-      background: linear-gradient(135deg, rgba(14, 63, 63, 0.75), #050608);
-      border-color: var(--gold);
-      color: var(--text-main);
-      box-shadow: 0 0 0 1px rgba(245, 192, 70, 0.25);
+    .option-label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7,7,14,0.82);
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.08s ease,
+        color 0.18s ease;
     }
 
-    .option-input:checked + .option-label span.key {
+    .option-label::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.7);
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .key {
+      font-weight: 600;
       color: var(--gold);
+      font-size: 0.83rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .option-label:hover {
+      background: rgba(15,15,28,0.95);
+      border-color: rgba(122,77,255,0.8);
+      transform: translateY(-1px);
+      color: var(--text-main);
+      box-shadow: 0 0 0 1px rgba(122,77,255,0.35);
+    }
+
+    .option-input:checked + .option-label {
+      background: radial-gradient(circle at top left, rgba(122,77,255,0.7), #050507 70%);
+      border-color: rgba(255,255,255,0.82);
+      color: var(--text-main);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.3),
+        0 14px 32px rgba(0,0,0,0.9);
+    }
+
+    .option-input:checked + .option-label::before {
+      border-color: transparent;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.55),
+        0 0 12px rgba(122,77,255,0.9);
+      background: radial-gradient(circle, #ffffff, #7a4dff);
     }
 
     .actions {
@@ -179,27 +221,29 @@
       gap: 0.75rem;
       align-items: center;
       justify-content: space-between;
-      margin-top: 1.6rem;
+      margin-top: 1.8rem;
     }
 
     .btn-primary {
-      background: radial-gradient(circle at top, var(--gold), #d39b2d);
-      color: #1a1305;
+      background: linear-gradient(135deg, #7a4dff, #3042ff);
+      color: #f5f5ff;
       border: none;
       border-radius: 999px;
-      padding: 0.7rem 1.8rem;
+      padding: 0.7rem 1.9rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.06em;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.75),
-        0 0 20px rgba(245, 192, 70, 0.45);
-      transition: transform 0.1s ease, box-shadow 0.1s ease,
+        0 14px 34px rgba(0,0,0,0.9),
+        0 0 26px rgba(122,77,255,0.6);
+      transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
         filter 0.12s ease;
     }
 
@@ -207,15 +251,15 @@
       transform: translateY(-1px);
       filter: brightness(1.03);
       box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.85),
-        0 0 26px rgba(245, 192, 70, 0.6);
+        0 18px 46px rgba(0,0,0,1),
+        0 0 32px rgba(122,77,255,0.75);
     }
 
     .btn-primary:active {
       transform: translateY(0);
       box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.85),
-        0 0 16px rgba(245, 192, 70, 0.45);
+        0 9px 20px rgba(0,0,0,0.95),
+        0 0 18px rgba(122,77,255,0.5);
     }
 
     .btn-primary span.icon {
@@ -225,7 +269,7 @@
     .helper-text {
       font-size: 0.8rem;
       color: var(--text-muted);
-      max-width: 340px;
+      max-width: 360px;
     }
 
     .error {
@@ -239,8 +283,10 @@
       margin-top: 1.9rem;
       padding: 1.5rem 1.4rem 1.6rem;
       border-radius: 16px;
-      background: radial-gradient(circle at top right, #18222f 0, #050608 65%);
-      border: 1px solid rgba(245, 192, 70, 0.32);
+      background:
+        radial-gradient(circle at top right, rgba(48,66,255,0.45), transparent 60%),
+        radial-gradient(circle at bottom left, #050507 0, #050507 70%);
+      border: 1px solid rgba(255,255,255,0.25);
       display: none;
     }
 
@@ -250,7 +296,7 @@
       gap: 0.4rem;
       padding: 0.18rem 0.7rem;
       border-radius: 999px;
-      border: 1px solid rgba(245, 192, 70, 0.65);
+      border: 1px solid rgba(255,255,255,0.75);
       font-size: 0.75rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -259,9 +305,9 @@
     }
 
     .result-title {
-      font-family: "Georgia", "Times New Roman", serif;
+      font-family: "Playfair Display", "Georgia", "Times New Roman", serif;
       font-size: 1.15rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 0.2rem;
     }
@@ -288,11 +334,119 @@
       font-size: 0.9rem;
     }
 
+    /* Send results block */
+    .send-results {
+      margin-top: 1.4rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: none;
+      gap: 0.9rem;
+    }
+
+    .send-results-title {
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .send-results-grid {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    @media (min-width: 640px) {
+      .send-results-grid {
+        grid-template-columns: 1.1fr 1.1fr;
+        align-items: end;
+      }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .field-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+    }
+
+    .field-input,
+    .field-textarea {
+      background: rgba(5,5,10,0.95);
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 0.55rem 0.8rem;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .field-textarea {
+      border-radius: 12px;
+      min-height: 60px;
+      resize: vertical;
+    }
+
+    .field-input:focus,
+    .field-textarea:focus {
+      border-color: rgba(122,77,255,0.9);
+      box-shadow: 0 0 0 1px rgba(122,77,255,0.6);
+      background: rgba(8,8,16,1);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.75);
+      color: var(--gold);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.85);
+      transform: translateY(-1px);
+    }
+
+    .send-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.4rem;
+    }
+
     .footnote {
       margin-top: 1.5rem;
       font-size: 0.8rem;
       color: var(--text-muted);
       text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 2.2rem 1.4rem 2.4rem;
+      }
+      .actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .helper-text {
+        max-width: none;
+      }
     }
   </style>
 </head>
@@ -315,27 +469,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q1a" name="q1" value="A" />
             <label for="q1a" class="option-label">
-              <span class="key">A.</span> Visuals and branding that actually look like me.
+              <span class="option-text"><span class="key">A</span><span>Visuals and branding that actually look like me.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q1b" name="q1" value="B" />
             <label for="q1b" class="option-label">
-              <span class="key">B.</span> Clear messaging so people finally understand what I do.
+              <span class="option-text"><span class="key">B</span><span>Clear messaging so people finally understand what I do.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q1c" name="q1" value="C" />
             <label for="q1c" class="option-label">
-              <span class="key">C.</span> Better systems, organization, and flow in my business.
+              <span class="option-text"><span class="key">C</span><span>Better systems, organization, and flow in my business.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q1d" name="q1" value="D" />
             <label for="q1d" class="option-label">
-              <span class="key">D.</span> Support for community / nonprofit / impact work.
+              <span class="option-text"><span class="key">D</span><span>Support for community / nonprofit / impact work.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q1e" name="q1" value="E" />
             <label for="q1e" class="option-label">
-              <span class="key">E.</span> Identity clarity and leadership direction.
+              <span class="option-text"><span class="key">E</span><span>Identity clarity and leadership direction.</span></span>
             </label>
           </div>
         </div>
@@ -346,27 +500,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q2a" name="q2" value="A" />
             <label for="q2a" class="option-label">
-              <span class="key">A.</span> Expressive, bold, emotional.
+              <span class="option-text"><span class="key">A</span><span>Expressive, bold, emotional.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q2b" name="q2" value="B" />
             <label for="q2b" class="option-label">
-              <span class="key">B.</span> Thoughtful, logical, precise.
+              <span class="option-text"><span class="key">B</span><span>Thoughtful, logical, precise.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q2c" name="q2" value="C" />
             <label for="q2c" class="option-label">
-              <span class="key">C.</span> Structured, direct, efficient.
+              <span class="option-text"><span class="key">C</span><span>Structured, direct, efficient.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q2d" name="q2" value="D" />
             <label for="q2d" class="option-label">
-              <span class="key">D.</span> Warm, gentle, relational.
+              <span class="option-text"><span class="key">D</span><span>Warm, gentle, relational.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q2e" name="q2" value="E" />
             <label for="q2e" class="option-label">
-              <span class="key">E.</span> Visionary, big-picture, layered.
+              <span class="option-text"><span class="key">E</span><span>Visionary, big-picture, layered.</span></span>
             </label>
           </div>
         </div>
@@ -377,27 +531,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q3a" name="q3" value="A" />
             <label for="q3a" class="option-label">
-              <span class="key">A.</span> My brand doesn’t visually match who I really am.
+              <span class="option-text"><span class="key">A</span><span>My brand doesn’t visually match who I really am.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q3b" name="q3" value="B" />
             <label for="q3b" class="option-label">
-              <span class="key">B.</span> People misunderstand or oversimplify my work.
+              <span class="option-text"><span class="key">B</span><span>People misunderstand or oversimplify my work.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q3c" name="q3" value="C" />
             <label for="q3c" class="option-label">
-              <span class="key">C.</span> I’m losing time and money because I have no systems.
+              <span class="option-text"><span class="key">C</span><span>I’m losing time and money because I have no systems.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q3d" name="q3" value="D" />
             <label for="q3d" class="option-label">
-              <span class="key">D.</span> I don’t have the right structure to serve my community.
+              <span class="option-text"><span class="key">D</span><span>I don’t have the right structure to serve my community.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q3e" name="q3" value="E" />
             <label for="q3e" class="option-label">
-              <span class="key">E.</span> I know I’m called to more, but my next step is unclear.
+              <span class="option-text"><span class="key">E</span><span>I know I’m called to more, but my next step is unclear.</span></span>
             </label>
           </div>
         </div>
@@ -408,27 +562,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q4a" name="q4" value="A" />
             <label for="q4a" class="option-label">
-              <span class="key">A.</span> A strong, luxurious brand identity.
+              <span class="option-text"><span class="key">A</span><span>A strong, luxurious brand identity.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q4b" name="q4" value="B" />
             <label for="q4b" class="option-label">
-              <span class="key">B.</span> Clear words and messaging that feel like my truth.
+              <span class="option-text"><span class="key">B</span><span>Clear words and messaging that feel like my truth.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q4c" name="q4" value="C" />
             <label for="q4c" class="option-label">
-              <span class="key">C.</span> A smoother business with clear steps and structure.
+              <span class="option-text"><span class="key">C</span><span>A smoother business with clear steps and structure.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q4d" name="q4" value="D" />
             <label for="q4d" class="option-label">
-              <span class="key">D.</span> A real, sustainable impact program or initiative.
+              <span class="option-text"><span class="key">D</span><span>A real, sustainable impact program or initiative.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q4e" name="q4" value="E" />
             <label for="q4e" class="option-label">
-              <span class="key">E.</span> To step fully into my role as a leader/founder.
+              <span class="option-text"><span class="key">E</span><span>To step fully into my role as a leader/founder.</span></span>
             </label>
           </div>
         </div>
@@ -439,27 +593,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q5a" name="q5" value="A" />
             <label for="q5a" class="option-label">
-              <span class="key">A.</span> I’m ready now — my visuals are the priority.
+              <span class="option-text"><span class="key">A</span><span>I’m ready now — my visuals are the priority.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q5b" name="q5" value="B" />
             <label for="q5b" class="option-label">
-              <span class="key">B.</span> I’m ready now — clarity in words first.
+              <span class="option-text"><span class="key">B</span><span>I’m ready now — clarity in words first.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q5c" name="q5" value="C" />
             <label for="q5c" class="option-label">
-              <span class="key">C.</span> I’m ready now — I need structure and traction.
+              <span class="option-text"><span class="key">C</span><span>I’m ready now — I need structure and traction.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q5d" name="q5" value="D" />
             <label for="q5d" class="option-label">
-              <span class="key">D.</span> I’m ready now — my focus is community/impact.
+              <span class="option-text"><span class="key">D</span><span>I’m ready now — my focus is community/impact.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q5e" name="q5" value="E" />
             <label for="q5e" class="option-label">
-              <span class="key">E.</span> I’m ready now — I need founder-level guidance.
+              <span class="option-text"><span class="key">E</span><span>I’m ready now — I need founder-level guidance.</span></span>
             </label>
           </div>
         </div>
@@ -470,27 +624,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q6a" name="q6" value="A" />
             <label for="q6a" class="option-label">
-              <span class="key">A.</span> “I’m creative, expressive, and full of ideas.”
+              <span class="option-text"><span class="key">A</span><span>“I’m creative, expressive, and full of ideas.”</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q6b" name="q6" value="B" />
             <label for="q6b" class="option-label">
-              <span class="key">B.</span> “I’m a strategist and clear thinker.”
+              <span class="option-text"><span class="key">B</span><span>“I’m a strategist and clear thinker.”</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q6c" name="q6" value="C" />
             <label for="q6c" class="option-label">
-              <span class="key">C.</span> “I like order, structure, and getting things done.”
+              <span class="option-text"><span class="key">C</span><span>“I like order, structure, and getting things done.”</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q6d" name="q6" value="D" />
             <label for="q6d" class="option-label">
-              <span class="key">D.</span> “I’m empathetic and people come to me for support.”
+              <span class="option-text"><span class="key">D</span><span>“I’m empathetic and people come to me for support.”</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q6e" name="q6" value="E" />
             <label for="q6e" class="option-label">
-              <span class="key">E.</span> “I’m a leader with a big, long-term mission.”
+              <span class="option-text"><span class="key">E</span><span>“I’m a leader with a big, long-term mission.”</span></span>
             </label>
           </div>
         </div>
@@ -501,27 +655,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q7a" name="q7" value="A" />
             <label for="q7a" class="option-label">
-              <span class="key">A.</span> Photos, video, and visual identity.
+              <span class="option-text"><span class="key">A</span><span>Photos, video, and visual identity.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q7b" name="q7" value="B" />
             <label for="q7b" class="option-label">
-              <span class="key">B.</span> Messaging, copy, and how I speak online.
+              <span class="option-text"><span class="key">B</span><span>Messaging, copy, and how I speak online.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q7c" name="q7" value="C" />
             <label for="q7c" class="option-label">
-              <span class="key">C.</span> Systems, automations, and revenue flow.
+              <span class="option-text"><span class="key">C</span><span>Systems, automations, and revenue flow.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q7d" name="q7" value="D" />
             <label for="q7d" class="option-label">
-              <span class="key">D.</span> Programs, curriculum, or outreach for people.
+              <span class="option-text"><span class="key">D</span><span>Programs, curriculum, or outreach for people.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q7e" name="q7" value="E" />
             <label for="q7e" class="option-label">
-              <span class="key">E.</span> Identity/leadership audit and strategic direction.
+              <span class="option-text"><span class="key">E</span><span>Identity/leadership audit and strategic direction.</span></span>
             </label>
           </div>
         </div>
@@ -532,27 +686,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q8a" name="q8" value="A" />
             <label for="q8a" class="option-label">
-              <span class="key">A.</span> Creative ideas, aesthetic help, content.
+              <span class="option-text"><span class="key">A</span><span>Creative ideas, aesthetic help, content.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q8b" name="q8" value="B" />
             <label for="q8b" class="option-label">
-              <span class="key">B.</span> Advice, clarity, or problem-solving.
+              <span class="option-text"><span class="key">B</span><span>Advice, clarity, or problem-solving.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q8c" name="q8" value="C" />
             <label for="q8c" class="option-label">
-              <span class="key">C.</span> Organizing, planning, and execution.
+              <span class="option-text"><span class="key">C</span><span>Organizing, planning, and execution.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q8d" name="q8" value="D" />
             <label for="q8d" class="option-label">
-              <span class="key">D.</span> Support, listening, and emotional safety.
+              <span class="option-text"><span class="key">D</span><span>Support, listening, and emotional safety.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q8e" name="q8" value="E" />
             <label for="q8e" class="option-label">
-              <span class="key">E.</span> Leadership, vision, and decisions.
+              <span class="option-text"><span class="key">E</span><span>Leadership, vision, and decisions.</span></span>
             </label>
           </div>
         </div>
@@ -563,27 +717,27 @@
           <div class="options">
             <input type="radio" class="option-input" id="q9a" name="q9" value="A" />
             <label for="q9a" class="option-label">
-              <span class="key">A.</span> Brand visuals.
+              <span class="option-text"><span class="key">A</span><span>Brand visuals.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q9b" name="q9" value="B" />
             <label for="q9b" class="option-label">
-              <span class="key">B.</span> Communication.
+              <span class="option-text"><span class="key">B</span><span>Communication.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q9c" name="q9" value="C" />
             <label for="q9c" class="option-label">
-              <span class="key">C.</span> Structure.
+              <span class="option-text"><span class="key">C</span><span>Structure.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q9d" name="q9" value="D" />
             <label for="q9d" class="option-label">
-              <span class="key">D.</span> Community.
+              <span class="option-text"><span class="key">D</span><span>Community.</span></span>
             </label>
 
             <input type="radio" class="option-input" id="q9e" name="q9" value="E" />
             <label for="q9e" class="option-label">
-              <span class="key">E.</span> Leadership identity.
+              <span class="option-text"><span class="key">E</span><span>Leadership identity.</span></span>
             </label>
           </div>
         </div>
@@ -609,6 +763,37 @@
         <p class="result-body" id="resultSummary"></p>
         <p class="result-highlight" id="resultServiceLabel"></p>
         <p class="result-service" id="resultServiceDetail"></p>
+
+        <!-- Send results to DSH -->
+        <div id="sendResults" class="send-results">
+          <div class="send-results-grid">
+            <div>
+              <div class="send-results-title">Send these results to DeVirn Signature House to get started.</div>
+              <div class="field-group">
+                <label for="clientName" class="field-label">Your name</label>
+                <input id="clientName" class="field-input" type="text" placeholder="Your full name" />
+              </div>
+              <div class="field-group" style="margin-top:0.6rem;">
+                <label for="clientEmail" class="field-label">Email</label>
+                <input id="clientEmail" class="field-input" type="email" placeholder="you@example.com" />
+              </div>
+            </div>
+            <div>
+              <div class="field-group">
+                <label for="clientNote" class="field-label">Anything we should know?</label>
+                <textarea id="clientNote" class="field-textarea" placeholder="Optional note, budget, or timeline."></textarea>
+              </div>
+              <div style="margin-top:0.7rem; display:flex; justify-content:flex-start;">
+                <button type="button" class="btn-outline" id="sendEmailBtn">
+                  <span>Send my results</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="send-note">
+            Clicking “Send my results” will open your email app with a pre-filled message to narinedevirn@gmail.com so we can contact you personally.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -627,6 +812,11 @@
       const resultSummary = document.getElementById("resultSummary");
       const resultServiceLabel = document.getElementById("resultServiceLabel");
       const resultServiceDetail = document.getElementById("resultServiceDetail");
+      const sendResultsBlock = document.getElementById("sendResults");
+      const sendEmailBtn = document.getElementById("sendEmailBtn");
+      const nameInput = document.getElementById("clientName");
+      const emailInput = document.getElementById("clientEmail");
+      const noteInput = document.getElementById("clientNote");
 
       const houseData = {
         A: {
@@ -676,6 +866,8 @@
         }
       };
 
+      let lastResultKey = null;
+
       button.addEventListener("click", function () {
         errorMsg.style.display = "none";
 
@@ -685,6 +877,8 @@
           if (!selected) {
             errorMsg.style.display = "block";
             resultCard.style.display = "none";
+            sendResultsBlock.style.display = "none";
+            lastResultKey = null;
             return;
           }
           answers.push(selected.value);
@@ -708,6 +902,7 @@
         });
 
         const data = houseData[bestKey];
+        lastResultKey = bestKey;
 
         resultHouse.textContent = "Your House: " + data.houseName;
         resultTagline.textContent = data.tagline;
@@ -716,8 +911,45 @@
         resultServiceDetail.textContent = data.serviceDetail;
 
         resultCard.style.display = "block";
+        sendResultsBlock.style.display = "grid";
         resultCard.scrollIntoView({ behavior: "smooth", block: "start" });
       });
+
+      if (sendEmailBtn) {
+        sendEmailBtn.addEventListener("click", function () {
+          if (!lastResultKey) return;
+
+          const name = nameInput.value.trim() || "—";
+          const email = emailInput.value.trim() || "—";
+          const note = noteInput.value.trim() || "—";
+          const data = houseData[lastResultKey];
+
+          const subject = encodeURIComponent("Signature Code™ Quiz Results — " + data.houseName);
+          const bodyLines = [
+            "Hi DeVirn,",
+            "",
+            "Here are my Signature Code™ quiz results:",
+            "",
+            "House: " + data.houseName,
+            "Tagline: " + data.tagline,
+            "",
+            data.summary,
+            "",
+            data.serviceLabel,
+            data.serviceDetail,
+            "",
+            "Client details:",
+            "Name: " + name,
+            "Email: " + email,
+            "Note: " + note,
+            "",
+            "I’d like to talk about getting started with this recommendation."
+          ];
+
+          const body = encodeURIComponent(bodyLines.join("\n"));
+          window.location.href = "mailto:narinedevirn@gmail.com?subject=" + subject + "&body=" + body;
+        });
+      }
     })();
   </script>
 </body>
