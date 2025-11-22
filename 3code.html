@@ -537,7 +537,12 @@
       margin-top: 1.2rem;
     }
 
+    /* make cards work as links */
     .suite-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+
       border-radius: 16px;
       background: #07070c;
       border: 1px solid var(--border-soft);
@@ -984,7 +989,7 @@
           </p>
 
           <div class="suites">
-            <div class="suite-card">
+            <a href="index.html" class="suite-card">
               <div class="suite-tag">Vision · Signature D</div>
               <div class="suite-title">Visual Suite</div>
               <div class="suite-body">
@@ -994,9 +999,9 @@
                 <strong>From:</strong> $299 – $1,500<br>
                 <strong>Timeline:</strong> 3–10 days
               </div>
-            </div>
+            </a>
 
-            <div class="suite-card">
+            <a href="mango.html" class="suite-card">
               <div class="suite-tag">Voice · Kadijah’s Mango</div>
               <div class="suite-title">Communications Suite</div>
               <div class="suite-body">
@@ -1006,9 +1011,9 @@
                 <strong>From:</strong> $149 – $899<br>
                 <strong>Timeline:</strong> 2–14 days
               </div>
-            </div>
+            </a>
 
-            <div class="suite-card">
+            <a href="dsh-business.html" class="suite-card">
               <div class="suite-tag">Structure · DSH</div>
               <div class="suite-title">Profit Blueprint</div>
               <div class="suite-body">
@@ -1018,9 +1023,9 @@
                 <strong>From:</strong> $199 – $999<br>
                 <strong>Timeline:</strong> 2–14 days
               </div>
-            </div>
+            </a>
 
-            <div class="suite-card">
+            <a href="timelesspeace.html" class="suite-card">
               <div class="suite-tag">Impact · Timeless Peace</div>
               <div class="suite-title">Program Partnerships</div>
               <div class="suite-body">
@@ -1030,7 +1035,7 @@
                 <strong>From:</strong> $0 – $2,500<br>
                 <strong>Timeline:</strong> 1–6 weeks
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -1068,7 +1073,6 @@
     (function () {
       const body = document.body;
       const toggle = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".nav");
       const links = document.querySelectorAll(".nav a[href^='#']");
 
       if (toggle) {
