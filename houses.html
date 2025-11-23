@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Five Houses | DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="One Empire. Five Houses. Explore FIRE, WATER, AIR, EARTH, and AETHER — the governing Houses of DeVirn Signature House, Inc." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* EMPIRE CORE (DSH / Signature Code™) */
+      --bg: #050607;              /* matte black */
+      --bg-soft: #090c0d;         /* slight gloss */
+      --bg-elevated: #0b1013;     /* cards */
+      --ink: #f5f5f5;
+      --ink-soft: #b9c0c7;
+      --gold: #f5c046;
+      --gold-soft: rgba(245, 192, 70, 0.2);
+      --emerald: #0e3f3f;
+
+      /* FIRE · Signature D */
+      --fire-ivory: #f5f3ef;
+      --fire-gold: #f5c046;
+      --fire-emerald: #0e3f3f;
+
+      /* WATER · Timeless Peace */
+      --water-deep: #020712;
+      --water-soft: #071524;
+      --water-blue: #73c5ff;
+      --water-olive: #7bc9a2;
+
+      /* AIR · Kadijah’s Mango */
+      --air-night: #050711;
+      --air-blue: #1c3a6b;
+      --air-gold: #f4c86b;
+      --air-mango: #f8a94b;
+
+      /* EARTH · Narine Estate */
+      --earth-parchment: #f4f0e6;
+      --earth-parchment-soft: #f8f4ec;
+      --earth-ink: #152023;
+      --earth-green: #3b5a46;
+      --earth-bronze: #b08a4a;
+
+      /* AETHER · Founder’s Circle */
+      --aether-night: #120417;
+      --aether-plum: #2b1338;
+      --aether-violet: #5f3a88;
+      --aether-gold: #f5d48c;
+
+      --radius-lg: 26px;
+      --radius-xl: 32px;
+      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.6);
+      --shadow-subtle: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --border-soft: 1px solid rgba(255, 255, 255, 0.06);
+      --transition-fast: 180ms ease-out;
+      --transition-med: 260ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(245, 192, 70, 0.13), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(14, 63, 63, 0.5), transparent 55%),
+        linear-gradient(145deg, #020304, #050607 40%, #030405 100%);
+      color: #f5f5f5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* EMPIRE CREST STRIP */
+    .empire-bar {
+      max-width: 1120px;
+      margin: 14px auto 0;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 192, 70, 0.45);
+      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.16), rgba(5, 6, 7, 0.96));
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .empire-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .crest {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 192, 70, 0.75);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%),
+        radial-gradient(circle at bottom, rgba(14, 63, 63, 0.75), #050607);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .empire-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .empire-name {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: #f5f3ef;
+    }
+
+    .empire-subline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(219, 225, 232, 0.86);
+    }
+
+    .empire-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .empire-links a {
+      text-decoration: none;
+      color: rgba(245, 192, 70, 0.88);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 192, 70, 0.35);
+      background: rgba(5, 6, 7, 0.85);
+      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .empire-links a:hover {
+      background: rgba(245, 192, 70, 0.12);
+      transform: translateY(-1px);
+      border-color: rgba(245, 192, 70, 0.8);
+    }
+
+    @media (max-width: 640px) {
+      .empire-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 24px;
+      }
+      .empire-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 26px 20px 72px;
+    }
+
+    header.page-header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 42px;
+      margin-top: 18px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 192, 70, 0.3);
+      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.15), rgba(5, 6, 7, 0.9));
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 12px rgba(245, 192, 70, 0.8);
+    }
+
+    h1 {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-weight: 600;
+      font-size: clamp(32px, 4vw, 40px);
+      letter-spacing: 0.03em;
+      color: #ffffff;
+    }
+
+    .headline-sub {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .headline-sub span.label {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--ink-soft);
+      opacity: 0.85;
+    }
+
+    .headline-sub span.divider {
+      width: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(245, 192, 70, 0.8), transparent);
+    }
+
+    p.lead {
+      max-width: 680px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      font-size: 11px;
+    }
+
+    .legend-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(185, 192, 199, 0.28);
+      background: rgba(9, 12, 13, 0.9);
+      color: var(--ink-soft);
+    }
+
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+    }
+
+    .legend-swatch.fire { background: var(--fire-gold); }
+    .legend-swatch.water { background: var(--water-blue); }
+    .legend-swatch.air { background: var(--air-mango); }
+    .legend-swatch.earth { background: var(--earth-green); }
+    .legend-swatch.aether { background: var(--aether-violet); }
+
+    .houses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .houses-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 16px;
+      }
+      .houses-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .house-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      padding: 18px 16px 18px;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), rgba(4, 6, 8, 0.95));
+      border: var(--border-soft);
+      box-shadow: var(--shadow-subtle);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      isolation: isolate;
+      transition: transform var(--transition-med),
+                  box-shadow var(--transition-med),
+                  border-color var(--transition-fast),
+                  background var(--transition-med);
+    }
+
+    .house-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+      transition: opacity var(--transition-med);
+      z-index: -1;
+    }
+
+    .house-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-soft);
+      border-color: rgba(245, 192, 70, 0.6);
+    }
+
+    .house-card:hover::before {
+      opacity: 0.28;
+    }
+
+    .house-topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      backdrop-filter: blur(12px);
+      background: rgba(5, 7, 11, 0.92);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    .house-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(236, 240, 244, 0.9);
+      margin-bottom: 4px;
+    }
+
+    .house-name {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .house-aka {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(197, 205, 214, 0.9);
+      margin-bottom: 10px;
+    }
+
+    .house-copy {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .house-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: rgba(188, 196, 204, 0.96);
+    }
+
+    .house-footer span.role {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .house-footer span.cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .house-footer span.cta-icon {
+      font-size: 13px;
+      transform: translateY(1px);
+    }
+
+    /* FIRE styling */
+    .house-card.fire::before {
+      background:
+        radial-gradient(circle at top left, rgba(245, 192, 70, 0.35), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(14, 63, 63, 0.7), transparent 55%);
+    }
+    .house-card.fire {
+      background:
+        radial-gradient(circle at top left, rgba(245, 192, 70, 0.18), rgba(5, 6, 7, 0.96));
+      border-color: rgba(245, 192, 70, 0.55);
+    }
+    .badge.fire .badge-dot {
+      background: var(--fire-gold);
+      border: 1px solid rgba(245, 192, 70, 0.8);
+    }
+
+    /* WATER styling */
+    .house-card.water::before {
+      background:
+        radial-gradient(circle at top left, rgba(115, 197, 255, 0.45), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(123, 201, 162, 0.35), transparent 60%);
+    }
+    .house-card.water {
+      background:
+        radial-gradient(circle at top left, rgba(115, 197, 255, 0.2), rgba(2, 7, 18, 0.95));
+      border-color: rgba(115, 197, 255, 0.48);
+    }
+    .badge.water .badge-dot {
+      background: var(--water-blue);
+      border: 1px solid rgba(115, 197, 255, 0.9);
+    }
+
+    /* AIR styling */
+    .house-card.air::before {
+      background:
+        radial-gradient(circle at top left, rgba(244, 200, 107, 0.35), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(248, 169, 75, 0.4), transparent 60%);
+    }
+    .house-card.air {
+      background:
+        radial-gradient(circle at top left, rgba(248, 169, 75, 0.16), rgba(5, 7, 17, 0.96));
+      border-color: rgba(244, 200, 107, 0.55);
+    }
+    .badge.air .badge-dot {
+      background: var(--air-mango);
+      border: 1px solid rgba(248, 169, 75, 0.9);
+    }
+
+    /* EARTH styling */
+    .house-card.earth::before {
+      background:
+        radial-gradient(circle at top left, rgba(244, 240, 230, 0.3), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(59, 90, 70, 0.7), transparent 60%);
+    }
+    .house-card.earth {
+      background:
+        radial-gradient(circle at top left, rgba(244, 240, 230, 0.2), rgba(8, 10, 9, 0.96));
+      border-color: rgba(59, 90, 70, 0.6);
+    }
+    .badge.earth .badge-dot {
+      background: var(--earth-green);
+      border: 1px solid rgba(59, 90, 70, 0.9);
+    }
+
+    /* AETHER styling */
+    .house-card.aether::before {
+      background:
+        radial-gradient(circle at top left, rgba(95, 58, 136, 0.45), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(245, 212, 140, 0.34), transparent 60%);
+    }
+    .house-card.aether {
+      background:
+        radial-gradient(circle at top left, rgba(95, 58, 136, 0.26), rgba(11, 5, 19, 0.97));
+      border-color: rgba(245, 212, 140, 0.55);
+    }
+    .badge.aether .badge-dot {
+      background: var(--aether-violet);
+      border: 1px solid rgba(95, 58, 136, 0.9);
+    }
+
+  </style>
+</head>
+<body>
+  <!-- EMPIRE CREST STRIP -->
+  <div class="empire-bar">
+    <div class="empire-left">
+      <div class="crest">DSH</div>
+      <div class="empire-text">
+        <div class="empire-name">DeVirn Signature House, Inc.</div>
+        <div class="empire-subline">One Empire · Five Houses · One Language</div>
+      </div>
+    </div>
+    <div class="empire-links">
+      <!-- Update these hrefs if your filenames differ -->
+      <a href="3code.html">Signature Code™</a>
+      <a href="houses.html">The Houses</a>
+    </div>
+  </div>
+
+  <main class="page">
+    <header class="page-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span>DeVirn Signature House, Inc.</span>
+      </div>
+
+      <div class="headline-sub">
+        <span class="label">One Empire. Five Houses. One Language.</span>
+        <span class="divider"></span>
+      </div>
+
+      <h1>The Houses of the Empire</h1>
+
+      <p class="lead">
+        Each House is a world, a professional lane, and a personality channel. Together they form one
+        coherent system: FIRE for expression, WATER for care, AIR for communication, EARTH for estates,
+        and AETHER for founders and guardians of the Signature Code™.
+      </p>
+
+      <div class="legend">
+        <div class="legend-pill">
+          <span class="legend-swatch fire"></span> FIRE · Signature D
+        </div>
+        <div class="legend-pill">
+          <span class="legend-swatch water"></span> WATER · Timeless Peace
+        </div>
+        <div class="legend-pill">
+          <span class="legend-swatch air"></span> AIR · Kadijah’s Mango
+        </div>
+        <div class="legend-pill">
+          <span class="legend-swatch earth"></span> EARTH · Narine Estate
+        </div>
+        <div class="legend-pill">
+          <span class="legend-swatch aether"></span> AETHER · Founder’s Circle
+        </div>
+      </div>
+    </header>
+
+    <section class="houses-grid">
+      <!-- Update these hrefs if your actual filenames differ -->
+
+      <!-- FIRE -->
+      <a class="house-card fire" href="signatured.html">
+        <div class="house-topline">
+          <div class="badge fire">
+            <span class="badge-dot"></span>
+            <span>FIRE HOUSE</span>
+          </div>
+          <span class="house-tag">Creative Direction · Visual Studio</span>
+        </div>
+        <div>
+          <div class="house-name">Signature D</div>
+          <div class="house-aka">The FIRE House · Luxury Visual Studio</div>
+          <p class="house-copy">
+            Photography, cinematic media, and brand expression built as heirloom-quality visuals.
+            Warm ivory, gold, and deep emerald anchor the Signature D look — clean, cinematic, and enduring.
+          </p>
+        </div>
+        <div class="house-footer">
+          <span class="role">Expression &amp; Presence</span>
+          <span class="cta">Enter FIRE <span class="cta-icon">↗</span></span>
+        </div>
+      </a>
+
+      <!-- WATER -->
+      <a class="house-card water" href="timelesspeace.html">
+        <div class="house-topline">
+          <div class="badge water">
+            <span class="badge-dot"></span>
+            <span>WATER HOUSE</span>
+          </div>
+          <span class="house-tag">Hospice · Healing · Partnerships</span>
+        </div>
+        <div>
+          <div class="house-name">Timeless Peace Foundation</div>
+          <div class="house-aka">The WATER House · Dignity in Care</div>
+          <p class="house-copy">
+            Free, compassionate hospice and healing partnerships for mothers, children, elders, and
+            communities. Ocean-dove blue, bright white, and olive-branch green signal calm, safety, and mercy.
+          </p>
+        </div>
+        <div class="house-footer">
+          <span class="role">Care &amp; Compassion</span>
+          <span class="cta">Enter WATER <span class="cta-icon">↗</span></span>
+        </div>
+      </a>
+
+      <!-- AIR -->
+      <a class="house-card air" href="kadijahsmango.html">
+        <div class="house-topline">
+          <div class="badge air">
+            <span class="badge-dot"></span>
+            <span>AIR HOUSE</span>
+          </div>
+          <span class="house-tag">Global Communication · Halal-First Brands</span>
+        </div>
+        <div>
+          <div class="house-name">Kadijah’s Mango</div>
+          <div class="house-aka">The AIR House · Global Language Studio</div>
+          <p class="house-copy">
+            Messaging, packaging, and communication for halal-aligned and globally aware brands.
+            Night blue, Moroccan gold, and mango tones carry the AIR signature — clear, intelligent, and warm.
+          </p>
+        </div>
+        <div class="house-footer">
+          <span class="role">Language &amp; Translation</span>
+          <span class="cta">Enter AIR <span class="cta-icon">↗</span></span>
+        </div>
+      </a>
+
+      <!-- EARTH -->
+      <a class="house-card earth" href="narineestate.html">
+        <div class="house-topline">
+          <div class="badge earth">
+            <span class="badge-dot"></span>
+            <span>EARTH HOUSE</span>
+          </div>
+          <span class="house-tag">Estates · Land · Heritage Brands</span>
+        </div>
+        <div>
+          <div class="house-name">Narine Estate</div>
+          <div class="house-aka">The EARTH House · Business Atelier</div>
+          <p class="house-copy">
+            Heritage-standard business solutions for land, product, and estate-based brands — including
+            Narine Estate Olive Oil. Parchment, estate green, and bronze create a grounded, archival feeling.
+          </p>
+        </div>
+        <div class="house-footer">
+          <span class="role">Structure &amp; Stewardship</span>
+          <span class="cta">Enter EARTH <span class="cta-icon">↗</span></span>
+        </div>
+      </a>
+
+      <!-- AETHER -->
+      <a class="house-card aether" href="aether.html">
+        <div class="house-topline">
+          <div class="badge aether">
+            <span class="badge-dot"></span>
+            <span>AETHER HOUSE</span>
+          </div>
+          <span class="house-tag">Founders · Guardians · Signature Code™</span>
+        </div>
+        <div>
+          <div class="house-name">Founder’s Circle</div>
+          <div class="house-aka">The AETHER House · Inner Orbit</div>
+          <p class="house-copy">
+            Reserved for founders, boards, and guardians who steward the Signature Code™ and the
+            long-term architecture of the Empire. Deep plum, starlight violet, and soft gold mark this tier.
+          </p>
+        </div>
+        <div class="house-footer">
+          <span class="role">Governance &amp; Legacy</span>
+          <span class="cta">Enter AETHER <span class="cta-icon">↗</span></span>
+        </div>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
