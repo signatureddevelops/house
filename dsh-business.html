@@ -18,11 +18,11 @@
       --estate-navy: #1b2940;  /* saddle navy */
       --estate-gold: #d4b46a;  /* brushed gold */
       --border-soft: rgba(18, 53, 45, 0.12);
-      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.08);
-      --radius-xl: 22px;
+      --shadow-soft: 0 18px 46px rgba(0, 0, 0, 0.08);
+      --radius-xl: 20px;
       --radius-pill: 999px;
-      --transition-fast: 180ms ease-out;
-      --max-width: 1120px;
+      --transition-fast: 160ms ease-out;
+      --max-width: 1040px;
     }
 
     * {
@@ -33,7 +33,7 @@
       margin: 0;
       padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fdf8ee 0, var(--bg) 48%, #ebe3d5 100%);
+      background: radial-gradient(circle at top, #fdf8ee 0, var(--bg) 52%, #ebe3d5 100%);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
     }
@@ -44,35 +44,141 @@
       flex-direction: column;
     }
 
-    .shell {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 20px 64px;
+    /* GLOBAL DSH HEADER */
+    .site-header {
+      background: #050607;
+      border-bottom: 1px solid rgba(245, 192, 70, 0.25);
+      color: #f7f3ea;
     }
 
-    /* Top bar */
-    .top-bar {
+    .site-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 28px;
-      font-size: 13px;
+    }
+
+    .site-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .site-mark-initials {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 192, 70, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(245, 192, 70, 0.8), rgba(85, 65, 24, 1));
+      color: #0b0904;
+    }
+
+    .site-mark-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .site-mark-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .site-mark-tagline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: rgba(244, 239, 226, 0.9);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color 150ms ease-out, border-color 150ms ease-out, opacity 150ms ease-out;
+      white-space: nowrap;
+    }
+
+    .site-nav a:hover {
+      color: #ffffff;
+      border-color: rgba(245, 192, 70, 0.7);
+    }
+
+    .site-nav a.is-active {
+      color: #f5c046;
+      border-color: #f5c046;
+    }
+
+    @media (max-width: 880px) {
+      .site-shell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-inline: 14px;
+      }
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px 18px 40px;
+    }
+
+    /* Top bar (EARTH local label) */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      font-size: 12px;
     }
 
     .top-id {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 6px 14px;
+      gap: 8px;
+      padding: 5px 12px;
       border-radius: var(--radius-pill);
-      background: rgba(27, 41, 64, 0.06);
+      background: rgba(27, 41, 64, 0.05);
       border: 1px solid rgba(19, 37, 52, 0.12);
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--estate-navy);
+      white-space: nowrap;
     }
 
     .top-id span.dot {
@@ -85,8 +191,9 @@
     .top-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 6px;
       color: var(--ink-soft);
+      white-space: nowrap;
     }
 
     .top-right small {
@@ -96,11 +203,11 @@
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.2fr);
-      gap: 32px;
-      padding: 32px 26px 30px;
+      grid-template-columns: minmax(0, 3fr) minmax(260px, 2.1fr);
+      gap: 24px;
+      padding: 22px 22px 20px;
       background: linear-gradient(135deg, rgba(18, 53, 45, 0.04), rgba(27, 41, 64, 0.04));
-      border-radius: 28px;
+      border-radius: 24px;
       border: 1px solid rgba(18, 53, 45, 0.12);
       box-shadow: var(--shadow-soft);
       position: relative;
@@ -112,8 +219,8 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at top left, rgba(212, 180, 106, 0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(18, 53, 45, 0.18), transparent 55%);
+        radial-gradient(circle at top left, rgba(212, 180, 106, 0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(18, 53, 45, 0.16), transparent 55%);
       opacity: 0.7;
       pointer-events: none;
     }
@@ -124,27 +231,27 @@
     }
 
     .hero-kicker {
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--estate-green);
-      margin-bottom: 10px;
+      margin-bottom: 6px;
     }
 
     .hero-title {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 34px;
-      line-height: 1.12;
-      margin: 0 0 12px;
+      font-size: 30px;
+      line-height: 1.16;
+      margin: 0 0 8px;
       color: var(--estate-navy);
     }
 
     .hero-sub {
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.6;
       color: var(--ink-soft);
-      max-width: 540px;
-      margin-bottom: 22px;
+      max-width: 520px;
+      margin: 0 0 18px;
     }
 
     .hero-sub strong {
@@ -156,41 +263,42 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 14px;
-      margin-bottom: 12px;
+      gap: 10px;
+      margin: 0;
     }
 
     .btn-primary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 11px 22px;
+      gap: 6px;
+      padding: 10px 20px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(0, 0, 0, 0.12);
       background: linear-gradient(135deg, var(--estate-green), var(--estate-navy));
       color: #fdfaf3;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       text-decoration: none;
       cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background 220ms ease-out;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background 200ms ease-out;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      white-space: nowrap;
     }
 
     .btn-primary span.arrow {
-      font-size: 15px;
+      font-size: 14px;
       transform: translateY(1px);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 46px rgba(0, 0, 0, 0.24);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
       background: linear-gradient(135deg, #164538, #223252);
     }
 
     .hero-note {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--ink-soft);
       opacity: 0.9;
     }
@@ -199,60 +307,61 @@
     .hero-card {
       position: relative;
       z-index: 1;
-      border-radius: 22px;
-      padding: 18px 18px 20px;
-      background: linear-gradient(145deg, rgba(244, 240, 230, 0.94), rgba(239, 229, 211, 0.98));
+      border-radius: 20px;
+      padding: 14px 14px 16px;
+      background: linear-gradient(145deg, rgba(244, 240, 230, 0.96), rgba(239, 229, 211, 0.98));
       border: 1px solid rgba(212, 180, 106, 0.55);
-      box-shadow: 0 18px 38px rgba(150, 130, 90, 0.35);
+      box-shadow: 0 14px 32px rgba(150, 130, 90, 0.32);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 8px;
     }
 
     .hero-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
     }
 
     .hero-card-title {
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--estate-navy);
     }
 
     .crest-circle {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       border-radius: 999px;
       border: 1px solid rgba(18, 53, 45, 0.4);
       background:
         radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.8), transparent 60%),
-        radial-gradient(circle at 80% 90%, rgba(18, 53, 45, 0.8), rgba(27, 41, 64, 1));
+        radial-gradient(circle at 80% 90%, rgba(18, 53, 45, 0.85), rgba(27, 41, 64, 1));
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Playfair Display", serif;
-      font-size: 17px;
+      font-size: 15px;
       color: #fdf9f0;
     }
 
     .hero-card-body {
       font-size: 12px;
       color: #4d4b45;
-      line-height: 1.7;
+      line-height: 1.6;
+      margin: 0;
     }
 
     .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: var(--radius-pill);
       border: 1px dashed rgba(18, 53, 45, 0.35);
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: #665b40;
@@ -268,10 +377,10 @@
 
     /* Main content */
     .main {
-      margin-top: 32px;
+      margin-top: 20px;
       display: grid;
       grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 26px;
+      gap: 18px;
     }
 
     @media (max-width: 880px) {
@@ -285,16 +394,16 @@
 
     @media (max-width: 640px) {
       .shell {
-        padding-inline: 16px;
+        padding-inline: 14px;
       }
       .hero {
-        padding: 24px 18px 22px;
+        padding: 18px 14px 16px;
       }
       .hero-title {
-        font-size: 28px;
+        font-size: 26px;
       }
       .hero-sub {
-        font-size: 13px;
+        font-size: 12px;
       }
     }
 
@@ -302,94 +411,95 @@
       background: var(--bg-soft);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-soft);
-      padding: 22px 22px 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
     }
 
     .section-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
     .section-title {
       font-family: "Playfair Display", serif;
-      font-size: 20px;
+      font-size: 18px;
       margin: 0;
       color: var(--estate-navy);
     }
 
     .section-tag {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--ink-soft);
       opacity: 0.9;
+      white-space: nowrap;
     }
 
     .section p {
-      font-size: 13px;
-      line-height: 1.7;
+      font-size: 12px;
+      line-height: 1.6;
       color: var(--ink-soft);
-      margin: 0 0 12px;
+      margin: 0 0 8px;
     }
 
     .pill-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      margin-bottom: 4px;
+      gap: 6px;
+      margin-top: 8px;
     }
 
     .pill {
-      padding: 6px 11px;
+      padding: 5px 9px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(21, 32, 35, 0.16);
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--estate-navy);
-      background: rgba(244, 240, 230, 0.8);
+      background: rgba(244, 240, 230, 0.9);
+      white-space: nowrap;
     }
 
     /* Offer card */
     .offer-card {
-      border-radius: 18px;
-      border: 1px solid rgba(18, 53, 45, 0.25);
-      background: linear-gradient(135deg, rgba(244, 240, 230, 0.96), rgba(236, 227, 209, 0.98));
-      padding: 16px 16px 14px;
-      box-shadow: 0 16px 32px rgba(140, 115, 71, 0.22);
+      border-radius: 16px;
+      border: 1px solid rgba(18, 53, 45, 0.24);
+      background: linear-gradient(135deg, rgba(244, 240, 230, 0.97), rgba(236, 227, 209, 0.99));
+      padding: 14px 14px 12px;
+      box-shadow: 0 14px 28px rgba(140, 115, 71, 0.2);
     }
 
     .offer-label {
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #7d6a43;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .offer-name {
       font-family: "Playfair Display", serif;
-      font-size: 18px;
-      margin: 0 0 8px;
+      font-size: 17px;
+      margin: 0 0 6px;
       color: #1e2730;
     }
 
     .offer-sub {
       font-size: 12px;
       color: #5a564b;
-      margin-bottom: 10px;
+      margin: 0 0 8px;
     }
 
     .offer-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin: 0 0 6px;
       font-size: 11px;
       color: #6f6a5f;
     }
@@ -410,7 +520,7 @@
     .offer-footer-note {
       font-size: 11px;
       color: #766f60;
-      margin-top: 4px;
+      margin: 4px 0 0;
       font-style: italic;
     }
 
@@ -418,16 +528,16 @@
     .list {
       list-style: none;
       padding: 0;
-      margin: 4px 0 2px;
+      margin: 4px 0 0;
     }
 
     .list li {
       position: relative;
-      padding-left: 18px;
-      font-size: 13px;
-      line-height: 1.7;
+      padding-left: 16px;
+      font-size: 12px;
+      line-height: 1.6;
       color: var(--ink-soft);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .list li::before {
@@ -435,7 +545,7 @@
       position: absolute;
       left: 6px;
       top: 1px;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--estate-green);
     }
 
@@ -443,8 +553,8 @@
     .timeline {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 6px;
+      gap: 10px;
+      margin-top: 4px;
     }
 
     @media (max-width: 720px) {
@@ -454,56 +564,170 @@
     }
 
     .step {
-      border-radius: 14px;
-      border: 1px dashed rgba(18, 53, 45, 0.28);
-      padding: 10px 11px 9px;
-      background: rgba(244, 240, 230, 0.85);
+      border-radius: 12px;
+      border: 1px dashed rgba(18, 53, 45, 0.26);
+      padding: 8px 9px 8px;
+      background: rgba(244, 240, 230, 0.9);
     }
 
     .step-label {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--estate-navy);
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .step-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       color: var(--ink);
     }
 
     .step p {
-      font-size: 12px;
-      line-height: 1.6;
+      font-size: 11px;
+      line-height: 1.5;
       margin: 0;
       color: var(--ink-soft);
     }
 
+    /* EARTH FAQ */
+    .earth-faq {
+      margin-top: 20px;
+    }
+
+    .faq-shell {
+      background: var(--bg-soft);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .faq-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .faq-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      margin: 0;
+      color: var(--estate-navy);
+    }
+
+    .faq-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    .faq-intro {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 10px;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .faq-item {
+      border-radius: 14px;
+      border: 1px solid rgba(18, 53, 45, 0.18);
+      background: rgba(244, 240, 230, 0.95);
+      overflow: hidden;
+    }
+
+    .faq-item details {
+      margin: 0;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 8px 11px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-question {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--estate-navy);
+    }
+
+    .faq-chevron {
+      font-size: 16px;
+      line-height: 1;
+      color: var(--estate-green);
+      transform: translateY(1px);
+      transition: transform 150ms ease-out;
+    }
+
+    .faq-item[open] .faq-chevron {
+      transform: translateY(1px) rotate(90deg);
+    }
+
+    .faq-body {
+      padding: 0 11px 9px;
+      border-top: 1px solid rgba(18, 53, 45, 0.14);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .faq-body p {
+      margin: 6px 0 4px;
+    }
+
+    .faq-body ul {
+      margin: 2px 0 4px 18px;
+      padding: 0;
+    }
+
+    .faq-body li {
+      margin-bottom: 3px;
+    }
+
     /* Final CTA */
     .cta-final {
-      margin-top: 26px;
+      margin-top: 20px;
       text-align: center;
-      padding: 20px 16px 4px;
+      padding: 16px 10px 0;
     }
 
     .cta-final h2 {
       font-family: "Playfair Display", serif;
-      font-size: 22px;
-      margin: 0 0 8px;
+      font-size: 20px;
+      margin: 0 0 6px;
       color: var(--estate-navy);
     }
 
     .cta-final p {
-      font-size: 13px;
-      margin: 0 0 12px;
+      font-size: 12px;
+      margin: 0 0 10px;
       color: var(--ink-soft);
     }
 
     .cta-final .btn-primary {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .cta-caption {
@@ -511,10 +735,45 @@
       color: var(--ink-soft);
       opacity: 0.9;
     }
+
+    /* mobile tweak for FAQ */
+    @media (max-width: 640px) {
+      .faq-shell {
+        padding-inline: 14px;
+      }
+      .faq-title {
+        font-size: 17px;
+      }
+      .faq-question {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="page">
+    <!-- GLOBAL DSH HEADER -->
+    <header class="site-header">
+      <div class="site-shell">
+        <a href="/index.html" class="site-mark">
+          <span class="site-mark-initials">DSH</span>
+          <span class="site-mark-text">
+            <span class="site-mark-name">DeVirn Signature House, Inc.</span>
+            <span class="site-mark-tagline">One Empire · Five Houses · One Language</span>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="/code.html">Signature Code™</a>
+          <a href="/index.html">The Houses</a>
+          <a href="/signatured.html">FIRE</a>
+          <a href="/kadijah.html">AIR</a>
+          <a class="is-active" href="/dsh-business.html">EARTH</a>
+          <a href="/timeless-peace.html">WATER</a>
+          <a href="/aether.html">AETHER</a>
+        </nav>
+      </div>
+    </header>
+
     <div class="shell">
       <header class="top-bar">
         <div class="top-id">
@@ -531,9 +790,9 @@
           <div class="hero-kicker">Earth House · Business Atelier</div>
           <h1 class="hero-title">Narine Estate Business Atelier</h1>
           <p class="hero-sub">
-            The <strong>simplest, most discreet branch</strong> of DeVirn Signature House, Inc. —
-            a single heritage-standard business session for land, product, and estate-based brands who want
-            their operations to feel as composed as their label.
+            The <strong>quietest branch</strong> of DeVirn Signature House, Inc. —
+            one heritage-standard business session for land, product, and estate-based brands
+            who want their operations to feel as composed as their label.
           </p>
 
           <div class="hero-cta-row">
@@ -541,7 +800,7 @@
               <span>Request Estate Session</span>
               <span class="arrow">↗</span>
             </a>
-            <span class="hero-note">One offering. By invitation and fit only.</span>
+            <span class="hero-note">Single offering. By invitation and fit only.</span>
           </div>
         </div>
 
@@ -552,14 +811,14 @@
               <span>NE</span>
             </div>
           </div>
-          <div class="hero-card-body">
-            A quiet desk of the empire, reserved for:
-            <ul class="list">
-              <li>Estate & land holdings.</li>
-              <li>Olive oil and product houses.</li>
-              <li>Families and founders who plan in decades.</li>
-            </ul>
-          </div>
+          <p class="hero-card-body">
+            A reserved desk of the empire for:
+          </p>
+          <ul class="list">
+            <li>Estate and land holdings.</li>
+            <li>Olive oil and product houses.</li>
+            <li>Families and founders who plan in decades.</li>
+          </ul>
           <div class="hero-pill">
             <span class="dot-sm"></span>
             <span>Heritage-first · Low-noise · High-order</span>
@@ -571,35 +830,35 @@
         <!-- Left: the one offer -->
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">One Offering: The Estate Ledger™ Session</h2>
+            <h2 class="section-title">The Estate Ledger™ Session</h2>
             <div class="section-tag">Single branch · No menu</div>
           </div>
 
           <p>
             The <strong>Estate Ledger™</strong> is a single, 90-minute working session for Narine Estate
-            and aligned EARTH House clients. No packages, funnels, or tiers —
-            just a precise audit of how your estate moves, earns, and presents itself.
+            and aligned EARTH House clients. No tiers, no funnel — just a precise view of how your estate
+            moves, earns, and presents itself.
           </p>
 
           <div class="offer-card">
             <div class="offer-label">Heritage-standard business solution</div>
-            <h3 class="offer-name">The Estate Ledger™ Session</h3>
+            <h3 class="offer-name">Estate Ledger™ Atelier Call</h3>
             <p class="offer-sub">
-              A private atelier-style call where we map the business side of your estate with the same care
-              you give to your trees, bottles, or land.
+              A private, atelier-style call where we study the business side of your estate
+              with the same care you give to your trees, bottles, or land.
             </p>
 
             <div class="offer-meta">
-              <span><span class="dot-xs"></span>Length: 90 minutes</span>
-              <span><span class="dot-xs"></span>Format: Private video call</span>
-              <span><span class="dot-xs"></span>Scope: Narine Estate & EARTH-aligned holdings</span>
+              <span><span class="dot-xs"></span>Length · 90 minutes</span>
+              <span><span class="dot-xs"></span>Format · Private video call</span>
+              <span><span class="dot-xs"></span>Scope · Narine Estate & EARTH-aligned holdings</span>
             </div>
 
             <ul class="list">
               <li>Clarify your estate structure: brands, products, markets, and legal shell.</li>
-              <li>Identify quiet leaks in operations, pricing, and distribution.</li>
-              <li>Outline a dignified, simple path for next 12–24 months.</li>
-              <li>Align Narine Estate’s visual, spiritual, and financial language under one page.</li>
+              <li>Locate quiet leaks in operations, pricing, and distribution.</li>
+              <li>Set a simple, dignified path for the next 12–24 months.</li>
+              <li>Align Narine Estate’s visual, spiritual, and financial language on one page.</li>
             </ul>
 
             <p class="offer-footer-note">
@@ -618,21 +877,21 @@
         <!-- Right: who it's for & process -->
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">Who Earth House Serves</h2>
+            <h2 class="section-title">Who EARTH House Serves</h2>
             <div class="section-tag">Narine Estate & kin</div>
           </div>
 
           <p>
-            EARTH is for people who think in soil, seasons, and succession — not just in quarters.
+            EARTH is for people who think in soil, seasons, and succession — not only in quarters.
           </p>
 
           <ul class="list">
-            <li>Olive oil and agricultural estates who want a composed business backbone.</li>
+            <li>Olive oil and agricultural estates seeking a composed business backbone.</li>
             <li>Family brands moving from “beautiful product” to “lasting house.”</li>
-            <li>Founders who prefer <strong>one precise conversation</strong> over ten scattered calls.</li>
+            <li>Founders who prefer <strong>one precise conversation</strong> over many scattered calls.</li>
           </ul>
 
-          <p style="margin-top: 14px; margin-bottom: 6px; font-weight: 500; color: var(--ink);">
+          <p style="margin-top: 10px; margin-bottom: 4px; font-weight: 500; color: var(--ink);">
             How the Estate Ledger™ works:
           </p>
 
@@ -641,8 +900,8 @@
               <div class="step-label">Step I</div>
               <div class="step-title">Quiet Intake</div>
               <p>
-                A brief form and optional document share. We look at your current estate, labels,
-                contracts, and channels before we ever speak.
+                A short form and optional documents. We review your current estate, labels,
+                contracts, and channels before we speak.
               </p>
             </div>
             <div class="step">
@@ -650,20 +909,160 @@
               <div class="step-title">Ledger Session</div>
               <p>
                 A 90-minute working call to map structure, flows, and priorities. You leave
-                with decisions made, not homework created.
+                with decisions made, not more confusion.
               </p>
             </div>
             <div class="step">
               <div class="step-label">Step III</div>
               <div class="step-title">Written Brief</div>
               <p>
-                Within a few days, you receive a one-page Estate Ledger™ summary:
-                structure, corrections, and the next 3 moves for your house.
+                Within a few days, you receive a one-page Estate Ledger™: structure, corrections,
+                and the next three moves for your house.
               </p>
             </div>
           </div>
         </section>
       </main>
+
+      <!-- EARTH FAQ -->
+      <section class="earth-faq" id="earth-faq">
+        <div class="faq-shell">
+          <header class="faq-header">
+            <h2 class="faq-title">EARTH · Narine Estate — FAQ</h2>
+            <div class="faq-tag">Estate ledger · Quiet branch</div>
+          </header>
+
+          <p class="faq-intro">
+            EARTH is the Narine Estate branch of DeVirn Signature House, Inc. — a quiet, heritage-standard desk
+            for land, product, and estate-based brands. These are the questions most families and founders ask.
+          </p>
+
+          <div class="faq-list">
+            <!-- 1. Who is this for? -->
+            <div class="faq-item">
+              <details>
+                <summary>
+                  <span class="faq-question">Who would be interested in the Estate Ledger™ Session?</span>
+                  <span class="faq-chevron">›</span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    The Estate Ledger™ Session is for people who already steward something tangible and long-term:
+                  </p>
+                  <ul>
+                    <li>Olive oil estates, vineyards, farms, orchards, or similar holdings.</li>
+                    <li>Product houses rooted in land, craft, or heritage production.</li>
+                    <li>Family brands moving from “beautiful product” to “structured house.”</li>
+                  </ul>
+                  <p>
+                    It suits founders who think in decades and inheritance, and who prefer one precise, private
+                    business conversation over a long coaching program.
+                  </p>
+                </div>
+              </details>
+            </div>
+
+            <!-- 2. What do you actually deal with? -->
+            <div class="faq-item">
+              <details>
+                <summary>
+                  <span class="faq-question">What specifically does EARTH deal with in this session?</span>
+                  <span class="faq-chevron">›</span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    In the Estate Ledger™ Session, we focus on the backbone of your estate, not the surface:
+                  </p>
+                  <ul>
+                    <li><strong>Estate structure:</strong> how your brands, products, and entities are arranged.</li>
+                    <li><strong>Positioning & label:</strong> how your house appears to buyers, partners, and guests.</li>
+                    <li><strong>Pricing & margins:</strong> where you are undercharging, overextending, or leaking value.</li>
+                    <li><strong>Sales & distribution:</strong> wholesale, export, tourism, gifting, and where flow breaks down.</li>
+                    <li><strong>Role clarity:</strong> who carries what in the family or team, and where stress is created.</li>
+                    <li><strong>Next 12–24 months:</strong> the few moves that matter most for stability and growth.</li>
+                  </ul>
+                  <p>
+                    We are not rebuilding you from zero. We are refining and disciplining what already exists.
+                  </p>
+                </div>
+              </details>
+            </div>
+
+            <!-- 3. Benefits -->
+            <div class="faq-item">
+              <details>
+                <summary>
+                  <span class="faq-question">What are the benefits of an Estate Ledger™ Session?</span>
+                  <span class="faq-chevron">›</span>
+                </summary>
+                <div class="faq-body">
+                  <p>By the end of the session, a typical EARTH client receives:</p>
+                  <ul>
+                    <li><strong>Clarity on structure</strong> — one simple view of how the estate is organized.</li>
+                    <li><strong>Identification of leaks</strong> — where money, time, or product is being quietly lost.</li>
+                    <li><strong>A calm 12–24 month direction</strong> — a short list of high-impact moves, not a crowded to-do list.</li>
+                    <li><strong>Alignment of spirit and business</strong> — how the estate feels and how it operates match.</li>
+                    <li><strong>A written Estate Ledger™ brief</strong> — a one-page summary to share with family or advisors.</li>
+                  </ul>
+                  <p>
+                    The outcome is not noise or pressure — it is order, relief, and a path that respects your house.
+                  </p>
+                </div>
+              </details>
+            </div>
+
+            <!-- 4. How to get an invite -->
+            <div class="faq-item">
+              <details>
+                <summary>
+                  <span class="faq-question">How do I receive an invitation or request a session?</span>
+                  <span class="faq-chevron">›</span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    EARTH is a quiet branch of the empire. Access to the Estate Ledger™ Session is based on fit,
+                    not urgency or hype. The process is simple:
+                  </p>
+                  <ul>
+                    <li>You send a short EARTH interest form or a private written request.</li>
+                    <li>We review whether your estate or brand aligns with the EARTH House remit.</li>
+                    <li>If it is a fit, you receive a private invitation with available dates and the investment.</li>
+                    <li>If not, you may be gently redirected to another House within DeVirn Signature House, Inc.</li>
+                  </ul>
+                  <p>
+                    The “Request Estate Session” button on this page is the first step in that process.
+                  </p>
+                </div>
+              </details>
+            </div>
+
+            <!-- 5. What this is not -->
+            <div class="faq-item">
+              <details>
+                <summary>
+                  <span class="faq-question">What is this not?</span>
+                  <span class="faq-chevron">›</span>
+                </summary>
+                <div class="faq-body">
+                  <p>
+                    The Estate Ledger™ Session is not a social media package, a generic business course,
+                    or a promise of overnight expansion. It is:
+                  </p>
+                  <ul>
+                    <li>Not a marketing funnel or mass coaching program.</li>
+                    <li>Not a replacement for formal legal, tax, or investment advice.</li>
+                    <li>Not focused on trends or virality.</li>
+                  </ul>
+                  <p>
+                    It is a single, heritage-standard conversation about how your estate is built and how it
+                    should move into its next stage with clarity.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class="cta-final" id="book">
         <h2>Ready for Your Estate Ledger™?</h2>
@@ -672,7 +1071,7 @@
           heritage-standard business conversation, you may request a session below.
         </p>
         <a href="#" class="btn-primary">
-          <span>Request Estate Ledger™ Session</span>
+          <span>Request Estate Session</span>
           <span class="arrow">↗</span>
         </a>
         <div class="cta-caption">
