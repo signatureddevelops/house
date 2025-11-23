@@ -6,23 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Signature D is the FIRE House visual production company of DeVirn Signature House, Inc. — photography and cinematic media for campaigns, clinics, foundations, and brands."
+    content="Signature D is the FIRE House production studio of DeVirn Signature House, Inc. — corporate-level photography and cinematic media for founders, clinics, brands, and organizations."
   />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* FIRE House · Signature D */
-      --bg: #f5f3ef;                 /* warm ivory */
-      --bg-elevated: #f8f5f0;        /* card background */
-      --bg-soft: #f0ece4;            /* panel wash */
+      /* FIRE · Signature D palette (corporate, warm, neutral) */
+      --bg: #f5f3ef;
+      --bg-elevated: #f8f5f0;
+      --bg-soft: #f0ece4;
 
       --ink: #181818;
       --ink-soft: #5d5a54;
 
-      --gold: #f5c046;               /* primary gold */
+      --gold: #f5c046;
       --gold-soft: rgba(245, 192, 70, 0.16);
-      --emerald: #0e3f3f;            /* FIRE emerald */
+      --emerald: #0e3f3f;
 
       --border-soft: rgba(0, 0, 0, 0.08);
       --radius-lg: 22px;
@@ -71,12 +71,12 @@
       backdrop-filter: blur(18px);
       background: linear-gradient(
         to bottom,
-        rgba(5, 6, 7, 0.97),
-        rgba(5, 6, 7, 0.9),
-        rgba(5, 6, 7, 0.78),
+        rgba(245, 243, 239, 0.96),
+        rgba(245, 243, 239, 0.92),
+        rgba(245, 243, 239, 0.88),
         transparent
       );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
 
     .header-inner {
@@ -125,14 +125,19 @@
       font-size: 0.98rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #f7f2e8;
+      color: #2d2318;
     }
 
     .brand-sub {
       font-size: 0.72rem;
-      color: rgba(248, 239, 223, 0.78);
+      color: rgba(51, 42, 32, 0.85);
       letter-spacing: 0.18em;
       text-transform: uppercase;
+    }
+
+    .brand-sub.secondary {
+      font-size: 0.68rem;
+      opacity: 0.8;
     }
 
     .nav {
@@ -146,7 +151,7 @@
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.16em;
-      color: rgba(240, 233, 220, 0.75);
+      color: rgba(24, 24, 24, 0.75);
       position: relative;
       padding-bottom: 0.15rem;
       transition:
@@ -170,7 +175,7 @@
     .nav a:hover {
       color: var(--gold);
       transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
     }
 
     .nav a:hover::after {
@@ -188,10 +193,10 @@
     .nav-cta {
       padding: 0.4rem 1rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(245, 192, 70, 0.72);
-      background: radial-gradient(circle at 0 0, rgba(245, 192, 70, 0.26), rgba(5, 6, 7, 0.98));
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff, #f3ede2);
       font-size: 0.74rem;
-      color: #fdf3e2;
+      color: #2c2319;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -199,7 +204,11 @@
       align-items: center;
       gap: 0.4rem;
       transition: all var(--transition-med);
-      margin-left: 0.5rem;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
     }
 
     .nav-cta svg {
@@ -207,17 +216,11 @@
       height: 13px;
     }
 
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
-      background: radial-gradient(circle at 0 0, rgba(245, 192, 70, 0.35), #050607);
-    }
-
     .nav-toggle {
       display: none;
     }
 
-    /* HERO – production company feel */
+    /* HERO – production studio hero */
     .hero {
       padding: 3.5rem 0 3rem;
     }
@@ -225,7 +228,7 @@
     .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
-      gap: 2.5rem;
+      gap: 2.4rem;
       align-items: center;
     }
 
@@ -233,7 +236,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.35rem 0.8rem;
+      padding: 0.3rem 0.8rem;
       border-radius: var(--radius-pill);
       background: rgba(248, 245, 235, 0.96);
       border: 1px solid rgba(24, 24, 24, 0.12);
@@ -250,6 +253,12 @@
       border-radius: 999px;
       background: radial-gradient(circle, #fff7df, #f5c046);
       box-shadow: 0 0 16px rgba(245, 192, 70, 0.9);
+      animation: pulse-dot 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.6; }
     }
 
     .hero-title {
@@ -263,9 +272,6 @@
 
     .hero-title span {
       display: block;
-      background: linear-gradient(90deg, #3b2a17, #f5c046 45%, #0e3f3f 80%);
-      -webkit-background-clip: text;
-      color: transparent;
     }
 
     .hero-subtitle {
@@ -289,7 +295,7 @@
 
     .btn {
       border-radius: var(--radius-pill);
-      padding: 0.75rem 1.4rem;
+      padding: 0.7rem 1.4rem;
       border: 1px solid rgba(0, 0, 0, 0.12);
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -347,7 +353,7 @@
     .hero-panel {
       border-radius: var(--radius-lg);
       background:
-        radial-gradient(circle at top, rgba(245, 192, 70, 0.22), transparent 70%),
+        radial-gradient(circle at top, rgba(245, 192, 70, 0.24), transparent 70%),
         linear-gradient(145deg, #f8f5f0, #ebe2d3);
       border: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: var(--shadow-soft);
@@ -361,8 +367,7 @@
       position: absolute;
       inset: 0.5rem;
       border-radius: 18px;
-      border: 1px dashed rgba(0, 0, 0, 0.08);
-      opacity: 0.9;
+      border: 1px dashed rgba(0, 0, 0, 0.06);
       pointer-events: none;
     }
 
@@ -412,49 +417,9 @@
       margin-top: 0.3rem;
     }
 
-    /* Production Slate strip */
-    .slate {
-      border-top: 1px solid rgba(0,0,0,0.04);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      background: linear-gradient(90deg, rgba(0,0,0,0.02), rgba(0,0,0,0.06), rgba(0,0,0,0.02));
-    }
-
-    .slate-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.9rem 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.7rem 1.4rem;
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--ink-soft);
-    }
-
-    .slate-label {
-      font-weight: 600;
-      color: #2b2419;
-    }
-
-    .slate-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .slate-pill {
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: #fbf8f1;
-      font-size: 0.7rem;
-    }
-
     /* Sections */
     section {
-      padding: 2.8rem 0;
+      padding: 2.6rem 0;
     }
 
     .section-kicker {
@@ -481,63 +446,6 @@
       margin-bottom: 1.4rem;
     }
 
-    /* Card grid modeled after KM */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .card {
-      border-radius: 16px;
-      background: linear-gradient(145deg, var(--bg-elevated), #f3ede2);
-      border: 1px solid var(--border-soft);
-      padding: 0.95rem 0.9rem;
-      font-size: 0.84rem;
-      transition:
-        transform var(--transition-med),
-        border-color var(--transition-med),
-        box-shadow var(--transition-med);
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(0, 0, 0, 0.16);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-label {
-      font-size: 0.64rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #7a5a2b;
-      margin-bottom: 0.2rem;
-    }
-
-    .card-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.2rem;
-      color: #2b2219;
-    }
-
-    .card-body {
-      color: var(--ink-soft);
-      margin-bottom: 0.3rem;
-    }
-
-    .card-meta {
-      font-size: 0.78rem;
-      color: var(--ink-soft);
-    }
-
-    .card-meta strong {
-      color: var(--emerald);
-      font-weight: 600;
-    }
-
-    /* A LA CARTE PRICE TABLE */
     .card-section {
       border-radius: var(--radius-lg);
       background: var(--bg-elevated);
@@ -554,12 +462,21 @@
       gap: 1.4rem;
     }
 
+    /* Rate Card */
     .price-table {
       margin-top: 0.8rem;
       border-radius: 16px;
       border: 1px solid rgba(0, 0, 0, 0.06);
       background: #ffffff;
       padding: 0.8rem 0.9rem;
+    }
+
+    .price-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #7a5a2b;
+      margin-bottom: 0.4rem;
     }
 
     .price-row {
@@ -590,44 +507,106 @@
       margin-top: 0.45rem;
     }
 
-    /* GALLERY */
-    .gallery-grid {
+    /* Corporate packages grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .package-card {
+      border-radius: 16px;
+      background: linear-gradient(145deg, #ffffff, #f3ede2);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 0.95rem 0.9rem;
+      font-size: 0.84rem;
+      transition:
+        transform var(--transition-med),
+        border-color var(--transition-med),
+        box-shadow var(--transition-med);
+    }
+
+    .package-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 0, 0, 0.16);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .package-label {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #7a5a2b;
+      margin-bottom: 0.2rem;
+    }
+
+    .package-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.2rem;
+      color: #2b2219;
+    }
+
+    .package-price {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #0e3f3f;
+      margin-bottom: 0.3rem;
+    }
+
+    .package-body {
+      color: var(--ink-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .package-meta {
+      font-size: 0.76rem;
+      color: var(--ink-soft);
+    }
+
+    /* Gallery */
+    #gallery .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 0.9rem;
     }
 
     .gallery-item {
-      border-radius: 18px;
-      overflow: hidden;
-      position: relative;
-      background: #e5ded2;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
+      border-radius: 16px;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 0.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
     .gallery-frame {
       width: 100%;
       aspect-ratio: 4 / 3;
+      border-radius: 12px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      background-color: #ddd2bf; /* placeholder */
+      transition: transform 0.25s ease-out;
+    }
+
+    .gallery-item:hover .gallery-frame {
+      transform: scale(1.03);
     }
 
     .gallery-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 0.5rem 0.7rem;
       font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
-      color: #fdf3e2;
+      color: var(--ink-soft);
     }
 
-    /* Process & expectations */
+    .gallery-caption strong {
+      color: #2b2419;
+    }
+
+    /* Process & Experience */
     .process-list {
       margin-top: 0.6rem;
       display: grid;
@@ -746,35 +725,6 @@
       transform: translateY(-1px);
     }
 
-    /* CTA like KM */
-    .cta {
-      text-align: center;
-      padding-bottom: 3rem;
-    }
-
-    .cta h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      color: #272018;
-    }
-
-    .cta p {
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      max-width: 32rem;
-      margin: 0 auto 1.4rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.9rem;
-    }
-
     /* Footer */
     .site-footer {
       border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -796,7 +746,7 @@
     }
 
     .footer-inner a {
-      color: var(--emerald);
+      color: #0e3f3f;
       text-decoration: none;
       border-bottom: 1px dotted rgba(14, 63, 63, 0.6);
     }
@@ -810,17 +760,14 @@
         margin-top: 0.6rem;
       }
       .grid,
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
       .grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
       .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-      .slate-inner {
-        padding-inline: 1.2rem;
+      #gallery .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -833,13 +780,14 @@
         position: fixed;
         inset: 56px 1rem auto 1rem;
         border-radius: 16px;
-        background: rgba(5, 6, 7, 0.98);
+        background: rgba(245, 243, 239, 0.98);
         padding: 0.7rem 0.9rem;
         flex-direction: column;
         gap: 0.4rem;
         transform: translateY(-12px);
         opacity: 0;
         pointer-events: none;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
         transition: opacity var(--transition-med), transform var(--transition-med);
       }
 
@@ -854,8 +802,8 @@
         width: 32px;
         height: 32px;
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: #050607;
+        border: 1px solid rgba(0, 0, 0, 0.18);
+        background: #f5f3ef;
         align-items: center;
         justify-content: center;
         cursor: pointer;
@@ -868,7 +816,7 @@
         width: 16px;
         height: 2px;
         border-radius: 999px;
-        background: #fdf3e2;
+        background: #2d2318;
         position: relative;
         content: "";
         transition: all var(--transition-fast);
@@ -905,20 +853,20 @@
         transform: translateY(0);
         pointer-events: auto;
       }
-
-      .grid,
-      .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .hero {
         padding-top: 3rem;
       }
 
       .hero-title {
         font-size: 2.1rem;
+      }
+
+      #gallery .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 1.2rem;
       }
     }
   </style>
@@ -930,37 +878,30 @@
       <div class="header-inner">
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">
-            <!-- Simple DSH crest -->
+            <!-- Simple FIRE / camera crest -->
             <svg viewBox="0 0 64 64">
               <defs>
-                <linearGradient id="dsh-crest" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="fire-crest" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stop-color="#fdf8ec" />
                   <stop offset="40%" stop-color="#f5c046" />
                   <stop offset="100%" stop-color="#0e3f3f" />
                 </linearGradient>
               </defs>
-              <circle
-                cx="32"
-                cy="32"
-                r="20"
+              <rect x="16" y="20" width="32" height="24" rx="6" ry="6"
                 fill="none"
-                stroke="url(#dsh-crest)"
-                stroke-width="2.4"
-              />
-              <text
-                x="32"
-                y="36"
-                text-anchor="middle"
-                font-family="Playfair Display, serif"
-                font-size="12"
-                letter-spacing="3"
-                fill="#fdf8ec"
-              >DSH</text>
+                stroke="url(#fire-crest)"
+                stroke-width="2.4" />
+              <circle cx="32" cy="32" r="8"
+                fill="none"
+                stroke="url(#fire-crest)"
+                stroke-width="2" />
+              <circle cx="32" cy="32" r="3.2" fill="#fdf8ec" />
             </svg>
           </div>
           <div class="brand-text">
             <div class="brand-name">DeVirn Signature House, Inc.</div>
-            <div class="brand-sub">FIRE HOUSE · Signature D Production</div>
+            <div class="brand-sub">FIRE House · Signature D Production Studio</div>
+            <div class="brand-sub secondary">Visual Production · Orlando · Global-Ready</div>
           </div>
         </div>
 
@@ -974,13 +915,12 @@
           <a href="index.html" class="is-active">Signature D</a>
           <a href="mango.html">Kadijah’s Mango</a>
           <a href="timelesspeace.html">Timeless Peace</a>
-          <a href="#gallery">Gallery</a>
-          <a href="dsh-business.html" class="nav-cta">
-            <span>Estate Atelier</span>
+          <a class="nav-cta" href="#contact">
+            <span>Open a Production Request</span>
             <svg viewBox="0 0 16 16" aria-hidden="true">
               <path d="M4 12L12 4M7 4h5v5"
                     fill="none"
-                    stroke="#fdf3e2"
+                    stroke="#4b3520"
                     stroke-width="1.4"
                     stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -990,20 +930,6 @@
       </div>
     </header>
 
-    <!-- Production Slate -->
-    <div class="slate">
-      <div class="slate-inner">
-        <span class="slate-label">Production Slate:</span>
-        <div class="slate-pills">
-          <span class="slate-pill">Portrait & Founder Films</span>
-          <span class="slate-pill">Clinic & Practice Visuals</span>
-          <span class="slate-pill">Events & Conferences</span>
-          <span class="slate-pill">Brand & Product Frames</span>
-          <span class="slate-pill">Campaign Reels</span>
-        </div>
-      </div>
-    </div>
-
     <main>
       <!-- HERO -->
       <section class="hero">
@@ -1011,16 +937,15 @@
           <div>
             <div class="hero-tag">
               <span class="hero-tag-dot"></span>
-              <span>Visual Production Company · Photography & Cinema</span>
+              <span>Visual Production · Photography &amp; Cinema</span>
             </div>
             <h1 class="hero-title">
               <span>Signature D</span>
             </h1>
             <p class="hero-subtitle">
-              The FIRE House visual production company of DeVirn Signature House, Inc. —
-              building photography and cinematic assets for founders, clinics, nonprofits,
-              and brands who need work that feels
-              <strong>intentional, campaign-ready, and on-standard</strong>.
+              The FIRE House production studio of DeVirn Signature House, Inc. — focused on clean, intentional
+              photography and cinematic media for founders, clinics, faith spaces, and brands who need assets that
+              look <strong>serious, on-standard, and ready to use</strong>.
             </p>
             <div class="hero-ctas">
               <a href="#contact" class="btn btn-primary">
@@ -1031,111 +956,71 @@
               </a>
             </div>
             <div class="hero-meta">
-              Built for <span>real launches, appointments, and campaigns</span> — not disposable “content.”
+              Built for <span>real campaigns, appointments, and communities</span> — not disposable “content.”
             </div>
           </div>
 
           <aside class="hero-panel">
-            <div class="hero-panel-title">What Signature D Produces</div>
+            <div class="hero-panel-title">What Signature D Provides</div>
             <div class="hero-panel-body">
-              Portraits, stills, and short-form cinema for the work you are actually doing:
-              clinics, foundations, faith spaces, small businesses, and legacy families who
-              need assets that sit correctly inside a larger story.
+              A quiet, serious production house for people with real work. You receive directed sessions and
+              professional files that drop straight into your website, clinic materials, decks, and campaigns
+              without stress or guessing.
             </div>
             <div class="hero-panel-row">
-              <span class="chip highlight">Portrait & Founder Sessions</span>
-              <span class="chip">Clinic & Practice Visuals</span>
-              <span class="chip">Event & Conference Coverage</span>
-              <span class="chip">Brand & Product Frames</span>
+              <span class="chip highlight">Portrait &amp; Founder Sessions</span>
+              <span class="chip">Clinics, Practices &amp; Faith Spaces</span>
+              <span class="chip">Events &amp; Conferences</span>
+              <span class="chip">Brand &amp; Product Frames</span>
             </div>
             <div class="hero-panel-note">
-              Every production is read first through The Signature Code™ — vision, voice,
-              structure, impact, and legacy — so your visuals line up with the House that holds you.
+              Every engagement is aligned with The Signature Code™ — vision, voice, structure, impact, and legacy —
+              so your visuals sit correctly inside your House.
             </div>
           </aside>
         </div>
       </section>
 
-      <!-- CORE SUITES -->
-      <section>
-        <div class="container">
-          <p class="section-kicker">Core Production Lanes</p>
-          <h2 class="section-heading">How We Capture Your Work</h2>
-          <p class="section-subtitle">
-            Simple, grown lanes that can flex up into full productions or stay lean for
-            one clean shoot — always with clear pricing and written scope.
-          </p>
-
-          <div class="grid">
-            <div class="card">
-              <div class="card-label">Individuals & Families</div>
-              <div class="card-title">Signature Session</div>
-              <div class="card-body">
-                One-hour portrait or family production with guided posing and grounded
-                direction — stills designed for profiles, applications, and legacy albums.
-              </div>
-              <div class="card-meta">
-                <strong>From:</strong> $250 · Orlando area
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Events & Clinics</div>
-              <div class="card-title">Event Coverage</div>
-              <div class="card-body">
-                Focused half-day or full-day coverage for conferences, clinics, faith
-                gatherings, and launches — keynotes, atmosphere frames, and essential portraits.
-              </div>
-              <div class="card-meta">
-                <strong>From:</strong> Half Day $650 · Full Day $1,100
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Brands & Products</div>
-              <div class="card-title">Brand & Product Frames</div>
-              <div class="card-body">
-                Clean, consistent frames for menus, e-commerce, and campaigns — built to
-                match your brand language and Kadijah’s Mango copy when combined.
-              </div>
-              <div class="card-meta">
-                <strong>From:</strong> 10 items $350 · 20 items $600
-              </div>
-            </div>
-          </div>
+      <!-- WHO IT'S FOR -->
+      <section aria-label="Who Signature D is For">
+        <div class="container" style="padding-top:1.4rem; padding-bottom:1.4rem; border-top:1px solid rgba(0,0,0,0.04); border-bottom:1px solid rgba(0,0,0,0.04); font-size:0.8rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:0.6rem 1.6rem; align-items:center;">
+          <strong style="letter-spacing:0.18em; text-transform:uppercase; font-size:0.72rem; color:#2b2419;">Built For</strong>
+          <span>Founders &amp; professionals who need clean, serious frames</span>
+          <span>Clinics, practices, and faith spaces with real-world schedules</span>
+          <span>Small brands launching products, menus, or services</span>
         </div>
       </section>
 
-      <!-- A LA CARTE MENU -->
+      <!-- RATE CARD: CORE & ADD-ONS -->
       <section>
         <div class="container grid-2">
           <div class="card-section">
-            <p class="section-kicker">Session Base</p>
-            <h2 class="section-heading">Standard Photography Session</h2>
+            <p class="section-kicker">Studio Rate Card</p>
+            <h2 class="section-heading">Standard Session</h2>
             <p class="section-subtitle">
-              One clear base that works for portraits, families, founders,
-              and basic campaign needs — the building block for most productions.
+              One clear base that works for portraits, families, founders, and basic campaign needs. All custom
+              productions are built on top of this studio rate card.
             </p>
-            <div class="price-table">
+            <div class="price-table" aria-label="Signature D Studio Rate Card">
+              <div class="price-label">Session Base</div>
               <div class="price-row">
                 <span>Standard Photography Session (1 hour)</span>
                 <span>$250</span>
               </div>
             </div>
             <p class="subnote">
-              Includes 1 location (Orlando), 15 raw frames, and 5 fully finished
-              images prepared for web and social use.
+              Includes 1 location (Orlando), 15 raw frames, and 5 fully finished images prepared for web and social use.
             </p>
           </div>
 
           <div class="card-section">
-            <p class="section-kicker">A La Carte Add-Ons</p>
-            <h2 class="section-heading">Expand the Production</h2>
+            <p class="section-kicker">Options</p>
+            <h2 class="section-heading">A La Carte Add-Ons</h2>
             <p class="section-subtitle">
-              Only add what you actually need — build your own production slate without
-              being pushed into packages that don’t fit.
+              Only add what you actually need. No pressure for packages that don’t match your reality.
             </p>
             <div class="price-table">
+              <div class="price-label">Add-Ons</div>
               <div class="price-row">
                 <span>Additional Hour</span>
                 <span>$150</span>
@@ -1150,191 +1035,205 @@
               </div>
             </div>
             <p class="subnote">
-              On-location travel within Orlando: <strong>$35</strong>.
-              Additional fees apply for out-of-city or complex setups.
+              On-location travel within Orlando: <strong>$35</strong>. Additional fees apply for out-of-city or complex setups.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- CORPORATE & BRAND WORK -->
+      <!-- CORPORATE & BRAND PACKAGES -->
       <section>
         <div class="container">
-          <p class="section-kicker">For Brands & Organizations</p>
-          <h2 class="section-heading">Corporate & Ongoing Productions</h2>
+          <p class="section-kicker">For Brands &amp; Organizations</p>
+          <h2 class="section-heading">Structured Productions</h2>
           <p class="section-subtitle">
-            When you need more than one shoot, Signature D shifts into a true production
-            partner inside the DSH empire — aligned with your campaigns, seasons, and systems.
+            When you need more than one session, you can step into structured visual support that stays in sync with
+            your brand, calendar, and house placement.
           </p>
 
           <div class="grid">
-            <div class="card">
-              <div class="card-label">Launch & Brand</div>
-              <div class="card-title">Brand Visual Suite</div>
-              <div class="card-body">
-                Built for brand launches, rebrands, and major updates.
-                Includes photography, short reels, and a core asset library for
-                your website and social channels.
+            <div class="package-card">
+              <div class="package-label">Launch &amp; Brand</div>
+              <div class="package-title">Brand Visual Suite</div>
+              <div class="package-price">From $2,800</div>
+              <div class="package-body">
+                Built for launches, rebrands, and major updates. Includes photography, short reels, and a core asset
+                library for your website and social channels.
               </div>
-              <div class="card-meta">
-                <strong>From:</strong> $2,800 · scoped by call
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-label">Retainer</div>
-              <div class="card-title">Annual Visual Support</div>
-              <div class="card-body">
-                Quarterly productions, planned content blocks, and light strategic
-                guidance for brands that want consistent presence over the year.
-              </div>
-              <div class="card-meta">
-                <strong>From:</strong> $1,500/mo or $12,500/yr
+              <div class="package-meta">
+                Scoping call required · Final inclusions defined in writing before production.
               </div>
             </div>
 
-            <div class="card">
-              <div class="card-label">Events</div>
-              <div class="card-title">Event Coverage</div>
-              <div class="card-body">
-                Documented coverage for conferences, galas, launches, and gatherings,
-                with a mix of key moments and essential portraits.
+            <div class="package-card">
+              <div class="package-label">Retainer</div>
+              <div class="package-title">Annual Visual Support</div>
+              <div class="package-price">$1,500/mo · or $12,500/yr</div>
+              <div class="package-body">
+                Quarterly productions, planned content blocks, and light visual direction for brands that want
+                consistent presence over the year.
               </div>
-              <div class="card-meta">
-                <strong>From:</strong> Half Day $650 · Full Day $1,100
+              <div class="package-meta">
+                Ideal for clinics, practices, agencies, or personal brands with regular campaigns.
               </div>
             </div>
 
-            <div class="card">
-              <div class="card-label">Products</div>
-              <div class="card-title">Product Sessions</div>
-              <div class="card-body">
+            <div class="package-card">
+              <div class="package-label">Events</div>
+              <div class="package-title">Event Coverage</div>
+              <div class="package-price">Half Day: $650 · Full Day: $1,100</div>
+              <div class="package-body">
+                Documented coverage for conferences, galas, launches, and gatherings, with a mix of key moments and
+                essential portraits.
+              </div>
+              <div class="package-meta">
+                Travel and multi-day events quoted by scope.
+              </div>
+            </div>
+
+            <div class="package-card">
+              <div class="package-label">Products</div>
+              <div class="package-title">Product Sessions</div>
+              <div class="package-price">10 items: $350 · 20 items: $600</div>
+              <div class="package-body">
                 Clean, consistent product images for e-commerce, menus, or catalogs.
               </div>
-              <div class="card-meta">
-                <strong>From:</strong> 10 items $350 · 20 items $600
+              <div class="package-meta">
+                Includes basic editing and export in agreed formats.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- GALLERY SECTION -->
+      <!-- GALLERY / FEATURED PRODUCTIONS -->
       <section id="gallery">
         <div class="container">
-          <p class="section-kicker">Production Stills</p>
-          <h2 class="section-heading">Signature D Gallery</h2>
+          <p class="section-kicker">Featured Productions</p>
+          <h2 class="section-heading">What Signature D Looks Like</h2>
           <p class="section-subtitle">
-            A small look at how Signature D frames founders, families, clinics, and events.
-            Replace these placeholders with your own stills as the FIRE library grows.
+            A small look at how sessions turn into real assets — portraits, clinic frames, events, and products that
+            make your work easier to see and understand.
           </p>
 
           <div class="gallery-grid">
-            <!-- Replace background-image URLs with your real images -->
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/portrait-1.jpg');"></div>
-              <div class="gallery-caption">Founder Portrait</div>
+            <div class="gallery-item" aria-label="Founder portrait session still">
+              <div class="gallery-frame" style="background-image:url('images/founder-portrait.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Founder Portrait</strong> · Used for clinic website, professional profiles, and press kit.
+              </div>
             </div>
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/clinic-1.jpg');"></div>
-              <div class="gallery-caption">Clinic & Practice</div>
+
+            <div class="gallery-item" aria-label="Clinic and practice visuals">
+              <div class="gallery-frame" style="background-image:url('images/clinic-frames.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Clinic Frames</strong> · Patient-facing signage, brochures, and online appointment pages.
+              </div>
             </div>
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/event-1.jpg');"></div>
-              <div class="gallery-caption">Event Coverage</div>
+
+            <div class="gallery-item" aria-label="Event coverage still">
+              <div class="gallery-frame" style="background-image:url('images/event-coverage.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Event Coverage</strong> · Annual conference recap library for sponsors and attendees.
+              </div>
             </div>
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/product-1.jpg');"></div>
-              <div class="gallery-caption">Product Frames</div>
+
+            <div class="gallery-item" aria-label="Product photography session">
+              <div class="gallery-frame" style="background-image:url('images/product-session.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Product Session</strong> · Menu and e-commerce frames for a local brand.
+              </div>
             </div>
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/family-1.jpg');"></div>
-              <div class="gallery-caption">Family Session</div>
+
+            <div class="gallery-item" aria-label="Faith space or community frames">
+              <div class="gallery-frame" style="background-image:url('images/faith-space.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Faith &amp; Community</strong> · Quiet, respectful frames for community updates and campaigns.
+              </div>
             </div>
-            <div class="gallery-item">
-              <div class="gallery-frame" style="background-image:url('images/detail-1.jpg');"></div>
-              <div class="gallery-caption">Detail & Atmosphere</div>
+
+            <div class="gallery-item" aria-label="Detail and texture frames">
+              <div class="gallery-frame" style="background-image:url('images/detail-texture.jpg');"></div>
+              <div class="gallery-caption">
+                <strong>Details &amp; Texture</strong> · Close-ups used in hero banners, reels, and printed material.
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PROCESS & EXPECTATION -->
+      <!-- PROCESS & EXPERIENCE -->
       <section>
         <div class="container grid-2">
           <div class="card-section">
-            <p class="section-kicker">Production Method</p>
-            <h2 class="section-heading">How a Project Runs</h2>
+            <p class="section-kicker">How It Works</p>
+            <h2 class="section-heading">Production Flow</h2>
             <p class="section-subtitle">
-              The same structure applies whether you’re booking one session or
-              stepping into a full year of visual support.
+              The same structure applies whether you’re booking one session or a full program. Everything is captured in writing.
             </p>
             <div class="process-list">
               <div class="process-item">
                 <div class="process-label">01 · Brief Intake</div>
                 <div>
-                  Short call or written brief: purpose, location, timing, and how
-                  you’ll use the images or reels.
+                  Short call or written brief: purpose, location, timing, and how you’ll use the images or footage.
                 </div>
               </div>
               <div class="process-item">
-                <div class="process-label">02 · Plan & Confirmation</div>
+                <div class="process-label">02 · Structure &amp; Confirmation</div>
                 <div>
-                  Simple schedule, clear pricing, and expectations captured in writing
-                  before the date is locked.
+                  You receive a simple written structure with rate, schedule, and deliverables before anything is locked in.
                 </div>
               </div>
               <div class="process-item">
-                <div class="process-label">03 · Production Day</div>
+                <div class="process-label">03 · Production</div>
                 <div>
-                  Efficient, directed production. You are guided; you are not left to
-                  figure it out alone or “just pose.”
+                  Efficient, directed session. You are guided the entire time; you are not left to figure it out alone.
                 </div>
               </div>
               <div class="process-item">
-                <div class="process-label">04 · Delivery & Archive</div>
+                <div class="process-label">04 · Delivery</div>
                 <div>
-                  Edited files delivered via secure link in agreed formats and timelines,
-                  with simple archiving notes for your team.
+                  Edited files delivered via secure link in agreed formats and timelines, ready for real-world use.
                 </div>
               </div>
             </div>
           </div>
 
           <div class="card-section">
-            <p class="section-kicker">Standards</p>
-            <h2 class="section-heading">What You Can Expect</h2>
+            <p class="section-kicker">Signature of the House</p>
+            <h2 class="section-heading">How It Feels to Work With Signature D</h2>
             <p class="section-subtitle">
-              Signature D functions as a production house inside a larger system,
-              not as a one-off freelancer or hobbyist.
+              Signature D operates as a serious production studio inside a wider system — not as a one-off freelancer.
             </p>
-            <ul style="font-size:0.86rem; color:var(--ink-soft); padding-left:1rem; list-style:disc;">
-              <li>Transparent pricing and written confirmation before we begin.</li>
-              <li>Files delivered on the agreed schedule or earlier whenever possible.</li>
-              <li>Images and clips prepared for practical use: website, social, internal decks.</li>
-              <li>Respectful handling of people, spaces, faith environments, and schedules.</li>
-            </ul>
+            <p style="font-size:0.88rem; margin-bottom:0.5rem;">
+              Sessions are calm, directed, and respectful of your time. You are treated like a founder, clinician,
+              or custodian of real work — not as “content.” Visuals are designed to hold up in appointments, boardrooms,
+              donor rooms, and timelines years from now.
+            </p>
+            <p class="subnote" style="margin-top:0.4rem;">
+              FIRE House works alongside AIR House (Kadijah’s Mango) and WATER House (Timeless Peace), so your visuals,
+              language, and impact can move together inside DeVirn Signature House, Inc. when you are ready.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT / BOOKING ANCHOR -->
+      <!-- CONTACT / BOOKING -->
       <section id="contact">
         <div class="container">
-          <p class="section-kicker">Production Requests</p>
-          <h2 class="section-heading">Book Signature D</h2>
+          <p class="section-kicker">Booking</p>
+          <h2 class="section-heading">Open a Production Request</h2>
           <p class="section-subtitle">
-            For availability and quotes, send one message with your city, preferred date
-            range, what you need covered, and how you plan to use the visuals.
-            You receive a clear estimate and written scope before anything is confirmed.
+            To begin, send one message with your city, preferred date range, and what you need filmed or photographed.
+            You will receive a written structure, timeline, and confirmed rate before anything is scheduled.
           </p>
 
           <div class="contact-grid">
             <div class="contact-card">
-              <strong>WhatsApp (preferred)</strong>
+              <strong>WhatsApp Production Desk (preferred)</strong>
               <p style="margin-top:0.4rem;">
-                Send a brief message with your name, location, and a line or two about
-                the production (portrait, event, brand, product, or clinic).
+                Send a brief message with your name, location, and a line or two about the session
+                (portrait, event, brand, clinic, or product).
               </p>
               <div class="contact-actions">
                 <a
@@ -1361,16 +1260,14 @@
                 </a>
               </div>
               <p class="subnote" style="margin-top:0.5rem;">
-                Response is typically via message first, followed by a short call
-                if needed.
+                Every production is confirmed in writing with scope, schedule, and rate so you always know what you are receiving.
               </p>
             </div>
 
             <div class="secondary-card">
               <strong>Call or Email</strong>
               <p style="margin-top:0.4rem;">
-                If you prefer, you may request a production by phone or email with a few
-                key details (date, location, type of work, and usage).
+                If you prefer, you may request a session by phone or email with a few key details (date, location, type of work).
               </p>
               <div class="secondary-actions">
                 <a class="btn-small" href="tel:+14073196740">
@@ -1381,30 +1278,9 @@
                 </a>
               </div>
               <p class="subnote" style="margin-top:0.5rem;">
-                Based in Central Florida · Travel available with advance notice
-                and written approval of costs.
+                Based in Central Florida · Travel available with advance notice and written approval of costs.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Simple CTA -->
-      <section class="cta">
-        <div class="container">
-          <h2>One Empire. One Production House.</h2>
-          <p>
-            Signature D is the FIRE House of DeVirn Signature House, Inc. — the place
-            where your story is framed correctly before it moves into language,
-            systems, and impact.
-          </p>
-          <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">
-              <span>Begin Your Next Production</span>
-            </a>
-            <a href="3code.html" class="btn btn-ghost">
-              <span>See The Signature Code™</span>
-            </a>
           </div>
         </div>
       </section>
@@ -1414,13 +1290,13 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div>© 2025 DeVirn Signature House, Inc. · All Rights Reserved.</div>
-        <div>FIRE House · Signature D · Orlando, FL · <a href="mailto:devirnsignaturehouse@gmail.com">devirnsignaturehouse@gmail.com</a></div>
+        <div>FIRE House · Signature D Production Studio · Orlando, FL · <a href="mailto:devirnsignaturehouse@gmail.com">devirnsignaturehouse@gmail.com</a></div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Mobile nav toggle + smooth scroll (for #contact, #gallery)
+    // Mobile nav toggle + smooth scroll (for in-page anchors like #contact and #gallery)
     (function () {
       const body = document.body;
       const toggle = document.querySelector(".nav-toggle");
