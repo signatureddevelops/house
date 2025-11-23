@@ -64,6 +64,48 @@
       padding: 0 1.5rem;
     }
 
+    /* 🔶 TOP LEFT TAG · Signature D (replaces black spot) */
+    .top-tag {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      padding: 8px 16px;
+      background: rgba(246, 242, 235, 0.85);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 10px;
+      text-decoration: none;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      z-index: 9999;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
+    }
+
+    .top-tag:hover {
+      background: rgba(246, 242, 235, 0.98);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .tag-house {
+      font-family: "Inter", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a67c4a; /* FIRE gold-brown accent */
+    }
+
+    .tag-name {
+      font-family: "Playfair Display", serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #2b2219;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     /* Empire Header (DSH-wide) */
     .site-header {
       position: sticky;
@@ -761,7 +803,7 @@
     .footer-inner a {
       color: #0e3f3f;
       text-decoration: none;
-      border-bottom: 1 dotted rgba(14, 63, 63, 0.6);
+      border-bottom: 1px dotted rgba(14, 63, 63, 0.6);
     }
 
     /* Responsive */
@@ -885,6 +927,13 @@
   </style>
 </head>
 <body>
+
+  <!-- TOP LEFT TAG · Signature D -->
+  <a href="index.html" class="top-tag">
+    <span class="tag-house">FIRE</span>
+    <span class="tag-name">Signature D</span>
+  </a>
+
   <div class="page">
     <!-- Empire Header -->
     <header class="site-header">
