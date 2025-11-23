@@ -2,38 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>The Five Houses | DSH House System</title>
+  <title>EARTH House · Empire Foundation System™ | DeVirn Signature House, Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Five Houses of the DSH House System — FIRE, WATER, AIR, EARTH, and AETHER. Five worlds. One system. One standard." />
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="EARTH House is the business foundation arm of DeVirn Signature House, Inc. — offering the Empire Foundation System™ for websites, booking, payments, and simple operations." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      /* Base palette: soft luxury */
-      --page-bg: #f1eee8;        /* warm, light stone */
-      --shell-bg: #fdfbf7;       /* porcelain */
-      --ink: #171716;            /* deep ink */
-      --ink-soft: #6b6b6b;       /* soft grey */
-      --ink-softer: #9b9b9b;
-      --line-soft: #ded7cd;      /* warm silver line */
-      --line-strong: #c9c0b4;
-      --metal-gold: #d7b06b;     /* champagne gold */
-      --metal-platinum: #c5c9cf; /* brushed platinum */
-
-      /* House accents – used as thin, elegant hints only */
-      --fire-accent:  #f2c15b;   /* FIRE */
-      --water-accent: #8ecdf5;   /* WATER */
-      --air-accent:   #f4b47b;   /* AIR */
-      --earth-accent: #7b916e;   /* EARTH */
-      --aether-accent:#b6a4f4;   /* AETHER */
-
-      --radius-shell: 32px;
-      --radius-card: 22px;
+      /* EARTH / Narine Estate palette */
+      --bg: #f4f0e6;
+      --bg-soft: #f8f4ec;
+      --ink: #152023;
+      --ink-soft: #5b6565;
+      --estate-green: #12352d;
+      --estate-navy: #1b2940;
+      --estate-gold: #d4b46a;
+      --border-soft: rgba(18, 53, 45, 0.12);
+      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.12);
+      --radius-xl: 26px;
+      --radius-lg: 20px;
       --radius-pill: 999px;
-
-      --shadow-soft: 0 26px 60px rgba(130, 112, 90, 0.26);
-      --transition-med: 220ms ease-out;
+      --transition: 200ms ease-out;
+      --max-width: 1040px;
     }
 
     * {
@@ -43,1004 +33,841 @@
     }
 
     body {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(195,177,150,0.4), #e5ded3);
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #fdf8ee 0, var(--bg) 45%, #ebe3d5 100%);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
-      padding: 32px 12px;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     .shell {
-      max-width: 1120px;
+      width: 100%;
+      max-width: var(--max-width);
       margin: 0 auto;
-      background: var(--shell-bg);
-      border-radius: var(--radius-shell);
-      border: 1px solid rgba(230, 222, 210, 0.95);
-      box-shadow: var(--shadow-soft);
-      padding: 28px 30px 40px;
-      position: relative;
-      overflow: hidden;
+      padding: 20px 18px 40px;
     }
 
-    .shell::before {
-      /* soft metallic strip at top */
-      content: "";
-      position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
-      background: linear-gradient(90deg, rgba(215,176,107,0.95), rgba(197,202,210,0.9));
-      opacity: 0.85;
-      pointer-events: none;
+    /* GLOBAL DSH HEADER (same style as FIRE) */
+    .site-header {
+      background: #050607;
+      border-bottom: 1px solid rgba(245, 192, 70, 0.25);
+      color: #f7f3ea;
     }
 
-    @media (max-width: 768px) {
-      .shell {
-        padding: 22px 18px 30px;
-        border-radius: 24px;
+    .site-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .site-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
+    }
+
+    .site-mark-initials {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 192, 70, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.2), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(245, 192, 70, 0.8), rgba(85, 65, 24, 1));
+      color: #0b0904;
+    }
+
+    .site-mark-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .site-mark-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .site-mark-tagline {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      text-decoration: none;
+      color: rgba(244, 239, 226, 0.9);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color 150ms ease-out, border-color 150ms ease-out;
+      white-space: nowrap;
+    }
+
+    .site-nav a:hover {
+      color: #ffffff;
+      border-color: rgba(245, 192, 70, 0.7);
+    }
+
+    .site-nav a.is-active {
+      color: #f5c046;
+      border-color: #f5c046;
+    }
+
+    @media (max-width: 880px) {
+      .site-shell {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding-inline: 14px;
+      }
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: flex-start;
       }
     }
 
-    /* Top bar */
-    .topline {
+    /* EARTH band */
+    .top-bar {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: baseline;
       gap: 12px;
-      margin-bottom: 16px;
+      margin: 20px 0 16px;
+      font-size: 12px;
     }
 
-    .label-main {
-      font-size: 11px;
-      letter-spacing: 0.28em;
+    .top-id {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(18, 53, 45, 0.06);
+      border: 1px solid rgba(18, 53, 45, 0.35);
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+      color: var(--estate-green);
+      white-space: nowrap;
+    }
+
+    .top-id span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #f9f4e7, var(--estate-gold));
+    }
+
+    .top-right {
+      font-size: 11px;
       color: var(--ink-soft);
       white-space: nowrap;
     }
 
-    .sub-nav {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-softer);
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .sub-nav span {
-      opacity: 0.85;
-    }
-
     @media (max-width: 640px) {
-      .topline {
+      .top-bar {
         flex-direction: column;
         align-items: flex-start;
+        gap: 6px;
       }
     }
 
-    /* Hero */
+    /* HERO */
     .hero {
-      margin-bottom: 26px;
-    }
-
-    .hero-title {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-weight: 600;
-      font-size: clamp(26px, 3.2vw, 34px);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .hero-sub {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 16px;
-    }
-
-    .hero-body {
-      max-width: 640px;
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-      margin-bottom: 18px;
-    }
-
-    /* Hero rings / diagram */
-    .hero-diagram {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-      padding: 10px 12px;
-      border-radius: var(--radius-card);
-      border: 1px solid rgba(222,215,205,0.9);
-      background: linear-gradient(135deg, #fbf8f2, #f6f0e6);
-    }
-
-    .ring-label {
-      font-size: 11px;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 4px;
-    }
-
-    .ring-caption {
-      font-size: 12px;
-      color: var(--ink-soft);
-      max-width: 420px;
-    }
-
-    .ring-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-left: auto;
-    }
-
-    .ring-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(222,215,205,0.95);
-      background: rgba(252,249,243,0.9);
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #5a5a5a;
-      cursor: default;
-      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), background var(--transition-med);
-    }
-
-    .ring-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-    }
-
-    .ring-pill[data-house="fire"]  .ring-dot { background: var(--fire-accent); }
-    .ring-pill[data-house="water"] .ring-dot { background: var(--water-accent); }
-    .ring-pill[data-house="air"]   .ring-dot { background: var(--air-accent); }
-    .ring-pill[data-house="earth"] .ring-dot { background: var(--earth-accent); }
-    .ring-pill[data-house="aether"] .ring-dot { background: var(--aether-accent); }
-
-    .ring-pill:hover {
-      transform: translateY(-1px);
-      background: #ffffff;
-      border-color: var(--line-strong);
-      box-shadow: 0 10px 22px rgba(177,154,118,0.25);
-    }
-
-    /* Divider */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--line-soft);
-      margin: 22px 0 6px;
-    }
-
-    /* DSH section */
-    .section-header {
-      margin-bottom: 18px;
-    }
-
-    .section-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--ink-softer);
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 18px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .section-body {
-      max-width: 620px;
-      font-size: 13px;
-      line-height: 1.7;
-      color: var(--ink-soft);
-    }
-
-    .pillars {
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(18, 53, 45, 0.15);
+      background:
+        radial-gradient(circle at top left, #ffffff 0, #f5eee1 52%, #efe2cf 100%);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 18px 18px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 14px;
-      margin-bottom: 10px;
-    }
-
-    .pillar {
-      padding: 10px 10px 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(222,215,205,0.9);
-      background: #fcfaf6;
-      font-size: 12px;
-    }
-
-    .pillar-title {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-
-    .pillar-body {
-      font-size: 12px;
-      line-height: 1.6;
-      color: var(--ink-soft);
-    }
-
-    @media (max-width: 768px) {
-      .pillars {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    /* Houses overview row */
-    .house-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-      font-size: 11px;
-    }
-
-    .house-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(222,215,205,0.9);
-      background: #fbf8f3;
-      color: #555;
-    }
-
-    .chip-swatch {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-    }
-
-    .chip-swatch.fire   { background: var(--fire-accent); }
-    .chip-swatch.water  { background: var(--water-accent); }
-    .chip-swatch.air    { background: var(--air-accent); }
-    .chip-swatch.earth  { background: var(--earth-accent); }
-    .chip-swatch.aether { background: var(--aether-accent); }
-
-    /* House sections */
-    .houses-grid {
-      margin-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .house-card {
-      border-radius: var(--radius-card);
-      border: 1px solid rgba(222,215,205,0.98);
-      background: #fdfbf7;
-      padding: 14px 14px 14px;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
+      gap: 20px;
       position: relative;
       overflow: hidden;
-      transition: border-color var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), transform var(--transition-med);
     }
 
-    .house-card::before {
-      /* subtle top accent line with house color blended into metal */
+    .hero::before {
       content: "";
       position: absolute;
-      inset: 0 0 auto;
-      height: 3px;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.85), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(18, 53, 45, 0.32), transparent 55%);
+      mix-blend-mode: soft-light;
       opacity: 0.9;
       pointer-events: none;
     }
 
-    .house-card[data-house="fire"]::before {
-      background: linear-gradient(90deg, var(--fire-accent), var(--metal-gold));
-    }
-    .house-card[data-house="water"]::before {
-      background: linear-gradient(90deg, var(--water-accent), var(--metal-platinum));
-    }
-    .house-card[data-house="air"]::before {
-      background: linear-gradient(90deg, var(--air-accent), var(--metal-gold));
-    }
-    .house-card[data-house="earth"]::before {
-      background: linear-gradient(90deg, var(--earth-accent), var(--metal-platinum));
-    }
-    .house-card[data-house="aether"]::before {
-      background: linear-gradient(90deg, var(--aether-accent), var(--metal-gold));
-    }
-
-    .house-card:hover {
-      border-color: var(--line-strong);
-      background: #ffffff;
-      box-shadow: 0 18px 40px rgba(158,138,112,0.28);
-      transform: translateY(-2px);
-    }
-
-    .house-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 2fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 860px) {
-      .house-inner {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    /* House left: index, emblem, identity */
-    .house-left {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .house-index {
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink-softer);
-      min-width: 60px;
-    }
-
-    .house-emblem-wrap {
+    .hero-left,
+    .hero-right {
       position: relative;
-      flex-shrink: 0;
+      z-index: 1;
     }
 
-    .house-emblem-frame {
-      width: 46px;
-      height: 46px;
-      border-radius: 16px;
-      border: 1px solid #ddd3c6;
-      background: radial-gradient(circle at 30% 20%, #ffffff, #f3eee6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .house-emblem-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    .house-emblem-frame span {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 14px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #343233;
-    }
-
-    .emblem-tab {
-      position: absolute;
-      inset: auto auto 0 5px;
-      width: 34px;
-      height: 3px;
-      border-radius: 999px;
-      opacity: 0.95;
-    }
-
-    .house-emblem-wrap.fire   .emblem-tab { background: var(--fire-accent); }
-    .house-emblem-wrap.water  .emblem-tab { background: var(--water-accent); }
-    .house-emblem-wrap.air    .emblem-tab { background: var(--air-accent); }
-    .house-emblem-wrap.earth  .emblem-tab { background: var(--earth-accent); }
-    .house-emblem-wrap.aether .emblem-tab { background: var(--aether-accent); }
-
-    .house-identity {
+    .hero-left {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 10px;
     }
 
-    .house-element {
-      font-size: 10px;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--ink-softer);
-    }
-
-    .house-name {
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 16px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-    }
-
-    .house-realm {
+    .hero-eyebrow {
       font-size: 11px;
-      color: var(--ink-soft);
-    }
-
-    /* House right: meaning + benefit */
-    .house-right {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.7;
-    }
-
-    .house-right strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .house-benefits {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    @media (max-width: 640px) {
-      .house-benefits {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .benefit-block {
-      padding: 8px 9px;
-      border-radius: 14px;
-      border: 1px solid rgba(228,220,211,0.95);
-      background: #f9f4ec;
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    .benefit-title {
-      font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      margin-bottom: 4px;
-      color: var(--ink);
+      color: var(--estate-green);
     }
 
-    /* Together section */
-    .together {
-      margin-top: 26px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
-      gap: 18px;
-      align-items: flex-start;
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.18;
+      color: var(--estate-navy);
     }
 
-    @media (max-width: 820px) {
-      .together {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .together-list {
+    .hero-sub {
       font-size: 13px;
-      line-height: 1.8;
+      line-height: 1.7;
+      color: var(--ink-soft);
+      max-width: 480px;
+    }
+
+    .hero-sub strong {
+      color: #20180f;
+      font-weight: 600;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.9);
       color: var(--ink-soft);
     }
 
-    .together-list span {
-      display: block;
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
     }
 
-    .together-diagram {
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(212, 180, 106, 0.7);
+      background: radial-gradient(circle at top, #fffaf0, #d9b875);
+      color: #1f1810;
       font-size: 11px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-softer);
-    }
-
-    .diagram-flow {
-      margin-top: 8px;
-      padding: 10px 11px;
-      border-radius: 18px;
-      border: 1px dashed rgba(214,204,193,0.95);
-      background: #fbf7f1;
-    }
-
-    .diagram-line {
-      margin-bottom: 6px;
-      font-size: 11px;
-    }
-
-    .diagram-line span.label {
       font-weight: 500;
-      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(140, 115, 71, 0.45);
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      white-space: nowrap;
     }
 
-    .diagram-tag {
+    .btn-main:hover {
+      background: radial-gradient(circle at top, #fffdf7, #cda660);
+      box-shadow: 0 16px 38px rgba(140, 115, 71, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--ink-soft);
+      max-width: 260px;
+    }
+
+    .hero-right {
+      border-radius: 20px;
+      border: 1px solid rgba(18, 53, 45, 0.16);
+      background: linear-gradient(145deg, rgba(244, 240, 230, 0.96), rgba(236, 227, 209, 0.98));
+      padding: 14px 14px 12px;
+      box-shadow: 0 20px 46px rgba(150, 130, 90, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: #4d4b45;
+    }
+
+    .hero-right-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .hero-right-title {
+      font-family: "Playfair Display", serif;
+      font-size: 15px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--estate-navy);
+    }
+
+    .hero-right-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #7d6a43;
+      white-space: nowrap;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .option-card {
+      border-radius: 14px;
+      border: 1px solid rgba(18, 53, 45, 0.2);
+      background: rgba(250, 245, 234, 0.96);
+      padding: 9px 9px 8px;
+      font-size: 11px;
+    }
+
+    .option-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--estate-green);
+      margin-bottom: 3px;
+    }
+
+    .option-price {
+      font-weight: 600;
+      color: #2b2115;
+      margin-bottom: 2px;
+    }
+
+    .option-note {
+      font-size: 10px;
+      color: #665b40;
+    }
+
+    .hero-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 9px;
+      padding: 6px 11px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(222,215,205,0.95);
-      background: #fdfbf7;
+      border: 1px dashed rgba(18, 53, 45, 0.4);
       font-size: 10px;
-      letter-spacing: 0.2em;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #665b40;
+      background: rgba(250, 245, 234, 0.96);
+      margin-top: 4px;
+    }
+
+    .hero-pill span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--estate-gold);
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Sections */
+    .main {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .section {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--estate-navy);
+    }
+
+    .section-tag {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    .section p {
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .step-list {
+      margin-top: 6px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+
+    .step-pill {
+      padding: 7px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    .step-pill span {
+      font-weight: 600;
+      color: var(--ink);
+      margin-right: 4px;
+    }
+
+    /* Receipt list */
+    .receipt-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 4px;
+    }
+
+    .receipt-item {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(18, 53, 45, 0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .receipt-item:last-child {
+      border-bottom: none;
+    }
+
+    .receipt-label {
+      color: var(--ink-soft);
+    }
+
+    .receipt-price {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .receipt-subtext {
+      font-size: 11px;
+      color: var(--ink-soft);
+      margin-top: 4px;
+    }
+
+    .receipt-free {
+      font-size: 11px;
+      color: #6c5a33;
+      margin-top: 4px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.16), transparent);
+      margin: 10px 0 8px;
+    }
+
+    /* Intake + CTA */
+    .row-secondary {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .row-secondary {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .intake-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 6px 0 0;
+      font-size: 12px;
+    }
+
+    .intake-list li {
+      margin-bottom: 4px;
+    }
+
+    .intake-list span {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .cta-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(18, 53, 45, 0.18);
+      background: linear-gradient(135deg, rgba(18, 53, 45, 0.06), rgba(212, 180, 106, 0.14));
+      padding: 12px 12px 10px;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .cta-panel strong {
+      color: var(--estate-navy);
+    }
+
+    .cta-actions {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-small {
+      text-decoration: none;
+      border-radius: var(--radius-pill);
+      padding: 7px 12px;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(18, 53, 45, 0.32);
+      background: #ffffff;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-small:hover {
+      background: #ffffff;
+      border-color: rgba(18, 53, 45, 0.6);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .cta-note {
+      font-size: 11px;
       color: var(--ink-soft);
       margin-top: 6px;
     }
 
-    .diagram-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--water-accent);
+    @media (max-width: 720px) {
+      .shell {
+        padding-inline: 14px;
+      }
     }
-
-    /* Closing */
-    .closing {
-      margin-top: 24px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(222,215,205,0.9);
-      text-align: center;
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.8;
-    }
-
-    .closing span {
-      display: block;
-    }
-
   </style>
 </head>
 <body>
-  <main class="shell">
-    <!-- Topline -->
-    <div class="topline">
-      <div class="label-main">DSH HOUSE SYSTEM</div>
-      <div class="sub-nav">
-        <span>HOUSE OVERVIEW</span>
-        <span>FIVE ELEMENTS</span>
-        <span>EMPIRE STRUCTURE</span>
+  <div class="page">
+    <!-- GLOBAL DSH HEADER -->
+    <header class="site-header">
+      <div class="site-shell">
+        <a href="/index.html" class="site-mark">
+          <span class="site-mark-initials">DSH</span>
+          <span class="site-mark-text">
+            <span class="site-mark-name">DeVirn Signature House, Inc.</span>
+            <span class="site-mark-tagline">One Empire · Five Houses · One Language</span>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="/3code.html">Signature Code™</a>
+          <a href="/index.html">The Houses</a>
+          <a href="/index.html">FIRE</a>
+          <a href="/mango.html">AIR</a>
+          <a class="is-active" href="/dsh-business.html">EARTH</a>
+          <a href="/timelesspeace.html">WATER</a>
+          <a href="/3code.html">AETHER</a>
+        </nav>
       </div>
+    </header>
+
+    <div class="shell">
+      <!-- EARTH band -->
+      <header class="top-bar">
+        <div class="top-id">
+          <span class="dot"></span>
+          <span>EARTH HOUSE · BUSINESS FOUNDATION</span>
+        </div>
+        <div class="top-right">
+          Empire infrastructure for websites, booking, and payments.
+        </div>
+      </header>
+
+      <!-- HERO -->
+      <section class="hero" id="top">
+        <div class="hero-left">
+          <div class="hero-eyebrow">Narine Estate · Earth House</div>
+          <h1 class="hero-title">Empire Foundation System™</h1>
+          <p class="hero-sub">
+            EARTH is the quiet desk of DeVirn Signature House, Inc. — the place where
+            your empire stops living in ideas and starts living in **systems**:
+            website, booking, payments, and a simple way to track what is actually happening.
+          </p>
+          <p class="hero-sub">
+            One package. Two payment paths. <strong>Fully set up, ready to use, including your domain.</strong>
+          </p>
+
+          <div class="hero-tags">
+            <span class="tag">Website · 1–3 pages</span>
+            <span class="tag">Booking & Payments</span>
+            <span class="tag">Mini CRM & SOPs</span>
+            <span class="tag">Done-for-you Setup</span>
+          </div>
+
+          <div class="hero-cta-row">
+            <a class="btn-main" href="#intake">
+              <span>Start Empire Foundation</span>
+              <span>↗</span>
+            </a>
+            <div class="hero-note">
+              Send your intake once, and EARTH builds a usable, living system — not a template.
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right">
+          <div class="hero-right-header">
+            <div class="hero-right-title">Two Ways to Begin</div>
+            <div class="hero-right-tag">Pay in full · Or monthly</div>
+          </div>
+          <p>
+            The **same** Empire Foundation System™ — choose the rhythm that fits your current season.
+          </p>
+
+          <div class="option-grid">
+            <div class="option-card">
+              <div class="option-label">Option 1 · One Time</div>
+              <div class="option-price">$750 total</div>
+              <div class="option-note">
+                Delivered in approximately 14–21 days.<br />
+                Full system installed and ready, no monthly obligation.
+              </div>
+            </div>
+            <div class="option-card">
+              <div class="option-label">Option 2 · Monthly</div>
+              <div class="option-price">$100 / month · 12 months</div>
+              <div class="option-note">
+                Site & system ready to use after day 31 — domain included.
+                Pay gently over a year while your system works.
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-pill">
+            <span class="dot"></span>
+            <span>One system · One intake · Fully done for you</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- MAIN: what it is + receipt -->
+      <main class="main">
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">What EARTH Actually Builds</h2>
+            <div class="section-tag">From invisible to bookable</div>
+          </div>
+          <p>
+            The Empire Foundation System™ is not a “pretty website package.” It is the
+            **minimum infrastructure** every serious house needs — whether you are FIRE (Signature D),
+            AIR (Kadijah’s Mango), WATER (Timeless Peace), or EARTH (Narine Estate).
+          </p>
+          <p>
+            The question it answers is simple: <strong>“Can people find you, book you, and pay you — without chaos?”</strong>
+          </p>
+
+          <div class="step-list">
+            <div class="step-pill">
+              <span>01 · Homebase Website</span>
+              1–3 pages that clearly state who you are, what you offer, and how to book you — no clutter.
+            </div>
+            <div class="step-pill">
+              <span>02 · Booking & Payments Rail</span>
+              Calendar + payment links wired into your site so bookings and revenue can move smoothly.
+            </div>
+            <div class="step-pill">
+              <span>03 · Mini CRM & Operations</span>
+              A light pipeline, simple SOPs, and a place to track leads, clients, and delivery without overwhelm.
+            </div>
+            <div class="step-pill">
+              <span>04 · Ready-to-Use Delivery</span>
+              You receive logins, links, and a one-page overview. You can start sending people to your system immediately.
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Receipt-Style Breakdown</h2>
+            <div class="section-tag">Clear · Honest · Complete</div>
+          </div>
+          <ul class="receipt-list">
+            <li class="receipt-item">
+              <span class="receipt-label">Signature Homebase Website (1–3 pages)</span>
+              <span class="receipt-price">$350 value</span>
+            </li>
+            <li class="receipt-item">
+              <span class="receipt-label">Booking + Payment Automation Setup</span>
+              <span class="receipt-price">$200 value</span>
+            </li>
+            <li class="receipt-item">
+              <span class="receipt-label">Mini CRM (Notion or Airtable)</span>
+              <span class="receipt-price">$95 value</span>
+            </li>
+            <li class="receipt-item">
+              <span class="receipt-label">SOP Micro-Pack (Onboard · Deliver · Offboard)</span>
+              <span class="receipt-price">$65 value</span>
+            </li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p class="receipt-subtext">
+            <strong>FREEBIES INCLUDED (no extra charge):</strong><br />
+            Business email setup or cleanup · WhatsApp autoresponder script · Welcome & proposal email templates ·
+            basic brand palette suggestion · favicon / icon kit · analytics connection · 1-week tech support.
+          </p>
+
+          <p class="receipt-free">
+            Real-world total value: **over $1,000**.<br />
+            EARTH pricing: <strong>$750 once</strong> or <strong>$100/month for 12 months</strong>.
+          </p>
+        </section>
+      </main>
+
+      <!-- SECONDARY: Intake + CTA -->
+      <section class="row-secondary" id="intake">
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Empire Foundation Intake</h2>
+            <div class="section-tag">One form · One build</div>
+          </div>
+          <p>
+            This is the only form you complete. It gives EARTH enough clarity to build a system that feels true
+            to your house, not a random template.
+          </p>
+
+          <ul class="intake-list">
+            <li><span>A.</span> Basic: name, business name, email, phone, city/country.</li>
+            <li><span>B.</span> Business: one-sentence description, top 1–2 offers, current website (if any), logo.</li>
+            <li><span>C.</span> Website: preferred colors, clean vs. cinematic, any sites you admire.</li>
+            <li><span>D.</span> Booking & payments: calendar tool, Stripe/PayPal/Square, deposit vs. pay-in-full.</li>
+            <li><span>E.</span> Operations: how you communicate, typical delivery time, email templates needed.</li>
+            <li><span>F.</span> Final: must-have details, launch date, any assets to upload.</li>
+          </ul>
+
+          <p class="receipt-subtext" style="margin-top:8px;">
+            You may keep this intake for your own records — it doubles as a clarity map for how your
+            house currently operates.
+          </p>
+        </section>
+
+        <aside class="cta-panel">
+          <strong>Send Your Intake & Choose Your Option</strong>
+          <p style="margin-top:4px;">
+            When you are ready, send your answers by email. You can also click to open a pre-filled email with
+            the subject and body ready to complete.
+          </p>
+          <div class="cta-actions">
+            <a
+              class="btn-small"
+              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20Intake%20-%20[Your%20Name]&body=Kindly%20fill%20in%20your%20details%20below%20and%20send.%0D%0A%0D%0AFull%20Name:%0D%0ABusiness%20Name:%0D%0AEmail:%0D%0APhone:%0D%0ACity%20%26%20Country:%0D%0A%0D%0AOne-sentence%20description%20of%20your%20business:%0D%0ATop%201%E2%80%932%20offers:%0D%0ACurrent%20website%20(if%20any):%0D%0ALogo%20link%20(if%20any):%0D%0A%0D%0APreferred%20colors:%0D%0AClean%20or%20cinematic%20luxury%20feel:%0D%0ASites%20you%20like:%0D%0A%0D%0ABooking%20tool%20choice%20(Calendly/Google/Other):%0D%0APayment%20platform%20(Stripe/PayPal/Square):%0D%0ADeposit%20or%20full%20payment%20upfront:%0D%0A%0D%0APrimary%20communication%20method:%0D%0ATypical%20delivery%20timeline:%0D%0AEmail%20templates%20needed%3F:%0D%0A%0D%0AAbsolute%20must-haves%20on%20your%20site:%0D%0ATarget%20launch%20date:%0D%0AExtra%20notes:%0D%0A"
+            >
+              Email Intake to EARTH
+            </a>
+            <a class="btn-small" href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20-%20Payment%20Option&body=Please%20indicate%20your%20preferred%20option%20below%3A%0D%0A%0D%0AOption%201%3A%20%24750%20one-time%0D%0AOption%202%3A%20%24100%2Fmonth%20for%2012%20months%0D%0A">
+              Choose Payment Option
+            </a>
+          </div>
+          <p class="cta-note">
+            📩 Official intake email: <strong>narinedevirn@gmail.com</strong><br />
+            Subject line used: <em>“Empire Foundation System™ Intake – [Your Name]”</em>.
+          </p>
+        </aside>
+      </section>
     </div>
-
-    <!-- Hero -->
-    <section class="hero">
-      <h1 class="hero-title">The Five Houses of the Empire</h1>
-      <div class="hero-sub">Five Worlds · One System · One Standard</div>
-      <p class="hero-body">
-        Each House represents a distinct dimension of human, creative, and legacy development.
-        Together, the Houses form a unified system of clarity, culture, elevation, and continuity.
-        This page introduces the worlds inside DSH with calm precision and quiet confidence.
-      </p>
-
-      <div class="hero-diagram">
-        <div>
-          <div class="ring-label">The House Circle</div>
-          <div class="ring-caption">
-            Five elements form one circle of development. Every House stands complete on its own
-            and harmonizes with the others.
-          </div>
-        </div>
-        <div class="ring-points">
-          <div class="ring-pill" data-house="fire">
-            <span class="ring-dot"></span>
-            <span>Fire</span>
-          </div>
-          <div class="ring-pill" data-house="water">
-            <span class="ring-dot"></span>
-            <span>Water</span>
-          </div>
-          <div class="ring-pill" data-house="air">
-            <span class="ring-dot"></span>
-            <span>Air</span>
-          </div>
-          <div class="ring-pill" data-house="earth">
-            <span class="ring-dot"></span>
-            <span>Earth</span>
-          </div>
-          <div class="ring-pill" data-house="aether">
-            <span class="ring-dot"></span>
-            <span>Aether</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- DSH meaning -->
-    <section>
-      <div class="section-header">
-        <div class="section-eyebrow">DSH · FOUNDATION</div>
-        <h2 class="section-title">What the House System Stands For</h2>
-        <p class="section-body">
-          DSH offers a clear way to understand where energy is concentrated and how growth unfolds.
-          The Houses carry a standard of refinement, dignity, and long-range thinking. Every world
-          inside the system elevates life, work, and legacy.
-        </p>
-      </div>
-
-      <div class="pillars">
-        <div class="pillar">
-          <div class="pillar-title">Clarity</div>
-          <div class="pillar-body">
-            A structured language for understanding the dimension of life being refined:
-            presence, care, communication, estates, or governance.
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">Culture</div>
-          <div class="pillar-body">
-            A refined environment that shapes behavior, language, and ritual in a way that
-            honors dignity, intelligence, and excellence.
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-title">Continuity</div>
-          <div class="pillar-body">
-            A long-view framework that supports generational thinking, stable standards,
-            and enduring impact across time.
-          </div>
-        </div>
-      </div>
-
-      <!-- Quick House overview -->
-      <div class="section-header" style="margin-top: 14px;">
-        <div class="section-eyebrow">THE FIVE HOUSES</div>
-        <p class="section-body">
-          Each House holds a world with its own focus and benefits. The Houses stand side by side,
-          forming one complete system.
-        </p>
-      </div>
-
-      <div class="house-strip">
-        <div class="house-chip">
-          <span class="chip-swatch fire"></span>
-          <span>Fire · Image &amp; Presence</span>
-        </div>
-        <div class="house-chip">
-          <span class="chip-swatch water"></span>
-          <span>Water · Care &amp; Healing</span>
-        </div>
-        <div class="house-chip">
-          <span class="chip-swatch air"></span>
-          <span>Air · Language &amp; Communication</span>
-        </div>
-        <div class="house-chip">
-          <span class="chip-swatch earth"></span>
-          <span>Earth · Land &amp; Heritage</span>
-        </div>
-        <div class="house-chip">
-          <span class="chip-swatch aether"></span>
-          <span>Aether · Governance &amp; Legacy</span>
-        </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- House cards -->
-    <section class="houses-grid" aria-label="The Five Houses">
-      <!-- FIRE -->
-      <article class="house-card" data-house="fire">
-        <div class="house-inner">
-          <div class="house-left">
-            <div class="house-index">I · FIRE HOUSE</div>
-
-            <div class="house-emblem-wrap fire">
-              <div class="house-emblem-frame">
-                <!-- Replace span with <img src="fire-emblem.png" alt="Fire House emblem" /> when ready -->
-                <span>F</span>
-              </div>
-              <div class="emblem-tab"></div>
-            </div>
-
-            <div class="house-identity">
-              <div class="house-element">Realm of Image &amp; Presence</div>
-              <div class="house-name">Fire House</div>
-              <div class="house-realm">Identity · Atmosphere · Visible Expression</div>
-            </div>
-          </div>
-
-          <div class="house-right">
-            <p>
-              <strong>What this House represents:</strong>
-              Fire refines how a person or organization is seen in the world. This House aligns
-              inner truth with outer presentation and honors beauty, coherence, and presence.
-            </p>
-            <p style="margin-top: 6px;">
-              <strong>How this House benefits your world:</strong>
-              Fire gives image, story, and environment a unified language so that every room,
-              screen, and space reflects the reality within.
-            </p>
-
-            <div class="house-benefits">
-              <div class="benefit-block">
-                <div class="benefit-title">Inner Dimension</div>
-                <p>
-                  A clear self-image, ease in being seen, and a calm sense of “this is how I move”
-                  in public and private life.
-                </p>
-              </div>
-              <div class="benefit-block">
-                <div class="benefit-title">Outer Dimension</div>
-                <p>
-                  Consistent visual presence, memorable impressions, and a recognized atmosphere
-                  that carries your name and work with grace.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- WATER -->
-      <article class="house-card" data-house="water">
-        <div class="house-inner">
-          <div class="house-left">
-            <div class="house-index">II · WATER HOUSE</div>
-
-            <div class="house-emblem-wrap water">
-              <div class="house-emblem-frame">
-                <!-- Replace span with <img src="water-emblem.png" alt="Water House emblem" /> when ready -->
-                <span>W</span>
-              </div>
-              <div class="emblem-tab"></div>
-            </div>
-
-            <div class="house-identity">
-              <div class="house-element">Realm of Care &amp; Healing</div>
-              <div class="house-name">Water House</div>
-              <div class="house-realm">Compassion · Service · Emotional Foundations</div>
-            </div>
-          </div>
-
-          <div class="house-right">
-            <p>
-              <strong>What this House represents:</strong>
-              Water holds the rivers of care that flow through families, communities, and missions.
-              This House centers mercy, healing, and the quiet work of supporting others.
-            </p>
-            <p style="margin-top: 6px;">
-              <strong>How this House benefits your world:</strong>
-              Water gives care a name, a rhythm, and a standard so that love, support, and service
-              move with steadiness and honor.
-            </p>
-
-            <div class="house-benefits">
-              <div class="benefit-block">
-                <div class="benefit-title">Inner Dimension</div>
-                <p>
-                  Peace around the call to care for others, a grounded way of holding emotion,
-                  and a clear sense of how compassion flows through your life.
-                </p>
-              </div>
-              <div class="benefit-block">
-                <div class="benefit-title">Outer Dimension</div>
-                <p>
-                  Visible models of dignity, trusted relationships with those you serve, and
-                  a recognizable presence in the field of healing and support.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- AIR -->
-      <article class="house-card" data-house="air">
-        <div class="house-inner">
-          <div class="house-left">
-            <div class="house-index">III · AIR HOUSE</div>
-
-            <div class="house-emblem-wrap air">
-              <div class="house-emblem-frame">
-                <!-- Replace span with <img src="air-emblem.png" alt="Air House emblem" /> when ready -->
-                <span>A</span>
-              </div>
-              <div class="emblem-tab"></div>
-            </div>
-
-            <div class="house-identity">
-              <div class="house-element">Realm of Language &amp; Communication</div>
-              <div class="house-name">Air House</div>
-              <div class="house-realm">Words · Messaging · Cultural Connection</div>
-            </div>
-          </div>
-
-          <div class="house-right">
-            <p>
-              <strong>What this House represents:</strong>
-              Air shapes how ideas, beliefs, and stories move through people and cultures.
-              This House honors clarity, depth, and integrity in every form of communication.
-            </p>
-            <p style="margin-top: 6px;">
-              <strong>How this House benefits your world:</strong>
-              Air gives speech, writing, and signals a unified voice so that meaning travels
-              cleanly across rooms, platforms, and nations.
-            </p>
-
-            <div class="house-benefits">
-              <div class="benefit-block">
-                <div class="benefit-title">Inner Dimension</div>
-                <p>
-                  Confidence in expression, ease in explaining complex thoughts, and alignment
-                  between what you believe and what you say.
-                </p>
-              </div>
-              <div class="benefit-block">
-                <div class="benefit-title">Outer Dimension</div>
-                <p>
-                  Clear messaging, welcoming language, and strong connection with diverse
-                  audiences who understand and trust your voice.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- EARTH -->
-      <article class="house-card" data-house="earth">
-        <div class="house-inner">
-          <div class="house-left">
-            <div class="house-index">IV · EARTH HOUSE</div>
-
-            <div class="house-emblem-wrap earth">
-              <div class="house-emblem-frame">
-                <!-- Replace span with <img src="earth-emblem.png" alt="Earth House emblem" /> when ready -->
-                <span>E</span>
-              </div>
-              <div class="emblem-tab"></div>
-            </div>
-
-            <div class="house-identity">
-              <div class="house-element">Realm of Land &amp; Heritage</div>
-              <div class="house-name">Earth House</div>
-              <div class="house-realm">Estates · Products · Tangible Assets</div>
-            </div>
-          </div>
-
-          <div class="house-right">
-            <p>
-              <strong>What this House represents:</strong>
-              Earth surrounds the land, products, and resources entrusted to a person or family.
-              This House honors craftsmanship, responsibility, and generational thinking.
-            </p>
-            <p style="margin-top: 6px;">
-              <strong>How this House benefits your world:</strong>
-              Earth gives estates, creations, and holdings a clear story and direction so that
-              what you build today carries strength into the future.
-            </p>
-
-            <div class="house-benefits">
-              <div class="benefit-block">
-                <div class="benefit-title">Inner Dimension</div>
-                <p>
-                  Calm around stewardship, a clear sense of purpose for what you hold, and
-                  confidence that your efforts serve a larger vision.
-                </p>
-              </div>
-              <div class="benefit-block">
-                <div class="benefit-title">Outer Dimension</div>
-                <p>
-                  Recognizable estates and products, respectful partnerships, and a stable
-                  foundation for generational wealth and impact.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- AETHER -->
-      <article class="house-card" data-house="aether">
-        <div class="house-inner">
-          <div class="house-left">
-            <div class="house-index">V · AETHER HOUSE</div>
-
-            <div class="house-emblem-wrap aether">
-              <div class="house-emblem-frame">
-                <!-- Replace span with <img src="aether-emblem.png" alt="Aether House emblem" /> when ready -->
-                <span>Æ</span>
-              </div>
-              <div class="emblem-tab"></div>
-            </div>
-
-            <div class="house-identity">
-              <div class="house-element">Realm of Governance &amp; Legacy</div>
-              <div class="house-name">Aether House</div>
-              <div class="house-realm">Leadership · Oversight · Long-Range Design</div>
-            </div>
-          </div>
-
-          <div class="house-right">
-            <p>
-              <strong>What this House represents:</strong>
-              Aether gathers founders, leaders, and guardians of significant work.
-              This House focuses on wise decisions, stable structures, and protected vision.
-            </p>
-            <p style="margin-top: 6px;">
-              <strong>How this House benefits your world:</strong>
-              Aether gives councils, boards, and covenants a clear framework so that leadership
-              carries strength, grace, and long-range stability.
-            </p>
-
-            <div class="house-benefits">
-              <div class="benefit-block">
-                <div class="benefit-title">Inner Dimension</div>
-                <p>
-                  Confidence in high-level choices, assurance that your legacy rests on firm
-                  foundations, and freedom to lead with clarity.
-                </p>
-              </div>
-              <div class="benefit-block">
-                <div class="benefit-title">Outer Dimension</div>
-                <p>
-                  Clear roles and expectations, trusted governance, and a name that carries
-                  authority across generations and regions.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Together section -->
-    <section class="together">
-      <div>
-        <div class="section-eyebrow">SYSTEM VIEW</div>
-        <h2 class="section-title">How the Houses Move Together</h2>
-        <p class="section-body">
-          The Houses stand as complete worlds and form a unified path of development. Presence,
-          language, assets, and decisions grow in harmony, surrounded at every stage by care.
-        </p>
-      </div>
-
-      <div class="together-list">
-        <span>Fire shapes what is seen.</span>
-        <span>Air shapes what is spoken.</span>
-        <span>Earth shapes what is held.</span>
-        <span>Aether shapes what is decided.</span>
-        <span>Water surrounds every stage with dignity and compassion.</span>
-
-        <div class="diagram-flow">
-          <div class="diagram-line">
-            <span class="label">Flow:</span> Fire → Air → Earth → Aether
-          </div>
-          <div class="diagram-line">
-            <span class="label">Field:</span> Water around all.
-          </div>
-          <div class="diagram-tag">
-            <span class="diagram-dot"></span>
-            <span>One System · Five Worlds</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Closing -->
-    <section class="closing">
-      <span>Each House stands complete, holding a world of standards, language, and practice.</span>
-      <span>Together, the Houses form an ordered, elegant way to understand and elevate life, work, and legacy.</span>
-    </section>
-  </main>
+  </div>
 </body>
 </html>
