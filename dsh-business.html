@@ -9,7 +9,6 @@
 
   <style>
     :root {
-      /* EARTH / Narine Estate palette */
       --bg: #f4f0e6;
       --bg-soft: #f8f4ec;
       --ink: #152023;
@@ -20,7 +19,7 @@
       --border-soft: rgba(18, 53, 45, 0.12);
       --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.12);
       --radius-xl: 26px;
-      --radius-lg: 20px;
+      --radius-lg: 18px;
       --radius-pill: 999px;
       --transition: 200ms ease-out;
       --max-width: 1040px;
@@ -52,7 +51,7 @@
       padding: 20px 18px 40px;
     }
 
-    /* GLOBAL DSH HEADER (same style as FIRE) */
+    /* GLOBAL DSH HEADER (same as FIRE) */
     .site-header {
       background: #050607;
       border-bottom: 1px solid rgba(245, 192, 70, 0.25);
@@ -213,10 +212,10 @@
       background:
         radial-gradient(circle at top left, #ffffff 0, #f5eee1 52%, #efe2cf 100%);
       box-shadow: var(--shadow-soft);
-      padding: 20px 18px 18px;
+      padding: 18px 18px 18px;
       display: grid;
       grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 20px;
+      gap: 18px;
       position: relative;
       overflow: hidden;
     }
@@ -227,7 +226,7 @@
       inset: -40%;
       background:
         radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.85), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(18, 53, 45, 0.32), transparent 55%);
+        radial-gradient(circle at 100% 100%, rgba(18, 53, 45, 0.26), transparent 55%);
       mix-blend-mode: soft-light;
       opacity: 0.9;
       pointer-events: none;
@@ -254,7 +253,7 @@
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: 30px;
+      font-size: 28px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       line-height: 1.18;
@@ -263,7 +262,7 @@
 
     .hero-sub {
       font-size: 13px;
-      line-height: 1.7;
+      line-height: 1.6;
       color: var(--ink-soft);
       max-width: 480px;
     }
@@ -276,11 +275,12 @@
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
+      margin-top: 2px;
     }
 
     .tag {
-      padding: 4px 10px;
+      padding: 4px 9px;
       border-radius: var(--radius-pill);
       font-size: 10px;
       letter-spacing: 0.16em;
@@ -303,7 +303,7 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 9px 18px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(212, 180, 106, 0.7);
       background: radial-gradient(circle at top, #fffaf0, #d9b875);
@@ -331,16 +331,16 @@
     }
 
     .hero-right {
-      border-radius: 20px;
+      border-radius: 18px;
       border: 1px solid rgba(18, 53, 45, 0.16);
       background: linear-gradient(145deg, rgba(244, 240, 230, 0.96), rgba(236, 227, 209, 0.98));
-      padding: 14px 14px 12px;
-      box-shadow: 0 20px 46px rgba(150, 130, 90, 0.3);
+      padding: 12px 12px 10px;
+      box-shadow: 0 20px 44px rgba(150, 130, 90, 0.3);
+      font-size: 12px;
+      color: #4d4b45;
       display: flex;
       flex-direction: column;
       gap: 8px;
-      font-size: 12px;
-      color: #4d4b45;
     }
 
     .hero-right-header {
@@ -352,7 +352,7 @@
 
     .hero-right-title {
       font-family: "Playfair Display", serif;
-      font-size: 15px;
+      font-size: 14px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--estate-navy);
@@ -374,10 +374,10 @@
     }
 
     .option-card {
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid rgba(18, 53, 45, 0.2);
       background: rgba(250, 245, 234, 0.96);
-      padding: 9px 9px 8px;
+      padding: 7px 8px 7px;
       font-size: 11px;
     }
 
@@ -386,7 +386,7 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--estate-green);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .option-price {
@@ -404,7 +404,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 11px;
+      padding: 5px 10px;
       border-radius: var(--radius-pill);
       border: 1px dashed rgba(18, 53, 45, 0.4);
       font-size: 10px;
@@ -430,10 +430,10 @@
 
     /* Sections */
     .main {
-      margin-top: 22px;
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 16px;
     }
 
     @media (max-width: 880px) {
@@ -446,7 +446,7 @@
       background: var(--bg-soft);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      padding: 16px 16px 14px;
+      padding: 14px 14px 12px;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
       font-size: 12px;
       color: var(--ink-soft);
@@ -457,12 +457,12 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .section-title {
       font-family: "Playfair Display", serif;
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--estate-navy);
@@ -479,19 +479,19 @@
     .section p {
       font-size: 12px;
       line-height: 1.6;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .step-list {
-      margin-top: 6px;
+      margin-top: 4px;
       display: grid;
       grid-template-columns: minmax(0, 1fr);
-      gap: 6px;
+      gap: 5px;
     }
 
     .step-pill {
-      padding: 7px 10px;
-      border-radius: 12px;
+      padding: 6px 9px;
+      border-radius: 10px;
       border: 1px solid rgba(0, 0, 0, 0.06);
       background: #ffffff;
       font-size: 11px;
@@ -512,7 +512,7 @@
     }
 
     .receipt-item {
-      padding: 6px 0;
+      padding: 5px 0;
       border-bottom: 1px solid rgba(18, 53, 45, 0.08);
       display: flex;
       justify-content: space-between;
@@ -549,15 +549,15 @@
     .divider {
       height: 1px;
       background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.16), transparent);
-      margin: 10px 0 8px;
+      margin: 8px 0 6px;
     }
 
     /* Intake + CTA */
     .row-secondary {
-      margin-top: 18px;
+      margin-top: 16px;
       display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 16px;
     }
 
     @media (max-width: 880px) {
@@ -583,10 +583,10 @@
     }
 
     .cta-panel {
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid rgba(18, 53, 45, 0.18);
-      background: linear-gradient(135deg, rgba(18, 53, 45, 0.06), rgba(212, 180, 106, 0.14));
-      padding: 12px 12px 10px;
+      background: linear-gradient(135deg, rgba(18, 53, 45, 0.05), rgba(212, 180, 106, 0.12));
+      padding: 11px 11px 10px;
       font-size: 12px;
       color: var(--ink-soft);
     }
@@ -681,19 +681,19 @@
           <div class="hero-eyebrow">Narine Estate · Earth House</div>
           <h1 class="hero-title">Empire Foundation System™</h1>
           <p class="hero-sub">
-            EARTH is the quiet desk of DeVirn Signature House, Inc. — the place where
-            your empire stops living in ideas and starts living in **systems**:
-            website, booking, payments, and a simple way to track what is actually happening.
+            EARTH is the quiet desk of DeVirn Signature House, Inc. — where you stop running
+            everything in your head and start running it through a simple, working system:
+            <strong>website, booking, payments, and a light operations base.</strong>
           </p>
           <p class="hero-sub">
-            One package. Two payment paths. <strong>Fully set up, ready to use, including your domain.</strong>
+            One package. Two payment paths. The same complete foundation.
           </p>
 
           <div class="hero-tags">
-            <span class="tag">Website · 1–3 pages</span>
-            <span class="tag">Booking & Payments</span>
-            <span class="tag">Mini CRM & SOPs</span>
-            <span class="tag">Done-for-you Setup</span>
+            <span class="tag">1–3 page website</span>
+            <span class="tag">Booking & payments</span>
+            <span class="tag">Mini CRM</span>
+            <span class="tag">SOP micro-pack</span>
           </div>
 
           <div class="hero-cta-row">
@@ -702,7 +702,7 @@
               <span>↗</span>
             </a>
             <div class="hero-note">
-              Send your intake once, and EARTH builds a usable, living system — not a template.
+              You send one intake. EARTH builds a system you can actually use.
             </div>
           </div>
         </div>
@@ -710,10 +710,10 @@
         <aside class="hero-right">
           <div class="hero-right-header">
             <div class="hero-right-title">Two Ways to Begin</div>
-            <div class="hero-right-tag">Pay in full · Or monthly</div>
+            <div class="hero-right-tag">Same system · different rhythm</div>
           </div>
           <p>
-            The **same** Empire Foundation System™ — choose the rhythm that fits your current season.
+            Choose what fits your current season. Everything listed on this page is included in both.
           </p>
 
           <div class="option-grid">
@@ -721,23 +721,23 @@
               <div class="option-label">Option 1 · One Time</div>
               <div class="option-price">$750 total</div>
               <div class="option-note">
-                Delivered in approximately 14–21 days.<br />
-                Full system installed and ready, no monthly obligation.
+                Delivered in ~14–21 days.<br />
+                Pay once. Foundation installed and ready.
               </div>
             </div>
             <div class="option-card">
               <div class="option-label">Option 2 · Monthly</div>
               <div class="option-price">$100 / month · 12 months</div>
               <div class="option-note">
-                Site & system ready to use after day 31 — domain included.
-                Pay gently over a year while your system works.
+                System ready after day 31, including domain.<br />
+                Gentle payment over a year.
               </div>
             </div>
           </div>
 
           <div class="hero-pill">
             <span class="dot"></span>
-            <span>One system · One intake · Fully done for you</span>
+            <span>One system · One intake · Done for you</span>
           </div>
         </aside>
       </section>
@@ -746,34 +746,30 @@
       <main class="main">
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">What EARTH Actually Builds</h2>
-            <div class="section-tag">From invisible to bookable</div>
+            <h2 class="section-title">What EARTH Builds</h2>
+            <div class="section-tag">From “ideas” to “infrastructure”</div>
           </div>
           <p>
-            The Empire Foundation System™ is not a “pretty website package.” It is the
-            **minimum infrastructure** every serious house needs — whether you are FIRE (Signature D),
-            AIR (Kadijah’s Mango), WATER (Timeless Peace), or EARTH (Narine Estate).
-          </p>
-          <p>
-            The question it answers is simple: <strong>“Can people find you, book you, and pay you — without chaos?”</strong>
+            The Empire Foundation System™ is the minimum structure every serious house needs —
+            FIRE (Signature D), AIR (Kadijah’s Mango), WATER (Timeless Peace), or EARTH (Narine Estate).
           </p>
 
           <div class="step-list">
             <div class="step-pill">
               <span>01 · Homebase Website</span>
-              1–3 pages that clearly state who you are, what you offer, and how to book you — no clutter.
+              A clean 1–3 page site that says who you are, what you offer, and how to book you.
             </div>
             <div class="step-pill">
-              <span>02 · Booking & Payments Rail</span>
-              Calendar + payment links wired into your site so bookings and revenue can move smoothly.
+              <span>02 · Booking & Payments</span>
+              Calendar + payment links wired into your site so people can schedule and pay without back-and-forth.
             </div>
             <div class="step-pill">
-              <span>03 · Mini CRM & Operations</span>
-              A light pipeline, simple SOPs, and a place to track leads, clients, and delivery without overwhelm.
+              <span>03 · Mini CRM</span>
+              A light Notion or Airtable base to track leads, clients, and delivery stages.
             </div>
             <div class="step-pill">
-              <span>04 · Ready-to-Use Delivery</span>
-              You receive logins, links, and a one-page overview. You can start sending people to your system immediately.
+              <span>04 · Simple Operations</span>
+              Micro SOPs so you know what happens from first message to final delivery.
             </div>
           </div>
         </section>
@@ -781,15 +777,16 @@
         <section class="section">
           <div class="section-header">
             <h2 class="section-title">Receipt-Style Breakdown</h2>
-            <div class="section-tag">Clear · Honest · Complete</div>
+            <div class="section-tag">Clear · Honest</div>
           </div>
+
           <ul class="receipt-list">
             <li class="receipt-item">
               <span class="receipt-label">Signature Homebase Website (1–3 pages)</span>
               <span class="receipt-price">$350 value</span>
             </li>
             <li class="receipt-item">
-              <span class="receipt-label">Booking + Payment Automation Setup</span>
+              <span class="receipt-label">Booking & Payment Automation Setup</span>
               <span class="receipt-price">$200 value</span>
             </li>
             <li class="receipt-item">
@@ -805,13 +802,13 @@
           <div class="divider"></div>
 
           <p class="receipt-subtext">
-            <strong>FREEBIES INCLUDED (no extra charge):</strong><br />
-            Business email setup or cleanup · WhatsApp autoresponder script · Welcome & proposal email templates ·
-            basic brand palette suggestion · favicon / icon kit · analytics connection · 1-week tech support.
+            <strong>Free extras included:</strong> business email setup or cleanup · WhatsApp autoresponder script ·
+            welcome & proposal email templates · basic brand palette suggestion · favicon / icon kit · analytics connection ·
+            1-week tech support after launch.
           </p>
 
           <p class="receipt-free">
-            Real-world total value: **over $1,000**.<br />
+            Real-world total value: over $1,000.<br />
             EARTH pricing: <strong>$750 once</strong> or <strong>$100/month for 12 months</strong>.
           </p>
         </section>
@@ -825,45 +822,41 @@
             <div class="section-tag">One form · One build</div>
           </div>
           <p>
-            This is the only form you complete. It gives EARTH enough clarity to build a system that feels true
-            to your house, not a random template.
+            This is the only form you complete. It also becomes your own clarity map.
           </p>
 
           <ul class="intake-list">
-            <li><span>A.</span> Basic: name, business name, email, phone, city/country.</li>
-            <li><span>B.</span> Business: one-sentence description, top 1–2 offers, current website (if any), logo.</li>
-            <li><span>C.</span> Website: preferred colors, clean vs. cinematic, any sites you admire.</li>
-            <li><span>D.</span> Booking & payments: calendar tool, Stripe/PayPal/Square, deposit vs. pay-in-full.</li>
-            <li><span>E.</span> Operations: how you communicate, typical delivery time, email templates needed.</li>
-            <li><span>F.</span> Final: must-have details, launch date, any assets to upload.</li>
+            <li><span>A.</span> Name, business name, email, phone, city/country.</li>
+            <li><span>B.</span> One-sentence description, top 1–2 offers, current site (if any), logo link.</li>
+            <li><span>C.</span> Preferred colors, clean vs. cinematic, 1–2 sites you like.</li>
+            <li><span>D.</span> Booking tool, payment platform, deposit vs. pay-in-full.</li>
+            <li><span>E.</span> How you communicate, delivery timeline, email templates needed.</li>
+            <li><span>F.</span> Must-haves on the site, target launch date, extra notes.</li>
           </ul>
-
-          <p class="receipt-subtext" style="margin-top:8px;">
-            You may keep this intake for your own records — it doubles as a clarity map for how your
-            house currently operates.
-          </p>
         </section>
 
         <aside class="cta-panel">
           <strong>Send Your Intake & Choose Your Option</strong>
           <p style="margin-top:4px;">
-            When you are ready, send your answers by email. You can also click to open a pre-filled email with
-            the subject and body ready to complete.
+            Click below to open a pre-filled email. Edit, attach any files, and send.
           </p>
           <div class="cta-actions">
             <a
               class="btn-small"
-              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20Intake%20-%20[Your%20Name]&body=Kindly%20fill%20in%20your%20details%20below%20and%20send.%0D%0A%0D%0AFull%20Name:%0D%0ABusiness%20Name:%0D%0AEmail:%0D%0APhone:%0D%0ACity%20%26%20Country:%0D%0A%0D%0AOne-sentence%20description%20of%20your%20business:%0D%0ATop%201%E2%80%932%20offers:%0D%0ACurrent%20website%20(if%20any):%0D%0ALogo%20link%20(if%20any):%0D%0A%0D%0APreferred%20colors:%0D%0AClean%20or%20cinematic%20luxury%20feel:%0D%0ASites%20you%20like:%0D%0A%0D%0ABooking%20tool%20choice%20(Calendly/Google/Other):%0D%0APayment%20platform%20(Stripe/PayPal/Square):%0D%0ADeposit%20or%20full%20payment%20upfront:%0D%0A%0D%0APrimary%20communication%20method:%0D%0ATypical%20delivery%20timeline:%0D%0AEmail%20templates%20needed%3F:%0D%0A%0D%0AAbsolute%20must-haves%20on%20your%20site:%0D%0ATarget%20launch%20date:%0D%0AExtra%20notes:%0D%0A"
+              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20Intake%20-%20[Your%20Name]&body=Kindly%20fill%20in%20your%20details%20below%20and%20send.%0D%0A%0D%0AFull%20Name:%0D%0ABusiness%20Name:%0D%0AEmail:%0D%0APhone:%0D%0ACity%20%26%20Country:%0D%0A%0D%0AOne-sentence%20description%20of%20your%20business:%0D%0ATop%201%E2%80%932%20offers:%0D%0ACurrent%20website%20(if%20any):%0D%0ALogo%20link%20(if%20any):%0D%0A%0D%0APreferred%20colors:%0D%0AClean%20or%20cinematic%20luxury%20feel:%0D%0ASites%20you%20like:%0D%0A%0D%0ABooking%20tool%20choice%20(Calendly/Google/Other):%0D%0APayment%20platform%20(Stripe/PayPal/Square):%0D%0ADeposit%20or%20full%20payment%20upfront:%0D%0A%0D%0APrimary%20communication%20method:%0D%0ATypical%20delivery%20timeline:%0D%0AEmail%20templates%20needed%3F:%0D%0A%0D%0AMust-haves%20on%20your%20site:%0D%0ATarget%20launch%20date:%0D%0AExtra%20notes:%0D%0A"
             >
               Email Intake to EARTH
             </a>
-            <a class="btn-small" href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20-%20Payment%20Option&body=Please%20indicate%20your%20preferred%20option%20below%3A%0D%0A%0D%0AOption%201%3A%20%24750%20one-time%0D%0AOption%202%3A%20%24100%2Fmonth%20for%2012%20months%0D%0A">
+            <a
+              class="btn-small"
+              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20-%20Payment%20Option&body=Please%20indicate%20your%20preferred%20option%20below%3A%0D%0A%0D%0AOption%201%3A%20%24750%20one-time%0D%0AOption%202%3A%20%24100%2Fmonth%20for%2012%20months%0D%0A"
+            >
               Choose Payment Option
             </a>
           </div>
           <p class="cta-note">
-            📩 Official intake email: <strong>narinedevirn@gmail.com</strong><br />
-            Subject line used: <em>“Empire Foundation System™ Intake – [Your Name]”</em>.
+            📩 Official EARTH email: <strong>narinedevirn@gmail.com</strong><br />
+            Subject used: <em>“Empire Foundation System™ Intake – [Your Name]”</em>.
           </p>
         </aside>
       </section>
