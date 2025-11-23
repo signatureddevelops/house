@@ -31,6 +31,10 @@
       --transition-fast: 0.16s ease-out;
       --transition-med: 0.25s ease-out;
       --max-width: 1080px;
+
+      --petal: #ff7fb9;              /* Girl Power pink */
+      --petal-deep: #f05c9d;
+      --grid-line: rgba(115,197,255,0.16); /* blueprint lines */
     }
 
     * {
@@ -55,6 +59,23 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle blueprint grid overlay */
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.18;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+      z-index: -1;
     }
 
     .container {
@@ -74,10 +95,10 @@
         to bottom,
         rgba(2,7,18,0.98),
         rgba(2,7,18,0.92),
-        rgba(2,7,18,0.75),
+        rgba(2,7,18,0.78),
         transparent
       );
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .header-inner {
@@ -189,7 +210,7 @@
       padding: 0.4rem 1rem;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(210,230,250,0.7);
-      background: radial-gradient(circle at 0 0, rgba(115,197,255,0.26), rgba(2,7,18,0.98));
+      background: radial-gradient(circle at 0 0, rgba(115,197,255,0.35), rgba(2,7,18,0.98));
       font-size: 0.74rem;
       color: var(--dove);
       text-decoration: none;
@@ -209,14 +230,14 @@
     .nav-cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.95);
-      background: radial-gradient(circle at 0 0, rgba(115,197,255,0.33), #020712);
+      background: radial-gradient(circle at 0 0, rgba(115,197,255,0.45), #020712);
     }
 
     .nav-toggle {
       display: none;
     }
 
-    /* HERO – SIMPLE, LUXE, WATER + METALLIC */
+    /* HERO – WATER + METALLIC + BLUEPRINT HINT */
     .hero {
       padding: 3.5rem 0 3rem;
     }
@@ -269,7 +290,7 @@
     .hero-subtitle {
       font-size: 0.96rem;
       color: var(--text-soft);
-      max-width: 32rem;
+      max-width: 34rem;
       margin-bottom: 1.6rem;
     }
 
@@ -324,6 +345,23 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.95);
     }
 
+    .btn-petal {
+      background: linear-gradient(135deg, var(--petal), var(--petal-deep));
+      border-color: rgba(255,215,237,0.7);
+      color: #fff7fb;
+      box-shadow:
+        0 18px 40px rgba(0,0,0,0.9),
+        0 0 32px rgba(255,127,185,0.6);
+      font-weight: 600;
+    }
+
+    .btn-petal:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow:
+        0 24px 60px rgba(0,0,0,1),
+        0 0 40px rgba(255,127,185,0.7);
+    }
+
     .hero-meta {
       font-size: 0.7rem;
       letter-spacing: 0.18em;
@@ -335,17 +373,43 @@
       color: var(--dove);
     }
 
+    .hero-meta a {
+      color: var(--water-blue);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(115,197,255,0.7);
+    }
+
+    .hero-meta a:hover {
+      color: #f6fbff;
+      border-bottom-color: #f6fbff;
+    }
+
     .hero-panel {
       border-radius: var(--radius-lg);
       background:
         radial-gradient(circle at top, rgba(115,197,255,0.32), transparent 65%),
         radial-gradient(circle at bottom, rgba(5,15,30,0.96), rgba(6,17,32,0.98));
-      border: 1px solid rgba(115,197,255,0.5);
+      border: 1px solid rgba(115,197,255,0.55);
       box-shadow: var(--shadow-soft);
       padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(135deg, rgba(223,230,243,0.14), transparent 40%, rgba(115,197,255,0.18));
+      mix-blend-mode: screen;
+      opacity: 0.6;
+      pointer-events: none;
     }
 
     .hero-panel-title {
+      position: relative;
       font-size: 0.86rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
@@ -354,12 +418,14 @@
     }
 
     .hero-panel-body {
+      position: relative;
       font-size: 0.86rem;
       color: var(--text-soft);
       margin-bottom: 0.9rem;
     }
 
     .hero-panel-row {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -384,12 +450,13 @@
     }
 
     .chip.blue {
-      border-color: rgba(115,197,255,0.8);
+      border-color: rgba(115,197,255,0.85);
       background: var(--water-blue-soft);
       color: #f6fbff;
     }
 
     .hero-panel-note {
+      position: relative;
       font-size: 0.8rem;
       color: var(--text-soft);
       border-top: 1px solid rgba(255,255,255,0.08);
@@ -421,11 +488,11 @@
     .section-subtitle {
       font-size: 0.9rem;
       color: var(--text-soft);
-      max-width: 32rem;
+      max-width: 34rem;
       margin-bottom: 1.4rem;
     }
 
-    /* THREE SIMPLE CARDS */
+    /* GRID CARDS */
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -441,13 +508,15 @@
       transition:
         transform var(--transition-med),
         border-color var(--transition-med),
-        box-shadow var(--transition-med);
+        box-shadow var(--transition-med),
+        background var(--transition-med);
     }
 
     .card:hover {
       transform: translateY(-3px);
-      border-color: rgba(115,197,255,0.8);
+      border-color: rgba(115,197,255,0.9);
       box-shadow: 0 20px 50px rgba(0,0,0,0.95);
+      background: radial-gradient(circle at top, rgba(115,197,255,0.22), #0b1827);
     }
 
     .card-label {
@@ -469,6 +538,194 @@
       color: var(--text-soft);
     }
 
+    /* BLUEPRINT TIMELINE */
+    .timeline {
+      margin-top: 1.1rem;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(5,15,30,0.98), rgba(7,23,45,0.98));
+      border: 1px solid rgba(115,197,255,0.45);
+      box-shadow: var(--shadow-soft);
+      padding: 1rem 1rem 1.1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(115,197,255,0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(115,197,255,0.12) 1px, transparent 1px);
+      background-size: 38px 38px;
+      opacity: 0.24;
+      pointer-events: none;
+    }
+
+    .timeline-inner {
+      position: relative;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 0.9fr 2.1fr;
+      gap: 0.75rem;
+      align-items: baseline;
+      font-size: 0.8rem;
+    }
+
+    .timeline-year {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--metal-silver);
+    }
+
+    .timeline-text {
+      color: var(--text-soft);
+    }
+
+    .timeline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle, #f6fbff, #73c5ff);
+      box-shadow: 0 0 12px rgba(115,197,255,0.9);
+    }
+
+    /* GIRL POWER SECTION */
+    .girlpower {
+      border-radius: 22px;
+      background: radial-gradient(circle at top left, rgba(255,127,185,0.55), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(115,197,255,0.45), transparent 55%),
+                  linear-gradient(135deg, rgba(5,15,30,0.98), rgba(7,23,45,0.98));
+      border: 1px solid rgba(255,190,225,0.75);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem 1.1rem 1.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .girl-tag {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: #ffe7f4;
+      margin-bottom: 0.2rem;
+    }
+
+    .girl-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .girl-body {
+      font-size: 0.84rem;
+      color: #ffeef7;
+      margin-bottom: 0.65rem;
+      max-width: 32rem;
+    }
+
+    .girl-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 0.7rem;
+      font-size: 0.78rem;
+      color: #fff7fb;
+    }
+
+    .girl-list-item {
+      background: rgba(6,14,30,0.86);
+      border-radius: 14px;
+      padding: 0.55rem 0.6rem;
+      border: 1px solid rgba(255,215,237,0.55);
+    }
+
+    .girl-meta {
+      font-size: 0.72rem;
+      color: #ffe7f4;
+      margin-top: 0.45rem;
+    }
+
+    /* STAKEHOLDER CARDS */
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 0.9rem;
+      margin-top: 0.9rem;
+    }
+
+    /* SPONSORSHIP */
+    .sponsor-card {
+      border-radius: 20px;
+      background: radial-gradient(circle at top, rgba(115,197,255,0.3), transparent 55%),
+                  linear-gradient(140deg, #071524, #061220);
+      border: 1px solid rgba(115,197,255,0.75);
+      box-shadow: var(--shadow-soft);
+      padding: 1.1rem 1.1rem 1.2rem;
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+      text-align: left;
+    }
+
+    .sponsor-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--metal-silver);
+      margin-bottom: 0.2rem;
+    }
+
+    .sponsor-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.1rem;
+    }
+
+    .sponsor-amount {
+      font-size: 0.9rem;
+      color: var(--water-blue);
+      margin-bottom: 0.55rem;
+    }
+
+    .sponsor-body {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      margin-bottom: 0.55rem;
+    }
+
+    .sponsor-ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0 0 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .sponsor-ul li::before {
+      content: "•";
+      display: inline-block;
+      margin-right: 0.35rem;
+      color: var(--water-blue);
+    }
+
+    .sponsor-note {
+      font-size: 0.74rem;
+      color: var(--text-soft);
+    }
+
     /* CTA / PARTNER SECTION */
     .cta {
       text-align: center;
@@ -486,7 +743,7 @@
     .cta p {
       font-size: 0.9rem;
       color: var(--text-soft);
-      max-width: 32rem;
+      max-width: 34rem;
       margin: 0 auto 1.4rem;
     }
 
@@ -531,6 +788,15 @@
         margin-top: 0.4rem;
       }
       .grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+      .timeline-item {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .girl-list {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .stakeholder-grid {
         grid-template-columns: repeat(2,minmax(0,1fr));
       }
     }
@@ -620,13 +886,18 @@
       .grid {
         grid-template-columns: minmax(0,1fr);
       }
+      .girl-list {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .stakeholder-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
     }
 
     @media (max-width: 480px) {
       .hero {
         padding-top: 3rem;
       }
-
       .hero-title {
         font-size: 2.1rem;
       }
@@ -719,19 +990,24 @@
             <p class="hero-subtitle">
               A quiet, modern standard for hospice, maternity, pediatric, and
               community care — where every decision protects dignity, safety,
-              and the future of the families we serve.
+              and the future of the families we serve. First, we build the
+              flagship in Florida. Then Peace Homes and sister campuses
+              across the map.
             </p>
             <div class="hero-ctas">
               <a href="#partner" class="btn btn-primary">
                 <span>Explore Partnership</span>
               </a>
-              <a href="3code.html#elements" class="btn btn-ghost">
-                <span>See The Signature Code™ Standard</span>
+              <a href="#blueprint" class="btn btn-ghost">
+                <span>View 10-Year Blueprint</span>
+              </a>
+              <a href="#girlpower" class="btn btn-petal">
+                <span>Pink Girl Power</span>
               </a>
             </div>
             <div class="hero-meta">
               Built for <span>hospitals, clinics, faith centers, and foundations</span>
-              who take dignity seriously.
+              who want a clear blueprint, not a vague promise.
             </div>
           </div>
 
@@ -750,7 +1026,7 @@
             <div class="hero-panel-note">
               Timeless Peace moves through the same Code as the Houses — vision,
               voice, structure, impact, legacy — applied to real beds, real rooms,
-              and real lives.
+              real medicines, and real lives.
             </div>
           </aside>
         </div>
@@ -797,14 +1073,213 @@
         </div>
       </section>
 
+      <!-- GIRL POWER -->
+      <section id="girlpower">
+        <div class="container">
+          <div class="girlpower">
+            <div class="girl-tag">Pink Girl Power Initiative</div>
+            <div class="girl-title">Girls’ Health, Dignity, and Futures</div>
+            <p class="girl-body">
+              Pink Girl Power sits inside Timeless Peace as a standing promise:
+              no girl should have to choose between dignity and basics. We
+              start with first periods, but the vision stretches all the way into
+              maternity, education, and leadership.
+            </p>
+            <div class="girl-list">
+              <div class="girl-list-item">
+                <strong>Period Dignity Kits</strong><br>
+                High-quality pads, education cards, calming tea, and a quiet
+                way to say, “You’re not alone.”
+              </div>
+              <div class="girl-list-item">
+                <strong>Mini Literacy Circles</strong><br>
+                Reading, health vocabulary, and confidence-building circles
+                for girls and their caregivers.
+              </div>
+              <div class="girl-list-item">
+                <strong>STEM-in-Health Pathways</strong><br>
+                Scholarships, shadow days, and mentorship that connect
+                girls to future roles in care.
+              </div>
+            </div>
+            <div class="girl-meta">
+              Every Timeless Peace campus and Peace Home will carry a dedicated
+              Pink Girl Power lane — from the first kit to the first white coat.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10-YEAR BLUEPRINT -->
+      <section id="blueprint">
+        <div class="container">
+          <p class="section-kicker">10-Year Timeless Peace Blueprint</p>
+          <h2 class="section-heading">From One Campus to a Quiet Network</h2>
+          <p class="section-subtitle">
+            This is not a vague “one day” dream. It is a staged, sober plan:
+            Florida first, then Trinidad, then a network of Peace Homes and
+            partner sites that carry the same standard.
+          </p>
+
+          <div class="timeline">
+            <div class="timeline-inner">
+              <div class="timeline-item">
+                <div class="timeline-year">
+                  <div class="timeline-pill">
+                    <span class="timeline-dot"></span>
+                    <span>Years 1–2</span>
+                  </div>
+                </div>
+                <div class="timeline-text">
+                  <strong>Constitution & Foundation</strong><br>
+                  Finalize the Timeless Peace Constitution, Guardians of the
+                  Charter, risk + ethics framework, and core program models
+                  (Hospice, Pink Girl Power, Peace Homes). Begin fiscal
+                  sponsorship and early Friends of Timeless Peace donors.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">
+                  <div class="timeline-pill">
+                    <span class="timeline-dot"></span>
+                    <span>Years 3–4</span>
+                  </div>
+                </div>
+                <div class="timeline-text">
+                  <strong>Site & Master Plan · Florida</strong><br>
+                  Secure land for the Florida flagship, complete master site
+                  plan (hospice core, first Peace Homes cluster, sanctuaries),
+                  and prepare permits. Build clinical, legal, and interfaith
+                  advisory bench.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">
+                  <div class="timeline-pill">
+                    <span class="timeline-dot"></span>
+                    <span>Years 5–6</span>
+                  </div>
+                </div>
+                <div class="timeline-text">
+                  <strong>Phase I Build · Hospice & Peace Homes</strong><br>
+                  Construct the first hospice wing, family suites, and two
+                  Peace Homes prototypes. Open limited-bed pilot under strict
+                  safety, data, and dignity metrics. Pink Girl Power pilots
+                  run in partner schools and clinics.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">
+                  <div class="timeline-pill">
+                    <span class="timeline-dot"></span>
+                    <span>Years 7–8</span>
+                  </div>
+                </div>
+                <div class="timeline-text">
+                  <strong>Training Wing & Trinidad Campus Groundwork</strong><br>
+                  Add University of Health & Compassion training wing to the
+                  flagship (simulation labs, classroom space). In parallel,
+                  secure land and partners for the Trinidad campus and first
+                  Caribbean Peace Homes.
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">
+                  <div class="timeline-pill">
+                    <span class="timeline-dot"></span>
+                    <span>Years 9–10</span>
+                  </div>
+                </div>
+                <div class="timeline-text">
+                  <strong>Network of Peace Homes & Sister Sites</strong><br>
+                  Expand to a small but serious network: 1–2 flagship campuses,
+                  6–10 Peace Homes, and select hospital + faith-center partners
+                  operating under the same Timeless Peace standard and Code.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stakeholder invitation row -->
+          <div class="stakeholder-grid">
+            <div class="card">
+              <div class="card-label">Hospitals &amp; Clinics</div>
+              <div class="card-title">Clinical Partners</div>
+              <div class="card-body">
+                Co-design hospice, maternity, and Peace Home pathways. We bring
+                the constitution, training, and dignity frameworks; you bring
+                medical excellence and local context.
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-label">Foundations &amp; Donors</div>
+              <div class="card-title">Steady Builders</div>
+              <div class="card-body">
+                Fund beds, programs, and bricks with clear KPIs: families
+                served, comfort scores, bed days, kits, and staff supported.
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-label">Faith &amp; Community</div>
+              <div class="card-title">Quiet Anchors</div>
+              <div class="card-body">
+                Host Pink Girl Power circles, grief groups, and volunteer teams.
+                Your communities become the living rooms of Timeless Peace.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SINGLE SPONSORSHIP OPTION -->
+      <section id="sponsor">
+        <div class="container">
+          <p class="section-kicker">One Clear Entry Point</p>
+          <h2 class="section-heading">Founding Peace Partner</h2>
+          <p class="section-subtitle">
+            For individuals, small businesses, and families who want to do
+            something real — not symbolic. One simple number, with a visible
+            trail of impact.
+          </p>
+
+          <div class="sponsor-card">
+            <div class="sponsor-label">Timeless Peace · Annual Sponsorship</div>
+            <div class="sponsor-title">Founding Peace Partner</div>
+            <div class="sponsor-amount">$2,000 (one time or structured)</div>
+            <div class="sponsor-body">
+              As a Founding Peace Partner, you underwrite one full “circle of
+              peace” for a community: girls, readers, and elders touched by one
+              sponsorship instead of scattered gifts.
+            </div>
+            <ul class="sponsor-ul">
+              <li><strong>10 Pink Girl Power Kits</strong> for first-period dignity</li>
+              <li><strong>1 Mini Literacy Circle</strong> for girls and caregivers</li>
+              <li><strong>Senior Activity Packs</strong> for elders in a partner program</li>
+              <li><strong>Peace Day at a Partner Site</strong> — Timeless Peace presence, teaching, and media recap</li>
+            </ul>
+            <div class="sponsor-note">
+              You receive a short impact recap (numbers + a protected story),
+              a quiet listing as a Founding Peace Partner, and first right of
+              renewal as the campuses and Peace Homes open.
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PARTNER CTA -->
       <section id="partner" class="cta">
         <div class="container">
           <h2>Begin With One Quiet Conversation</h2>
           <p>
-            If you are a hospital, clinic, foundation, or community leader and
-            you feel Timeless Peace in your spirit, you can begin with a single
-            call. We listen first, then design one simple path forward.
+            If you are a hospital, clinic, foundation, community leader, or a
+            family that feels Timeless Peace in your spirit, you can begin with
+            a single call. We listen first, then design one simple path forward —
+            a partnership, a Peace Home, a Pink Girl Power footprint, or a
+            Founding Peace Partner circle.
           </p>
           <div class="cta-buttons">
             <a class="btn btn-primary" href="mailto:narinedevirn@gmail.com?subject=Timeless%20Peace%20Foundation%20Partnership%20Inquiry">
@@ -828,7 +1303,7 @@
   </div>
 
   <script>
-    // Mobile nav toggle + smooth scroll (for #partner)
+    // Mobile nav toggle + smooth scroll (for #partner etc.)
     (function () {
       const body = document.body;
       const toggle = document.querySelector(".nav-toggle");
