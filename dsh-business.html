@@ -2,24 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>EARTH House · Empire Foundation System™ | DeVirn Signature House, Inc.</title>
+  <title>EARTH House · DSH Business | Website Foundation Suite — DeVirn Signature House, Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="EARTH House is the business foundation arm of DeVirn Signature House, Inc. — offering the Empire Foundation System™ for websites, booking, payments, and simple operations." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="EARTH House · DSH Business — the website and systems foundation arm of DeVirn Signature House, Inc. One clear Website Foundation Suite and a simple $100/month plan for small brands, estates, and houses." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f4f0e6;
-      --bg-soft: #f8f4ec;
-      --ink: #152023;
-      --ink-soft: #5b6565;
-      --estate-green: #12352d;
-      --estate-navy: #1b2940;
-      --estate-gold: #d4b46a;
+      --bg: #f4f0e6;           /* parchment */
+      --bg-soft: #f9f4ea;      /* softer parchment */
+      --ink: #182125;          /* deep ink */
+      --ink-soft: #5a6568;     /* soft slate */
+      --estate-green: #12352d; /* deep estate green */
+      --estate-gold: #d4b46a;  /* brushed gold */
       --border-soft: rgba(18, 53, 45, 0.12);
-      --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.12);
+      --shadow-soft: 0 26px 80px rgba(0, 0, 0, 0.14);
       --radius-xl: 26px;
-      --radius-lg: 18px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
       --radius-pill: 999px;
       --transition: 200ms ease-out;
       --max-width: 1040px;
@@ -33,7 +33,8 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fdf8ee 0, var(--bg) 45%, #ebe3d5 100%);
+      background:
+        radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #e8dfd0 100%);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
     }
@@ -48,10 +49,10 @@
       width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 20px 18px 40px;
+      padding: 22px 18px 40px;
     }
 
-    /* GLOBAL DSH HEADER (same as FIRE) */
+    /* GLOBAL DSH HEADER (matches empire style) */
     .site-header {
       background: #050607;
       border-bottom: 1px solid rgba(245, 192, 70, 0.25);
@@ -90,7 +91,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       background:
-        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.2), transparent 55%),
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.15), transparent 55%),
         radial-gradient(circle at 80% 90%, rgba(245, 192, 70, 0.8), rgba(85, 65, 24, 1));
       color: #0b0904;
     }
@@ -153,69 +154,55 @@
         padding-inline: 14px;
       }
       .site-nav {
-        flex-wrap: wrap;
-        gap: 10px;
         justify-content: flex-start;
+        gap: 10px;
       }
     }
 
-    /* EARTH band */
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin: 20px 0 16px;
-      font-size: 12px;
+    /* PAGE INTRO */
+    .page-intro {
+      margin: 22px 0 16px;
     }
 
-    .top-id {
+    .intro-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
-      background: rgba(18, 53, 45, 0.06);
-      border: 1px solid rgba(18, 53, 45, 0.35);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
+      border: 1px solid rgba(18, 53, 45, 0.3);
+      background: rgba(255, 255, 255, 0.75);
       font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: var(--estate-green);
-      white-space: nowrap;
     }
 
-    .top-id span.dot {
+    .intro-tag span.dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #f9f4e7, var(--estate-gold));
+      background: radial-gradient(circle at 30% 0%, #fff9e6, var(--estate-gold));
     }
 
-    .top-right {
-      font-size: 11px;
+    .intro-sub {
+      margin-top: 6px;
+      font-size: 12px;
       color: var(--ink-soft);
-      white-space: nowrap;
-    }
-
-    @media (max-width: 640px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-      }
+      max-width: 460px;
     }
 
     /* HERO */
     .hero {
       border-radius: var(--radius-xl);
-      border: 1px solid rgba(18, 53, 45, 0.15);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       background:
-        radial-gradient(circle at top left, #ffffff 0, #f5eee1 52%, #efe2cf 100%);
+        radial-gradient(circle at top left, #ffffff 0, #f6ead8 38%, #efe0c8 100%);
       box-shadow: var(--shadow-soft);
-      padding: 18px 18px 18px;
+      padding: 20px 20px 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.6fr);
+      gap: 20px;
       position: relative;
       overflow: hidden;
     }
@@ -225,30 +212,25 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.85), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(18, 53, 45, 0.26), transparent 55%);
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.9), transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(0, 0, 0, 0.22), transparent 55%);
+      opacity: 0.85;
       mix-blend-mode: soft-light;
-      opacity: 0.9;
       pointer-events: none;
     }
 
-    .hero-left,
-    .hero-right {
+    .hero-inner,
+    .hero-card {
       position: relative;
       z-index: 1;
     }
 
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-eyebrow {
+    .hero-kicker {
       font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--estate-green);
+      margin-bottom: 6px;
     }
 
     .hero-title {
@@ -256,37 +238,39 @@
       font-size: 28px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      line-height: 1.18;
-      color: var(--estate-navy);
+      line-height: 1.2;
+      color: #22170b;
+      margin-bottom: 10px;
     }
 
     .hero-sub {
       font-size: 13px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: var(--ink-soft);
-      max-width: 480px;
+      max-width: 520px;
+      margin-bottom: 12px;
     }
 
     .hero-sub strong {
-      color: #20180f;
+      color: #2b2115;
       font-weight: 600;
     }
 
-    .hero-tags {
+    .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 2px;
+      gap: 8px;
+      margin-bottom: 12px;
     }
 
-    .tag {
-      padding: 4px 9px;
+    .hero-pill {
+      padding: 5px 11px;
       border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.9);
       font-size: 10px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      background: rgba(255, 255, 255, 0.9);
       color: var(--ink-soft);
     }
 
@@ -295,7 +279,7 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      margin-top: 4px;
+      margin-bottom: 6px;
     }
 
     .btn-main {
@@ -303,123 +287,115 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(212, 180, 106, 0.7);
-      background: radial-gradient(circle at top, #fffaf0, #d9b875);
-      color: #1f1810;
+      border: 1px solid rgba(18, 53, 45, 0.45);
+      background: radial-gradient(circle at top, #ffffff, #d4b46a);
+      color: #21170b;
       font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       text-decoration: none;
-      box-shadow: 0 14px 30px rgba(140, 115, 71, 0.45);
+      box-shadow: 0 16px 40px rgba(137, 110, 63, 0.35);
       transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
       white-space: nowrap;
     }
 
     .btn-main:hover {
-      background: radial-gradient(circle at top, #fffdf7, #cda660);
-      box-shadow: 0 16px 38px rgba(140, 115, 71, 0.55);
+      background: radial-gradient(circle at top, #fffdf7, #cda040);
+      box-shadow: 0 20px 48px rgba(137, 110, 63, 0.48);
       transform: translateY(-1px);
     }
 
     .hero-note {
       font-size: 11px;
       color: var(--ink-soft);
-      max-width: 260px;
+      max-width: 280px;
     }
 
-    .hero-right {
-      border-radius: 18px;
-      border: 1px solid rgba(18, 53, 45, 0.16);
-      background: linear-gradient(145deg, rgba(244, 240, 230, 0.96), rgba(236, 227, 209, 0.98));
-      padding: 12px 12px 10px;
-      box-shadow: 0 20px 44px rgba(150, 130, 90, 0.3);
+    .sig-note {
+      margin-top: 8px;
+      padding: 7px 10px;
+      border-radius: 14px;
+      border: 1px dashed rgba(18, 53, 45, 0.4);
+      background: linear-gradient(120deg, rgba(18, 53, 45, 0.05), rgba(212, 180, 106, 0.08));
       font-size: 12px;
-      color: #4d4b45;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      color: var(--ink-soft);
     }
 
-    .hero-right-header {
+    .sig-note strong {
+      color: var(--estate-green);
+    }
+
+    /* Hero card (receipt style) */
+    .hero-card {
+      border-radius: 20px;
+      border: 1px solid rgba(18, 53, 45, 0.25);
+      background: linear-gradient(145deg, rgba(244, 240, 230, 0.97), rgba(236, 227, 209, 0.99));
+      box-shadow: 0 22px 50px rgba(150, 130, 90, 0.38);
+      padding: 14px 14px 13px;
+      font-size: 12px;
+      color: #4d4a43;
+    }
+
+    .hero-card-header {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      gap: 8px;
+      gap: 10px;
+      margin-bottom: 6px;
     }
 
-    .hero-right-title {
+    .hero-card-title {
       font-family: "Playfair Display", serif;
-      font-size: 14px;
+      font-size: 16px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--estate-navy);
+      color: #1f2730;
     }
 
-    .hero-right-tag {
+    .hero-card-tag {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #7d6a43;
-      white-space: nowrap;
+      letter-spacing: 0.16em;
+      color: #7b6a45;
     }
 
-    .option-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
+    .hero-card-list {
+      list-style: none;
       margin-top: 4px;
+      margin-bottom: 4px;
+      padding: 0;
     }
 
-    .option-card {
-      border-radius: 12px;
-      border: 1px solid rgba(18, 53, 45, 0.2);
-      background: rgba(250, 245, 234, 0.96);
-      padding: 7px 8px 7px;
+    .hero-card-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 3px 0;
+      border-bottom: 1px dashed rgba(18, 53, 45, 0.2);
       font-size: 11px;
     }
 
-    .option-label {
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--estate-green);
-      margin-bottom: 2px;
+    .hero-card-list li:last-child {
+      border-bottom: none;
     }
 
-    .option-price {
+    .hero-card-list span.label {
+      color: #5d5748;
+    }
+
+    .hero-card-list span.value {
       font-weight: 600;
-      color: #2b2115;
-      margin-bottom: 2px;
+      color: #252017;
     }
 
-    .option-note {
-      font-size: 10px;
-      color: #665b40;
-    }
-
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px dashed rgba(18, 53, 45, 0.4);
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #665b40;
-      background: rgba(250, 245, 234, 0.96);
-      margin-top: 4px;
-    }
-
-    .hero-pill span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--estate-gold);
+    .hero-card-foot {
+      margin-top: 6px;
+      font-size: 11px;
+      font-style: italic;
+      color: #6f6755;
     }
 
     @media (max-width: 880px) {
@@ -428,12 +404,12 @@
       }
     }
 
-    /* Sections */
+    /* MAIN GRID */
     .main {
-      margin-top: 18px;
+      margin-top: 22px;
       display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
+      gap: 18px;
     }
 
     @media (max-width: 880px) {
@@ -446,10 +422,8 @@
       background: var(--bg-soft);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border-soft);
-      padding: 14px 14px 12px;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
-      font-size: 12px;
-      color: var(--ink-soft);
+      padding: 16px 16px 14px;
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.04);
     }
 
     .section-header {
@@ -457,15 +431,15 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .section-title {
       font-family: "Playfair Display", serif;
-      font-size: 16px;
+      font-size: 18px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--estate-navy);
+      color: var(--ink);
     }
 
     .section-tag {
@@ -478,128 +452,307 @@
 
     .section p {
       font-size: 12px;
-      line-height: 1.6;
-      margin-bottom: 6px;
-    }
-
-    .step-list {
-      margin-top: 4px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 5px;
-    }
-
-    .step-pill {
-      padding: 6px 9px;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      background: #ffffff;
-      font-size: 11px;
+      line-height: 1.7;
       color: var(--ink-soft);
+      margin-bottom: 8px;
     }
 
-    .step-pill span {
+    /* Pricing options */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 640px) {
+      .pricing-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .price-card {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(18, 53, 45, 0.2);
+      background: linear-gradient(135deg, #fdf9f1, #f0e3cc);
+      padding: 10px 11px 9px;
+      font-size: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.primary {
+      box-shadow: 0 18px 48px rgba(150, 130, 90, 0.4);
+    }
+
+    .price-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 100% 0%, rgba(212, 180, 106, 0.3), transparent 60%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .price-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .price-label {
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #7b6a45;
+      margin-bottom: 2px;
+    }
+
+    .price-name {
+      font-weight: 600;
+      color: #23190c;
+      margin-bottom: 2px;
+    }
+
+    .price-amount {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--estate-green);
+      margin-bottom: 4px;
+    }
+
+    .price-note {
+      font-size: 11px;
+      color: #5e5749;
+    }
+
+    .price-subnote {
+      margin-top: 4px;
+      font-size: 10px;
+      color: #7a7263;
+    }
+
+    /* Included items */
+    .list-columns {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 720px) {
+      .list-columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .list-block-title {
+      font-size: 11px;
       font-weight: 600;
       color: var(--ink);
-      margin-right: 4px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
     }
 
-    /* Receipt list */
-    .receipt-list {
+    .list {
       list-style: none;
       padding: 0;
-      margin: 6px 0 4px;
-    }
-
-    .receipt-item {
-      padding: 5px 0;
-      border-bottom: 1px solid rgba(18, 53, 45, 0.08);
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
+      margin: 0;
       font-size: 12px;
-    }
-
-    .receipt-item:last-child {
-      border-bottom: none;
-    }
-
-    .receipt-label {
       color: var(--ink-soft);
     }
 
-    .receipt-price {
-      font-weight: 600;
-      color: var(--ink);
-      white-space: nowrap;
+    .list li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+      line-height: 1.6;
     }
 
-    .receipt-subtext {
-      font-size: 11px;
-      color: var(--ink-soft);
-      margin-top: 4px;
-    }
-
-    .receipt-free {
-      font-size: 11px;
-      color: #6c5a33;
-      margin-top: 4px;
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      font-size: 12px;
+      color: var(--estate-green);
     }
 
     .divider {
       height: 1px;
       background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.16), transparent);
-      margin: 8px 0 6px;
+      margin: 12px 0 10px;
     }
 
-    /* Intake + CTA */
-    .row-secondary {
-      margin-top: 16px;
+    /* Intake form */
+    .form-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 6px;
     }
 
-    @media (max-width: 880px) {
-      .row-secondary {
+    @media (max-width: 720px) {
+      .form-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .intake-list {
-      list-style: none;
-      padding-left: 0;
-      margin: 6px 0 0;
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       font-size: 12px;
     }
 
-    .intake-list li {
-      margin-bottom: 4px;
-    }
-
-    .intake-list span {
+    .form-field label {
       font-weight: 500;
       color: var(--ink);
     }
 
-    .cta-panel {
-      border-radius: 16px;
-      border: 1px solid rgba(18, 53, 45, 0.18);
-      background: linear-gradient(135deg, rgba(18, 53, 45, 0.05), rgba(212, 180, 106, 0.12));
-      padding: 11px 11px 10px;
-      font-size: 12px;
+    .form-field small {
+      font-size: 11px;
       color: var(--ink-soft);
     }
 
-    .cta-panel strong {
-      color: var(--estate-navy);
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      padding: 7px 9px;
+      font-family: inherit;
+      font-size: 12px;
+      color: var(--ink);
+      background: #ffffff;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
     }
 
-    .cta-actions {
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--estate-green);
+      box-shadow: 0 0 0 1px rgba(18, 53, 45, 0.2);
+      background: #fdfdfb;
+    }
+
+    .form-actions {
       margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(18, 53, 45, 0.4);
+      background: #ffffff;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--estate-green);
+      cursor: pointer;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      background: #fdfcf9;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+      transform: translateY(-1px);
+      border-color: rgba(18, 53, 45, 0.7);
+    }
+
+    /* FAQ */
+    .faq-list {
+      margin-top: 6px;
+    }
+
+    details {
+      border-radius: 12px;
+      border: 1px solid rgba(18, 53, 45, 0.24);
+      background: #fdfaf3;
+      padding: 7px 9px;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      font-size: 16px;
+      color: var(--estate-gold);
+    }
+
+    details[open] .faq-icon {
+      transform: rotate(90deg);
+    }
+
+    details p {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* Contact footer */
+    .contact-footer {
+      margin-top: 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(18, 53, 45, 0.24);
+      background: linear-gradient(120deg, rgba(18, 53, 45, 0.06), rgba(212, 180, 106, 0.14));
+      padding: 13px 16px 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+
+    .contact-main {
+      max-width: 460px;
+    }
+
+    .contact-main strong {
+      color: var(--ink);
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
 
     .btn-small {
@@ -609,7 +762,7 @@
       font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: 1px solid rgba(18, 53, 45, 0.32);
+      border: 1px solid rgba(0, 0, 0, 0.16);
       background: #ffffff;
       color: var(--ink);
       display: inline-flex;
@@ -621,310 +774,435 @@
 
     .btn-small:hover {
       background: #ffffff;
-      border-color: rgba(18, 53, 45, 0.6);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+      border-color: rgba(0, 0, 0, 0.32);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
       transform: translateY(-1px);
-    }
-
-    .cta-note {
-      font-size: 11px;
-      color: var(--ink-soft);
-      margin-top: 6px;
     }
 
     @media (max-width: 720px) {
       .shell {
         padding-inline: 14px;
       }
+      .contact-footer {
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <!-- GLOBAL DSH HEADER -->
- <!-- GLOBAL DSH HEADER — EXACTLY MATCHING MANGO.HTML -->
-<header class="site-header" style="
-  background:#050607;
-  border-bottom:1px solid rgba(245,192,70,0.25);
-  color:#f7f3ea;
-">
-  <div class="site-shell" style="
-    max-width:1040px;
-    margin:0 auto;
-    padding:10px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-  ">
-    
-    <!-- MARK -->
-    <a href="/index.html" class="site-mark" style="
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      text-decoration:none;
-      color:inherit;
-      white-space:nowrap;
-    ">
-      <span class="site-mark-initials" style="
-        width:32px;
-        height:32px;
-        border-radius:999px;
-        border:1px solid rgba(245,192,70,0.75);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-family:'Playfair Display', serif;
-        font-size:14px;
-        letter-spacing:0.08em;
-        text-transform:uppercase;
-        background:
-          radial-gradient(circle at 20% 0%, rgba(255,255,255,0.15), transparent 55%),
-          radial-gradient(circle at 80% 90%, rgba(245,192,70,0.8), rgba(85,65,24,1));
-        color:#0b0904;
-      ">DSH</span>
-
-      <span class="site-mark-text" style="
-        display:flex;
-        flex-direction:column;
-        gap:2px;
-      ">
-        <span class="site-mark-name" style="
-          font-size:12px;
-          font-weight:600;
-          letter-spacing:0.12em;
-          text-transform:uppercase;
-        ">DeVirn Signature House, Inc.</span>
-
-        <span class="site-mark-tagline" style="
-          font-size:10px;
-          opacity:0.8;
-          letter-spacing:0.16em;
-          text-transform:uppercase;
-        ">One Empire · Five Houses · One Language</span>
-      </span>
-    </a>
-
-    <!-- NAV -->
-    <nav class="site-nav" style="
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:0.16em;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    ">
-      <a href="/3code.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">Signature Code™</a>
-      <a href="/index.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">The Houses</a>
-      <a href="/index.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">FIRE</a>
-      <a href="/mango.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">AIR</a>
-      <a href="/dsh-business.html" class="is-active" style="color:#f5c046;border-bottom:1px solid #f5c046;">EARTH</a>
-      <a href="/timelesspeace.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">WATER</a>
-      <a href="/3code.html" style="text-decoration:none;color:rgba(244,239,226,0.9);padding-bottom:3px;border-bottom:1px solid transparent;">AETHER</a>
-    </nav>
-  </div>
-</header>
-
+    <!-- GLOBAL HEADER -->
+    <header class="site-header">
+      <div class="site-shell">
+        <a href="/index.html" class="site-mark">
+          <span class="site-mark-initials">DSH</span>
+          <span class="site-mark-text">
+            <span class="site-mark-name">DeVirn Signature House, Inc.</span>
+            <span class="site-mark-tagline">One Empire · Five Houses · One Language</span>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="/3code.html">Signature Code™</a>
+          <a href="/index.html">The Houses</a>
+          <a href="/index.html">FIRE</a>
+          <a href="/mango.html">AIR</a>
+          <a href="/dsh-business.html" class="is-active">EARTH</a>
+          <a href="/timelesspeace.html">WATER</a>
+          <a href="/3code.html">AETHER</a>
+        </nav>
+      </div>
+    </header>
 
     <div class="shell">
-      <!-- EARTH band -->
-      <header class="top-bar">
-        <div class="top-id">
+      <!-- INTRO -->
+      <section class="page-intro">
+        <div class="intro-tag">
           <span class="dot"></span>
-          <span>EARTH HOUSE · BUSINESS FOUNDATION</span>
+          <span>EARTH HOUSE · DSH BUSINESS</span>
         </div>
-        <div class="top-right">
-          Empire infrastructure for websites, booking, and payments.
-        </div>
-      </header>
+        <p class="intro-sub">
+          The quiet infrastructure desk of DeVirn Signature House — where websites, booking,
+          payments, and simple systems are built once, then left to work.
+        </p>
+      </section>
 
       <!-- HERO -->
-      <section class="hero" id="top">
-        <div class="hero-left">
-          <div class="hero-eyebrow">Narine Estate · Earth House</div>
-          <h1 class="hero-title">Empire Foundation System™</h1>
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="hero-kicker">Website Foundations · One Suite · One Language</div>
+          <h1 class="hero-title">Website Foundation Suite</h1>
           <p class="hero-sub">
-            EARTH is the quiet desk of DeVirn Signature House, Inc. — where you stop running
-            everything in your head and start running it through a simple, working system:
-            <strong>website, booking, payments, and a light operations base.</strong>
-          </p>
-          <p class="hero-sub">
-            One package. Two payment paths. The same complete foundation.
+            EARTH is where your brand becomes <strong>easy to find</strong>,
+            <strong>simple to book</strong>, and <strong>ready to pay</strong>.
+            One clean website, your domain, basic automations, and clear next steps —
+            built once, then handed over fully ready.
           </p>
 
-          <div class="hero-tags">
-            <span class="tag">1–3 page website</span>
-            <span class="tag">Booking & payments</span>
-            <span class="tag">Mini CRM</span>
-            <span class="tag">SOP micro-pack</span>
+          <div class="hero-pills">
+            <span class="hero-pill">Single-page or small multi-page site</span>
+            <span class="hero-pill">Booking or inquiry form</span>
+            <span class="hero-pill">Payment or invoice flow</span>
+            <span class="hero-pill">Email & WhatsApp connection</span>
           </div>
 
           <div class="hero-cta-row">
             <a class="btn-main" href="#intake">
-              <span>Start Empire Foundation</span>
+              <span>Start Website Intake</span>
               <span>↗</span>
             </a>
-            <div class="hero-note">
-              You send one intake. EARTH builds a system you can actually use.
-            </div>
+            <p class="hero-note">
+              Fill in the short intake below. You can send it directly by email, or
+              message first via WhatsApp if you prefer.
+            </p>
+          </div>
+
+          <div class="sig-note">
+            This work follows <strong>The Signature Code™</strong> — your website and
+            systems are built to speak the same language as your visuals, story, and house.
           </div>
         </div>
 
-        <aside class="hero-right">
-          <div class="hero-right-header">
-            <div class="hero-right-title">Two Ways to Begin</div>
-            <div class="hero-right-tag">Same system · different rhythm</div>
-          </div>
-          <p>
-            Choose what fits your current season. Everything listed on this page is included in both.
-          </p>
-
-          <div class="option-grid">
-            <div class="option-card">
-              <div class="option-label">Option 1 · One Time</div>
-              <div class="option-price">$750 total</div>
-              <div class="option-note">
-                Delivered in ~14–21 days.<br />
-                Pay once. Foundation installed and ready.
+        <aside class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-card-header">
+              <div>
+                <div class="hero-card-tag">Receipt-style overview</div>
+                <div class="hero-card-title">Your Website Foundation</div>
               </div>
             </div>
-            <div class="option-card">
-              <div class="option-label">Option 2 · Monthly</div>
-              <div class="option-price">$100 / month · 12 months</div>
-              <div class="option-note">
-                System ready after day 31, including domain.<br />
-                Gentle payment over a year.
-              </div>
+            <ul class="hero-card-list">
+              <li>
+                <span class="label">Custom website build</span>
+                <span class="value">Up to 4 core pages</span>
+              </li>
+              <li>
+                <span class="label">Booking / inquiry</span>
+                <span class="value">Form or calendar linked</span>
+              </li>
+              <li>
+                <span class="label">Payments</span>
+                <span class="value">Stripe / PayPal / invoice linked</span>
+              </li>
+              <li>
+                <span class="label">Domain & basic hosting</span>
+                <span class="value">Set up for you</span>
+              </li>
+              <li>
+                <span class="label">Email & WhatsApp</span>
+                <span class="value">Connected to the site</span>
+              </li>
+              <li>
+                <span class="label">Launch handover</span>
+                <span class="value">Short video walkthrough</span>
+              </li>
+            </ul>
+            <div class="hero-card-foot">
+              Built once, delivered ready to use — no tech maze, no 10-page proposal.
             </div>
-          </div>
-
-          <div class="hero-pill">
-            <span class="dot"></span>
-            <span>One system · One intake · Done for you</span>
           </div>
         </aside>
       </section>
 
-      <!-- MAIN: what it is + receipt -->
+      <!-- MAIN GRID: PRICING + WHAT'S INCLUDED -->
       <main class="main">
+        <!-- PRICING -->
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">What EARTH Builds</h2>
-            <div class="section-tag">From “ideas” to “infrastructure”</div>
+            <h2 class="section-title">Two Ways to Begin</h2>
+            <div class="section-tag">Competitive · Simple · Clear</div>
           </div>
           <p>
-            The Empire Foundation System™ is the minimum structure every serious house needs —
-            FIRE (Signature D), AIR (Kadijah’s Mango), WATER (Timeless Peace), or EARTH (Narine Estate).
+            EARTH keeps pricing straightforward. One suite, two payment styles —
+            choose what feels better for your cash flow.
           </p>
 
-          <div class="step-list">
-            <div class="step-pill">
-              <span>01 · Homebase Website</span>
-              A clean 1–3 page site that says who you are, what you offer, and how to book you.
+          <div class="pricing-grid">
+            <div class="price-card primary">
+              <div class="price-card-inner">
+                <div class="price-label">Option A · One-time</div>
+                <div class="price-name">Website Foundation Suite</div>
+                <div class="price-amount">$900 once</div>
+                <div class="price-note">
+                  Best if you want everything built quickly and fully owned from the start.
+                </div>
+                <div class="price-subnote">
+                  Includes full build, domain setup, connection of forms / payments,
+                  and launch handover.
+                </div>
+              </div>
             </div>
-            <div class="step-pill">
-              <span>02 · Booking & Payments</span>
-              Calendar + payment links wired into your site so people can schedule and pay without back-and-forth.
+
+            <div class="price-card">
+              <div class="price-card-inner">
+                <div class="price-label">Option B · Payment Plan</div>
+                <div class="price-name">Website After 31 Days</div>
+                <div class="price-amount">$100/month × 12</div>
+                <div class="price-note">
+                  Your website is built and ready to use after 31 days — including domain.
+                  You simply keep paying $100/month until the 12 months are complete.
+                </div>
+                <div class="price-subnote">
+                  Ideal for small brands, families, or estates who prefer lower monthly
+                  commitment instead of a single payment.
+                </div>
+              </div>
             </div>
-            <div class="step-pill">
-              <span>03 · Mini CRM</span>
-              A light Notion or Airtable base to track leads, clients, and delivery stages.
-            </div>
-            <div class="step-pill">
-              <span>04 · Simple Operations</span>
-              Micro SOPs so you know what happens from first message to final delivery.
-            </div>
+          </div>
+
+          <div class="subnote" style="margin-top:10px;">
+            <strong>Both options include</strong> the same Website Foundation Suite.
+            The difference is timing of payment, not the quality or scope of the build.
           </div>
         </section>
 
+        <!-- WHAT'S INCLUDED -->
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">Receipt-Style Breakdown</h2>
-            <div class="section-tag">Clear · Honest</div>
+            <h2 class="section-title">What You Receive</h2>
+            <div class="section-tag">Build once · Use daily</div>
           </div>
+          <p>
+            Think of this as the minimum beautiful version of your digital house —
+            enough to be proud, easy to navigate, and simple to grow later.
+          </p>
 
-          <ul class="receipt-list">
-            <li class="receipt-item">
-              <span class="receipt-label">Signature Homebase Website (1–3 pages)</span>
-              <span class="receipt-price">$350 value</span>
-            </li>
-            <li class="receipt-item">
-              <span class="receipt-label">Booking & Payment Automation Setup</span>
-              <span class="receipt-price">$200 value</span>
-            </li>
-            <li class="receipt-item">
-              <span class="receipt-label">Mini CRM (Notion or Airtable)</span>
-              <span class="receipt-price">$95 value</span>
-            </li>
-            <li class="receipt-item">
-              <span class="receipt-label">SOP Micro-Pack (Onboard · Deliver · Offboard)</span>
-              <span class="receipt-price">$65 value</span>
-            </li>
-          </ul>
+          <div class="list-columns">
+            <div>
+              <div class="list-block-title">Core Build</div>
+              <ul class="list">
+                <li>Homepage that explains who you are, what you offer, and how to book.</li>
+                <li>Up to 3 additional pages (e.g., About, Services, Gallery, or Contact).</li>
+                <li>Mobile-friendly layout with clean, readable typography.</li>
+                <li>On-brand colors aligned with your House and Signature Code™.</li>
+              </ul>
+            </div>
+            <div>
+              <div class="list-block-title">Systems & Freebies</div>
+              <ul class="list">
+                <li>Domain search and setup (or connection of your existing domain).</li>
+                <li>Contact / booking form routed to your email.</li>
+                <li>Basic payment link or invoice flow (Stripe / PayPal / other).</li>
+                <li>WhatsApp and email buttons placed clearly for visitors.</li>
+                <li>1 short screen-recorded walkthrough of your site.</li>
+              </ul>
+            </div>
+          </div>
 
           <div class="divider"></div>
 
-          <p class="receipt-subtext">
-            <strong>Free extras included:</strong> business email setup or cleanup · WhatsApp autoresponder script ·
-            welcome & proposal email templates · basic brand palette suggestion · favicon / icon kit · analytics connection ·
-            1-week tech support after launch.
+          <p style="margin-bottom:4px;">
+            <strong>Free extras for EARTH clients:</strong>
           </p>
-
-          <p class="receipt-free">
-            Real-world total value: over $1,000.<br />
-            EARTH pricing: <strong>$750 once</strong> or <strong>$100/month for 12 months</strong>.
-          </p>
+          <ul class="list">
+            <li>Simple “Thank you” page after booking or contact submission.</li>
+            <li>Copy suggestions for your main headings to keep language clean and clear.</li>
+            <li>A tiny maintenance checklist you can follow monthly in under 20 minutes.</li>
+          </ul>
         </section>
       </main>
 
-      <!-- SECONDARY: Intake + CTA -->
-      <section class="row-secondary" id="intake">
+      <!-- INTAKE & FAQ -->
+      <section class="main" style="margin-top:18px;" id="intake">
+        <!-- INTAKE FORM -->
         <section class="section">
           <div class="section-header">
-            <h2 class="section-title">Empire Foundation Intake</h2>
-            <div class="section-tag">One form · One build</div>
+            <h2 class="section-title">Website Intake Questionnaire</h2>
+            <div class="section-tag">Takes ~10–15 minutes</div>
           </div>
           <p>
-            This is the only form you complete. It also becomes your own clarity map.
+            You can fill this in and send directly by email, or use it as a guide while we
+            talk on WhatsApp or a call.
           </p>
 
-          <ul class="intake-list">
-            <li><span>A.</span> Name, business name, email, phone, city/country.</li>
-            <li><span>B.</span> One-sentence description, top 1–2 offers, current site (if any), logo link.</li>
-            <li><span>C.</span> Preferred colors, clean vs. cinematic, 1–2 sites you like.</li>
-            <li><span>D.</span> Booking tool, payment platform, deposit vs. pay-in-full.</li>
-            <li><span>E.</span> How you communicate, delivery timeline, email templates needed.</li>
-            <li><span>F.</span> Must-haves on the site, target launch date, extra notes.</li>
-          </ul>
+          <form action="mailto:narinedevirn@gmail.com?subject=EARTH%20House%20Website%20Intake" method="post" enctype="text/plain">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Your full name</label>
+                <input id="name" name="Name" type="text" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Best email</label>
+                <input id="email" name="Email" type="email" required />
+              </div>
+              <div class="form-field">
+                <label for="whatsapp">WhatsApp / phone number</label>
+                <input id="whatsapp" name="WhatsApp or Phone" type="text" />
+              </div>
+              <div class="form-field">
+                <label for="brand-name">Brand / estate / house name</label>
+                <input id="brand-name" name="Brand or Estate Name" type="text" />
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-top:8px;">
+              <div class="form-field">
+                <label for="website-goal">1. What should this website do first?</label>
+                <small>(Bookings? Inquiries? Sell one main offer? Simple credibility?)</small>
+                <textarea id="website-goal" name="Primary Website Goal"></textarea>
+              </div>
+              <div class="form-field">
+                <label for="offers">2. What are you offering right now?</label>
+                <small>(List your key services, packages, or products.)</small>
+                <textarea id="offers" name="Current Offers"></textarea>
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-top:8px;">
+              <div class="form-field">
+                <label for="audience">3. Who should feel like this site is “home”?</label>
+                <small>(Describe your ideal client, family, or community.)</small>
+                <textarea id="audience" name="Primary Audience"></textarea>
+              </div>
+              <div class="form-field">
+                <label for="pages">4. Which core pages do you think you need?</label>
+                <small>(Homepage, About, Services, Gallery, Contact, etc.)</small>
+                <textarea id="pages" name="Requested Pages"></textarea>
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-top:8px;">
+              <div class="form-field">
+                <label for="visuals">5. Existing visuals or brand elements?</label>
+                <small>(Logo, colors, photos, Signature D images, etc.)</small>
+                <textarea id="visuals" name="Existing Visuals"></textarea>
+              </div>
+              <div class="form-field">
+                <label for="links">6. Share any current links</label>
+                <small>(Instagram, old website, booking page, payment links.)</small>
+                <textarea id="links" name="Current Links"></textarea>
+              </div>
+            </div>
+
+            <div class="form-field" style="margin-top:8px;">
+              <label for="plan-option">7. Which payment style do you prefer?</label>
+              <select id="plan-option" name="Preferred Plan">
+                <option value="">Select an option…</option>
+                <option value="One-time $900">One-time — $900 Website Foundation Suite</option>
+                <option value="$100/month x 12">$100/month × 12 — website ready after 31 days</option>
+                <option value="Not sure yet">Not sure yet — please advise</option>
+              </select>
+            </div>
+
+            <div class="form-field" style="margin-top:8px;">
+              <label for="notes">8. Any deadlines, special requests, or non-negotiables?</label>
+              <textarea id="notes" name="Notes / Deadlines"></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-outline">Email Intake to DeVirn</button>
+              <span>or copy these questions and send them via WhatsApp or your own email draft.</span>
+            </div>
+          </form>
         </section>
 
-        <aside class="cta-panel">
-          <strong>Send Your Intake & Choose Your Option</strong>
-          <p style="margin-top:4px;">
-            Click below to open a pre-filled email. Edit, attach any files, and send.
-          </p>
-          <div class="cta-actions">
-            <a
-              class="btn-small"
-              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20Intake%20-%20[Your%20Name]&body=Kindly%20fill%20in%20your%20details%20below%20and%20send.%0D%0A%0D%0AFull%20Name:%0D%0ABusiness%20Name:%0D%0AEmail:%0D%0APhone:%0D%0ACity%20%26%20Country:%0D%0A%0D%0AOne-sentence%20description%20of%20your%20business:%0D%0ATop%201%E2%80%932%20offers:%0D%0ACurrent%20website%20(if%20any):%0D%0ALogo%20link%20(if%20any):%0D%0A%0D%0APreferred%20colors:%0D%0AClean%20or%20cinematic%20luxury%20feel:%0D%0ASites%20you%20like:%0D%0A%0D%0ABooking%20tool%20choice%20(Calendly/Google/Other):%0D%0APayment%20platform%20(Stripe/PayPal/Square):%0D%0ADeposit%20or%20full%20payment%20upfront:%0D%0A%0D%0APrimary%20communication%20method:%0D%0ATypical%20delivery%20timeline:%0D%0AEmail%20templates%20needed%3F:%0D%0A%0D%0AMust-haves%20on%20your%20site:%0D%0ATarget%20launch%20date:%0D%0AExtra%20notes:%0D%0A"
-            >
-              Email Intake to EARTH
-            </a>
-            <a
-              class="btn-small"
-              href="mailto:narinedevirn@gmail.com?subject=Empire%20Foundation%20System%E2%84%A2%20-%20Payment%20Option&body=Please%20indicate%20your%20preferred%20option%20below%3A%0D%0A%0D%0AOption%201%3A%20%24750%20one-time%0D%0AOption%202%3A%20%24100%2Fmonth%20for%2012%20months%0D%0A"
-            >
-              Choose Payment Option
-            </a>
+        <!-- FAQ -->
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">EARTH House FAQ</h2>
+            <div class="section-tag">Clear · Direct · Honest</div>
           </div>
-          <p class="cta-note">
-            📩 Official EARTH email: <strong>narinedevirn@gmail.com</strong><br />
-            Subject used: <em>“Empire Foundation System™ Intake – [Your Name]”</em>.
+          <p>
+            A simple explanation of what EARTH is, who it’s for, and how invitations work
+            inside the DeVirn Signature House ecosystem.
           </p>
-        </aside>
+
+          <div class="faq-list">
+            <details>
+              <summary>
+                Who is this service for?
+                <span class="faq-icon">›</span>
+              </summary>
+              <p>
+                EARTH is for small brands, estates, and families who want a website that
+                feels composed and grown-up, without entering a long agency process.
+                If you are a Signature D client, Kadijah’s Mango partner, Timeless Peace
+                ally, or an aligned house referred in, you are in the right place.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                What does EARTH actually handle?
+                <span class="faq-icon">›</span>
+              </summary>
+              <p>
+                EARTH handles the <strong>foundation pieces</strong>: website structure,
+                basic pages, domain setup, forms, and payment or invoice links.
+                We do not try to build giant platforms — we give you a clean, minimal,
+                working base so your house can be found and booked easily.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                What are the main benefits compared to doing this alone?
+                <span class="faq-icon">›</span>
+              </summary>
+              <p>
+                Instead of learning five new tools, hiring three different people, and
+                still ending up confused, you receive one unified build that:
+              </p>
+              <p>
+                • speaks the same language as your Signature D visuals  
+                • connects to your real offers, not generic templates  
+                • keeps your booking and payment paths extremely clear  
+                • arrives with a short video so you are not dependent on anyone after launch.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                How do I get an EARTH invitation?
+                <span class="faq-icon">›</span>
+              </summary>
+              <p>
+                Most EARTH projects come through existing DSH relationships — Signature D,
+                Kadijah’s Mango, Timeless Peace, or direct recommendation. You may still
+                request an intake using the form above or by WhatsApp.
+                If the project is not a fit, we will tell you clearly and, where possible,
+                suggest a simpler path.
+              </p>
+            </details>
+
+            <details>
+              <summary>
+                What happens after I send the intake?
+                <span class="faq-icon">›</span>
+              </summary>
+              <p>
+                You will receive a short reply confirming fit, clarifying any missing
+                details, and confirming your chosen payment style. Once confirmed, we
+                begin setup, give you a realistic launch window, and let you know exactly
+                what we need from you (photos, words, links, etc.).
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
+
+      <!-- CONTACT FOOTER -->
+      <section class="contact-footer">
+        <div class="contact-main">
+          <strong>Prefer to talk it through first?</strong><br />
+          You can send a quick WhatsApp message or email with your name, city, and what
+          you’d like your website to do. We can decide together if EARTH is the right first step.
+        </div>
+        <div class="contact-actions">
+          <a
+            class="btn-small"
+            href="https://wa.me/14073196740?text=Hi%20DeVirn%2C%20I%27m%20interested%20in%20the%20EARTH%20House%20Website%20Foundation%20Suite."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp DeVirn
+          </a>
+          <a
+            class="btn-small"
+            href="mailto:narinedevirn@gmail.com?subject=EARTH%20House%20Website%20Foundation%20Inquiry"
+          >
+            Email Inquiry
+          </a>
+        </div>
       </section>
     </div>
   </div>
