@@ -27,7 +27,7 @@
       --border-soft: rgba(0, 0, 0, 0.08);
       --radius-lg: 22px;
       --radius-pill: 999px;
-      --shadow-soft: 0 26px 70px rgba(0, 0, 0, 0.16);
+      --shadow-soft: 0 22px 55px rgba(0, 0, 0, 0.14);
       --transition-fast: 0.16s ease-out;
       --transition-med: 0.25s ease-out;
       --max-width: 1080px;
@@ -41,7 +41,6 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      /* Overall page gradient very close to screenshot */
       background:
         radial-gradient(circle at 0% 0%, #ffffff 0%, rgba(255, 255, 255, 0.9) 35%, transparent 60%),
         radial-gradient(circle at 100% 100%, rgba(222, 200, 165, 0.9) 0%, rgba(222, 200, 165, 0.4) 32%, transparent 70%),
@@ -73,17 +72,17 @@
       background: linear-gradient(
         to bottom,
         rgba(246, 242, 235, 0.96),
-        rgba(246, 242, 235, 0.92),
-        rgba(246, 242, 235, 0.88),
+        rgba(246, 242, 235, 0.9),
+        rgba(246, 242, 235, 0.84),
         transparent
       );
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     }
 
     .header-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0.7rem 1.5rem 0.8rem;
+      padding: 0.5rem 1.5rem 0.55rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -93,21 +92,21 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
-    /* RECTANGULAR “D” LOGO · FIRE HOUSE */
+    /* SMALLER RECTANGULAR “D” LOGO · FIRE HOUSE */
     .brand-mark {
-      width: 56px;
-      height: 72px;
-      border-radius: 26px;
+      width: 44px;
+      height: 58px;
+      border-radius: 20px;
       background:
         radial-gradient(circle at 20% 0%, #fff9e9 0%, #ffe2a8 40%, transparent 75%),
         radial-gradient(circle at 110% 110%, #b97a21 0%, #8a5717 40%, transparent 80%),
         linear-gradient(145deg, #f6c95a, #b67420);
       box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45),
-        0 0 0 1px rgba(255, 255, 255, 0.4);
+        0 14px 34px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,9 +117,9 @@
     .brand-mark::after {
       content: "";
       position: absolute;
-      inset: 6px;
-      border-radius: 22px;
-      background: radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.6), transparent 60%);
+      inset: 4px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.55), transparent 60%);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -129,54 +128,54 @@
       position: relative;
       z-index: 1;
       font-family: "Playfair Display", serif;
-      font-size: 2.1rem;
+      font-size: 1.6rem;
       letter-spacing: 0.22em;
       color: #fffdf4;
       text-shadow:
-        0 6px 18px rgba(0, 0, 0, 0.65),
-        0 0 10px rgba(255, 248, 207, 0.7);
+        0 4px 12px rgba(0, 0, 0, 0.55),
+        0 0 8px rgba(255, 248, 207, 0.65);
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 0.05rem;
+      gap: 0.02rem;
     }
 
     .brand-name {
       font-family: "Playfair Display", serif;
-      font-size: 0.98rem;
+      font-size: 0.9rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #2d2318;
     }
 
     .brand-sub {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: rgba(51, 42, 32, 0.85);
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .brand-sub.secondary {
-      font-size: 0.68rem;
+      font-size: 0.64rem;
       opacity: 0.8;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.2rem;
     }
 
     .nav a {
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: rgba(24, 24, 24, 0.75);
       position: relative;
-      padding-bottom: 0.15rem;
+      padding-bottom: 0.12rem;
       transition:
         color var(--transition-fast),
         transform var(--transition-fast),
@@ -187,7 +186,7 @@
       content: "";
       position: absolute;
       left: 0;
-      bottom: -0.2rem;
+      bottom: -0.18rem;
       width: 0;
       height: 1px;
       border-radius: 999px;
@@ -198,7 +197,7 @@
     .nav a:hover {
       color: var(--gold);
       transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
     }
 
     .nav a:hover::after {
@@ -214,83 +213,82 @@
     }
 
     .nav-cta {
-      padding: 0.4rem 1rem;
+      padding: 0.38rem 0.9rem;
       border-radius: var(--radius-pill);
       border: 1px solid rgba(0, 0, 0, 0.1);
       background: linear-gradient(135deg, #ffffff, #f3ede2);
-      font-size: 0.74rem;
+      font-size: 0.7rem;
       color: #2c2319;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.35rem;
       transition: all var(--transition-med);
     }
 
     .nav-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
     }
 
     .nav-cta svg {
-      width: 13px;
-      height: 13px;
+      width: 12px;
+      height: 12px;
     }
 
     .nav-toggle {
       display: none;
     }
 
-    /* HERO – match screenshot layout */
+    /* HERO – slimmer top */
     .hero {
-      padding: 3.4rem 0 3.1rem;
+      padding: 2.4rem 0 2.3rem;
     }
 
     .hero-inner {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
-      gap: 2.6rem;
+      gap: 2.2rem;
       align-items: center;
     }
 
-    /* Top line: @ VISUAL PRODUCTION COMPANY · PHOTOGRAPHY & CINEMA */
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.32rem 0.95rem;
+      gap: 0.45rem;
+      padding: 0.28rem 0.85rem;
       border-radius: var(--radius-pill);
       background: rgba(252, 249, 243, 0.98);
       border: 1px solid rgba(24, 24, 24, 0.08);
-      font-size: 0.68rem;
+      font-size: 0.66rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #7b6648;
-      margin-bottom: 1.1rem;
+      margin-bottom: 0.9rem;
     }
 
     .hero-tag-dot {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
       border-radius: 999px;
       background: radial-gradient(circle, #fff7df, #f5c046);
-      box-shadow: 0 0 16px rgba(245, 192, 70, 0.9);
+      box-shadow: 0 0 12px rgba(245, 192, 70, 0.85);
       animation: pulse-dot 1.8s ease-in-out infinite;
     }
 
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.25); opacity: 0.6; }
+      50% { transform: scale(1.22); opacity: 0.6; }
     }
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 3vw, 3.1rem);
-      letter-spacing: 0.12em;
+      font-size: clamp(2.1rem, 2.7vw, 2.7rem);
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 0.9rem;
+      margin-bottom: 0.7rem;
       color: #262018;
     }
 
@@ -299,10 +297,10 @@
     }
 
     .hero-subtitle {
-      font-size: 0.96rem;
+      font-size: 0.92rem;
       color: var(--ink-soft);
-      max-width: 34rem;
-      margin-bottom: 1.9rem;
+      max-width: 32rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-subtitle strong {
@@ -313,21 +311,21 @@
     .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-bottom: 1.1rem;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
     }
 
     .btn {
       border-radius: var(--radius-pill);
-      padding: 0.7rem 1.4rem;
+      padding: 0.64rem 1.3rem;
       border: 1px solid rgba(0, 0, 0, 0.12);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.4rem;
       cursor: pointer;
       transition: all var(--transition-med);
       white-space: nowrap;
@@ -338,16 +336,16 @@
       border-color: rgba(0, 0, 0, 0.18);
       color: #2b1e09;
       box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.25),
-        0 0 32px rgba(245, 192, 70, 0.4);
+        0 16px 34px rgba(0, 0, 0, 0.22),
+        0 0 26px rgba(245, 192, 70, 0.38);
       font-weight: 600;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px) scale(1.01);
       box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.28),
-        0 0 40px rgba(245, 192, 70, 0.55);
+        0 22px 46px rgba(0, 0, 0, 0.25),
+        0 0 34px rgba(245, 192, 70, 0.5);
     }
 
     .btn-ghost {
@@ -357,13 +355,13 @@
     }
 
     .btn-ghost:hover {
-      border-color: rgba(0, 0, 0, 0.28);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+      border-color: rgba(0, 0, 0, 0.24);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.13);
       color: #25211a;
     }
 
     .hero-meta {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--ink-soft);
@@ -376,14 +374,14 @@
 
     /* RIGHT CARD – “What Signature D Produces” panel */
     .hero-panel {
-      border-radius: 26px;
+      border-radius: 24px;
       background:
         radial-gradient(circle at 0% 0%, #ffffff 0%, #fff9f2 36%, transparent 70%),
-        radial-gradient(circle at 110% 110%, rgba(231, 205, 170, 0.85) 0%, rgba(231, 205, 170, 0.25) 40%, transparent 70%),
+        radial-gradient(circle at 110% 110%, rgba(231, 205, 170, 0.85) 0%, rgba(231, 205, 170, 0.23) 40%, transparent 70%),
         linear-gradient(145deg, #f9f4ec, #f1e3d1);
-      border: 1px solid rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.03);
       box-shadow: var(--shadow-soft);
-      padding: 1.6rem 1.7rem 1.4rem;
+      padding: 1.4rem 1.5rem 1.25rem;
       position: relative;
       overflow: hidden;
     }
@@ -391,12 +389,12 @@
     .hero-panel::before {
       content: "";
       position: absolute;
-      inset: 0.65rem;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.72);
+      inset: 0.6rem;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.7);
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
-        inset 0 0 32px rgba(255, 255, 255, 0.32);
+        inset 0 0 0 1px rgba(255, 255, 255, 0.38),
+        inset 0 0 26px rgba(255, 255, 255, 0.3);
       pointer-events: none;
     }
 
@@ -406,33 +404,33 @@
     }
 
     .hero-panel-title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #7a5b2a;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.45rem;
     }
 
     .hero-panel-body {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--ink-soft);
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       max-width: 23rem;
     }
 
     .hero-panel-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 0.7rem;
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     .chip {
-      font-size: 0.72rem;
-      padding: 0.3rem 0.85rem;
+      font-size: 0.7rem;
+      padding: 0.28rem 0.8rem;
       border-radius: var(--radius-pill);
       background: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       color: #4a4031;
       text-transform: uppercase;
       letter-spacing: 0.16em;
@@ -441,50 +439,46 @@
 
     .chip.highlight {
       border-color: rgba(14, 63, 63, 0.55);
-      background: rgba(14, 63, 63, 0.06);
+      background: rgba(14, 63, 63, 0.05);
       color: #233735;
-    }
-
-    .hero-panel-note {
-      display: none; /* hidden to match layout exactly */
     }
 
     /* Sections */
     section {
-      padding: 2.6rem 0;
+      padding: 2.4rem 0;
     }
 
     .section-kicker {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #7a5a2b;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
     }
 
     .section-heading {
       font-family: "Playfair Display", serif;
-      font-size: 1.5rem;
+      font-size: 1.46rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
       color: #272018;
     }
 
     .section-subtitle {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--ink-soft);
       max-width: 34rem;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.3rem;
     }
 
     .card-section {
       border-radius: var(--radius-lg);
       background: var(--bg-elevated);
       border: 1px solid var(--border-soft);
-      padding: 1.3rem 1.4rem 1.2rem;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
-      font-size: 0.88rem;
+      padding: 1.2rem 1.3rem 1.1rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+      font-size: 0.87rem;
       color: var(--ink-soft);
     }
 
@@ -496,27 +490,27 @@
 
     /* Rate Card */
     .price-table {
-      margin-top: 0.8rem;
-      border-radius: 16px;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      margin-top: 0.7rem;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
       background: #ffffff;
-      padding: 0.8rem 0.9rem;
+      padding: 0.75rem 0.85rem;
     }
 
     .price-label {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: #7a5a2b;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
 
     .price-row {
       display: flex;
       justify-content: space-between;
       gap: 0.8rem;
-      padding: 0.35rem 0;
-      font-size: 0.86rem;
+      padding: 0.32rem 0;
+      font-size: 0.84rem;
       border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     }
 
@@ -536,7 +530,7 @@
     .subnote {
       font-size: 0.8rem;
       color: var(--ink-soft);
-      margin-top: 0.45rem;
+      margin-top: 0.4rem;
     }
 
     /* Corporate packages grid */
@@ -547,11 +541,11 @@
     }
 
     .package-card {
-      border-radius: 16px;
+      border-radius: 15px;
       background: linear-gradient(145deg, #ffffff, #f3ede2);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 0.95rem 0.9rem;
-      font-size: 0.84rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.9rem 0.85rem;
+      font-size: 0.83rem;
       transition:
         transform var(--transition-med),
         border-color var(--transition-med),
@@ -559,29 +553,29 @@
     }
 
     .package-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(0, 0, 0, 0.16);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+      border-color: rgba(0, 0, 0, 0.13);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.09);
     }
 
     .package-label {
-      font-size: 0.64rem;
+      font-size: 0.63rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: #7a5a2b;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.18rem;
     }
 
     .package-title {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.18rem;
       color: #2b2219;
     }
 
     .package-price {
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 600;
       color: #0e3f3f;
       margin-bottom: 0.3rem;
@@ -589,11 +583,11 @@
 
     .package-body {
       color: var(--ink-soft);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     .package-meta {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       color: var(--ink-soft);
     }
 
@@ -605,24 +599,24 @@
     }
 
     .gallery-item {
-      border-radius: 16px;
+      border-radius: 14px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
       padding: 0.4rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.35rem;
     }
 
     .gallery-frame {
       width: 100%;
       aspect-ratio: 4 / 3;
-      border-radius: 12px;
+      border-radius: 11px;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: #ddd2bf; /* placeholder */
-      transition: transform 0.25s ease-out;
+      background-color: #ddd2bf;
+      transition: transform 0.22s ease-out;
     }
 
     .gallery-item:hover .gallery-frame {
@@ -630,7 +624,7 @@
     }
 
     .gallery-caption {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       color: var(--ink-soft);
     }
 
@@ -640,25 +634,25 @@
 
     /* Process & Experience */
     .process-list {
-      margin-top: 0.6rem;
+      margin-top: 0.55rem;
       display: grid;
-      gap: 0.5rem;
-      font-size: 0.86rem;
+      gap: 0.45rem;
+      font-size: 0.84rem;
     }
 
     .process-item {
       border-radius: 12px;
       background: #ffffff;
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 0.6rem 0.7rem;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 0.55rem 0.68rem;
     }
 
     .process-label {
       font-weight: 600;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 0.1rem;
+      margin-bottom: 0.08rem;
       color: #2b241c;
     }
 
@@ -666,19 +660,19 @@
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      gap: 1.4rem;
+      gap: 1.3rem;
       align-items: start;
     }
 
     .contact-card,
     .secondary-card {
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid var(--border-soft);
       background: #ffffff;
-      padding: 1rem 1rem 0.9rem;
-      font-size: 0.86rem;
+      padding: 1rem 0.95rem 0.85rem;
+      font-size: 0.85rem;
       color: var(--ink-soft);
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.06);
     }
 
     .contact-card strong,
@@ -688,7 +682,7 @@
 
     .contact-actions,
     .secondary-actions {
-      margin-top: 0.7rem;
+      margin-top: 0.65rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
@@ -697,8 +691,8 @@
     .btn-wa {
       text-decoration: none;
       border-radius: var(--radius-pill);
-      padding: 0.7rem 1.15rem;
-      font-size: 0.78rem;
+      padding: 0.65rem 1.1rem;
+      font-size: 0.76rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       border: 1px solid rgba(37, 211, 102, 0.7);
@@ -708,7 +702,7 @@
       cursor: pointer;
       background: #0f8f3a;
       color: #f6fff9;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 13px 30px rgba(0, 0, 0, 0.18);
       transition:
         background var(--transition-med),
         transform var(--transition-med),
@@ -721,19 +715,19 @@
       background: #16a34a;
       border-color: #16a34a;
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.22);
     }
 
     .btn-wa svg {
-      width: 15px;
-      height: 15px;
+      width: 14px;
+      height: 14px;
     }
 
     .btn-small {
       text-decoration: none;
       border-radius: var(--radius-pill);
-      padding: 0.7rem 1.1rem;
-      font-size: 0.78rem;
+      padding: 0.65rem 1.05rem;
+      font-size: 0.76rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       border: 1px solid rgba(0, 0, 0, 0.16);
@@ -752,16 +746,16 @@
 
     .btn-small:hover {
       background: #ffffff;
-      border-color: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+      border-color: rgba(0, 0, 0, 0.28);
+      box-shadow: 0 11px 26px rgba(0, 0, 0, 0.14);
       transform: translateY(-1px);
     }
 
     /* Footer */
     .site-footer {
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 1.4rem 0 2rem;
-      font-size: 0.74rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 1.3rem 0 1.8rem;
+      font-size: 0.73rem;
       color: var(--ink-soft);
       background: #f0ebe2;
       margin-top: 2rem;
@@ -773,7 +767,7 @@
       padding: 0 1.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.7rem;
       justify-content: space-between;
     }
 
@@ -789,7 +783,7 @@
         grid-template-columns: minmax(0, 1fr);
       }
       .hero-panel {
-        margin-top: 0.9rem;
+        margin-top: 0.8rem;
       }
       .grid,
       .grid-2 {
@@ -810,8 +804,8 @@
 
       .nav {
         position: fixed;
-        inset: 56px 1rem auto 1rem;
-        border-radius: 16px;
+        inset: 52px 1rem auto 1rem;
+        border-radius: 15px;
         background: rgba(246, 242, 235, 0.98);
         padding: 0.7rem 0.9rem;
         flex-direction: column;
@@ -819,7 +813,7 @@
         transform: translateY(-12px);
         opacity: 0;
         pointer-events: none;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
         transition: opacity var(--transition-med), transform var(--transition-med);
       }
 
@@ -831,8 +825,8 @@
 
       .nav-toggle {
         display: inline-flex;
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
         border-radius: 999px;
         border: 1px solid rgba(0, 0, 0, 0.18);
         background: #f5f3ef;
@@ -845,7 +839,7 @@
       .nav-toggle span::before,
       .nav-toggle span::after {
         display: block;
-        width: 16px;
+        width: 15px;
         height: 2px;
         border-radius: 999px;
         background: #2d2318;
@@ -889,16 +883,16 @@
 
     @media (max-width: 600px) {
       .hero {
-        padding-top: 3rem;
+        padding-top: 2.2rem;
       }
 
       .hero-title {
-        font-size: 2.1rem;
+        font-size: 2rem;
       }
 
       #gallery .gallery-grid {
         grid-template-columns: minmax(0, 1fr);
-        row-gap: 1.2rem;
+        row-gap: 1.1rem;
       }
     }
   </style>
@@ -994,7 +988,7 @@
 
       <!-- WHO IT'S FOR -->
       <section aria-label="Who Signature D is For">
-        <div class="container" style="padding-top:1.4rem; padding-bottom:1.4rem; border-top:1px solid rgba(0,0,0,0.04); border-bottom:1px solid rgba(0,0,0,0.04); font-size:0.8rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:0.6rem 1.6rem; align-items:center;">
+        <div class="container" style="padding-top:1.3rem; padding-bottom:1.3rem; border-top:1px solid rgba(0,0,0,0.04); border-bottom:1px solid rgba(0,0,0,0.04); font-size:0.8rem; color:var(--ink-soft); display:flex; flex-wrap:wrap; gap:0.6rem 1.6rem; align-items:center;">
           <strong style="letter-spacing:0.18em; text-transform:uppercase; font-size:0.72rem; color:#2b2419;">Built For</strong>
           <span>Founders &amp; professionals who need clean, serious frames</span>
           <span>Clinics, practices, and faith spaces with real-world schedules</span>
@@ -1216,12 +1210,12 @@
             <p class="section-subtitle">
               Signature D operates as a serious production studio inside a wider system — not as a one-off freelancer.
             </p>
-            <p style="font-size:0.88rem; margin-bottom:0.5rem;">
+            <p style="font-size:0.86rem; margin-bottom:0.45rem;">
               Sessions are calm, directed, and respectful of your time. You are treated like a founder, clinician,
               or custodian of real work — not as “content.” Visuals are designed to hold up in appointments, boardrooms,
               donor rooms, and timelines years from now.
             </p>
-            <p class="subnote" style="margin-top:0.4rem;">
+            <p class="subnote" style="margin-top:0.35rem;">
               FIRE House works alongside AIR House (Kadijah’s Mango) and WATER House (Timeless Peace), so your visuals,
               language, and impact can move together inside DeVirn Signature House, Inc. when you are ready.
             </p>
@@ -1270,7 +1264,7 @@
                   WhatsApp · +1&nbsp;407&nbsp;319&nbsp;6740
                 </a>
               </div>
-              <p class="subnote" style="margin-top:0.5rem;">
+              <p class="subnote" style="margin-top:0.45rem;">
                 Every production is confirmed in writing with scope, schedule, and rate so you always know what you are receiving.
               </p>
             </div>
@@ -1288,7 +1282,7 @@
                   Email Inquiry
                 </a>
               </div>
-              <p class="subnote" style="margin-top:0.5rem;">
+              <p class="subnote" style="margin-top:0.45rem;">
                 Based in Central Florida · Travel available with advance notice and written approval of costs.
               </p>
             </div>
