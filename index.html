@@ -96,23 +96,26 @@
       gap: 0.75rem;
     }
 
+    /* UPDATED: use official glowing “D” logo */
     .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at 15% 0, #ffffff 0, #f5d58b 35%, #f5c046 65%, #292119 100%);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      overflow: hidden;
       box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(255, 255, 255, 0.06);
+        0 12px 28px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #000000; /* lets the glow read properly */
     }
 
-    .brand-mark svg {
-      width: 24px;
-      height: 24px;
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .brand-text {
@@ -888,25 +891,8 @@
       <div class="header-inner">
         <div class="brand">
           <div class="brand-mark" aria-hidden="true">
-            <!-- Simple FIRE / camera crest -->
-            <svg viewBox="0 0 64 64">
-              <defs>
-                <linearGradient id="fire-crest" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fdf8ec" />
-                  <stop offset="40%" stop-color="#f5c046" />
-                  <stop offset="100%" stop-color="#0e3f3f" />
-                </linearGradient>
-              </defs>
-              <rect x="16" y="20" width="32" height="24" rx="6" ry="6"
-                fill="none"
-                stroke="url(#fire-crest)"
-                stroke-width="2.4" />
-              <circle cx="32" cy="32" r="8"
-                fill="none"
-                stroke="url(#fire-crest)"
-                stroke-width="2" />
-              <circle cx="32" cy="32" r="3.2" fill="#fdf8ec" />
-            </svg>
+            <!-- OFFICIAL Signature D crest logo -->
+            <img src="/mnt/data/ChatGPT Image Nov 21, 2025, 09_14_49 AM (1).png" alt="Signature D Crest" />
           </div>
           <div class="brand-text">
             <div class="brand-name">DeVirn Signature House, Inc.</div>
