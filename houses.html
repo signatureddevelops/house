@@ -5,31 +5,31 @@
   <title>The Five Houses | DeVirn Signature House, Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="One Empire. Five Houses. Explore FIRE, WATER, AIR, EARTH, and AETHER — the governing Houses of DeVirn Signature House, Inc." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* EMPIRE CORE */
-      --bg: #050607;              /* matte black */
-      --bg-soft: #090c0d;         /* slight gloss */
-      --bg-elevated: #0b1013;     /* cards */
-      --ink: #f5f5f5;
-      --ink-soft: #b9c0c7;
-      --gold: #f5c046;
+      /* Base palette: matte black, white, silver/chrome */
+      --page-bg: #050507;         /* outer matte black */
+      --shell-bg: #f7f7f7;        /* main light surface */
+      --card-bg: #ffffff;         /* cards */
+      --ink: #111111;             /* primary text */
+      --ink-soft: #707070;        /* secondary text */
+      --line-soft: #d1d5db;       /* light divider */
+      --chrome: #c0c4cc;          /* chrome accent */
+      --chrome-deep: #9ca3af;     /* deeper chrome */
 
-      /* HOUSE ACCENTS (subtle) */
-      --accent-fire:  #f5c046;  /* gold */
-      --accent-water: #9fd4f0;  /* ocean blue */
-      --accent-air:   #f1b36a;  /* mango-gold */
-      --accent-earth: #7f9c6b;  /* olive/estate green */
-      --accent-aether:#c7b4ff;  /* soft violet-gold */
+      /* House accent colors (used VERY minimally) */
+      --fire-accent:  #f5c046;    /* Signature D */
+      --water-accent: #73c5ff;    /* Timeless Peace */
+      --air-accent:   #f4b267;    /* Kadijah’s Mango */
+      --earth-accent: #708f68;    /* Narine Estate */
+      --aether-accent:#b9a7ff;    /* Founder’s Circle */
 
-      --radius-lg: 24px;
+      --radius-lg: 22px;
       --radius-pill: 999px;
-      --shadow-soft: 0 24px 50px rgba(0, 0, 0, 0.7);
-      --border-soft: 1px solid rgba(255, 255, 255, 0.06);
-      --transition-fast: 160ms ease-out;
-      --transition-med: 220ms ease-out;
+      --shadow-soft: 0 18px 45px rgba(15, 15, 20, 0.22);
+      --transition-med: 200ms ease-out;
     }
 
     * {
@@ -42,192 +42,76 @@
       min-height: 100vh;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(245, 192, 70, 0.12), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(10, 40, 40, 0.6), transparent 55%),
-        linear-gradient(145deg, #020304, #050607 50%, #020304 100%);
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.9), #050507);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
+      padding: 26px 12px;
     }
 
-    /* EMPIRE BAR (very simple) */
-    .empire-bar {
-      max-width: 1120px;
-      margin: 16px auto 0;
-      padding: 8px 18px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(245, 192, 70, 0.45);
-      background: linear-gradient(120deg, rgba(245, 192, 70, 0.14), rgba(5, 6, 7, 0.96));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-    }
-
-    .empire-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-    }
-
-    .crest {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 192, 70, 0.7);
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 55%),
-                  radial-gradient(circle at bottom, rgba(10,35,35,0.8), #050607);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .empire-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      min-width: 0;
-    }
-
-    .empire-name {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #f5f3ef;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .empire-subline {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(210, 218, 226, 0.9);
-    }
-
-    .empire-links {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .empire-links a {
-      text-decoration: none;
-      color: rgba(245, 192, 70, 0.9);
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(245, 192, 70, 0.36);
-      background: rgba(5, 6, 7, 0.94);
-      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .empire-links a:hover {
-      background: rgba(245, 192, 70, 0.16);
-      border-color: rgba(245, 192, 70, 0.8);
-      transform: translateY(-1px);
-    }
-
-    @media (max-width: 640px) {
-      .empire-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        border-radius: 22px;
-      }
-
-      .empire-links {
-        flex-wrap: wrap;
-        justify-content: flex-start;
-      }
-    }
-
-    .page {
+    .shell {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 28px 20px 72px;
+      background: var(--shell-bg);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: var(--shadow-soft);
+      padding: 26px 26px 40px;
     }
 
-    header.page-header {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-bottom: 40px;
-      margin-top: 12px;
+    @media (max-width: 768px) {
+      .shell {
+        padding: 20px 18px 30px;
+        border-radius: 24px;
+      }
+    }
+
+    /* HEADER */
+    .page-header {
+      border-bottom: 1px solid var(--line-soft);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 3px 11px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(245, 192, 70, 0.35);
-      background: rgba(5, 6, 7, 0.92);
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: 0.18em;
+      font-size: 11px;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
-      font-weight: 500;
-      width: fit-content;
-    }
-
-    .eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--gold);
-      box-shadow: 0 0 12px rgba(245, 192, 70, 0.8);
+      color: var(--ink-soft);
+      margin-bottom: 8px;
     }
 
     h1 {
       font-family: "Playfair Display", "Times New Roman", serif;
       font-weight: 600;
-      font-size: clamp(30px, 4vw, 38px);
-      letter-spacing: 0.04em;
-      color: #ffffff;
-    }
-
-    .headline-sub {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: baseline;
-    }
-
-    .headline-sub span.label {
-      font-size: 11px;
+      font-size: clamp(26px, 3vw, 32px);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.26em;
+      color: #111111;
+      margin-bottom: 6px;
+    }
+
+    .subline {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--ink-soft);
+      margin-bottom: 14px;
     }
 
-    .headline-sub span.divider {
-      width: 32px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(245, 192, 70, 0.9), transparent);
-    }
-
-    p.lead {
-      max-width: 640px;
+    .lead {
+      max-width: 620px;
       font-size: 13px;
       line-height: 1.7;
       color: var(--ink-soft);
     }
 
+    /* SIMPLE LEGEND */
     .legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
+      gap: 10px;
+      margin-top: 18px;
       font-size: 10px;
     }
 
@@ -235,229 +119,251 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 9px;
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(185, 192, 199, 0.28);
-      background: rgba(9, 12, 13, 0.9);
-      color: var(--ink-soft);
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #4b5563;
     }
 
     .legend-swatch {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
     }
 
-    .legend-swatch.fire  { background: var(--accent-fire); }
-    .legend-swatch.water { background: var(--accent-water); }
-    .legend-swatch.air   { background: var(--accent-air); }
-    .legend-swatch.earth { background: var(--accent-earth); }
-    .legend-swatch.aether{ background: var(--accent-aether); }
+    .legend-swatch.fire  { background: var(--fire-accent); }
+    .legend-swatch.water { background: var(--water-accent); }
+    .legend-swatch.air   { background: var(--air-accent); }
+    .legend-swatch.earth { background: var(--earth-accent); }
+    .legend-swatch.aether{ background: var(--aether-accent); }
 
+    /* GRID */
     .houses-grid {
+      margin-top: 26px;
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 18px;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .houses-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 640px) {
-      .page {
-        padding-inline: 16px;
-      }
       .houses-grid {
         grid-template-columns: minmax(0, 1fr);
       }
     }
 
+    /* HOUSE CARD */
     .house-card {
-      position: relative;
-      border-radius: var(--radius-lg);
-      padding: 16px 15px 16px;
-      background: linear-gradient(135deg, rgba(11, 16, 20, 0.96), rgba(4, 6, 8, 0.98));
-      border: var(--border-soft);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
       text-decoration: none;
       color: inherit;
-      isolation: isolate;
-      transition: transform var(--transition-med),
-                  box-shadow var(--transition-med),
-                  border-color var(--transition-med),
-                  background var(--transition-med);
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid #e5e7eb;
+      padding: 14px 14px 16px;
+      transition: border-color var(--transition-med), transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med);
     }
 
+    /* Minimal chrome hover */
+    .house-card:hover {
+      border-color: var(--chrome-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.13);
+      background: #fdfdfd;
+    }
+
+    /* TOP CHROME LINE WITH HOUSE COLOR */
     .house-card::before {
       content: "";
       position: absolute;
-      inset: 0;
-      opacity: 0;
-      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.25), transparent 60%);
-      transition: opacity var(--transition-med);
-      pointer-events: none;
+      display: block;
     }
 
-    .house-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-soft);
-      border-color: rgba(245, 192, 70, 0.7);
-    }
-
-    .house-card:hover::before {
-      opacity: 1;
-    }
-
-    /* PER-HOUSE ACCENT: ONLY TOP BORDER + DOT COLOR */
-    .house-card.fire {
-      border-top: 3px solid var(--accent-fire);
-    }
-    .house-card.water {
-      border-top: 3px solid var(--accent-water);
-    }
-    .house-card.air {
-      border-top: 3px solid var(--accent-air);
-    }
-    .house-card.earth {
-      border-top: 3px solid var(--accent-earth);
-    }
-    .house-card.aether {
-      border-top: 3px solid var(--accent-aether);
+    .house-card-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .house-topline {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 12px;
-      gap: 8px;
-    }
-
-    .badge {
-      display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 4px 9px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      font-size: 9px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      background: rgba(5, 7, 11, 0.93);
+      gap: 10px;
     }
 
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      box-shadow: 0 0 14px currentColor;
+    .house-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
     }
 
-    .badge.fire  .badge-dot { background: var(--accent-fire); }
-    .badge.water .badge-dot { background: var(--accent-water); }
-    .badge.air   .badge-dot { background: var(--accent-air); }
-    .badge.earth .badge-dot { background: var(--accent-earth); }
-    .badge.aether .badge-dot{ background: var(--accent-aether); }
-
-    .house-tag {
+    .house-tagline {
       font-size: 10px;
-      text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: rgba(230, 236, 242, 0.9);
-      text-align: right;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      white-space: nowrap;
     }
 
     .house-name {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 17px;
-      letter-spacing: 0.08em;
+      font-size: 16px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 3px;
-      color: #ffffff;
+      color: var(--ink);
     }
 
-    .house-aka {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: rgba(197, 205, 214, 0.9);
-      margin-bottom: 9px;
-    }
-
-    .house-copy {
-      font-size: 12px;
-      line-height: 1.7;
+    .house-lane {
+      font-size: 11px;
       color: var(--ink-soft);
-      margin-bottom: 10px;
     }
 
+    /* HOUSE LOGO / EMBLEM */
+    .house-logo {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #d4d4d8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #f3f4f6);
+      overflow: hidden;
+    }
+
+    .house-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* If logo not loaded, show monogram-style letters */
+    .house-logo span {
+      font-family: "Playfair Display", "Times New Roman", serif;
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #111827;
+    }
+
+    /* Colored accent ring per House (very thin) */
+    .house-logo.fire   { box-shadow: 0 0 0 1px var(--fire-accent); }
+    .house-logo.water  { box-shadow: 0 0 0 1px var(--water-accent); }
+    .house-logo.air    { box-shadow: 0 0 0 1px var(--air-accent); }
+    .house-logo.earth  { box-shadow: 0 0 0 1px var(--earth-accent); }
+    .house-logo.aether { box-shadow: 0 0 0 1px var(--aether-accent); }
+
+    /* CONTENT */
+    .house-body {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    .house-body strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .bullet-list {
+      list-style: none;
+      margin: 6px 0 0;
+      padding: 0;
+    }
+
+    .bullet-list li {
+      font-size: 11px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+
+    .bullet-dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      margin-right: 6px;
+      background: var(--chrome-deep);
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER / CTA */
     .house-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
       font-size: 10px;
-      color: rgba(188, 196, 204, 0.96);
+      color: #6b7280;
     }
 
-    .house-footer span.role {
-      text-transform: uppercase;
+    .house-role {
       letter-spacing: 0.22em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
-    .house-footer span.cta {
+    .house-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      font-size: 10px;
+      color: #111827;
     }
 
-    .house-footer span.cta-icon {
+    .house-cta-icon {
       font-size: 12px;
       transform: translateY(1px);
+    }
+
+    /* Top accent bar (chrome + house color) */
+    .house-card.fire {
+      border-top: 2px solid rgba(0, 0, 0, 0.85);
+      box-shadow: inset 0 2px 0 0 var(--fire-accent);
+    }
+    .house-card.water {
+      border-top: 2px solid rgba(0, 0, 0, 0.85);
+      box-shadow: inset 0 2px 0 0 var(--water-accent);
+    }
+    .house-card.air {
+      border-top: 2px solid rgba(0, 0, 0, 0.85);
+      box-shadow: inset 0 2px 0 0 var(--air-accent);
+    }
+    .house-card.earth {
+      border-top: 2px solid rgba(0, 0, 0, 0.85);
+      box-shadow: inset 0 2px 0 0 var(--earth-accent);
+    }
+    .house-card.aether {
+      border-top: 2px solid rgba(0, 0, 0, 0.85);
+      box-shadow: inset 0 2px 0 0 var(--aether-accent);
     }
   </style>
 </head>
 <body>
-  <!-- EMPIRE CREST STRIP -->
-  <div class="empire-bar">
-    <div class="empire-left">
-      <div class="crest">DSH</div>
-      <div class="empire-text">
-        <div class="empire-name">DeVirn Signature House, Inc.</div>
-        <div class="empire-subline">One Empire · Five Houses · One Language</div>
-      </div>
-    </div>
-    <div class="empire-links">
-      <a href="3code.html">Signature Code™</a>
-      <a href="houses.html">The Houses</a>
-    </div>
-  </div>
-
-  <main class="page">
+  <div class="shell">
     <header class="page-header">
-      <div class="eyebrow">
-        <span class="eyebrow-dot"></span>
-        <span>DeVirn Signature House, Inc.</span>
-      </div>
-
-      <div class="headline-sub">
-        <span class="label">One Empire. Five Houses. One Language.</span>
-        <span class="divider"></span>
-      </div>
-
-      <h1>The Houses of the Empire</h1>
-
+      <div class="eyebrow">DEVIRN SIGNATURE HOUSE, INC.</div>
+      <h1>The Five Houses</h1>
+      <div class="subline">One Empire · Five Gateways · One Language</div>
       <p class="lead">
-        Each House is a world, a professional lane, and a personality channel. Together they form one
-        coherent system: FIRE for expression, WATER for care, AIR for communication, EARTH for estates,
-        and AETHER for founders and guardians of the Signature Code™.
+        Each House is a clear lane. FIRE shapes expression, WATER shapes care, AIR shapes communication,
+        EARTH shapes estates, and AETHER shapes governance. This page simply shows where each world begins.
       </p>
 
       <div class="legend">
@@ -480,121 +386,166 @@
     </header>
 
     <section class="houses-grid">
-      <!-- FIRE -->
-      <a class="house-card fire" href="signatured.html">
-        <div class="house-topline">
-          <div class="badge fire">
-            <span class="badge-dot"></span>
-            <span>FIRE HOUSE</span>
+      <!-- FIRE · Signature D -->
+      <a class="house-card fire" href="index.html">
+        <div class="house-card-inner">
+          <div class="house-topline">
+            <div class="house-meta">
+              <div class="house-tagline">Fire · Visual Studio</div>
+              <div class="house-name">Signature D</div>
+              <div class="house-lane">Photography · Cinematics · Brand Identity</div>
+            </div>
+            <div class="house-logo fire">
+              <!-- Replace src with actual Signature D emblem -->
+              <!-- <img src="signatured-logo.png" alt="Signature D emblem" /> -->
+              <span>SD</span>
+            </div>
           </div>
-          <span class="house-tag">Creative Direction · Visual Studio</span>
+
+          <div class="house-body">
+            <strong>Role:</strong> How you are seen.
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Luxury photography and film direction</li>
+              <li><span class="bullet-dot"></span>Signature brand visuals and identity kits</li>
+              <li><span class="bullet-dot"></span>Launch campaigns and hero assets</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="house-name">Signature D</div>
-          <div class="house-aka">The FIRE House · Luxury Visual Studio</div>
-          <p class="house-copy">
-            Photography, cinematic media, and brand expression built as heirloom-quality visuals.
-            Ivory, gold, and deep shadow anchor the Signature D look — clean, cinematic, enduring.
-          </p>
-        </div>
+
         <div class="house-footer">
-          <span class="role">Expression &amp; Presence</span>
-          <span class="cta">Enter FIRE <span class="cta-icon">↗</span></span>
+          <span class="house-role">Expression &amp; Presence</span>
+          <span class="house-cta">Enter Fire <span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- WATER -->
+      <!-- WATER · Timeless Peace -->
       <a class="house-card water" href="timelesspeace.html">
-        <div class="house-topline">
-          <div class="badge water">
-            <span class="badge-dot"></span>
-            <span>WATER HOUSE</span>
+        <div class="house-card-inner">
+          <div class="house-topline">
+            <div class="house-meta">
+              <div class="house-tagline">Water · Foundation</div>
+              <div class="house-name">Timeless Peace</div>
+              <div class="house-lane">Hospice · Healing · Partnerships</div>
+            </div>
+            <div class="house-logo water">
+              <!-- Replace src with actual Timeless Peace emblem -->
+              <!-- <img src="timelesspeace-logo.png" alt="Timeless Peace emblem" /> -->
+              <span>TP</span>
+            </div>
           </div>
-          <span class="house-tag">Hospice · Healing · Partnerships</span>
+
+          <div class="house-body">
+            <strong>Role:</strong> How you care.
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Free hospice and healing partnerships</li>
+              <li><span class="bullet-dot"></span>Programs for mothers, children, elders</li>
+              <li><span class="bullet-dot"></span>Long-term dignity and memory projects</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="house-name">Timeless Peace Foundation</div>
-          <div class="house-aka">The WATER House · Dignity in Care</div>
-          <p class="house-copy">
-            Free, compassionate hospice and healing partnerships for mothers, children, elders, and
-            communities. Ocean-dove blue and soft light signal calm, safety, and mercy.
-          </p>
-        </div>
+
         <div class="house-footer">
-          <span class="role">Care &amp; Compassion</span>
-          <span class="cta">Enter WATER <span class="cta-icon">↗</span></span>
+          <span class="house-role">Care &amp; Compassion</span>
+          <span class="house-cta">Enter Water <span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- AIR -->
-      <a class="house-card air" href="kadijahsmango.html">
-        <div class="house-topline">
-          <div class="badge air">
-            <span class="badge-dot"></span>
-            <span>AIR HOUSE</span>
+      <!-- AIR · Kadijah’s Mango -->
+      <a class="house-card air" href="mango.html">
+        <div class="house-card-inner">
+          <div class="house-topline">
+            <div class="house-meta">
+              <div class="house-tagline">Air · Global Studio</div>
+              <div class="house-name">Kadijah’s Mango</div>
+              <div class="house-lane">Messaging · Packaging · Global Communication</div>
+            </div>
+            <div class="house-logo air">
+              <!-- Replace src with actual Kadijah’s Mango emblem -->
+              <!-- <img src="kadijahsmango-logo.png" alt="Kadijah’s Mango emblem" /> -->
+              <span>KM</span>
+            </div>
           </div>
-          <span class="house-tag">Global Communication · Halal-First Brands</span>
+
+          <div class="house-body">
+            <strong>Role:</strong> How you speak.
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Brand language and narrative systems</li>
+              <li><span class="bullet-dot"></span>Packaging, product text, and scripts</li>
+              <li><span class="bullet-dot"></span>Global and halal-conscious positioning</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="house-name">Kadijah’s Mango</div>
-          <div class="house-aka">The AIR House · Global Language Studio</div>
-          <p class="house-copy">
-            Messaging, packaging, and communication for halal-aligned and globally aware brands.
-            Subtle mango-gold accents carry the AIR signature — clear, intelligent, and warm.
-          </p>
-        </div>
+
         <div class="house-footer">
-          <span class="role">Language &amp; Translation</span>
-          <span class="cta">Enter AIR <span class="cta-icon">↗</span></span>
+          <span class="house-role">Language &amp; Translation</span>
+          <span class="house-cta">Enter Air <span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- EARTH -->
-      <a class="house-card earth" href="narineestate.html">
-        <div class="house-topline">
-          <div class="badge earth">
-            <span class="badge-dot"></span>
-            <span>EARTH HOUSE</span>
+      <!-- EARTH · DSH-Business -->
+      <a class="house-card earth" href="dsh-business.html">
+        <div class="house-card-inner">
+          <div class="house-topline">
+            <div class="house-meta">
+              <div class="house-tagline">Earth · Estate Atelier</div>
+              <div class="house-name">DSH-Business</div>
+              <div class="house-lane">Land · Product · Heritage Brands</div>
+            </div>
+            <div class="house-logo earth">
+              <!-- Replace src with actual Narine Estate emblem -->
+              <!-- <img src="narineestate-logo.png" alt="Narine Estate emblem" /> -->
+              <span>NE</span>
+            </div>
           </div>
-          <span class="house-tag">Estates · Land · Heritage Brands</span>
+
+          <div class="house-body">
+            <strong>Role:</strong> How you hold assets.
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Estate and product brand structure</li>
+              <li><span class="bullet-dot"></span>Lines like Narine Estate Olive Oil</li>
+              <li><span class="bullet-dot"></span>Long-view planning for land and legacy</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="house-name">Narine Estate</div>
-          <div class="house-aka">The EARTH House · Business Atelier</div>
-          <p class="house-copy">
-            Heritage-standard business solutions for land, product, and estate-based brands — including
-            Narine Estate Olive Oil. A restrained olive accent keeps it grounded and archival.
-          </p>
-        </div>
+
         <div class="house-footer">
-          <span class="role">Structure &amp; Stewardship</span>
-          <span class="cta">Enter EARTH <span class="cta-icon">↗</span></span>
+          <span class="house-role">Structure &amp; Stewardship</span>
+          <span class="house-cta">Enter Earth <span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- AETHER -->
+      <!-- AETHER · Founder’s Circle -->
       <a class="house-card aether" href="aether.html">
-        <div class="house-topline">
-          <div class="badge aether">
-            <span class="badge-dot"></span>
-            <span>AETHER HOUSE</span>
+        <div class="house-card-inner">
+          <div class="house-topline">
+            <div class="house-meta">
+              <div class="house-tagline">Aether · Inner Orbit</div>
+              <div class="house-name">Founder’s Circle</div>
+              <div class="house-lane">Founders · Boards · Guardians</div>
+            </div>
+            <div class="house-logo aether">
+              <!-- Replace src with actual Aether / Founder’s Circle emblem -->
+              <!-- <img src="aether-logo.png" alt="Founder’s Circle emblem" /> -->
+              <span>FC</span>
+            </div>
           </div>
-          <span class="house-tag">Founders · Guardians · Signature Code™</span>
+
+          <div class="house-body">
+            <strong>Role:</strong> How you govern.
+            <ul class="bullet-list">
+              <li><span class="bullet-dot"></span>Signature Code™ application at the top</li>
+              <li><span class="bullet-dot"></span>Board, founder, and charter architecture</li>
+              <li><span class="bullet-dot"></span>Long-range empire and legacy decisions</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <div class="house-name">Founder’s Circle</div>
-          <div class="house-aka">The AETHER House · Inner Orbit</div>
-          <p class="house-copy">
-            Reserved for founders, boards, and guardians who steward the Signature Code™ and the
-            long-term architecture of the Empire. A quiet violet-gold accent marks this tier.
-          </p>
-        </div>
+
         <div class="house-footer">
-          <span class="role">Governance &amp; Legacy</span>
-          <span class="cta">Enter AETHER <span class="cta-icon">↗</span></span>
+          <span class="house-role">Governance &amp; Legacy</span>
+          <span class="house-cta">Enter Aether <span class="house-cta-icon">↗</span></span>
         </div>
       </a>
     </section>
-  </main>
+  </div>
 </body>
 </html>
