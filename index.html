@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Signature D | DeVirn Signature House, Inc.</title>
+  <title>FIRE House · Signature D | DeVirn Signature House, Inc.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Signature D is the FIRE House of DeVirn Signature House, Inc. — a luxury visual studio for photography, cinematic media, and brand identity guided by The Signature Code™." />
-
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f5f3ef;          /* white gloss / warm ivory */
+      /* FIRE / Signature D palette */
+      --bg: #f5f3ef;          /* warm ivory */
       --bg-soft: #faf8f5;
       --ink: #171717;
       --ink-soft: #555;
@@ -18,11 +18,12 @@
       --gold-soft: #e1b03e;
       --emerald: #0e3f3f;
       --border-soft: #e2ddd4;
-      --shadow-soft: 0 24px 60px rgba(0,0,0,0.08);
-      --radius-lg: 26px;
-      --radius-md: 18px;
+      --shadow-soft: 0 22px 60px rgba(0, 0, 0, 0.12);
+      --radius-xl: 24px;
+      --radius-lg: 20px;
       --radius-pill: 999px;
-      --transition: 220ms ease-out;
+      --transition: 200ms ease-out;
+      --max-width: 1040px;
     }
 
     * {
@@ -31,382 +32,454 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
-    }
-
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #fff, var(--bg));
+      background: radial-gradient(circle at top, #ffffff 0, var(--bg) 55%, #ede6dd 100%);
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
-      padding: 24px 16px 28px;
     }
 
-    main.page {
-      max-width: 1120px;
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
       margin: 0 auto;
-      background: linear-gradient(145deg, #ffffff 0%, var(--bg-soft) 100%);
-      border-radius: 30px;
-      box-shadow: 0 36px 110px rgba(0,0,0,0.12);
-      overflow: hidden;
-      border: 1px solid rgba(245, 192, 70, 0.16);
-      position: relative;
+      padding: 20px 18px 40px;
     }
 
-    /* Signature D crown background print */
-    main.page::before {
-      content: "";
-      position: absolute;
-      inset: -40px;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.9) 0, transparent 48%),
-        radial-gradient(circle at 100% 100%, rgba(245,192,70,0.22) 0, transparent 55%),
-        url("images/signature-d-crown-print.png") center 32% / 520px auto no-repeat;
-      opacity: 0.14;
-      pointer-events: none;
-      mix-blend-mode: multiply;
+    /* GLOBAL DSH HEADER (same structure as EARTH / dsh-business.html) */
+    .site-header {
+      background: #050607;
+      border-bottom: 1px solid rgba(245, 192, 70, 0.25);
+      color: #f7f3ea;
     }
 
-    main.page > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Header / Bar */
-
-    .top-bar {
+    .site-shell {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 22px 10px;
-      border-bottom: 1px solid rgba(0,0,0,0.03);
-      backdrop-filter: blur(10px);
-      background: linear-gradient(to right, rgba(245,243,239,0.96), rgba(245,243,239,0.92));
+      gap: 16px;
     }
 
-    .brand-left {
-      display: flex;
+    .site-mark {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      white-space: nowrap;
     }
 
-    .dsh-mark {
-      width: 40px;
-      height: 40px;
+    .site-mark-initials {
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #fff9e8, #b48f43);
+      border: 1px solid rgba(245, 192, 70, 0.75);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-      border: 1px solid rgba(255,255,255,0.4);
-      overflow: hidden;
-    }
-
-    /* DSH monogram (matches empire style) */
-    .dsh-mark svg {
-      width: 26px;
-      height: 26px;
-      display: block;
-    }
-
-    .brand-left-text h1 {
       font-family: "Playfair Display", serif;
-      font-size: 1.02rem;
+      font-size: 14px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 90%, rgba(245, 192, 70, 0.8), rgba(85, 65, 24, 1));
+      color: #0b0904;
     }
 
-    .brand-left-text p {
-      font-size: 0.72rem;
+    .site-mark-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .site-mark-name {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .site-mark-tagline {
+      font-size: 10px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--ink-soft);
+      opacity: 0.8;
     }
 
-    .top-nav {
+    .site-nav {
       display: flex;
-      gap: 12px;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
+      align-items: center;
+      gap: 14px;
+      font-size: 11px;
       text-transform: uppercase;
+      letter-spacing: 0.16em;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
-    .top-nav a {
+    .site-nav a {
       text-decoration: none;
-      color: var(--ink-soft);
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      transition: background var(--transition), color var(--transition), border-color var(--transition), transform var(--transition);
+      color: rgba(244, 239, 226, 0.9);
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      transition: color 150ms ease-out, border-color 150ms ease-out, opacity 150ms ease-out;
+      white-space: nowrap;
     }
 
-    .top-nav a:hover {
-      background: rgba(0,0,0,0.03);
-      border-color: rgba(0,0,0,0.08);
-      transform: translateY(-1px);
+    .site-nav a:hover {
+      color: #ffffff;
+      border-color: rgba(245, 192, 70, 0.7);
     }
 
-    .top-nav a.is-primary {
-      border-color: rgba(245, 192, 70, 0.6);
-      color: var(--ink);
-      background: radial-gradient(circle at top, #fffaf0, #f1e0bc);
-      box-shadow: 0 9px 20px rgba(245, 192, 70, 0.35);
-    }
-
-    /* Layout */
-
-    .inner {
-      padding: 26px 22px 26px;
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.7fr);
-      gap: 30px;
+    .site-nav a.is-active {
+      color: #f5c046;
+      border-color: #f5c046;
     }
 
     @media (max-width: 880px) {
-      .inner {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 22px 16px 22px;
-      }
-      .top-bar {
+      .site-shell {
         flex-direction: column;
         align-items: flex-start;
         gap: 8px;
+        padding-inline: 14px;
       }
-      .top-nav {
+      .site-nav {
+        flex-wrap: wrap;
+        gap: 10px;
         justify-content: flex-start;
       }
     }
 
-    /* Hero / Identity */
-
-    .hero-main {
+    /* Local FIRE band */
+    .top-bar {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 20px 0 18px;
+      font-size: 12px;
     }
 
-    .hero-logo-card {
-      position: relative;
-      background: radial-gradient(circle at 10% 0%, #ffffff, #f3e0b6);
-      border-radius: 28px;
-      padding: 22px 20px 20px;
+    .top-id {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(245, 192, 70, 0.08);
+      border: 1px solid rgba(245, 192, 70, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 10px;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .top-id span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0%, #fff9e7, var(--gold));
+    }
+
+    .top-right {
+      font-size: 11px;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+
+    /* Hero wrapper */
+    .hero {
+      padding: 22px 18px 20px;
+      background: linear-gradient(135deg, #ffffff, #f6ecdc);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(260px, 1.6fr);
+      gap: 22px;
+      position: relative;
       overflow: hidden;
     }
 
-    .hero-logo-card::before {
+    .hero::before {
       content: "";
       position: absolute;
-      inset: -180px;
+      inset: -40%;
       background:
-        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.8) 0, transparent 48%),
-        radial-gradient(circle at 100% 100%, rgba(245, 192, 70, 0.28) 0, transparent 50%);
-      opacity: 0.9;
+        radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.8), transparent 52%),
+        radial-gradient(circle at 100% 100%, rgba(245, 192, 70, 0.35), transparent 55%);
+      opacity: 0.8;
       pointer-events: none;
     }
 
-    .hero-logo-inner {
+    .hero-inner {
       position: relative;
+      z-index: 1;
       display: flex;
-      align-items: center;
-      gap: 18px;
+      flex-direction: column;
+      gap: 14px;
     }
 
-    .signature-logo-wrap {
-      width: 150px;
-      min-width: 150px;
-      aspect-ratio: 1 / 1;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 0%, #fffdf7, #e0c075);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 24px 52px rgba(0,0,0,0.22);
-      overflow: hidden;
-    }
-
-    .signature-logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-copy {
-      flex: 1;
-    }
-
-    .eyebrow {
-      font-size: 0.76rem;
-      letter-spacing: 0.24em;
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--emerald);
-      margin-bottom: 4px;
     }
 
-    .hero-copy h2 {
+    .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: 1.9rem;
-      letter-spacing: 0.07em;
+      font-size: 28px;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 6px;
+      line-height: 1.2;
+      color: var(--ink);
     }
 
-    .hero-copy p {
-      font-size: 0.93rem;
-      color: #4a4337;
-      max-width: 34rem;
+    .hero-sub {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 520px;
+    }
+
+    .hero-sub strong {
+      color: #2a2418;
+      font-weight: 600;
     }
 
     .hero-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 9px;
     }
 
     .tag {
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 10px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink-soft);
     }
 
-    /* Signature Code link */
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 192, 70, 0.7);
+      background: radial-gradient(circle at top, #fffaf0, #f4c55a);
+      color: #22180b;
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(245, 192, 70, 0.45);
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-main:hover {
+      background: radial-gradient(circle at top, #fffdf7, #f0b733);
+      box-shadow: 0 16px 38px rgba(245, 192, 70, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: var(--ink-soft);
+      max-width: 280px;
+    }
 
     .sig-code-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 14px;
-      padding: 9px 12px;
-      border-radius: 18px;
-      border: 1px dashed rgba(14,63,63,0.4);
-      background: linear-gradient(120deg, rgba(14,63,63,0.09), rgba(245,192,70,0.06));
-    }
-
-    .sig-code-strip span {
-      font-size: 0.78rem;
+      margin-top: 6px;
+      padding: 8px 10px;
+      border-radius: 16px;
+      border: 1px dashed rgba(14, 63, 63, 0.4);
+      background: linear-gradient(120deg, rgba(14, 63, 63, 0.08), rgba(245, 192, 70, 0.06));
+      font-size: 12px;
       color: var(--ink-soft);
     }
 
     .sig-code-strip strong {
-      font-weight: 600;
       color: var(--emerald);
     }
 
     .sig-code-strip a {
-      font-size: 0.76rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(14,63,63,0.55);
       color: var(--emerald);
-      background: rgba(255,255,255,0.9);
-      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-      white-space: nowrap;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      font-weight: 500;
     }
 
-    .sig-code-strip a:hover {
-      background: var(--emerald);
-      color: #fff;
-      box-shadow: 0 10px 22px rgba(14,63,63,0.35);
-      transform: translateY(-1px);
-    }
-
-    /* Pill highlights */
-
-    .hero-pills {
+    /* Hero card (Empress image) */
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      border-radius: 22px;
+      padding: 10px 10px 12px;
+      background: radial-gradient(circle at 20% 0%, #fffdf9, #f0ddbb);
+      border: 1px solid rgba(245, 192, 70, 0.65);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 8px;
-      margin-top: 6px;
     }
 
-    .pill {
-      padding: 6px 11px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(0,0,0,0.05);
-      background: rgba(255,255,255,0.95);
-      font-size: 0.8rem;
+    .hero-image-wrap {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: #f3e1bf;
+    }
+
+    .hero-image-wrap::before {
+      content: "";
+      display: block;
+      aspect-ratio: 3 / 4;
+    }
+
+    .hero-image-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-card-kicker {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #6b5427;
+    }
+
+    .hero-card-caption {
+      font-size: 11px;
       color: var(--ink-soft);
     }
 
-    .pill span {
-      font-weight: 600;
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        max-width: 320px;
+        margin-inline: auto;
+      }
+    }
+
+    /* Main content grid */
+    .main {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .section {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--ink);
     }
 
-    /* Right rail */
-
-    .rail {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .panel {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 18px 16px 16px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.06);
-    }
-
-    .panel h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.02rem;
-      letter-spacing: 0.12em;
+    .section-tag {
+      font-size: 10px;
       text-transform: uppercase;
-      margin-bottom: 5px;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+      white-space: nowrap;
     }
 
-    .panel p {
-      font-size: 0.84rem;
+    .section p {
+      font-size: 12px;
+      line-height: 1.6;
       color: var(--ink-soft);
       margin-bottom: 8px;
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 8px;
-      margin-top: 8px;
+    .step-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
     }
 
-    .service-pill {
-      padding: 9px 10px;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,0.06);
-      background: radial-gradient(circle at top left, #fffaf2, #f5f3ef);
-      font-size: 0.8rem;
-    }
-
-    .service-pill strong {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 1px;
-    }
-
-    .service-pill span {
-      font-size: 0.75rem;
+    .step-pill {
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: #ffffff;
+      font-size: 11px;
       color: var(--ink-soft);
     }
 
-    /* Pricing */
+    .step-pill span {
+      font-weight: 600;
+      color: var(--ink);
+    }
 
+    /* À la carte pricing (kept from original) */
     .price-rows {
       display: flex;
       flex-direction: column;
@@ -418,7 +491,7 @@
       display: flex;
       justify-content: space-between;
       gap: 8px;
-      font-size: 0.84rem;
+      font-size: 12px;
     }
 
     .price-row span:first-child {
@@ -431,32 +504,44 @@
     }
 
     .subnote {
-      font-size: 0.76rem;
+      font-size: 11px;
       color: var(--ink-soft);
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
     .divider {
       height: 1px;
-      background: linear-gradient(to right, transparent, rgba(0,0,0,0.12), transparent);
+      background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.16), transparent);
       margin: 14px 0 10px;
     }
 
-    /* Engagements */
+    /* Secondary row: packages + contact */
+    .row-secondary {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 880px) {
+      .row-secondary {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
     .engagements {
-      margin-top: 6px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 10px;
+      margin-top: 8px;
     }
 
     .engagement-card {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(0,0,0,0.05);
-      background: linear-gradient(135deg, #ffffff, #f6f1e5);
-      padding: 11px 11px 10px;
-      font-size: 0.82rem;
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: linear-gradient(135deg, #ffffff, #f6efe1);
+      padding: 10px 11px 9px;
+      font-size: 12px;
       position: relative;
       overflow: hidden;
     }
@@ -465,17 +550,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top right, rgba(245, 192, 70, 0.18), transparent 60%);
-      opacity: 0.75;
+      background: radial-gradient(circle at 100% 0%, rgba(245, 192, 70, 0.2), transparent 60%);
+      opacity: 0.7;
       pointer-events: none;
     }
 
     .engagement-title {
-      font-weight: 600;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.13em;
-      font-size: 0.74rem;
+      letter-spacing: 0.16em;
       margin-bottom: 3px;
+      color: var(--ink);
     }
 
     .engagement-price {
@@ -488,156 +573,56 @@
       color: var(--ink-soft);
       position: relative;
       z-index: 1;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
-    /* Moving Gallery */
-
-    .gallery-section {
-      padding: 6px 22px 18px;
-    }
-
-    .gallery-header {
-      margin-bottom: 8px;
-    }
-
-    .gallery-kicker {
-      font-size: 0.74rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--emerald);
-      margin-bottom: 2px;
-    }
-
-    .gallery-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.14rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .gallery-subtitle {
-      font-size: 0.84rem;
-      color: var(--ink-soft);
-      max-width: 420px;
-    }
-
-    .gallery-marquee {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      border: 1px solid rgba(0,0,0,0.05);
-      background: linear-gradient(135deg, #fffdf7, #f3e7cf);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.09);
-      padding: 8px;
-      margin-top: 10px;
-    }
-
-    .gallery-track {
-      display: inline-flex;
-      gap: 8px;
-      animation: sd-gallery-scroll 30s linear infinite;
-    }
-
-    .gallery-item {
-      position: relative;
-      width: 190px;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.08);
-      background: #f7f1e4;
-      flex: 0 0 auto;
-    }
-
-    .gallery-item::before {
-      content: "";
-      display: block;
-      aspect-ratio: 3 / 4;
-    }
-
-    .gallery-item img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-caption {
-      position: absolute;
-      inset: auto 0 0 0;
-      padding: 6px 8px;
-      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
-      font-size: 0.72rem;
-      color: #fdf6e9;
+    /* WhatsApp + Contact */
+    .contact-stack {
       display: flex;
-      justify-content: space-between;
-      gap: 6px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .gallery-caption small {
-      opacity: 0.85;
-    }
-
-    @keyframes sd-gallery-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* WhatsApp Request Box */
-
-    .wa-section {
-      padding: 0 22px 18px;
+      flex-direction: column;
+      gap: 12px;
     }
 
     .wa-card {
-      border-radius: 20px;
-      border: 1px solid rgba(37,211,102,0.4);
-      background: linear-gradient(135deg, #f4fff7, #e3f7ea);
-      box-shadow: 0 18px 48px rgba(0,0,0,0.08);
-      padding: 14px 14px 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.86rem;
-    }
-
-    .wa-text {
-      max-width: 460px;
+      border-radius: 18px;
+      border: 1px solid rgba(37, 211, 102, 0.5);
+      background: linear-gradient(135deg, #f4fff7, #e5f8ea);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
+      padding: 12px 12px 11px;
+      font-size: 12px;
       color: var(--ink-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .wa-text strong {
+    .wa-card strong {
       color: var(--ink);
     }
 
     .wa-actions {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
     }
 
     .btn-wa {
       text-decoration: none;
       border-radius: var(--radius-pill);
-      padding: 8px 14px;
-      font-size: 0.78rem;
+      padding: 7px 13px;
+      font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: 1px solid rgba(37,211,102,0.7);
+      border: 1px solid rgba(37, 211, 102, 0.7);
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
       background: #0f8f3a;
       color: #f6fff9;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.18);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       white-space: nowrap;
     }
@@ -646,229 +631,184 @@
       background: #16a34a;
       border-color: #16a34a;
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
     }
 
     .btn-wa svg {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
     }
 
     .wa-note {
-      font-size: 0.76rem;
+      font-size: 11px;
       color: var(--ink-soft);
     }
 
-    /* CTA footer */
-
-    .cta-footer {
-      padding: 16px 22px 20px;
-      border-top: 1px solid rgba(0,0,0,0.06);
-      background: linear-gradient(to right, rgba(14,63,63,0.06), rgba(245,192,70,0.14));
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cta-footer-main {
-      max-width: 460px;
-    }
-
-    .cta-footer-main h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.18rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 3px;
-    }
-
-    .cta-footer-main p {
-      font-size: 0.86rem;
+    .contact-panel {
+      border-radius: 18px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: linear-gradient(120deg, rgba(14, 63, 63, 0.04), rgba(245, 192, 70, 0.12));
+      padding: 12px 12px 10px;
+      font-size: 12px;
       color: var(--ink-soft);
     }
 
-    .cta-actions {
+    .contact-actions {
+      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      align-items: center;
     }
 
-    .btn {
+    .btn-small {
       text-decoration: none;
       border-radius: var(--radius-pill);
-      padding: 9px 16px;
-      font-size: 0.84rem;
+      padding: 7px 12px;
+      font-size: 11px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      border: 1px solid transparent;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+      background: #ffffff;
+      color: var(--ink);
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      cursor: pointer;
-      transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition), border-color var(--transition);
       white-space: nowrap;
     }
 
-    .btn-primary {
-      background: radial-gradient(circle at top, #fffaf0, #f4c55a);
-      color: #17120b;
-      border-color: rgba(245, 192, 70, 0.7);
-      box-shadow: 0 14px 32px rgba(245, 192, 70, 0.45);
-    }
-
-    .btn-primary:hover {
-      background: radial-gradient(circle at top, #fffdf7, #f0b733);
-      transform: translateY(-1px);
-      box-shadow: 0 16px 38px rgba(245, 192, 70, 0.55);
-    }
-
-    .btn-outline {
-      background: rgba(255,255,255,0.9);
-      border-color: rgba(0,0,0,0.14);
-      color: var(--ink);
-    }
-
-    .btn-outline:hover {
+    .btn-small:hover {
       background: #ffffff;
-      border-color: rgba(0,0,0,0.3);
+      border-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
       transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
-    }
-
-    .cta-meta {
-      font-size: 0.8rem;
-      color: var(--ink-soft);
-      line-height: 1.5;
-    }
-
-    .cta-meta strong {
-      color: var(--ink);
     }
 
     @media (max-width: 720px) {
-      body {
-        padding: 18px 10px 22px;
-      }
-      main.page {
-        border-radius: 22px;
-      }
-      .cta-footer {
-        padding-inline: 16px;
-      }
-      .gallery-section,
-      .wa-section {
-        padding-inline: 16px;
-      }
-      .gallery-item {
-        width: 160px;
+      .shell {
+        padding-inline: 14px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-
-    <!-- Header Bar -->
-    <header class="top-bar">
-      <div class="brand-left">
-        <div class="dsh-mark">
-          <!-- DSH monogram (can replace with your SVG if you prefer) -->
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <defs>
-              <linearGradient id="dsh-gold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff7e6" />
-                <stop offset="40%" stop-color="#f5c046" />
-                <stop offset="100%" stop-color="#8f6a2d" />
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="27" fill="none" stroke="url(#dsh-gold)" stroke-width="2.1" />
-            <path d="M22 42V22h6.3c4.6 0 7.7 2.6 7.7 7.1S32.9 42 28.3 42H22z" fill="none" stroke="url(#dsh-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M38 22v20" stroke="url(#dsh-gold)" stroke-width="2" stroke-linecap="round" />
-            <path d="M38 26h6" stroke="url(#dsh-gold)" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </div>
-        <div class="brand-left-text">
-          <h1>DeVirn Signature House, Inc.</h1>
-          <p>FIRE HOUSE · Signature D · Luxury Visual Studio</p>
-        </div>
+  <div class="page">
+    <!-- GLOBAL DSH HEADER -->
+    <header class="site-header">
+      <div class="site-shell">
+        <a href="/index.html" class="site-mark">
+          <span class="site-mark-initials">DSH</span>
+          <span class="site-mark-text">
+            <span class="site-mark-name">DeVirn Signature House, Inc.</span>
+            <span class="site-mark-tagline">One Empire · Five Houses · One Language</span>
+          </span>
+        </a>
+        <nav class="site-nav">
+          <a href="/code.html">Signature Code™</a>
+          <a href="/index.html">The Houses</a>
+          <a class="is-active" href="/signatured.html">FIRE</a>
+          <a href="/kadijah.html">AIR</a>
+          <a href="/dsh-business.html">EARTH</a>
+          <a href="/timeless-peace.html">WATER</a>
+          <a href="/aether.html">AETHER</a>
+        </nav>
       </div>
-
-      <nav class="top-nav">
-        <a href="index.html">DSH Empire</a>
-        <a href="signature-code.html">The Signature Code™</a>
-        <a href="mango.html">Kadijah’s Mango</a>
-        <a href="timelesspeace.html">Timeless Peace</a>
-        <a href="#book" class="is-primary">Book Signature D</a>
-      </nav>
     </header>
 
-    <!-- Main Body -->
-    <section class="inner">
-      <!-- Left: Hero + Signature Code link -->
-      <section class="hero-main">
-        <div class="hero-logo-card">
-          <div class="hero-logo-inner">
-            <div class="signature-logo-wrap">
-              <!-- replace with your white-gloss Signature D crown / empress image -->
-              <img src="images/signature-d-empress.png" alt="Signature D logo" />
-            </div>
-            <div class="hero-copy">
-              <div class="eyebrow">Fire House · Signature D</div>
-              <h2>Luxury Visual Production<br>Photography & Cinematic Media</h2>
-              <p>
-                Signature D is the visual heart of DeVirn Signature House, Inc. —
-                a private studio for classic, cinematic images that feel
-                expensive, intentional, and timeless.
-              </p>
-
-              <div class="hero-pills">
-                <div class="pill"><span>Portrait & Event</span> Photography</div>
-                <div class="pill"><span>Cinematic</span> Reels & Brand Films</div>
-                <div class="pill"><span>Luxury</span> Brand Identity & Visual Kits</div>
-              </div>
-
-              <div class="hero-tags">
-                <div class="tag">White-Glove Direction</div>
-                <div class="tag">Editorial & Lifestyle</div>
-                <div class="tag">Orlando · Travel by Request</div>
-              </div>
-
-              <div class="sig-code-strip">
-                <span>
-                  Every Signature D engagement is aligned with
-                  <strong>The Signature Code™</strong> — the operating system
-                  of your brand’s vision, voice, and legacy.
-                </span>
-                <a href="signature-code.html">View Method</a>
-              </div>
-            </div>
-          </div>
+    <div class="shell">
+      <!-- FIRE band -->
+      <header class="top-bar">
+        <div class="top-id">
+          <span class="dot"></span>
+          <span>FIRE HOUSE · SIGNATURE D</span>
         </div>
+        <div class="top-right">
+          Luxury Visual Studio · Photography & Cinematic Media
+        </div>
+      </header>
 
-        <div class="panel">
-          <h3>How Signature D Works</h3>
-          <p>
-            You are not just booking “a photoshoot.” You are entering a visual process:
-            pre-session alignment, guided posing, cinematic direction, and a curated
-            gallery that feels like a private collection.
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <div class="hero-eyebrow">Cinematic · Editorial · Legacy</div>
+            <h1 class="hero-title">Signature D · Luxury Visual Production</h1>
+          </div>
+
+          <p class="hero-sub">
+            Signature D is the <strong>FIRE House</strong> of DeVirn Signature House, Inc. —
+            a private studio for portraits, events, and brands who want images that feel
+            expensive, intentional, and timeless, not generic content.
           </p>
-          <div class="hero-pills">
-            <div class="pill"><span>01.</span> Discovery & Signature Code™ mini review</div>
-            <div class="pill"><span>02.</span> Visual moodboard & wardrobe support</div>
-            <div class="pill"><span>03.</span> On-set direction & cinematic composition</div>
-            <div class="pill"><span>04.</span> Signature edit & delivery with legacy in mind</div>
+
+          <div class="hero-tags">
+            <span class="tag">Portrait & Event Photography</span>
+            <span class="tag">Cinematic Reels</span>
+            <span class="tag">Brand Identity Visuals</span>
+            <span class="tag">Central Florida · Travel by Request</span>
+          </div>
+
+          <div class="hero-cta-row">
+            <a class="btn-main" href="#whatsapp">
+              <span>Request Signature D</span>
+              <span>↗</span>
+            </a>
+            <div class="hero-note">
+              Begin with a short WhatsApp message — city, date, and what you are celebrating
+              or building. We reply with clear next steps.
+            </div>
+          </div>
+
+          <div class="sig-code-strip">
+            Every Signature D engagement is aligned with <strong>The Signature Code™</strong> —
+            the operating system of your brand’s vision, voice, and legacy.
+            Learn more at <a href="/code.html">The Signature Code™ page.</a>
           </div>
         </div>
+
+        <aside class="hero-card">
+          <div class="hero-card-kicker">Fire House · Visual Throne</div>
+          <div class="hero-image-wrap">
+            <!-- Replace with your throne / empress image -->
+            <img src="images/signature-d-empress.png" alt="Signature D Empress portrait" />
+          </div>
+          <p class="hero-card-caption">
+            A cinematic, crown-level frame is the Signature D standard — whether it is a founder,
+            a family legacy moment, or a full brand campaign.
+          </p>
+        </aside>
       </section>
 
-      <!-- Right Rail: Services & Pricing -->
-      <aside class="rail">
-        <section class="panel">
-          <h3>À La Carte Photography</h3>
-          <p>Ideal for portraits, families, brands, birthdays, and legacy moments.</p>
+      <!-- MAIN: How it works + À la carte pricing -->
+      <main class="main">
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">How Signature D Works</h2>
+            <div class="section-tag">Process · Not just a shoot</div>
+          </div>
+          <p>
+            You are not just booking “a photoshoot.” You are entering a guided visual process:
+            pre-session alignment, cinematic direction, and a curated gallery that feels like
+            a private collection, not a random camera roll.
+          </p>
+
+          <div class="step-pills">
+            <div class="step-pill"><span>01.</span> Discovery & Signature Code™ mini review</div>
+            <div class="step-pill"><span>02.</span> Moodboard, location, and wardrobe support</div>
+            <div class="step-pill"><span>03.</span> On-set posing, direction, and cinematic framing</div>
+            <div class="step-pill"><span>04.</span> Signature editing and delivery with legacy in mind</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">À La Carte Photography</h2>
+            <div class="section-tag">Simple · Clear · Flexible</div>
+          </div>
+          <p>
+            Ideal for portraits, families, brands, birthdays, and legacy moments. One clean base
+            with add-ons only if you need them.
+          </p>
 
           <div class="price-rows">
             <div class="price-row">
@@ -901,108 +841,18 @@
             Additional fees apply for out-of-city shoots.
           </p>
         </section>
+      </main>
 
-        <section class="panel">
-          <h3>Cinematic Media</h3>
-          <p>Short-form, scroll-stopping visuals for brands, events, and announcements.</p>
-
-          <div class="price-rows">
-            <div class="price-row">
-              <span>30–45 sec Cinematic Reel</span>
-              <span>$180</span>
-            </div>
-            <div class="price-row">
-              <span>1-Min Brand Video</span>
-              <span>$350</span>
-            </div>
-            <div class="price-row">
-              <span>Per Additional Minute</span>
-              <span>$150</span>
-            </div>
+      <!-- SECONDARY ROW: Engagements + contact -->
+      <section class="row-secondary">
+        <section class="section">
+          <div class="section-header">
+            <h2 class="section-title">Signature Engagements</h2>
+            <div class="section-tag">For deeper visual partnership</div>
           </div>
-
-          <div class="divider"></div>
-
-          <div class="price-rows">
-            <div class="price-row">
-              <span>Voiceover Scriptwriting</span>
-              <span>$65</span>
-            </div>
-            <div class="price-row">
-              <span>On-Site Direction / Creative Coaching</span>
-              <span>$50 / session</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="panel">
-          <h3>Branding & Strategy</h3>
-          <p>For founders who want visuals that match the substance of their work.</p>
-
-          <div class="service-grid">
-            <div class="service-pill">
-              <strong>Full Brand Identity Kit — $350</strong>
-              <span>Palette · Typography · Logo usage · Style direction.</span>
-            </div>
-            <div class="service-pill">
-              <strong>Logo Design (2 Concepts) — $120</strong>
-              <span>Refined marks for web, print, and social.</span>
-            </div>
-            <div class="service-pill">
-              <strong>Social Template Pack — $80</strong>
-              <span>10 Canva-ready designs for consistent posting.</span>
-            </div>
-            <div class="service-pill">
-              <strong>Full Brand Story Rewrite — $95</strong>
-              <span>About page, bio, and brand narrative in one voice.</span>
-            </div>
-            <div class="service-pill">
-              <strong>30-Day Content Plan — $90</strong>
-              <span>Simple, clear calendar you can follow.</span>
-            </div>
-            <div class="service-pill">
-              <strong>90-Day Premium Strategy — $250</strong>
-              <span>Deep content, launch, and campaign roadmap.</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="panel">
-          <h3>Signature Add-Ons</h3>
-          <div class="price-rows">
-            <div class="price-row">
-              <span>Priority Delivery (48 hours)</span>
-              <span>$75</span>
-            </div>
-            <div class="price-row">
-              <span>Raw Footage Transfer</span>
-              <span>$25</span>
-            </div>
-            <div class="price-row">
-              <span>Makeup / Glam Coordination</span>
-              <span>$50</span>
-            </div>
-            <div class="price-row">
-              <span>Wardrobe Moodboard</span>
-              <span>$45</span>
-            </div>
-          </div>
-          <p class="subnote">
-            Makeup artists and stylists are billed separately; Signature D handles
-            aesthetic direction and coordination.
-          </p>
-        </section>
-      </aside>
-    </section>
-
-    <!-- Engagements / Packages -->
-    <section class="inner" style="padding-top: 0; padding-bottom: 8px;">
-      <section class="hero-main" style="gap: 16px;">
-        <div class="panel">
-          <h3>Signature Engagements</h3>
           <p>
-            For clients who want a complete visual partnership, these packages
-            offer a dedicated relationship with Signature D under the DSH umbrella.
+            For clients who want more than a one-time session, these FIRE House engagements
+            offer a dedicated relationship under the DSH umbrella.
           </p>
 
           <div class="engagements">
@@ -1010,8 +860,8 @@
               <div class="engagement-title">Brand Visual Suite</div>
               <div class="engagement-price">From $2,800</div>
               <div class="engagement-body">
-                High-end photography, cinematics, brand identity kit, and social
-                templates — designed as a single, cohesive launch or re-launch.
+                High-end photography, cinematics, brand identity kit, and social templates —
+                designed as a single, cohesive launch or re-launch.
               </div>
             </div>
 
@@ -1019,8 +869,8 @@
               <div class="engagement-title">Annual Retainer</div>
               <div class="engagement-price">$1,500/mo · or $12,500/yr</div>
               <div class="engagement-body">
-                Quarterly shoots, ongoing content, and strategy calls. Ideal for
-                founders, faith leaders, and organizations who need consistent visuals.
+                Quarterly shoots, ongoing content, and strategy calls. Ideal for founders,
+                faith leaders, and organizations who need consistent visuals.
               </div>
             </div>
 
@@ -1028,210 +878,78 @@
               <div class="engagement-title">Event Coverage</div>
               <div class="engagement-price">Half Day · $650 · Full Day · $1,100</div>
               <div class="engagement-body">
-                Documentary-style coverage, key portraits, and highlight reels
-                for conferences, galas, and milestone events.
+                Documentary-style coverage, key portraits, and highlight reels for conferences,
+                galas, and milestone events.
               </div>
             </div>
 
             <div class="engagement-card">
-              <div class="engagement-title">Product Photography</div>
+              <div class="engagement-title">Product Sessions</div>
               <div class="engagement-price">10 items · $350 · 20 items · $600</div>
               <div class="engagement-body">
                 Clean, editorial product images for e-commerce, lookbooks, and campaigns.
               </div>
             </div>
-
-            <div class="engagement-card">
-              <div class="engagement-title">Signature Rebrand</div>
-              <div class="engagement-price">$2,800 – $5,000</div>
-              <div class="engagement-body">
-                Complete overhaul of visuals, story, and brand presentation —
-                guided by The Signature Code™ and executed by the DSH Houses.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <aside class="rail">
-        <section class="panel">
-          <h3>The Mini Signature Code™</h3>
-          <p>
-            New or unsure? Begin with a compact, <strong>$77 Mini Signature Code™</strong>
-            review and visual recommendation.
-          </p>
-          <p class="subnote">
-            You share your current brand, links, and goals. We respond with a clear,
-            written evaluation and a tailored visual path inside the DSH ecosystem.
-          </p>
-          <div class="hero-pills">
-            <div class="pill"><span>Clarity</span> on what you truly need first.</div>
-            <div class="pill"><span>Priority</span> credit toward a Signature D booking.</div>
           </div>
         </section>
-      </aside>
-    </section>
 
-    <!-- Moving Gallery -->
-    <section class="gallery-section" id="gallery">
-      <div class="gallery-header">
-        <div class="gallery-kicker">Signature Gallery</div>
-        <div class="gallery-title">Crown, Light & Legacy</div>
-        <p class="gallery-subtitle">
-          A moving glimpse into the Signature D world. Replace these placeholders with
-          your own portraits, crowns, events, and campaign frames.
-        </p>
-      </div>
-
-      <div class="gallery-marquee">
-        <div class="gallery-track">
-          <!-- First sequence of items -->
-          <div class="gallery-item">
-            <img src="images/gallery-signature-01.jpg" alt="Signature D portrait session" />
-            <div class="gallery-caption">
-              <span>Portrait Session</span>
-              <small>Studio · Fire House</small>
+        <aside class="contact-stack">
+          <section class="wa-card" id="whatsapp">
+            <p>
+              <strong>WhatsApp me here to request Signature D services.</strong>
+              Send a brief message with your city, preferred date, and what you are
+              celebrating or building.
+            </p>
+            <div class="wa-actions">
+              <a
+                class="btn-wa"
+                href="https://wa.me/14073196740?text=Hi%20DeVirn%2C%20I%27d%20like%20to%20request%20Signature%20D%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                  <path
+                    d="M16 6.2A9.76 9.76 0 0 0 6.2 16a9.6 9.6 0 0 0 1.33 4.9L6 26l5.27-1.49A9.8 9.8 0 0 0 16 25.8 9.76 9.76 0 0 0 25.8 16 9.76 9.76 0 0 0 16 6.2Z"
+                    fill="none"
+                    stroke="#0f5132"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M13.4 12.5c-.2-.5-.4-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.2 4.9 4.4 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.1-1.3-.1-.2-.2-.3-.5-.4s-1.7-.8-2-.9c-.3-.1-.5-.1-.7.1-.2.2-.8.9-1 .9-.2 0-.5 0-1-.3s-1.6-.8-2.5-1.9c-.9-1-1-1.8-1.1-2-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.3.3-.4.1-.2.1-.3 0-.5-.1-.2-.9-2.1-1.1-2.5Z"
+                    fill="#f6fff9"
+                  />
+                </svg>
+                WhatsApp Me Here
+              </a>
+              <div class="wa-note">
+                WhatsApp: +1&nbsp;407&nbsp;319&nbsp;6740
+              </div>
             </div>
-          </div>
+          </section>
 
-          <div class="gallery-item">
-            <img src="images/gallery-signature-02.jpg" alt="Signature D crown visual" />
-            <div class="gallery-caption">
-              <span>Crown Frame</span>
-              <small>Signature D</small>
+          <section class="contact-panel">
+            <strong>Prefer a call or email?</strong>
+            <p style="margin-top:4px;">
+              You may also call or email to request a Signature D date or a tailored quote.
+            </p>
+            <div class="contact-actions">
+              <a class="btn-small" href="tel:+14073196740">
+                Call · 407&nbsp;319&nbsp;6740
+              </a>
+              <a class="btn-small" href="mailto:devirnsignaturehouse@gmail.com?subject=Signature%20D%20Booking%20Request">
+                Email Inquiry
+              </a>
             </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-03.jpg" alt="Signature D event coverage" />
-            <div class="gallery-caption">
-              <span>Event Coverage</span>
-              <small>Gala · Highlights</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-04.jpg" alt="Signature D cinematic still" />
-            <div class="gallery-caption">
-              <span>Cinematic Still</span>
-              <small>Reel Frame</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-05.jpg" alt="Signature D family session" />
-            <div class="gallery-caption">
-              <span>Family Legacy</span>
-              <small>On Location</small>
-            </div>
-          </div>
-
-          <!-- Duplicate sequence for smooth loop -->
-          <div class="gallery-item">
-            <img src="images/gallery-signature-01.jpg" alt="Signature D portrait session" />
-            <div class="gallery-caption">
-              <span>Portrait Session</span>
-              <small>Studio · Fire House</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-02.jpg" alt="Signature D crown visual" />
-            <div class="gallery-caption">
-              <span>Crown Frame</span>
-              <small>Signature D</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-03.jpg" alt="Signature D event coverage" />
-            <div class="gallery-caption">
-              <span>Event Coverage</span>
-              <small>Gala · Highlights</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-04.jpg" alt="Signature D cinematic still" />
-            <div class="gallery-caption">
-              <span>Cinematic Still</span>
-              <small>Reel Frame</small>
-            </div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="images/gallery-signature-05.jpg" alt="Signature D family session" />
-            <div class="gallery-caption">
-              <span>Family Legacy</span>
-              <small>On Location</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WhatsApp Request Box -->
-    <section class="wa-section" id="whatsapp">
-      <div class="wa-card">
-        <div class="wa-text">
-          <strong>WhatsApp me here to request Signature D services.</strong><br>
-          Send a brief message with your city, preferred date, and what you are celebrating
-          or building, and we will respond with simple options and next steps.
-        </div>
-        <div class="wa-actions">
-          <a
-            class="btn-wa"
-            href="https://wa.me/14073196740?text=Hi%20DeVirn%2C%20I%27d%20like%20to%20request%20Signature%20D%20services."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <path
-                d="M16 6.2A9.76 9.76 0 0 0 6.2 16a9.6 9.6 0 0 0 1.33 4.9L6 26l5.27-1.49A9.8 9.8 0 0 0 16 25.8 9.76 9.76 0 0 0 25.8 16 9.76 9.76 0 0 0 16 6.2Z"
-                fill="none"
-                stroke="#0f5132"
-                stroke-width="1.6"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M13.4 12.5c-.2-.5-.4-.5-.7-.5h-.6c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.2 4.9 4.4 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.1-1.3-.1-.2-.2-.3-.5-.4s-1.7-.8-2-.9c-.3-.1-.5-.1-.7.1-.2.2-.8.9-1 .9-.2 0-.5 0-1-.3s-1.6-.8-2.5-1.9c-.9-1-1-1.8-1.1-2-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.3.3-.4.1-.2.1-.3 0-.5-.1-.2-.9-2.1-1.1-2.5Z"
-                fill="#f6fff9"
-              />
-            </svg>
-            WhatsApp Me Here
-          </a>
-          <div class="wa-note">
-            WhatsApp: +1&nbsp;407&nbsp;319&nbsp;6740
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Footer -->
-    <footer class="cta-footer" id="book">
-      <div class="cta-footer-main">
-        <h3>Book Your Signature D Session</h3>
-        <p>
-          To schedule a session or request a custom quote, kindly reach out with
-          your preferred date, city, and what you are celebrating or building.
-        </p>
-      </div>
-
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="tel:+14073196740">
-          Call · 407&nbsp;319&nbsp;6740
-        </a>
-        <a class="btn btn-outline" href="mailto:devirnsignaturehouse@gmail.com?subject=Signature%20D%20Booking%20Request">
-          Email Inquiry
-        </a>
-        <div class="cta-meta">
-          <strong>Preferred:</strong> WhatsApp or SMS introduction followed by a brief call.
-          <br />
-          Based in Central Florida · Available for travel with advance notice.
-        </div>
-      </div>
-    </footer>
-  </main>
+            <p class="subnote" style="margin-top:8px;">
+              Based in Central Florida · Available for travel with advance notice.
+              Preferred: WhatsApp or SMS introduction followed by a brief call.
+            </p>
+          </section>
+        </aside>
+      </section>
+    </div>
+  </div>
 </body>
 </html>
