@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -469,6 +468,138 @@
       z-index: 1;
     }
 
+    /* GALLERY STYLES */
+
+    .gallery-section {
+      padding: 0 26px 24px;
+    }
+
+    .gallery-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .gallery-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .gallery-subtitle {
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      max-width: 380px;
+    }
+
+    .gallery-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .gallery-tag {
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.9);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(245, 192, 70, 0.35);
+      background: #f3ede2;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .gallery-item::before {
+      content: "";
+      display: block;
+      aspect-ratio: 3 / 4;
+    }
+
+    .gallery-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--transition), filter var(--transition);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      right: 10px;
+      padding: 7px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(6px);
+      color: #fef8ec;
+      font-size: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .gallery-caption span {
+      font-weight: 500;
+    }
+
+    .gallery-caption small {
+      font-size: 0.7rem;
+      opacity: 0.85;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.14);
+      border-color: rgba(245, 192, 70, 0.75);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: saturate(1.02);
+    }
+
+    @media (max-width: 880px) {
+      .gallery-section {
+        padding-inline: 18px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
     /* CTA footer */
 
     .cta-footer {
@@ -861,6 +992,78 @@
           </div>
         </section>
       </aside>
+    </section>
+
+    <!-- Signature Gallery -->
+    <section class="gallery-section">
+      <div class="gallery-header">
+        <div>
+          <div class="gallery-title">Signature Gallery</div>
+          <div class="gallery-subtitle">
+            A small glimpse into the way Signature D sees light, skin, and story —
+            from portraits and families to founders, faith, and celebration.
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-tags">
+        <div class="gallery-tag">Portraits</div>
+        <div class="gallery-tag">Events</div>
+        <div class="gallery-tag">Brand & Studio</div>
+        <div class="gallery-tag">Families</div>
+        <div class="gallery-tag">Travel by Request</div>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Replace these with your real images -->
+        <div class="gallery-item">
+          <img src="images/gallery-1.jpg" alt="Editorial portrait by Signature D" />
+          <div class="gallery-caption">
+            <span>Editorial Portrait</span>
+            <small>Orlando · Studio Light</small>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-2.jpg" alt="Event coverage by Signature D" />
+          <div class="gallery-caption">
+            <span>Event Coverage</span>
+            <small>Gala · Candid Moments</small>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-3.jpg" alt="Brand visual session by Signature D" />
+          <div class="gallery-caption">
+            <span>Brand Session</span>
+            <small>Founder · Signature Look</small>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-4.jpg" alt="Family photography by Signature D" />
+          <div class="gallery-caption">
+            <span>Family Story</span>
+            <small>Generations · Warm Light</small>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-5.jpg" alt="Cinematic reel behind the scenes" />
+          <div class="gallery-caption">
+            <span>Behind the Scenes</span>
+            <small>Cinematic Reel · Fire House</small>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/gallery-6.jpg" alt="On-location shoot by Signature D" />
+          <div class="gallery-caption">
+            <span>On Location</span>
+            <small>Travel · By Request</small>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Footer -->
