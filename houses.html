@@ -9,53 +9,27 @@
 
   <style>
     :root {
-      /* EMPIRE CORE (DSH / Signature Code™) */
+      /* EMPIRE CORE */
       --bg: #050607;              /* matte black */
       --bg-soft: #090c0d;         /* slight gloss */
       --bg-elevated: #0b1013;     /* cards */
       --ink: #f5f5f5;
       --ink-soft: #b9c0c7;
       --gold: #f5c046;
-      --gold-soft: rgba(245, 192, 70, 0.2);
-      --emerald: #0e3f3f;
 
-      /* FIRE · Signature D */
-      --fire-ivory: #f5f3ef;
-      --fire-gold: #f5c046;
-      --fire-emerald: #0e3f3f;
+      /* HOUSE ACCENTS (subtle) */
+      --accent-fire:  #f5c046;  /* gold */
+      --accent-water: #9fd4f0;  /* ocean blue */
+      --accent-air:   #f1b36a;  /* mango-gold */
+      --accent-earth: #7f9c6b;  /* olive/estate green */
+      --accent-aether:#c7b4ff;  /* soft violet-gold */
 
-      /* WATER · Timeless Peace */
-      --water-deep: #020712;
-      --water-soft: #071524;
-      --water-blue: #73c5ff;
-      --water-olive: #7bc9a2;
-
-      /* AIR · Kadijah’s Mango */
-      --air-night: #050711;
-      --air-blue: #1c3a6b;
-      --air-gold: #f4c86b;
-      --air-mango: #f8a94b;
-
-      /* EARTH · Narine Estate */
-      --earth-parchment: #f4f0e6;
-      --earth-parchment-soft: #f8f4ec;
-      --earth-ink: #152023;
-      --earth-green: #3b5a46;
-      --earth-bronze: #b08a4a;
-
-      /* AETHER · Founder’s Circle */
-      --aether-night: #120417;
-      --aether-plum: #2b1338;
-      --aether-violet: #5f3a88;
-      --aether-gold: #f5d48c;
-
-      --radius-lg: 26px;
-      --radius-xl: 32px;
-      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.6);
-      --shadow-subtle: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 24px 50px rgba(0, 0, 0, 0.7);
       --border-soft: 1px solid rgba(255, 255, 255, 0.06);
-      --transition-fast: 180ms ease-out;
-      --transition-med: 260ms ease-out;
+      --transition-fast: 160ms ease-out;
+      --transition-med: 220ms ease-out;
     }
 
     * {
@@ -67,28 +41,27 @@
     body {
       min-height: 100vh;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(245, 192, 70, 0.13), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(14, 63, 63, 0.5), transparent 55%),
-        linear-gradient(145deg, #020304, #050607 40%, #030405 100%);
-      color: #f5f5f5;
+        radial-gradient(circle at top left, rgba(245, 192, 70, 0.12), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(10, 40, 40, 0.6), transparent 55%),
+        linear-gradient(145deg, #020304, #050607 50%, #020304 100%);
+      color: var(--ink);
       -webkit-font-smoothing: antialiased;
     }
 
-    /* EMPIRE CREST STRIP */
+    /* EMPIRE BAR (very simple) */
     .empire-bar {
       max-width: 1120px;
-      margin: 14px auto 0;
-      padding: 10px 18px;
-      border-radius: 999px;
+      margin: 16px auto 0;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
       border: 1px solid rgba(245, 192, 70, 0.45);
-      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.16), rgba(5, 6, 7, 0.96));
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(120deg, rgba(245, 192, 70, 0.14), rgba(5, 6, 7, 0.96));
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
     }
 
     .empire-left {
@@ -99,19 +72,18 @@
     }
 
     .crest {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
-      border: 1px solid rgba(245, 192, 70, 0.75);
-      background:
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18), transparent 55%),
-        radial-gradient(circle at bottom, rgba(14, 63, 63, 0.75), #050607);
+      border: 1px solid rgba(245, 192, 70, 0.7);
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.22), transparent 55%),
+                  radial-gradient(circle at bottom, rgba(10,35,35,0.8), #050607);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 15px;
-      letter-spacing: 0.18em;
+      font-size: 13px;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
     }
@@ -124,86 +96,85 @@
     }
 
     .empire-name {
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: #f5f3ef;
-    }
-
-    .empire-subline {
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(219, 225, 232, 0.86);
+      color: #f5f3ef;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .empire-subline {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(210, 218, 226, 0.9);
     }
 
     .empire-links {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      letter-spacing: 0.16em;
+      gap: 8px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .empire-links a {
       text-decoration: none;
-      color: rgba(245, 192, 70, 0.88);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 192, 70, 0.35);
-      background: rgba(5, 6, 7, 0.85);
-      transition: background var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+      color: rgba(245, 192, 70, 0.9);
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 192, 70, 0.36);
+      background: rgba(5, 6, 7, 0.94);
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     }
 
     .empire-links a:hover {
-      background: rgba(245, 192, 70, 0.12);
-      transform: translateY(-1px);
+      background: rgba(245, 192, 70, 0.16);
       border-color: rgba(245, 192, 70, 0.8);
+      transform: translateY(-1px);
     }
 
     @media (max-width: 640px) {
       .empire-bar {
         flex-direction: column;
         align-items: flex-start;
-        border-radius: 24px;
+        border-radius: 22px;
       }
+
       .empire-links {
-        width: 100%;
-        justify-content: flex-start;
         flex-wrap: wrap;
+        justify-content: flex-start;
       }
     }
 
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 26px 20px 72px;
+      padding: 28px 20px 72px;
     }
 
     header.page-header {
       display: flex;
       flex-direction: column;
       gap: 18px;
-      margin-bottom: 42px;
-      margin-top: 18px;
+      margin-bottom: 40px;
+      margin-top: 12px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(245, 192, 70, 0.3);
-      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.15), rgba(5, 6, 7, 0.9));
+      padding: 3px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 192, 70, 0.35);
+      background: rgba(5, 6, 7, 0.92);
       color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 0.14em;
+      font-size: 10px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 500;
       width: fit-content;
@@ -220,35 +191,34 @@
     h1 {
       font-family: "Playfair Display", "Times New Roman", serif;
       font-weight: 600;
-      font-size: clamp(32px, 4vw, 40px);
-      letter-spacing: 0.03em;
+      font-size: clamp(30px, 4vw, 38px);
+      letter-spacing: 0.04em;
       color: #ffffff;
     }
 
     .headline-sub {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: baseline;
     }
 
     .headline-sub span.label {
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.26em;
       color: var(--ink-soft);
-      opacity: 0.85;
     }
 
     .headline-sub span.divider {
       width: 32px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(245, 192, 70, 0.8), transparent);
+      background: linear-gradient(90deg, rgba(245, 192, 70, 0.9), transparent);
     }
 
     p.lead {
-      max-width: 680px;
-      font-size: 14px;
+      max-width: 640px;
+      font-size: 13px;
       line-height: 1.7;
       color: var(--ink-soft);
     }
@@ -256,38 +226,38 @@
     .legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-      font-size: 11px;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 10px;
     }
 
     .legend-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
       border: 1px solid rgba(185, 192, 199, 0.28);
       background: rgba(9, 12, 13, 0.9);
       color: var(--ink-soft);
     }
 
     .legend-swatch {
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
     }
 
-    .legend-swatch.fire { background: var(--fire-gold); }
-    .legend-swatch.water { background: var(--water-blue); }
-    .legend-swatch.air { background: var(--air-mango); }
-    .legend-swatch.earth { background: var(--earth-green); }
-    .legend-swatch.aether { background: var(--aether-violet); }
+    .legend-swatch.fire  { background: var(--accent-fire); }
+    .legend-swatch.water { background: var(--accent-water); }
+    .legend-swatch.air   { background: var(--accent-air); }
+    .legend-swatch.earth { background: var(--accent-earth); }
+    .legend-swatch.aether{ background: var(--accent-aether); }
 
     .houses-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 20px;
     }
 
     @media (max-width: 900px) {
@@ -308,17 +278,17 @@
     .house-card {
       position: relative;
       border-radius: var(--radius-lg);
-      padding: 18px 16px 18px;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.04), rgba(4, 6, 8, 0.95));
+      padding: 16px 15px 16px;
+      background: linear-gradient(135deg, rgba(11, 16, 20, 0.96), rgba(4, 6, 8, 0.98));
       border: var(--border-soft);
-      box-shadow: var(--shadow-subtle);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
       overflow: hidden;
       text-decoration: none;
       color: inherit;
       isolation: isolate;
       transition: transform var(--transition-med),
                   box-shadow var(--transition-med),
-                  border-color var(--transition-fast),
+                  border-color var(--transition-med),
                   background var(--transition-med);
     }
 
@@ -326,94 +296,117 @@
       content: "";
       position: absolute;
       inset: 0;
-      opacity: 0.16;
-      mix-blend-mode: screen;
+      opacity: 0;
+      background: radial-gradient(circle at top left, rgba(245, 192, 70, 0.25), transparent 60%);
       transition: opacity var(--transition-med);
-      z-index: -1;
+      pointer-events: none;
     }
 
     .house-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-soft);
-      border-color: rgba(245, 192, 70, 0.6);
+      border-color: rgba(245, 192, 70, 0.7);
     }
 
     .house-card:hover::before {
-      opacity: 0.28;
+      opacity: 1;
+    }
+
+    /* PER-HOUSE ACCENT: ONLY TOP BORDER + DOT COLOR */
+    .house-card.fire {
+      border-top: 3px solid var(--accent-fire);
+    }
+    .house-card.water {
+      border-top: 3px solid var(--accent-water);
+    }
+    .house-card.air {
+      border-top: 3px solid var(--accent-air);
+    }
+    .house-card.earth {
+      border-top: 3px solid var(--accent-earth);
+    }
+    .house-card.aether {
+      border-top: 3px solid var(--accent-aether);
     }
 
     .house-topline {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       gap: 8px;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-size: 10px;
-      letter-spacing: 0.16em;
+      gap: 7px;
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 9px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       font-weight: 500;
-      backdrop-filter: blur(12px);
-      background: rgba(5, 7, 11, 0.92);
+      background: rgba(5, 7, 11, 0.93);
     }
 
     .badge-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      box-shadow: 0 0 12px currentColor;
+      box-shadow: 0 0 14px currentColor;
     }
 
+    .badge.fire  .badge-dot { background: var(--accent-fire); }
+    .badge.water .badge-dot { background: var(--accent-water); }
+    .badge.air   .badge-dot { background: var(--accent-air); }
+    .badge.earth .badge-dot { background: var(--accent-earth); }
+    .badge.aether .badge-dot{ background: var(--accent-aether); }
+
     .house-tag {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: rgba(236, 240, 244, 0.9);
-      margin-bottom: 4px;
+      letter-spacing: 0.22em;
+      color: rgba(230, 236, 242, 0.9);
+      text-align: right;
     }
 
     .house-name {
       font-family: "Playfair Display", "Times New Roman", serif;
-      font-size: 18px;
+      font-size: 17px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
+      color: #ffffff;
     }
 
     .house-aka {
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       color: rgba(197, 205, 214, 0.9);
-      margin-bottom: 10px;
+      margin-bottom: 9px;
     }
 
     .house-copy {
       font-size: 12px;
       line-height: 1.7;
       color: var(--ink-soft);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .house-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 10px;
       color: rgba(188, 196, 204, 0.96);
     }
 
     .house-footer span.role {
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
     }
 
     .house-footer span.cta {
@@ -421,93 +414,14 @@
       align-items: center;
       gap: 6px;
       font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .house-footer span.cta-icon {
-      font-size: 13px;
+      font-size: 12px;
       transform: translateY(1px);
     }
-
-    /* FIRE styling */
-    .house-card.fire::before {
-      background:
-        radial-gradient(circle at top left, rgba(245, 192, 70, 0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(14, 63, 63, 0.7), transparent 55%);
-    }
-    .house-card.fire {
-      background:
-        radial-gradient(circle at top left, rgba(245, 192, 70, 0.18), rgba(5, 6, 7, 0.96));
-      border-color: rgba(245, 192, 70, 0.55);
-    }
-    .badge.fire .badge-dot {
-      background: var(--fire-gold);
-      border: 1px solid rgba(245, 192, 70, 0.8);
-    }
-
-    /* WATER styling */
-    .house-card.water::before {
-      background:
-        radial-gradient(circle at top left, rgba(115, 197, 255, 0.45), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(123, 201, 162, 0.35), transparent 60%);
-    }
-    .house-card.water {
-      background:
-        radial-gradient(circle at top left, rgba(115, 197, 255, 0.2), rgba(2, 7, 18, 0.95));
-      border-color: rgba(115, 197, 255, 0.48);
-    }
-    .badge.water .badge-dot {
-      background: var(--water-blue);
-      border: 1px solid rgba(115, 197, 255, 0.9);
-    }
-
-    /* AIR styling */
-    .house-card.air::before {
-      background:
-        radial-gradient(circle at top left, rgba(244, 200, 107, 0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(248, 169, 75, 0.4), transparent 60%);
-    }
-    .house-card.air {
-      background:
-        radial-gradient(circle at top left, rgba(248, 169, 75, 0.16), rgba(5, 7, 17, 0.96));
-      border-color: rgba(244, 200, 107, 0.55);
-    }
-    .badge.air .badge-dot {
-      background: var(--air-mango);
-      border: 1px solid rgba(248, 169, 75, 0.9);
-    }
-
-    /* EARTH styling */
-    .house-card.earth::before {
-      background:
-        radial-gradient(circle at top left, rgba(244, 240, 230, 0.3), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(59, 90, 70, 0.7), transparent 60%);
-    }
-    .house-card.earth {
-      background:
-        radial-gradient(circle at top left, rgba(244, 240, 230, 0.2), rgba(8, 10, 9, 0.96));
-      border-color: rgba(59, 90, 70, 0.6);
-    }
-    .badge.earth .badge-dot {
-      background: var(--earth-green);
-      border: 1px solid rgba(59, 90, 70, 0.9);
-    }
-
-    /* AETHER styling */
-    .house-card.aether::before {
-      background:
-        radial-gradient(circle at top left, rgba(95, 58, 136, 0.45), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(245, 212, 140, 0.34), transparent 60%);
-    }
-    .house-card.aether {
-      background:
-        radial-gradient(circle at top left, rgba(95, 58, 136, 0.26), rgba(11, 5, 19, 0.97));
-      border-color: rgba(245, 212, 140, 0.55);
-    }
-    .badge.aether .badge-dot {
-      background: var(--aether-violet);
-      border: 1px solid rgba(95, 58, 136, 0.9);
-    }
-
   </style>
 </head>
 <body>
@@ -521,7 +435,6 @@
       </div>
     </div>
     <div class="empire-links">
-      <!-- Update these hrefs if your filenames differ -->
       <a href="3code.html">Signature Code™</a>
       <a href="houses.html">The Houses</a>
     </div>
@@ -567,8 +480,6 @@
     </header>
 
     <section class="houses-grid">
-      <!-- Update these hrefs if your actual filenames differ -->
-
       <!-- FIRE -->
       <a class="house-card fire" href="signatured.html">
         <div class="house-topline">
@@ -583,7 +494,7 @@
           <div class="house-aka">The FIRE House · Luxury Visual Studio</div>
           <p class="house-copy">
             Photography, cinematic media, and brand expression built as heirloom-quality visuals.
-            Warm ivory, gold, and deep emerald anchor the Signature D look — clean, cinematic, and enduring.
+            Ivory, gold, and deep shadow anchor the Signature D look — clean, cinematic, enduring.
           </p>
         </div>
         <div class="house-footer">
@@ -606,7 +517,7 @@
           <div class="house-aka">The WATER House · Dignity in Care</div>
           <p class="house-copy">
             Free, compassionate hospice and healing partnerships for mothers, children, elders, and
-            communities. Ocean-dove blue, bright white, and olive-branch green signal calm, safety, and mercy.
+            communities. Ocean-dove blue and soft light signal calm, safety, and mercy.
           </p>
         </div>
         <div class="house-footer">
@@ -629,7 +540,7 @@
           <div class="house-aka">The AIR House · Global Language Studio</div>
           <p class="house-copy">
             Messaging, packaging, and communication for halal-aligned and globally aware brands.
-            Night blue, Moroccan gold, and mango tones carry the AIR signature — clear, intelligent, and warm.
+            Subtle mango-gold accents carry the AIR signature — clear, intelligent, and warm.
           </p>
         </div>
         <div class="house-footer">
@@ -652,7 +563,7 @@
           <div class="house-aka">The EARTH House · Business Atelier</div>
           <p class="house-copy">
             Heritage-standard business solutions for land, product, and estate-based brands — including
-            Narine Estate Olive Oil. Parchment, estate green, and bronze create a grounded, archival feeling.
+            Narine Estate Olive Oil. A restrained olive accent keeps it grounded and archival.
           </p>
         </div>
         <div class="house-footer">
@@ -675,7 +586,7 @@
           <div class="house-aka">The AETHER House · Inner Orbit</div>
           <p class="house-copy">
             Reserved for founders, boards, and guardians who steward the Signature Code™ and the
-            long-term architecture of the Empire. Deep plum, starlight violet, and soft gold mark this tier.
+            long-term architecture of the Empire. A quiet violet-gold accent marks this tier.
           </p>
         </div>
         <div class="house-footer">
