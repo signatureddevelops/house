@@ -9,7 +9,7 @@
 
   <style>
     :root {
-      /* Base: black, white, silver */
+      /* Base: matte black, white, silver/chrome */
       --bg-page: #050507;
       --panel-bg: #fcfcfc;
       --ink: #141414;
@@ -17,7 +17,7 @@
       --line-soft: #d4d4d8;
       --line-strong: #9ca3af;
 
-      /* House accents — used in tiny doses only */
+      /* House accents — ONLY place real color here */
       --fire-accent:  #f5c046;   /* Signature D */
       --water-accent: #73c5ff;   /* Timeless Peace */
       --air-accent:   #f4b267;   /* Kadijah’s Mango */
@@ -25,6 +25,7 @@
       --aether-accent:#b9a7ff;   /* Founder’s Circle */
 
       --radius-shell: 30px;
+      --radius-emblem: 14px;
       --radius-pill: 999px;
       --transition-med: 200ms ease-out;
     }
@@ -38,7 +39,7 @@
     body {
       min-height: 100vh;
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.05), transparent 55%),
+        radial-gradient(circle at top left, rgba(255,255,255,0.04), transparent 55%),
         radial-gradient(circle at bottom right, rgba(0,0,0,0.9), #050507);
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -51,7 +52,8 @@
       background: var(--panel-bg);
       border-radius: var(--radius-shell);
       border: 1px solid rgba(229, 231, 235, 0.9);
-      padding: 28px 30px 34px;
+      padding: 26px 30px 34px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.3);
     }
 
     @media (max-width: 768px) {
@@ -61,13 +63,13 @@
       }
     }
 
-    /* HEADER AREA */
+    /* HEADER */
 
     .header-topline {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 10px;
     }
 
@@ -81,11 +83,11 @@
 
     .small-nav {
       font-size: 11px;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #9ca3af;
       display: flex;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
@@ -164,7 +166,7 @@
       margin: 20px 0 4px;
     }
 
-    /* HOUSES LIST (APPLE STYLE – STACKED, EVEN, QUIET) */
+    /* HOUSES LIST */
 
     .houses-list {
       display: flex;
@@ -173,11 +175,11 @@
 
     .house-row {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) auto;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2.2fr) auto;
       align-items: center;
       padding: 14px 0;
       border-top: 1px solid #e5e7eb;
-      gap: 16px;
+      gap: 18px;
       text-decoration: none;
       color: inherit;
       transition: background var(--transition-med);
@@ -188,7 +190,7 @@
     }
 
     .house-row:hover {
-      background: #f4f4f5;
+      background: #f5f5f5;
     }
 
     @media (max-width: 880px) {
@@ -198,7 +200,7 @@
       }
     }
 
-    /* LEFT: EMBLEM + NAME */
+    /* LEFT: INDEX + EMBLEM + NAME */
 
     .house-left {
       display: flex;
@@ -206,27 +208,39 @@
       gap: 12px;
     }
 
-    .house-logo {
+    .house-index {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      min-width: 38px;
+    }
+
+    .house-logo-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .emblem-frame {
       width: 44px;
       height: 44px;
-      border-radius: 50%;
+      border-radius: var(--radius-emblem);
       border: 1px solid #d4d4d8;
       background: radial-gradient(circle at 30% 20%, #ffffff, #f3f4f6);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      flex-shrink: 0;
     }
 
-    .house-logo img {
+    .emblem-frame img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
     }
 
-    .house-logo span {
+    .emblem-frame span {
       font-family: "Playfair Display", "Times New Roman", serif;
       font-size: 14px;
       letter-spacing: 0.18em;
@@ -234,12 +248,21 @@
       color: #1f2933;
     }
 
-    /* Thin colored ring per house */
-    .house-logo.fire   { box-shadow: 0 0 0 1px var(--fire-accent); }
-    .house-logo.water  { box-shadow: 0 0 0 1px var(--water-accent); }
-    .house-logo.air    { box-shadow: 0 0 0 1px var(--air-accent); }
-    .house-logo.earth  { box-shadow: 0 0 0 1px var(--earth-accent); }
-    .house-logo.aether { box-shadow: 0 0 0 1px var(--aether-accent); }
+    /* Hairline color tab behind emblem — tiny but premium */
+    .emblem-tab {
+      position: absolute;
+      inset: auto auto 2px 0;
+      height: 3px;
+      width: 34px;
+      border-radius: 999px;
+      opacity: 0.9;
+    }
+
+    .house-logo-wrap.fire   .emblem-tab { background: var(--fire-accent); }
+    .house-logo-wrap.water  .emblem-tab { background: var(--water-accent); }
+    .house-logo-wrap.air    .emblem-tab { background: var(--air-accent); }
+    .house-logo-wrap.earth  .emblem-tab { background: var(--earth-accent); }
+    .house-logo-wrap.aether .emblem-tab { background: var(--aether-accent); }
 
     .house-title-block {
       display: flex;
@@ -252,6 +275,7 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--ink-soft);
+      white-space: nowrap;
     }
 
     .house-name {
@@ -267,7 +291,7 @@
       color: var(--ink-soft);
     }
 
-    /* MIDDLE: DESCRIPTION */
+    /* MIDDLE: GOVERNANCE SENTENCE + QUIET DELIVERY LINE */
 
     .house-middle {
       font-size: 12px;
@@ -280,63 +304,57 @@
       font-weight: 500;
     }
 
-    .house-bullets {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 18px;
+    .house-delivers {
       margin-top: 6px;
       font-size: 11px;
-    }
-
-    .house-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid #e5e7eb;
-      background: #f9fafb;
       color: #4b5563;
     }
 
-    .pill-dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: #9ca3af;
+    .house-delivers span {
+      white-space: nowrap;
     }
 
-    /* RIGHT: CTA */
+    .house-dot {
+      display: inline-block;
+      width: 3px;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ca3af;
+      margin: 0 6px;
+      transform: translateY(-1px);
+    }
+
+    /* RIGHT: ROLE + CTA */
 
     .house-right {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       font-size: 10px;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #4b5563;
+      color: #6b7280;
       white-space: nowrap;
     }
 
-    .house-right span.role {
+    .house-role {
       display: none;
     }
 
     @media (min-width: 881px) {
-      .house-right span.role {
+      .house-role {
         display: inline;
       }
     }
 
-    .house-right span.cta {
+    .house-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       color: #111827;
     }
 
-    .house-right span.icon {
+    .house-cta-icon {
       font-size: 12px;
     }
   </style>
@@ -356,8 +374,9 @@
       <h1>The Houses</h1>
       <div class="subline">One Empire · Five Gateways · One Language</div>
       <p class="lead">
-        Every client enters through a House. Each House is a clear lane with its own emblem, tone,
-        and responsibility: expression, care, communication, estates, or governance.
+        The Signature Code™ places every client into a House. Each House is a world:
+        FIRE for expression, WATER for care, AIR for communication, EARTH for estates,
+        and AETHER for governance and legacy.
       </p>
 
       <div class="legend">
@@ -382,16 +401,22 @@
     </header>
 
     <section class="houses-list">
-      <!-- FIRE · Signature D -->
+      <!-- I · FIRE · Signature D -->
       <a class="house-row" href="signatured.html">
         <div class="house-left">
-          <div class="house-logo fire">
-            <!-- Replace with actual Signature D emblem -->
-            <!-- <img src="signatured-emblem.png" alt="Signature D emblem" /> -->
-            <span>SD</span>
+          <div class="house-index">I · FIRE</div>
+
+          <div class="house-logo-wrap fire">
+            <div class="emblem-frame">
+              <!-- Replace with actual Signature D emblem -->
+              <!-- <img src="signatured-emblem.png" alt="Signature D emblem" /> -->
+              <span>SD</span>
+            </div>
+            <div class="emblem-tab"></div>
           </div>
+
           <div class="house-title-block">
-            <div class="house-tagline">FIRE · VISUAL STUDIO</div>
+            <div class="house-tagline">VISUAL STUDIO</div>
             <div class="house-name">Signature D</div>
             <div class="house-lane">Photography · Cinematics · Brand Identity</div>
           </div>
@@ -399,29 +424,35 @@
 
         <div class="house-middle">
           <strong>What FIRE governs:</strong> how you appear and how your work is seen.
-          <div class="house-bullets">
-            <div class="house-pill"><span class="pill-dot"></span>Signature photography &amp; film</div>
-            <div class="house-pill"><span class="pill-dot"></span>Visual identity &amp; brand kits</div>
-            <div class="house-pill"><span class="pill-dot"></span>Launch campaigns &amp; key assets</div>
+          <div class="house-delivers">
+            <span>Signature photography</span><span class="house-dot"></span>
+            <span>Cinematic direction</span><span class="house-dot"></span>
+            <span>Legacy-ready visual systems</span>
           </div>
         </div>
 
         <div class="house-right">
-          <span class="role">FIRE</span>
-          <span class="cta">ENTER<span class="icon">↗</span></span>
+          <span class="house-role">EXPRESSION</span>
+          <span class="house-cta">ENTER<span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- WATER · Timeless Peace -->
+      <!-- II · WATER · Timeless Peace -->
       <a class="house-row" href="timelesspeace.html">
         <div class="house-left">
-          <div class="house-logo water">
-            <!-- Replace with actual Timeless Peace emblem -->
-            <!-- <img src="timelesspeace-emblem.png" alt="Timeless Peace emblem" /> -->
-            <span>TP</span>
+          <div class="house-index">II · WATER</div>
+
+          <div class="house-logo-wrap water">
+            <div class="emblem-frame">
+              <!-- Replace with actual Timeless Peace emblem -->
+              <!-- <img src="timelesspeace-emblem.png" alt="Timeless Peace emblem" /> -->
+              <span>TP</span>
+            </div>
+            <div class="emblem-tab"></div>
           </div>
+
           <div class="house-title-block">
-            <div class="house-tagline">WATER · FOUNDATION</div>
+            <div class="house-tagline">FOUNDATION</div>
             <div class="house-name">Timeless Peace</div>
             <div class="house-lane">Hospice · Healing · Community Partnerships</div>
           </div>
@@ -429,29 +460,35 @@
 
         <div class="house-middle">
           <strong>What WATER governs:</strong> how you care, host, and protect.
-          <div class="house-bullets">
-            <div class="house-pill"><span class="pill-dot"></span>Free hospice &amp; healing models</div>
-            <div class="house-pill"><span class="pill-dot"></span>Programs for mothers, children, elders</div>
-            <div class="house-pill"><span class="pill-dot"></span>Long-term dignity &amp; remembrance</div>
+          <div class="house-delivers">
+            <span>Free hospice models</span><span class="house-dot"></span>
+            <span>Programs for mothers, children, elders</span><span class="house-dot"></span>
+            <span>Dignity and remembrance</span>
           </div>
         </div>
 
         <div class="house-right">
-          <span class="role">WATER</span>
-          <span class="cta">ENTER<span class="icon">↗</span></span>
+          <span class="house-role">CARE</span>
+          <span class="house-cta">ENTER<span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- AIR · Kadijah’s Mango -->
+      <!-- III · AIR · Kadijah’s Mango -->
       <a class="house-row" href="kadijahsmango.html">
         <div class="house-left">
-          <div class="house-logo air">
-            <!-- Replace with actual Kadijah’s Mango emblem -->
-            <!-- <img src="kadijahsmango-emblem.png" alt="Kadijah’s Mango emblem" /> -->
-            <span>KM</span>
+          <div class="house-index">III · AIR</div>
+
+          <div class="house-logo-wrap air">
+            <div class="emblem-frame">
+              <!-- Replace with actual Kadijah’s Mango emblem -->
+              <!-- <img src="kadijahsmango-emblem.png" alt="Kadijah’s Mango emblem" /> -->
+              <span>KM</span>
+            </div>
+            <div class="emblem-tab"></div>
           </div>
+
           <div class="house-title-block">
-            <div class="house-tagline">AIR · GLOBAL STUDIO</div>
+            <div class="house-tagline">GLOBAL STUDIO</div>
             <div class="house-name">Kadijah’s Mango</div>
             <div class="house-lane">Messaging · Packaging · Global Communication</div>
           </div>
@@ -459,29 +496,35 @@
 
         <div class="house-middle">
           <strong>What AIR governs:</strong> how you speak and are understood.
-          <div class="house-bullets">
-            <div class="house-pill"><span class="pill-dot"></span>Brand language &amp; story systems</div>
-            <div class="house-pill"><span class="pill-dot"></span>Packaging, product copy, scripts</div>
-            <div class="house-pill"><span class="pill-dot"></span>Halal-aware, global positioning</div>
+          <div class="house-delivers">
+            <span>Brand language systems</span><span class="house-dot"></span>
+            <span>Packaging &amp; product copy</span><span class="house-dot"></span>
+            <span>Halal-aware global positioning</span>
           </div>
         </div>
 
         <div class="house-right">
-          <span class="role">AIR</span>
-          <span class="cta">ENTER<span class="icon">↗</span></span>
+          <span class="house-role">LANGUAGE</span>
+          <span class="house-cta">ENTER<span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- EARTH · Narine Estate -->
+      <!-- IV · EARTH · Narine Estate -->
       <a class="house-row" href="narineestate.html">
         <div class="house-left">
-          <div class="house-logo earth">
-            <!-- Replace with actual Narine Estate emblem -->
-            <!-- <img src="narineestate-emblem.png" alt="Narine Estate emblem" /> -->
-            <span>NE</span>
+          <div class="house-index">IV · EARTH</div>
+
+          <div class="house-logo-wrap earth">
+            <div class="emblem-frame">
+              <!-- Replace with actual Narine Estate emblem -->
+              <!-- <img src="narineestate-emblem.png" alt="Narine Estate emblem" /> -->
+              <span>NE</span>
+            </div>
+            <div class="emblem-tab"></div>
           </div>
+
           <div class="house-title-block">
-            <div class="house-tagline">EARTH · ESTATE ATELIER</div>
+            <div class="house-tagline">ESTATE ATELIER</div>
             <div class="house-name">Narine Estate</div>
             <div class="house-lane">Land · Product · Heritage Brands</div>
           </div>
@@ -489,29 +532,35 @@
 
         <div class="house-middle">
           <strong>What EARTH governs:</strong> how you hold land, product, and tangible assets.
-          <div class="house-bullets">
-            <div class="house-pill"><span class="pill-dot"></span>Estate &amp; product brand structure</div>
-            <div class="house-pill"><span class="pill-dot"></span>Lines such as Narine Estate Olive Oil</div>
-            <div class="house-pill"><span class="pill-dot"></span>Heritage-minded growth planning</div>
+          <div class="house-delivers">
+            <span>Estate &amp; product structures</span><span class="house-dot"></span>
+            <span>Lines like Narine Estate Olive Oil</span><span class="house-dot"></span>
+            <span>Heritage-minded growth plans</span>
           </div>
         </div>
 
         <div class="house-right">
-          <span class="role">EARTH</span>
-          <span class="cta">ENTER<span class="icon">↗</span></span>
+          <span class="house-role">STEWARDSHIP</span>
+          <span class="house-cta">ENTER<span class="house-cta-icon">↗</span></span>
         </div>
       </a>
 
-      <!-- AETHER · Founder’s Circle -->
+      <!-- V · AETHER · Founder’s Circle -->
       <a class="house-row" href="aether.html">
         <div class="house-left">
-          <div class="house-logo aether">
-            <!-- Replace with actual Founder’s Circle / Aether emblem -->
-            <!-- <img src="aether-emblem.png" alt="Founder’s Circle emblem" /> -->
-            <span>FC</span>
+          <div class="house-index">V · AETHER</div>
+
+          <div class="house-logo-wrap aether">
+            <div class="emblem-frame">
+              <!-- Replace with actual Founder’s Circle / Aether emblem -->
+              <!-- <img src="aether-emblem.png" alt="Founder’s Circle emblem" /> -->
+              <span>FC</span>
+            </div>
+            <div class="emblem-tab"></div>
           </div>
+
           <div class="house-title-block">
-            <div class="house-tagline">AETHER · INNER ORBIT</div>
+            <div class="house-tagline">INNER ORBIT</div>
             <div class="house-name">Founder’s Circle</div>
             <div class="house-lane">Founders · Boards · Guardians</div>
           </div>
@@ -519,16 +568,16 @@
 
         <div class="house-middle">
           <strong>What AETHER governs:</strong> how you decide, protect, and extend legacy.
-          <div class="house-bullets">
-            <div class="house-pill"><span class="pill-dot"></span>Signature Code™ at the founder level</div>
-            <div class="house-pill"><span class="pill-dot"></span>Board &amp; charter architecture</div>
-            <div class="house-pill"><span class="pill-dot"></span>Long-range empire &amp; succession</div>
+          <div class="house-delivers">
+            <span>Signature Code™ at founder level</span><span class="house-dot"></span>
+            <span>Board &amp; charter architecture</span><span class="house-dot"></span>
+            <span>Long-range empire &amp; succession</span>
           </div>
         </div>
 
         <div class="house-right">
-          <span class="role">AETHER</span>
-          <span class="cta">ENTER<span class="icon">↗</span></span>
+          <span class="house-role">GOVERNANCE</span>
+          <span class="house-cta">ENTER<span class="house-cta-icon">↗</span></span>
         </div>
       </a>
     </section>
