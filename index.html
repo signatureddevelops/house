@@ -6,23 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Signature D is the visual production division of DeVirn Signature House, Inc. — corporate-level photography and cinematic media for individuals, brands, and organizations."
+    content="Signature D is the FIRE House of DeVirn Signature House, Inc. — corporate-level photography and cinematic media for individuals, brands, and organizations."
   />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      /* FIRE · Signature D palette (corporate, warm, neutral) */
-      --bg: #f5f3ef;
-      --bg-elevated: #f8f5f0;
-      --bg-soft: #f0ece4;
+      /* FIRE House · Signature D */
+      --bg: #f5f3ef;                 /* warm ivory */
+      --bg-elevated: #f8f5f0;        /* card background */
+      --bg-soft: #f0ece4;            /* panel wash */
 
       --ink: #181818;
       --ink-soft: #5d5a54;
 
-      --gold: #f5c046;
+      --gold: #f5c046;               /* primary gold */
       --gold-soft: rgba(245, 192, 70, 0.16);
-      --emerald: #0e3f3f;
+      --emerald: #0e3f3f;            /* FIRE emerald */
 
       --border-soft: rgba(0, 0, 0, 0.08);
       --radius-lg: 22px;
@@ -63,7 +63,7 @@
       padding: 0 1.5rem;
     }
 
-    /* Empire Header (DSH-wide, shared across houses) */
+    /* Empire Header (DSH-wide) */
     .site-header {
       position: sticky;
       top: 0;
@@ -168,7 +168,7 @@
     }
 
     .nav a:hover {
-      color: #f5c046;
+      color: var(--gold);
       transform: translateY(-1px);
       box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
     }
@@ -178,26 +178,54 @@
     }
 
     .nav a.is-active {
-      color: #f5c046;
+      color: var(--gold);
     }
 
     .nav a.is-active::after {
       width: 100%;
     }
 
+    .nav-cta {
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 192, 70, 0.72);
+      background: radial-gradient(circle at 0 0, rgba(245, 192, 70, 0.26), rgba(5, 6, 7, 0.98));
+      font-size: 0.74rem;
+      color: #fdf3e2;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition-med);
+      margin-left: 0.5rem;
+    }
+
+    .nav-cta svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.95);
+      background: radial-gradient(circle at 0 0, rgba(245, 192, 70, 0.35), #050607);
+    }
+
     .nav-toggle {
       display: none;
     }
 
-    /* HERO – simple, corporate, value-forward */
+    /* HERO – modeled after Kadijah’s Mango layout, FIRE styling */
     .hero {
-      padding: 3.4rem 0 3rem;
+      padding: 3.5rem 0 3rem;
     }
 
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-      gap: 2.2rem;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
       align-items: center;
     }
 
@@ -205,9 +233,9 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.3rem 0.8rem;
+      padding: 0.35rem 0.8rem;
       border-radius: var(--radius-pill);
-      background: rgba(248, 245, 235, 0.9);
+      background: rgba(248, 245, 235, 0.96);
       border: 1px solid rgba(24, 24, 24, 0.12);
       font-size: 0.68rem;
       letter-spacing: 0.2em;
@@ -226,11 +254,18 @@
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.3rem, 3vw, 3rem);
+      font-size: clamp(2.4rem, 3vw, 3.1rem);
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 0.6rem;
       color: #262018;
+    }
+
+    .hero-title span {
+      display: block;
+      background: linear-gradient(90deg, #3b2a17, #f5c046 45%, #0e3f3f 80%);
+      -webkit-background-clip: text;
+      color: transparent;
     }
 
     .hero-subtitle {
@@ -254,7 +289,7 @@
 
     .btn {
       border-radius: var(--radius-pill);
-      padding: 0.7rem 1.4rem;
+      padding: 0.75rem 1.4rem;
       border: 1px solid rgba(0, 0, 0, 0.12);
       font-size: 0.8rem;
       text-transform: uppercase;
@@ -367,7 +402,7 @@
 
     /* Sections */
     section {
-      padding: 2.6rem 0;
+      padding: 2.8rem 0;
     }
 
     .section-kicker {
@@ -394,6 +429,63 @@
       margin-bottom: 1.4rem;
     }
 
+    /* Card grid modeled after KM */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--bg-elevated), #f3ede2);
+      border: 1px solid var(--border-soft);
+      padding: 0.95rem 0.9rem;
+      font-size: 0.84rem;
+      transition:
+        transform var(--transition-med),
+        border-color var(--transition-med),
+        box-shadow var(--transition-med);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 0, 0, 0.16);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-label {
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #7a5a2b;
+      margin-bottom: 0.2rem;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.2rem;
+      color: #2b2219;
+    }
+
+    .card-body {
+      color: var(--ink-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .card-meta {
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .card-meta strong {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* A LA CARTE PRICE TABLE (kept from original) */
     .card-section {
       border-radius: var(--radius-lg);
       background: var(--bg-elevated);
@@ -402,6 +494,12 @@
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
       font-size: 0.88rem;
       color: var(--ink-soft);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
     }
 
     .price-table {
@@ -440,12 +538,47 @@
       margin-top: 0.45rem;
     }
 
-    .grid-2 {
+    /* Corporate & brand work (reuse .grid + .card) */
+
+    /* GALLERY */
+    .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.4rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
     }
 
+    .gallery-item {
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      background: #e5ded2;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+    }
+
+    .gallery-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      /* Replace with your own image URLs */
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.5rem 0.7rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+      color: #fdf3e2;
+    }
+
+    /* Process & expectations (from original) */
     .process-list {
       margin-top: 0.6rem;
       display: grid;
@@ -469,65 +602,7 @@
       color: #2b241c;
     }
 
-    /* Corporate packages grid */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .package-card {
-      border-radius: 16px;
-      background: linear-gradient(145deg, #ffffff, #f3ede2);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      padding: 0.95rem 0.9rem;
-      font-size: 0.84rem;
-      transition:
-        transform var(--transition-med),
-        border-color var(--transition-med),
-        box-shadow var(--transition-med);
-    }
-
-    .package-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(0, 0, 0, 0.16);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-    }
-
-    .package-label {
-      font-size: 0.64rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: #7a5a2b;
-      margin-bottom: 0.2rem;
-    }
-
-    .package-title {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 0.2rem;
-      color: #2b2219;
-    }
-
-    .package-price {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: #0e3f3f;
-      margin-bottom: 0.3rem;
-    }
-
-    .package-body {
-      color: var(--ink-soft);
-      margin-bottom: 0.3rem;
-    }
-
-    .package-meta {
-      font-size: 0.76rem;
-      color: var(--ink-soft);
-    }
-
-    /* Contact / booking */
+    /* Contact / booking (blend of KM CTA + original contact grid) */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
@@ -622,6 +697,35 @@
       transform: translateY(-1px);
     }
 
+    /* CTA section like KM */
+    .cta {
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: #272018;
+    }
+
+    .cta p {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      max-width: 32rem;
+      margin: 0 auto 1.4rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
     /* Footer */
     .site-footer {
       border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -643,7 +747,7 @@
     }
 
     .footer-inner a {
-      color: #0e3f3f;
+      color: var(--emerald);
       text-decoration: none;
       border-bottom: 1px dotted rgba(14, 63, 63, 0.6);
     }
@@ -657,6 +761,9 @@
         margin-top: 0.6rem;
       }
       .grid,
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -682,6 +789,12 @@
         opacity: 0;
         pointer-events: none;
         transition: opacity var(--transition-med), transform var(--transition-med);
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
       }
 
       .nav-toggle {
@@ -740,6 +853,11 @@
         transform: translateY(0);
         pointer-events: auto;
       }
+
+      .grid,
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     @media (max-width: 480px) {
@@ -790,7 +908,7 @@
           </div>
           <div class="brand-text">
             <div class="brand-name">DeVirn Signature House, Inc.</div>
-            <div class="brand-sub">Signature D · Visual Production Division</div>
+            <div class="brand-sub">FIRE HOUSE · Signature D</div>
           </div>
         </div>
 
@@ -804,7 +922,17 @@
           <a href="index.html" class="is-active">Signature D</a>
           <a href="mango.html">Kadijah’s Mango</a>
           <a href="timelesspeace.html">Timeless Peace</a>
-          <a href="dsh-business.html">Narine Estate Atelier</a>
+          <a href="dsh-business.html" class="nav-cta">
+            <span>Estate Atelier</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M4 12L12 4M7 4h5v5"
+                    fill="none"
+                    stroke="#fdf3e2"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+          </a>
         </nav>
       </div>
     </header>
@@ -818,24 +946,25 @@
               <span class="hero-tag-dot"></span>
               <span>Visual Production · Photography & Cinema</span>
             </div>
-            <h1 class="hero-title">Signature D</h1>
+            <h1 class="hero-title">
+              <span>Signature D</span>
+            </h1>
             <p class="hero-subtitle">
-              The visual production division of DeVirn Signature House, Inc. —
-              focused on clean, reliable photography and cinematic media for
-              individuals, brands, and organizations who need assets that look
+              The FIRE House of DeVirn Signature House, Inc. — focused on clean,
+              reliable photography and cinematic media for individuals, brands,
+              and organizations who need assets that look
               <strong>intentional, on-standard, and ready to use</strong>.
             </p>
             <div class="hero-ctas">
               <a href="#contact" class="btn btn-primary">
                 <span>Request a Session</span>
               </a>
-              <a href="3code.html" class="btn btn-ghost">
-                <span>See The Signature Code™</span>
+              <a href="3code.html#mini" class="btn btn-ghost">
+                <span>Start with the Mini Signature Code™</span>
               </a>
             </div>
             <div class="hero-meta">
-              Built for <span>real campaigns, launches, and appointments</span> —
-              not disposable “content.”
+              Built for <span>real campaigns, launches, and appointments</span> — not disposable “content.”
             </div>
           </div>
 
@@ -852,14 +981,64 @@
               <span class="chip">Brand & Product Frames</span>
             </div>
             <div class="hero-panel-note">
-              Every engagement is aligned with The Signature Code™ so your visual
-              materials match your voice, structure, and long-term direction.
+              Every engagement is aligned with The Signature Code™ so your visuals
+              sit correctly inside your House — vision, voice, structure, impact, and legacy.
             </div>
           </aside>
         </div>
       </section>
 
-      <!-- CORE OFFER & ADD-ONS -->
+      <!-- CORE SUITES (modeled after KM cards) -->
+      <section>
+        <div class="container">
+          <p class="section-kicker">Core Suites</p>
+          <h2 class="section-heading">How We Capture What Matters</h2>
+          <p class="section-subtitle">
+            Simple, grown offers that can flex with your season — from one clean session
+            to full brand coverage.
+          </p>
+
+          <div class="grid">
+            <div class="card">
+              <div class="card-label">Individuals & Families</div>
+              <div class="card-title">Standard Session</div>
+              <div class="card-body">
+                One-hour portrait or family session with guided posing and clean,
+                practical framing for real-world use.
+              </div>
+              <div class="card-meta">
+                <strong>From:</strong> $250 · Orlando area
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-label">Events & Clinics</div>
+              <div class="card-title">Event Coverage</div>
+              <div class="card-body">
+                Focused coverage for launches, conferences, and gatherings —
+                key moments, detail frames, and essential portraits.
+              </div>
+              <div class="card-meta">
+                <strong>From:</strong> Half Day $650 · Full Day $1,100
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-label">Brands & Products</div>
+              <div class="card-title">Brand & Product Frames</div>
+              <div class="card-body">
+                Clean, consistent frames for menus, e-commerce, and campaigns
+                that actually match your brand language.
+              </div>
+              <div class="card-meta">
+                <strong>From:</strong> 10 items $350 · 20 items $600
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- A LA CARTE MENU (keep your exact prices) -->
       <section>
         <div class="container grid-2">
           <div class="card-section">
@@ -883,7 +1062,7 @@
 
           <div class="card-section">
             <p class="section-kicker">Options</p>
-            <h2 class="section-heading">Add-Ons</h2>
+            <h2 class="section-heading">A La Carte Add-Ons</h2>
             <p class="section-subtitle">
               Only add what you actually need. No pressure for packages you won’t use.
             </p>
@@ -909,7 +1088,7 @@
         </div>
       </section>
 
-      <!-- CORPORATE & BRAND PACKAGES -->
+      <!-- CORPORATE & BRAND WORK (same content, KM-style cards) -->
       <section>
         <div class="container">
           <p class="section-kicker">For Brands & Organizations</p>
@@ -920,56 +1099,92 @@
           </p>
 
           <div class="grid">
-            <div class="package-card">
-              <div class="package-label">Launch & Brand</div>
-              <div class="package-title">Brand Visual Suite</div>
-              <div class="package-price">From $2,800</div>
-              <div class="package-body">
+            <div class="card">
+              <div class="card-label">Launch & Brand</div>
+              <div class="card-title">Brand Visual Suite</div>
+              <div class="card-body">
                 Built for brand launches, rebrands, and major updates.
                 Includes photography, short reels, and a core asset library for
                 your website and social channels.
               </div>
-              <div class="package-meta">
-                Scoping call required · Final inclusions defined in writing before production.
+              <div class="card-meta">
+                <strong>From:</strong> $2,800 · scoped by call
               </div>
             </div>
 
-            <div class="package-card">
-              <div class="package-label">Retainer</div>
-              <div class="package-title">Annual Visual Support</div>
-              <div class="package-price">$1,500/mo · or $12,500/yr</div>
-              <div class="package-body">
+            <div class="card">
+              <div class="card-label">Retainer</div>
+              <div class="card-title">Annual Visual Support</div>
+              <div class="card-body">
                 Quarterly productions, planned content blocks, and light strategic
                 guidance for brands that want consistent presence over the year.
               </div>
-              <div class="package-meta">
-                Ideal for clinics, practices, agencies, or personal brands with regular campaigns.
+              <div class="card-meta">
+                <strong>From:</strong> $1,500/mo or $12,500/yr
               </div>
             </div>
 
-            <div class="package-card">
-              <div class="package-label">Events</div>
-              <div class="package-title">Event Coverage</div>
-              <div class="package-price">Half Day: $650 · Full Day: $1,100</div>
-              <div class="package-body">
+            <div class="card">
+              <div class="card-label">Events</div>
+              <div class="card-title">Event Coverage</div>
+              <div class="card-body">
                 Documented coverage for conferences, galas, launches, and gatherings,
                 with a mix of key moments and essential portraits.
               </div>
-              <div class="package-meta">
-                Travel and multi-day events quoted by scope.
+              <div class="card-meta">
+                <strong>From:</strong> Half Day $650 · Full Day $1,100
               </div>
             </div>
 
-            <div class="package-card">
-              <div class="package-label">Products</div>
-              <div class="package-title">Product Sessions</div>
-              <div class="package-price">10 items: $350 · 20 items: $600</div>
-              <div class="package-body">
+            <div class="card">
+              <div class="card-label">Products</div>
+              <div class="card-title">Product Sessions</div>
+              <div class="card-body">
                 Clean, consistent product images for e-commerce, menus, or catalogs.
               </div>
-              <div class="package-meta">
-                Includes basic editing and export in agreed formats.
+              <div class="card-meta">
+                <strong>From:</strong> 10 items $350 · 20 items $600
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY SECTION -->
+      <section id="gallery">
+        <div class="container">
+          <p class="section-kicker">Work Samples</p>
+          <h2 class="section-heading">Signature D Gallery</h2>
+          <p class="section-subtitle">
+            A small look at how we frame founders, families, clinics, and events.
+            Swap these placeholders with your own images as you build your library.
+          </p>
+
+          <div class="gallery-grid">
+            <!-- Replace background-image URLs with your real images -->
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/portrait-1.jpg');"></div>
+              <div class="gallery-caption">Founder Portrait</div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/clinic-1.jpg');"></div>
+              <div class="gallery-caption">Clinic & Care</div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/event-1.jpg');"></div>
+              <div class="gallery-caption">Event Coverage</div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/product-1.jpg');"></div>
+              <div class="gallery-caption">Product Frames</div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/family-1.jpg');"></div>
+              <div class="gallery-caption">Family Session</div>
+            </div>
+            <div class="gallery-item">
+              <div class="gallery-frame" style="background-image:url('images/detail-1.jpg');"></div>
+              <div class="gallery-caption">Detail & Atmosphere</div>
             </div>
           </div>
         </div>
@@ -1032,7 +1247,7 @@
         </div>
       </section>
 
-      <!-- CONTACT / BOOKING -->
+      <!-- CONTACT / BOOKING ANCHOR -->
       <section id="contact">
         <div class="container">
           <p class="section-kicker">Booking</p>
@@ -1108,22 +1323,38 @@
     <footer class="site-footer">
       <div class="footer-inner">
         <div>© 2025 DeVirn Signature House, Inc. · All Rights Reserved.</div>
-        <div>Signature D · Visual Production Division · Orlando, FL · <a href="mailto:devirnsignaturehouse@gmail.com">devirnsignaturehouse@gmail.com</a></div>
+        <div>FIRE House · Signature D · Orlando, FL · <a href="mailto:devirnsignaturehouse@gmail.com">devirnsignaturehouse@gmail.com</a></div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Mobile nav toggle
+    // Mobile nav toggle + smooth scroll (for #contact, #gallery)
     (function () {
       const body = document.body;
       const toggle = document.querySelector(".nav-toggle");
+      const links = document.querySelectorAll(".nav a[href^='#']");
 
       if (toggle) {
         toggle.addEventListener("click", () => {
           body.classList.toggle("nav-open");
         });
       }
+
+      links.forEach(link => {
+        link.addEventListener("click", e => {
+          const id = link.getAttribute("href");
+          if (!id || id === "#") return;
+          const target = document.querySelector(id);
+          if (target) {
+            e.preventDefault();
+            body.classList.remove("nav-open");
+            const offset = 72;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        });
+      });
     })();
   </script>
 </body>
