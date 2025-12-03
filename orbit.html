@@ -2,28 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ORBIT™ Dashboard | DeVirn Signature House, Inc.</title>
+  <title>ORBIT™ Dashboard | DSH</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Optional Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
       --bg: #05060a;
-      --bg-elevated: #0d1018;
-      --bg-soft: #121623;
-      --accent: #7b5cff;         /* soft orbit violet */
-      --accent-soft: rgba(123, 92, 255, 0.18);
-      --accent-strong: #a589ff;
+      --bg-soft: #0c0f18;
+      --bg-card: rgba(14, 18, 30, 0.96);
+      --border-soft: rgba(255,255,255,0.06);
       --ink: #f7f7ff;
       --ink-soft: #9ca4c8;
-      --border-soft: rgba(255,255,255,0.06);
-      --danger: #ff5c7a;
+      --accent: #7b5cff;
+      --accent-soft: rgba(123,92,255,0.22);
+      --accent-strong: #a58dff;
       --success: #4cd2aa;
-      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
       --radius-lg: 18px;
+      --radius-md: 14px;
       --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(0,0,0,0.55);
       --transition-fast: 0.18s ease-out;
     }
 
@@ -35,7 +34,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top left, #14162a 0, #05060a 45%, #020308 100%);
+      background: radial-gradient(circle at top left, #15192e 0, #05060a 40%, #020308 100%);
       color: var(--ink);
       min-height: 100vh;
       display: flex;
@@ -43,51 +42,62 @@
       padding: 12px;
     }
 
-    .app-shell {
+    .shell {
       width: 100%;
-      max-width: 1080px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(0,0,0,0.7));
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.06);
+      max-width: 1100px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.04);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(0,0,0,0.85));
       box-shadow: var(--shadow-soft);
-      overflow: hidden;
+      padding: 10px;
       display: flex;
       flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
     }
 
-    /* TOP NAVBAR */
-    .top-nav {
-      padding: 10px 14px;
-      border-bottom: 1px solid var(--border-soft);
+    @media (min-width: 768px) {
+      .shell {
+        padding: 14px 16px 16px;
+        gap: 12px;
+      }
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(7,9,18,0.96));
+      padding: 8px 10px;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .top-bar {
+        padding: 10px 14px;
+      }
+    }
+
+    .brand {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(0,0,0,0.85));
+      gap: 10px;
     }
 
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(5,6,15,0.85);
-      border: 1px solid rgba(255,255,255,0.16);
-      backdrop-filter: blur(10px);
-    }
-
-    .brand-mark {
-      width: 24px;
-      height: 24px;
-      border-radius: 10px;
+    .logo-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
       background: conic-gradient(from 210deg, #7b5cff, #4cd2aa, #ffd37b, #7b5cff);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #05060a;
-      font-size: 14px;
       font-weight: 700;
+      font-size: 14px;
     }
 
     .brand-text {
@@ -95,244 +105,172 @@
       flex-direction: column;
       line-height: 1.1;
     }
+
     .brand-text span:first-child {
-      font-size: 12px;
-      letter-spacing: 0.12em;
+      font-size: 11px;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--ink-soft);
     }
+
     .brand-text span:last-child {
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--ink);
     }
 
-    .top-actions {
+    .top-right {
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .pill-tag {
+    .top-chip {
       font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
+      padding: 4px 9px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(4,6,16,0.9);
       color: var(--ink-soft);
-      background: rgba(3,4,12,0.85);
       display: none;
     }
 
+    @media (min-width: 768px) {
+      .top-chip {
+        display: inline-flex;
+      }
+    }
+
     .avatar {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 999px;
       background: radial-gradient(circle at 30% 10%, #ffd37b, #ff5c7a);
       border: 1px solid rgba(255,255,255,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 600;
       font-size: 14px;
-      color: #180711;
+      font-weight: 600;
+      color: #1a0810;
     }
 
-    /* MAIN LAYOUT */
-    .main {
-      display: flex;
-      flex-direction: column;
-      padding: 10px 10px 14px;
+    /* MAIN GRID */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 10px;
-      overflow: hidden;
     }
 
-    .header-row {
+    @media (min-width: 880px) {
+      .main-grid {
+        grid-template-columns: 1.4fr 1.1fr;
+        align-items: flex-start;
+      }
+    }
+
+    /* LEFT COLUMN (MAIN + HOUSES) */
+    .left-column {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
-    .headline {
-      font-size: 16px;
-      font-weight: 500;
-    }
-
-    .headline span {
-      color: var(--accent-strong);
-    }
-
-    .subhead {
-      font-size: 12px;
-      color: var(--ink-soft);
-    }
-
-    /* TABS */
-    .tabs {
-      display: flex;
-      overflow-x: auto;
-      gap: 6px;
-      padding-bottom: 2px;
-      margin-top: 4px;
-    }
-
-    .tab {
-      flex-shrink: 0;
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      background: rgba(10, 12, 24, 0.8);
-      color: var(--ink-soft);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform 0.08s;
-    }
-
-    .tab.active {
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      border-color: rgba(255,255,255,0.4);
-      color: #05060a;
-      font-weight: 500;
-    }
-
-    .tab:active {
-      transform: scale(0.97);
-    }
-
-    /* CONTENT AREA */
-    .content {
-      flex: 1;
-      min-height: 260px;
+    /* MAIN CARD */
+    .hero-card {
       border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.03), #050712);
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.08), var(--bg-soft));
       border: 1px solid var(--border-soft);
       padding: 12px;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(123,92,255,0.5) rgba(0,0,0,0.5);
-    }
-
-    .content::-webkit-scrollbar {
-      width: 6px;
-    }
-    .content::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .content::-webkit-scrollbar-thumb {
-      background: rgba(123,92,255,0.6);
-      border-radius: 999px;
-    }
-
-    /* GRID HELPERS */
-    .grid {
-      display: grid;
-      gap: 10px;
-    }
-
-    .grid-2 {
-      grid-template-columns: 1fr;
-    }
-
-    @media (min-width: 720px) {
-      .main {
-        flex-direction: column;
-        padding: 16px 16px 18px;
-      }
-      .header-row {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-      }
-      .pill-tag {
-        display: inline-flex;
-      }
-      .grid-2 {
-        grid-template-columns: 1.2fr 1fr;
-      }
-      .content {
-        padding: 16px;
-      }
-      .top-nav {
-        padding: 12px 18px;
-      }
-    }
-
-    /* CARDS */
-    .card {
-      border-radius: 16px;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.06), var(--bg-soft));
-      border: 1px solid var(--border-soft);
-      padding: 10px;
       position: relative;
       overflow: hidden;
     }
 
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 4px;
+    @media (min-width: 768px) {
+      .hero-card {
+        padding: 16px;
+      }
     }
 
-    .card-title {
-      font-size: 13px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .chip {
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      color: var(--ink-soft);
-      background: rgba(2,3,12,0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .card-body {
-      font-size: 12px;
-      color: var(--ink-soft);
-      line-height: 1.4;
-      margin-top: 2px;
-    }
-
-    .accent-circle {
+    .hero-accent {
       position: absolute;
-      width: 180px;
-      height: 180px;
+      width: 220px;
+      height: 220px;
       border-radius: 999px;
-      background: radial-gradient(circle, rgba(123,92,255,0.46), transparent 65%);
-      top: -70px;
+      background: radial-gradient(circle, rgba(123,92,255,0.55), transparent 65%);
+      top: -80px;
       right: -60px;
-      opacity: 0.55;
+      opacity: 0.6;
       pointer-events: none;
     }
 
-    .metric-row {
+    .hero-title-row {
+      position: relative;
       display: flex;
-      gap: 10px;
-      margin-top: 8px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
     }
 
-    .metric {
-      flex: 1;
-      min-width: 80px;
+    .hero-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .hero-title {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+    .hero-title span {
+      color: var(--accent-strong);
+    }
+
+    .hero-chip {
+      font-size: 10px;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.32);
+      background: rgba(5,7,18,0.9);
+      color: var(--ink-soft);
+    }
+
+    .hero-body {
+      position: relative;
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .hero-metrics {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .hero-metric {
+      min-width: 130px;
     }
 
     .metric-label {
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--ink-soft);
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
 
     .metric-value {
@@ -340,8 +278,8 @@
       font-weight: 500;
     }
 
-    /* TAG/BADGE STRIPS */
-    .tag-row {
+    .hero-tags {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -352,29 +290,185 @@
       font-size: 10px;
       padding: 4px 8px;
       border-radius: 999px;
-      background: rgba(8,11,25,0.9);
+      background: rgba(5,7,18,0.9);
       border: 1px solid rgba(255,255,255,0.12);
       color: var(--ink-soft);
     }
 
-    /* NETWORK LIST */
-    .section-title {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .search-row {
+    /* HOUSES STRIP */
+    .houses-strip {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      padding: 10px;
       display: flex;
-      gap: 6px;
-      margin-bottom: 8px;
+      flex-direction: column;
+      gap: 8px;
     }
 
+    .houses-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .houses-title {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .houses-sub {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+
+    .houses-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    @media (min-width: 640px) {
+      .houses-row {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+    }
+
+    .house-pill {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.16);
+      padding: 5px 6px;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      cursor: pointer;
+      background: rgba(7,10,20,0.96);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform 0.08s, box-shadow var(--transition-fast);
+    }
+
+    .house-pill:hover {
+      border-color: rgba(123,92,255,0.7);
+    }
+
+    .house-pill.active {
+      border-color: var(--accent-strong);
+      background: radial-gradient(circle at top, rgba(123,92,255,0.26), rgba(5,7,18,1));
+      box-shadow: 0 0 0 1px rgba(123,92,255,0.5);
+    }
+
+    .house-code {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--ink-soft);
+    }
+
+    .house-name {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .house-desc {
+      font-size: 10px;
+      color: var(--ink-soft);
+    }
+
+    .house-detail {
+      font-size: 11px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    .house-detail strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* RIGHT COLUMN CARDS */
+    .right-column {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      padding: 10px;
+      font-size: 12px;
+      color: var(--ink-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-title {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .chip {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(4,6,16,0.9);
+      color: var(--ink-soft);
+    }
+
+    .metric-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .metric {
+      min-width: 120px;
+    }
+
+    .mini-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--ink-soft);
+      margin-bottom: 1px;
+    }
+
+    .mini-value {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .badge-soft {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* INPUTS & BUTTONS */
     .input {
-      flex: 1;
-      background: rgba(3,5,15,0.9);
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
+      width: 100%;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(5,7,18,0.96);
       padding: 6px 10px;
       font-size: 11px;
       color: var(--ink);
@@ -388,19 +482,19 @@
     .btn {
       font-size: 11px;
       padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(8,10,20,0.9);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(5,7,18,0.96);
       color: var(--ink-soft);
       cursor: pointer;
-      white-space: nowrap;
       transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform 0.08s;
+      white-space: nowrap;
     }
 
     .btn.primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      border-color: rgba(255,255,255,0.5);
       color: #05060a;
+      border-color: rgba(255,255,255,0.6);
       font-weight: 500;
     }
 
@@ -408,38 +502,48 @@
       transform: scale(0.97);
     }
 
+    .row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    /* NETWORK LIST */
     .network-list {
       display: flex;
       flex-direction: column;
       gap: 6px;
+      margin-top: 4px;
     }
 
     .network-item {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7,9,20,0.98);
+      padding: 6px 8px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 8px;
-      border-radius: 12px;
-      background: rgba(6,8,18,0.9);
-      border: 1px solid rgba(255,255,255,0.06);
+      gap: 6px;
       cursor: pointer;
       transition: border-color var(--transition-fast), background var(--transition-fast), transform 0.08s;
     }
 
     .network-item:hover {
-      border-color: rgba(123,92,255,0.6);
-      background: rgba(12,15,30,0.95);
+      border-color: rgba(123,92,255,0.7);
+      background: rgba(12,15,30,0.98);
     }
 
     .network-main {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
 
     .network-name {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
+      color: var(--ink);
     }
 
     .network-meta {
@@ -451,115 +555,24 @@
       font-size: 9px;
       padding: 3px 7px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(3,4,12,0.9);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(5,7,18,0.96);
       color: var(--accent-strong);
     }
 
-    /* HOUSES GRID */
-    .house-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    @media (min-width: 768px) {
-      .house-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-      }
-    }
-
-    .house-card {
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: radial-gradient(circle at top, rgba(255,255,255,0.06), rgba(3,5,12,1));
-      padding: 8px;
-      font-size: 10px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      transition: border-color var(--transition-fast), transform 0.08s, box-shadow var(--transition-fast);
-    }
-
-    .house-card.active {
-      border-color: var(--accent-strong);
-      box-shadow: 0 0 0 1px rgba(123,92,255,0.6);
-    }
-
-    .house-name {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .house-badge {
-      font-size: 9px;
-      color: var(--ink-soft);
-    }
-
-    .house-pill {
-      align-self: flex-start;
-      padding: 3px 7px;
-      border-radius: 999px;
-      font-size: 9px;
-      border: 1px solid rgba(255,255,255,0.3);
-      margin-top: 2px;
-    }
-
-    .house-pill.fire {
-      border-color: #ffb26f;
-      color: #ffb26f;
-    }
-    .house-pill.water {
-      border-color: #73c5ff;
-      color: #73c5ff;
-    }
-    .house-pill.earth {
-      border-color: #82d49b;
-      color: #82d49b;
-    }
-    .house-pill.air {
-      border-color: #ffc6ff;
-      color: #ffc6ff;
-    }
-    .house-pill.aether {
-      border-color: #e9f075;
-      color: #e9f075;
-    }
-
-    .house-detail {
-      margin-top: 10px;
-      font-size: 11px;
-      color: var(--ink-soft);
-      line-height: 1.45;
-    }
-
-    .house-detail strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    /* STATUS BAR / FOOTER */
-    .status-bar {
-      padding: 8px 10px;
-      font-size: 11px;
-      color: var(--ink-soft);
+    /* FOOTER / STATUS */
+    .footer {
+      margin-top: 4px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: radial-gradient(circle at bottom, rgba(255,255,255,0.03), rgba(0,0,0,0.9));
+      padding: 7px 10px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--border-soft);
-      background: radial-gradient(circle at bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.85));
-    }
-
-    .status-pip {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--success);
-      box-shadow: 0 0 8px rgba(76,210,170,0.7);
-      margin-right: 6px;
+      gap: 8px;
+      font-size: 11px;
+      color: var(--ink-soft);
     }
 
     .status-main {
@@ -568,472 +581,269 @@
       gap: 6px;
     }
 
-    .status-text {
-      font-size: 11px;
+    .status-pip {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+      box-shadow: 0 0 8px rgba(76,210,170,0.8);
     }
 
-    .status-sub {
-      font-size: 10px;
-      color: var(--ink-soft);
-    }
-
-    .status-cta {
+    .footer-cta {
       font-size: 10px;
       color: var(--accent-strong);
       cursor: pointer;
     }
-
-    /* HIDDEN SECTIONS (TABS) */
-    .tab-view {
-      display: none;
-    }
-
-    .tab-view.active {
-      display: block;
-    }
-
-    /* SMALL LABELS */
-    .label-inline {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--ink-soft);
-      margin-bottom: 4px;
-    }
-
-    .badge-soft {
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(123,92,255,0.18);
-      color: var(--accent-strong);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: 4px;
-    }
   </style>
 </head>
 <body>
-  <div class="app-shell">
-    <!-- TOP NAV -->
-    <header class="top-nav">
-      <div class="brand-pill">
-        <div class="brand-mark">O</div>
+  <div class="shell">
+    <!-- TOP BAR -->
+    <header class="top-bar">
+      <div class="brand">
+        <div class="logo-pill">O</div>
         <div class="brand-text">
           <span>ORBIT</span>
           <span>DSH NETWORK</span>
         </div>
       </div>
-      <div class="top-actions">
-        <div class="pill-tag">Live · 1.0 Internal Preview</div>
+      <div class="top-right">
+        <div class="top-chip">Internal Preview · v1.0</div>
         <div class="avatar">D</div>
       </div>
     </header>
 
-    <!-- MAIN -->
-    <main class="main">
-      <div class="header-row">
-        <div>
-          <div class="headline">
-            Central Orbit · <span>DeVirn Signature House, Inc.</span>
-          </div>
-          <div class="subhead">
-            Identity patterns, strategic direction, and aligned connections — in one interactive view.
-          </div>
-        </div>
-      </div>
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+      <!-- LEFT SIDE: HERO + HOUSES -->
+      <div class="left-column">
+        <!-- HERO CARD -->
+        <section class="hero-card">
+          <div class="hero-accent"></div>
 
-      <!-- TABS -->
-      <div class="tabs" id="tabs">
-        <button class="tab active" data-tab="overview">Overview</button>
-        <button class="tab" data-tab="mycode">My Code™</button>
-        <button class="tab" data-tab="signature-code">The Signature Code™</button>
-        <button class="tab" data-tab="houses">Houses</button>
-        <button class="tab" data-tab="network">Network</button>
-      </div>
-
-      <!-- CONTENT AREA -->
-      <section class="content">
-        <!-- OVERVIEW -->
-        <div class="tab-view active" id="view-overview">
-          <div class="grid grid-2">
-            <!-- Left -->
-            <div class="card">
-              <div class="accent-circle"></div>
-              <div class="card-header">
-                <div class="card-title">
-                  Orbit Snapshot
-                </div>
-                <span class="chip">DeVirn · Admin</span>
-              </div>
-              <div class="card-body">
-                This dashboard gives you a live view of your current operating pattern, your strategic direction, and how you’re positioned across the DSH Houses and Orbit network.
-              </div>
-              <div class="metric-row">
-                <div class="metric">
-                  <div class="metric-label">Primary Pattern</div>
-                  <div class="metric-value">Siren of Grace</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Strategic Direction</div>
-                  <div class="metric-value">Identity & Network Architecture</div>
-                </div>
-              </div>
-              <div class="tag-row">
-                <span class="tag-pill">My Code™: Active</span>
-                <span class="tag-pill">Signature Code™: Locked</span>
-                <span class="tag-pill">Orbit: Prototype</span>
-              </div>
+          <div class="hero-title-row">
+            <div class="hero-title-block">
+              <div class="hero-label">Central Orbit View</div>
+              <div class="hero-title">Identity & Direction for <span>DeVirn Signature House, Inc.</span></div>
             </div>
+            <div class="hero-chip">Admin · My Code™ + Signature Code™</div>
+          </div>
 
-            <!-- Right -->
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">
-                  Live Orbit Status
-                </div>
-                <span class="chip">Internal • v1</span>
-              </div>
-              <div class="card-body">
-                <div class="metric-row">
-                  <div class="metric">
-                    <div class="metric-label">Aligned Contacts</div>
-                    <div class="metric-value">18</div>
-                  </div>
-                  <div class="metric">
-                    <div class="metric-label">Priority Houses</div>
-                    <div class="metric-value">FIRE · AETHER</div>
-                  </div>
-                </div>
-                <div class="tag-row">
-                  <span class="tag-pill">Creative direction</span>
-                  <span class="tag-pill">Global identity</span>
-                  <span class="tag-pill">Network curation</span>
-                </div>
-              </div>
+          <div class="hero-body">
+            ORBIT™ shows how your current operating pattern and strategic direction interact with the DSH Houses and your live network.
+            This view is the control panel for building the world’s first social branding network.
+          </div>
+
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <div class="metric-label">Operational Pattern</div>
+              <div class="metric-value">Siren of Grace · Oracle blend</div>
+            </div>
+            <div class="hero-metric">
+              <div class="metric-label">Strategic Focus</div>
+              <div class="metric-value">Orbit · Identity & Network Architecture</div>
             </div>
           </div>
 
-          <!-- Secondary row -->
-          <div style="margin-top: 12px;" class="grid grid-2">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">
-                  My Code™ Summary
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="metric-row">
-                  <div class="metric">
-                    <div class="metric-label">Communication Style</div>
-                    <div class="metric-value">Soft-Direct · Poetic</div>
-                  </div>
-                  <div class="metric">
-                    <div class="metric-label">Pressure Response</div>
-                    <div class="metric-value">Pause, Reframe, Close</div>
-                  </div>
-                </div>
-                <div class="tag-row">
-                  <span class="tag-pill">High pattern awareness</span>
-                  <span class="tag-pill">Elegant closure</span>
-                  <span class="tag-pill">Narrative builder</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="card-header">
-                <div class="card-title">
-                  Signature Code™ Channel
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="metric-row">
-                  <div class="metric">
-                    <div class="metric-label">Primary Focus</div>
-                    <div class="metric-value">Orbit · Social Branding Network</div>
-                  </div>
-                </div>
-                <div class="tag-row">
-                  <span class="tag-pill">Empire architecture</span>
-                  <span class="tag-pill">Multi-House integration</span>
-                  <span class="tag-pill">Investor-grade logic</span>
-                </div>
-              </div>
-            </div>
+          <div class="hero-tags">
+            <span class="tag-pill">My Code™: Active</span>
+            <span class="tag-pill">Signature Code™: Locked for Orbit</span>
+            <span class="tag-pill">Houses: FIRE · EARTH · AIR · AETHER</span>
           </div>
-        </div>
+        </section>
 
-        <!-- MY CODE -->
-        <div class="tab-view" id="view-mycode">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">My Code™ · Operational Pattern</div>
-              <span class="chip">Private · Owner Only</span>
-            </div>
-            <div class="card-body">
-              <div class="label-inline">
-                Operational Profile
-                <span class="badge-soft">Prototype · DeVirn</span>
-              </div>
-              <p style="margin-bottom: 8px;">
-                My Code™ describes how you instinctively operate: how you communicate, respond under pressure, lead, and collaborate. It is used internally by DSH and Orbit to align your environment, strategy, and network.
-              </p>
-              <div class="metric-row">
-                <div class="metric">
-                  <div class="metric-label">Communication</div>
-                  <div class="metric-value">High-context · emotionally intelligent</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Decision Flow</div>
-                  <div class="metric-value">Intuitive → Reflective → Precise</div>
-                </div>
-              </div>
-              <div class="metric-row">
-                <div class="metric">
-                  <div class="metric-label">Leadership Tendency</div>
-                  <div class="metric-value">Vision-first · Relational</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Conflict Style</div>
-                  <div class="metric-value">Soft KO · Graceful Exit</div>
-                </div>
-              </div>
-              <div class="tag-row">
-                <span class="tag-pill">High empathy signal</span>
-                <span class="tag-pill">Pattern interpreter</span>
-                <span class="tag-pill">Culture-sensitive</span>
-              </div>
+        <!-- HOUSES STRIP -->
+        <section class="houses-strip">
+          <div class="houses-header">
+            <div>
+              <div class="houses-title">DSH Houses · Orbit Placement</div>
+              <div class="houses-sub">Tap a House to view how Orbit uses it in your current architecture.</div>
             </div>
           </div>
 
-          <div style="margin-top: 12px;" class="card">
-            <div class="card-header">
-              <div class="card-title">Simulation Controls</div>
-            </div>
-            <div class="card-body">
-              <p style="margin-bottom: 8px;">
-                Adjust the sliders below to simulate different operational versions of yourself and see how Orbit would route you.
-              </p>
-              <div class="metric-row">
-                <div class="metric">
-                  <div class="metric-label">Structure vs. Fluidity</div>
-                  <input type="range" min="0" max="100" value="60" style="width:100%;">
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Direct vs. Soft Expression</div>
-                  <input type="range" min="0" max="100" value="40" style="width:100%;">
-                </div>
-              </div>
-              <div style="margin-top: 8px;">
-                <span class="metric-label">Predicted Placement</span>
-                <div class="tag-row" id="mycode-placement-tags">
-                  <span class="tag-pill">FIRE · Identity Architecture</span>
-                  <span class="tag-pill">AETHER · Founder Direction</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SIGNATURE CODE -->
-        <div class="tab-view" id="view-signature-code">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">The Signature Code™ · Direction</div>
-              <span class="chip">Core Engine</span>
-            </div>
-            <div class="card-body">
-              <p style="margin-bottom: 8px;">
-                The Signature Code™ translates operational patterns into a clear direction: what your brand, business, or role should prioritize next, and which House should lead your implementation.
-              </p>
-              <div class="metric-row">
-                <div class="metric">
-                  <div class="metric-label">Current Strategic Track</div>
-                  <div class="metric-value">Orbit · Global Social Branding Network</div>
-                </div>
-                <div class="metric">
-                  <div class="metric-label">Support Houses</div>
-                  <div class="metric-value">FIRE · EARTH · AIR</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 12px;" class="card">
-            <div class="card-header">
-              <div class="card-title">Direction Chooser</div>
-            </div>
-            <div class="card-body">
-              <p style="margin-bottom: 6px;">
-                Select a dominant need and see how the Signature Code™ would route a client through the Houses.
-              </p>
-              <div class="search-row">
-                <select id="direction-select" class="input" style="flex: 1;">
-                  <option value="brand">Stronger brand & identity</option>
-                  <option value="structure">More structure & systems</option>
-                  <option value="reach">More communication & reach</option>
-                  <option value="culture">Better culture & human support</option>
-                  <option value="leadership">Clearer leadership & legacy</option>
-                </select>
-                <button class="btn primary" id="direction-apply">Apply</button>
-              </div>
-              <div class="house-detail" id="direction-output">
-                <strong>Recommended route:</strong> FIRE → AIR → AETHER.  
-                Launch with visual and verbal identity (FIRE), then build communication channels (AIR), and finally lock leadership posture and long-term vision (AETHER).
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- HOUSES -->
-        <div class="tab-view" id="view-houses">
-          <div class="section-title">DSH Houses · Orbit View</div>
-          <p class="subhead" style="margin-bottom: 8px;">
-            Each House is a specialized environment. Orbit uses your Code to decide which House you should enter first.
-          </p>
-
-          <div class="house-grid" id="house-grid">
-            <div class="house-card active" data-house="FIRE">
-              <div class="house-name">FIRE</div>
-              <div class="house-badge">Signature D</div>
-              <div class="house-pill fire">Brand & Creative Identity</div>
-            </div>
-            <div class="house-card" data-house="WATER">
-              <div class="house-name">WATER</div>
-              <div class="house-badge">Timeless Peace</div>
-              <div class="house-pill water">Culture & Human Support</div>
-            </div>
-            <div class="house-card" data-house="EARTH">
-              <div class="house-name">EARTH</div>
-              <div class="house-badge">Narine Estate Atelier</div>
-              <div class="house-pill earth">Structure & Foundations</div>
-            </div>
-            <div class="house-card" data-house="AIR">
-              <div class="house-name">AIR</div>
-              <div class="house-badge">Kadijah’s Mango</div>
-              <div class="house-pill air">Communication & Global Relations</div>
-            </div>
-            <div class="house-card" data-house="AETHER">
-              <div class="house-name">AETHER</div>
-              <div class="house-badge">Founder’s Circle</div>
-              <div class="house-pill aether">Leadership & Legacy</div>
-            </div>
+          <div class="houses-row" id="houses-row">
+            <button class="house-pill active" data-house="FIRE">
+              <div class="house-code">FIRE</div>
+              <div class="house-name">Signature D</div>
+              <div class="house-desc">Brand & creative identity</div>
+            </button>
+            <button class="house-pill" data-house="WATER">
+              <div class="house-code">WATER</div>
+              <div class="house-name">Timeless Peace</div>
+              <div class="house-desc">Culture & human support</div>
+            </button>
+            <button class="house-pill" data-house="EARTH">
+              <div class="house-code">EARTH</div>
+              <div class="house-name">Narine Estate</div>
+              <div class="house-desc">Structure & foundations</div>
+            </button>
+            <button class="house-pill" data-house="AIR">
+              <div class="house-code">AIR</div>
+              <div class="house-name">Kadijah’s Mango</div>
+              <div class="house-desc">Communication & reach</div>
+            </button>
+            <button class="house-pill" data-house="AETHER">
+              <div class="house-code">AETHER</div>
+              <div class="house-name">Founder’s Circle</div>
+              <div class="house-desc">Leadership & legacy</div>
+            </button>
           </div>
 
           <div class="house-detail" id="house-detail">
             <strong>FIRE · Signature D — Brand & Creative Identity</strong><br/>
-            FIRE is the House of expression. It handles photography, visual systems, brand language, and identity architecture
-            for founders, clinics, estates, organizations, and Orbit-native brands that need a clear, elevated, and recognizable presence.
+            FIRE is where Orbit-approved brands become visible. It handles identity systems, photography, cinematic media, and the visual language that makes DSH-aligned entities recognizable across the network.
           </div>
-        </div>
+        </section>
+      </div>
 
-        <!-- NETWORK -->
-        <div class="tab-view" id="view-network">
-          <div class="section-title">Orbit Network · Prototype View</div>
-          <p class="subhead" style="margin-bottom: 8px;">
-            This list simulates how Orbit would prioritize aligned collaborators and entities based on My Code™, Signature Code™, and House placement.
+      <!-- RIGHT SIDE: MY CODE, SIGNATURE CODE, NETWORK -->
+      <div class="right-column">
+        <!-- MY CODE CARD -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">My Code™ · Operational Pattern</div>
+            <span class="chip">Private Profile</span>
+          </div>
+          <p>
+            My Code™ describes how you naturally operate in communication, pressure, decision-making, and leadership. Orbit uses this internally to align your environment and connections.
           </p>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="mini-label">Communication</div>
+              <div class="mini-value">Soft-direct · layered meaning</div>
+            </div>
+            <div class="metric">
+              <div class="mini-label">Pressure Response</div>
+              <div class="mini-value">Pause → Reframe → Clean Exit</div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="mini-label">Leadership</div>
+              <div class="mini-value">Vision-first · relational</div>
+            </div>
+            <div class="metric">
+              <div class="mini-label">Conflict Style</div>
+              <div class="mini-value">Graceful KO · No public chaos</div>
+            </div>
+          </div>
+          <span class="badge-soft" style="margin-top: 4px;">Signal strength: High pattern awareness</span>
+        </section>
 
-          <div class="search-row">
-            <input type="text" id="network-search" class="input" placeholder="Search by name, House or focus…" />
+        <!-- SIGNATURE CODE CARD -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">The Signature Code™ · Direction Engine</div>
+            <span class="chip">Orbit Focus</span>
+          </div>
+          <p>
+            The Signature Code™ translates operational patterns into strategic direction. For Orbit, the current code focuses on building a social branding network for founders, clinics, estates, and aligned brands.
+          </p>
+          <div class="metric-row">
+            <div class="metric">
+              <div class="mini-label">Primary Track</div>
+              <div class="mini-value">Social Branding Network</div>
+            </div>
+            <div class="metric">
+              <div class="mini-label">Support Houses</div>
+              <div class="mini-value">FIRE · EARTH · AIR</div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 8px;">
+            <select id="direction-select" class="input">
+              <option value="brand">Need: Stronger brand & identity</option>
+              <option value="structure">Need: More structure & systems</option>
+              <option value="reach">Need: More communication & reach</option>
+              <option value="culture">Need: Better culture & human support</option>
+              <option value="leadership">Need: Clearer leadership & legacy</option>
+            </select>
+            <button class="btn primary" id="direction-btn">Route</button>
+          </div>
+          <div style="font-size: 11px; margin-top: 6px;" id="direction-output">
+            <strong>Suggested Route:</strong> FIRE → AIR → AETHER for Orbit’s flagship presence.
+          </div>
+        </section>
+
+        <!-- NETWORK CARD -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">Orbit Network · Prototype</div>
+            <span class="chip">Identity-based matches</span>
+          </div>
+          <p>
+            This list simulates how Orbit will prioritize collaborators and entities that align with your Code and House placements.
+          </p>
+          <div class="row" style="margin-top: 4px;">
+            <input id="network-search" class="input" placeholder="Search by name, House or focus…" />
             <button class="btn" id="network-reset">Reset</button>
           </div>
-
           <div class="network-list" id="network-list">
-            <!-- Items populated via JS -->
+            <!-- Filled by JS -->
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </div>
+    </div>
 
-    <!-- STATUS BAR -->
-    <footer class="status-bar">
-      <div>
-        <div class="status-main">
-          <div class="status-pip"></div>
-          <div>
-            <div class="status-text">Orbit session: LIVE · Internal Prototype</div>
-            <div class="status-sub">My Code™, The Signature Code™, Houses & Network aligned.</div>
-          </div>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="status-main">
+        <div class="status-pip"></div>
+        <div>
+          <div>Orbit session: LIVE · Internal DSH prototype</div>
+          <div style="font-size: 10px;">My Code™, The Signature Code™, Houses & Network are visually linked in this view.</div>
         </div>
       </div>
-      <div class="status-cta" id="status-cta">
-        View next: Orbit System Map →
-      </div>
+      <div class="footer-cta" id="footer-cta">Next: System Map →</div>
     </footer>
   </div>
 
   <script>
-    // Simple state helpers
-    const tabs = document.querySelectorAll(".tab");
-    const tabViews = document.querySelectorAll(".tab-view");
-
-    tabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        const target = tab.getAttribute("data-tab");
-
-        tabs.forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-
-        tabViews.forEach(view => {
-          if (view.id === "view-" + target) {
-            view.classList.add("active");
-          } else {
-            view.classList.remove("active");
-          }
-        });
-      });
-    });
-
-    // Houses interaction
-    const houseDescriptions = {
-      "FIRE": "<strong>FIRE · Signature D — Brand & Creative Identity</strong><br/>FIRE is the House of expression. It covers brand identity, photography, visual systems, executive headshots, cinematic media, and the visual language behind Orbit-aligned brands.",
-      "WATER": "<strong>WATER · Timeless Peace — Culture & Human Support</strong><br/>WATER serves teams, communities, and impact-led projects that need trust, emotional intelligence, and culture systems. It supports communication climates, conflict resolution, and human storytelling.",
-      "EARTH": "<strong>EARTH · Narine Estate Business Atelier — Structure & Foundations</strong><br/>EARTH builds solid business infrastructure: websites, systems, documentation, asset ledgers, and estate-ready structures for long-term stability and bank-level credibility.",
-      "AIR": "<strong>AIR · Kadijah’s Mango — Communication & Global Relations</strong><br/>AIR handles external communication, outreach, public relations, and cross-cultural messaging. It’s the House for halal-conscious branding, international positioning, and communication strategy.",
-      "AETHER": "<strong>AETHER · Founder’s Circle — Leadership & Legacy</strong><br/>AETHER works with founders, executives, and stewards on vision, direction, governance, and long-term legacy. It aligns leadership with mission, ethics, and multi-decade impact."
-    };
-
-    const houseCards = document.querySelectorAll(".house-card");
+    // House interactions
+    const houses = document.querySelectorAll(".house-pill");
     const houseDetail = document.getElementById("house-detail");
 
-    houseCards.forEach(card => {
-      card.addEventListener("click", () => {
-        houseCards.forEach(c => c.classList.remove("active"));
-        card.classList.add("active");
+    const houseText = {
+      FIRE: "<strong>FIRE · Signature D — Brand & Creative Identity</strong><br/>FIRE handles identity systems, photography, cinematic media, and visuals for Orbit-approved brands. It’s where founders and organizations become visually recognizable in the network.",
+      WATER: "<strong>WATER · Timeless Peace — Culture & Human Support</strong><br/>WATER supports clinics, teams, and projects that need culture, care, and trust systems. It ensures that what appears strong on the outside is also healthy on the inside.",
+      EARTH: "<strong>EARTH · Narine Estate Business Atelier — Structure & Foundations</strong><br/>EARTH builds the documents, systems, websites, ledgers, and frameworks that make a brand bank-, investor-, and grant-ready.",
+      AIR: "<strong>AIR · Kadijah’s Mango — Communication & Global Relations</strong><br/>AIR focuses on messaging, outreach, halal-conscious positioning, PR, and global communication for Orbit entities that need to be clearly understood across cultures.",
+      AETHER: "<strong>AETHER · Founder’s Circle — Leadership & Legacy</strong><br/>AETHER is where founders, executives, and guardians refine their direction, governance, and multi-decade legacy with DSH guidance."
+    };
 
-        const houseKey = card.getAttribute("data-house");
-        houseDetail.innerHTML = houseDescriptions[houseKey] || "";
+    houses.forEach(h => {
+      h.addEventListener("click", () => {
+        houses.forEach(x => x.classList.remove("active"));
+        h.classList.add("active");
+        const key = h.getAttribute("data-house");
+        houseDetail.innerHTML = houseText[key] || "";
       });
     });
 
-    // Direction Chooser for Signature Code
+    // Signature Code routing
     const directionSelect = document.getElementById("direction-select");
-    const directionApply = document.getElementById("direction-apply");
+    const directionBtn = document.getElementById("direction-btn");
     const directionOutput = document.getElementById("direction-output");
 
-    const directionRoutes = {
-      "brand": "FIRE → AIR → AETHER. Start with brand identity and creative assets (FIRE), establish communication channels and positioning (AIR), then set long-term leadership and narrative (AETHER).",
-      "structure": "EARTH → FIRE → AETHER. Start with structure, systems, and foundation (EARTH), translate that into a visible identity (FIRE), then refine governance and vision (AETHER).",
-      "reach": "AIR → FIRE → EARTH. Begin with communication and reach (AIR), refine brand identity based on audience response (FIRE), and then reinforce operations to handle growth (EARTH).",
-      "culture": "WATER → EARTH → AIR. Create healthy culture and human support (WATER), stabilize structure (EARTH), and then communicate that culture outward (AIR).",
-      "leadership": "AETHER → FIRE → EARTH. Clarify leadership and vision (AETHER), express it visually and verbally (FIRE), and then lock structure to sustain it (EARTH)."
+    const directions = {
+      brand: "FIRE → AIR → AETHER. Start with brand and identity in FIRE, translate it into public communication in AIR, then lock leadership posture in AETHER.",
+      structure: "EARTH → FIRE → AETHER. Build the foundation in EARTH, then express it visually in FIRE, and formalize leadership and governance in AETHER.",
+      reach: "AIR → FIRE → EARTH. Begin with communication and reach in AIR, refine expression in FIRE, and reinforce structure in EARTH to handle demand.",
+      culture: "WATER → EARTH → AIR. Heal and strengthen culture in WATER, anchor it with structure in EARTH, then communicate it outward through AIR.",
+      leadership: "AETHER → FIRE → EARTH. Clarify leadership and mission in AETHER, let FIRE express it, and EARTH sustain it with systems."
     };
 
-    directionApply.addEventListener("click", () => {
-      const value = directionSelect.value;
-      directionOutput.innerHTML = "<strong>Recommended route:</strong> " + directionRoutes[value];
+    directionBtn.addEventListener("click", () => {
+      const key = directionSelect.value;
+      directionOutput.innerHTML = "<strong>Suggested Route:</strong> " + (directions[key] || "");
     });
 
-    // Network simulation
+    // Network data + filtering
     const networkData = [
       {
         name: "Clinic Aurora",
         meta: "Healthcare · EARTH / FIRE",
         tag: "Brand & Structure",
-        houses: "FIRE EARTH"
+        houses: "EARTH FIRE"
       },
       {
         name: "Halal Expo Partner",
@@ -1067,43 +877,44 @@
 
     function renderNetwork(filter = "") {
       networkList.innerHTML = "";
-      const query = filter.toLowerCase();
+      const q = filter.toLowerCase();
 
-      networkData
-        .filter(item => {
-          if (!query) return true;
-          return (
-            item.name.toLowerCase().includes(query) ||
-            item.meta.toLowerCase().includes(query) ||
-            item.tag.toLowerCase().includes(query) ||
-            item.houses.toLowerCase().includes(query)
-          );
-        })
-        .forEach(item => {
-          const div = document.createElement("div");
-          div.className = "network-item";
-          div.innerHTML = `
-            <div class="network-main">
-              <div class="network-name">${item.name}</div>
-              <div class="network-meta">${item.meta}</div>
-            </div>
-            <div class="network-tag">${item.tag}</div>
-          `;
-          networkList.appendChild(div);
-        });
+      const filtered = networkData.filter(item => {
+        if (!q) return true;
+        return (
+          item.name.toLowerCase().includes(q) ||
+          item.meta.toLowerCase().includes(q) ||
+          item.tag.toLowerCase().includes(q) ||
+          item.houses.toLowerCase().includes(q)
+        );
+      });
 
-      if (!networkList.childElementCount) {
+      if (!filtered.length) {
         const empty = document.createElement("div");
         empty.style.fontSize = "11px";
         empty.style.color = "var(--ink-soft)";
-        empty.textContent = "No matches in this orbit view yet.";
+        empty.textContent = "No matches in this orbit preview.";
         networkList.appendChild(empty);
+        return;
       }
+
+      filtered.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "network-item";
+        div.innerHTML = `
+          <div class="network-main">
+            <div class="network-name">${item.name}</div>
+            <div class="network-meta">${item.meta}</div>
+          </div>
+          <div class="network-tag">${item.tag}</div>
+        `;
+        networkList.appendChild(div);
+      });
     }
 
     renderNetwork();
 
-    networkSearch.addEventListener("input", (e) => {
+    networkSearch.addEventListener("input", e => {
       renderNetwork(e.target.value);
     });
 
@@ -1112,17 +923,10 @@
       renderNetwork();
     });
 
-    // Status CTA (just a playful guide)
-    const statusCta = document.getElementById("status-cta");
-    statusCta.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tabViews.forEach(view => view.classList.remove("active"));
-
-      // go to Houses (as the "system map" anchor)
-      document.querySelector('.tab[data-tab="houses"]').classList.add("active");
-      document.getElementById("view-houses").classList.add("active");
-
-      houseDetail.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Footer CTA (just a playful hook)
+    document.getElementById("footer-cta").addEventListener("click", () => {
+      // For now, just scroll to Houses as "system map"
+      document.querySelector(".houses-strip").scrollIntoView({ behavior: "smooth", block: "start" });
     });
   </script>
 </body>
