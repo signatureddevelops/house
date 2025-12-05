@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DSH Elite Retainer — DeVirn Signature House, Inc.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="DSH Elite Retainer — the all-inclusive, cross-house creative and business partnership by DeVirn Signature House, Inc. for founders, clinics, and brands."
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #06080d;
+      --bg-soft: #0c1018;
+      --card: #111723;
+      --accent: #f4c76a;
+      --accent-soft: rgba(244, 199, 106, 0.18);
+      --text: #f5f5f5;
+      --muted: #a5acba;
+      --border: rgba(255, 255, 255, 0.08);
+      --pill: rgba(244, 199, 106, 0.1);
+      --danger: #ff8474;
+      --success: #9de7b8;
+      --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.6);
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --transition: all 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #121826 0%, #030308 55%, #020307 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(3, 5, 12, 0.9), rgba(3, 5, 12, 0.4));
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 20%, #f8e1a2 0%, #f4c76a 40%, #cc9850 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(5, 7, 15, 0.8), 0 16px 30px rgba(0, 0, 0, 0.5);
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #20130b;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #1a1308;
+      font-weight: 600;
+      font-size: 0.82rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding-top: 2.5rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 1.5rem;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.9rem;
+      border-radius: var(--radius-pill);
+      background: var(--pill);
+      border: 1px solid rgba(244, 199, 106, 0.35);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3.1vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--muted);
+      max-width: 42rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(9, 12, 23, 0.9);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, #f4c76a, #f09d4c);
+      color: #1d1208;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.7);
+    }
+
+    .btn-secondary {
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-pill);
+      background: rgba(12, 16, 27, 0.9);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(244, 199, 106, 0.6);
+      background: rgba(10, 14, 24, 1);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #202637 0%, #05060c 60%, #020308 100%);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 10% 0%, rgba(244, 199, 106, 0.25), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-price-main {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .hero-price-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .value-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(157, 231, 184, 0.6);
+      background: rgba(16, 40, 31, 0.9);
+      font-size: 0.75rem;
+      color: var(--success);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-includes {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-includes strong {
+      color: var(--text);
+    }
+
+    .hero-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    @media (max-width: 480px) {
+      .hero-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-features span::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Sections */
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-intro {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 40rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 840px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-price {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .pill-small {
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(9, 12, 23, 0.9);
+      color: var(--muted);
+    }
+
+    .list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: grid;
+      gap: 0.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .list li::before {
+      content: "▹ ";
+      color: var(--accent);
+    }
+
+    .note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 840px) {
+      .compare {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .compare-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 132, 116, 0.6);
+      background: rgba(42, 10, 10, 0.95);
+      font-size: 0.75rem;
+      color: var(--danger);
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.7rem 1.5rem 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 1px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <a href="index.html" class="brand">
+          <div class="brand-mark">D</div>
+          <div class="brand-text">
+            <span>DEVIRN SIGNATURE HOUSE, INC.</span>
+            <span>DSH Elite Retainer</span>
+          </div>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Back to DSH</a>
+          <a href="#included">What’s Included</a>
+          <a href="#value">Why It’s Different</a>
+          <a href="#contact" class="nav-cta">Book a Call</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="section hero">
+        <div>
+          <div class="pill">
+            FULL-EMPIRE PARTNERSHIP • LIMITED CLIENTS
+          </div>
+          <h1 class="hero-title">
+            The <span>DSH Elite Retainer</span><br />
+            Your Entire Creative House, On Call.
+          </h1>
+          <p class="hero-subtitle">
+            One monthly partnership that replaces a full media team, a branding agency,
+            a strategist, and an identity consultant — across every active House of
+            DeVirn Signature House, Inc.
+          </p>
+          <div class="hero-meta">
+            <span>Cross-House: FIRE • AIR • EARTH • AETHER</span>
+            <span>Ideal for clinics, founders, brands & organizations</span>
+            <span>Designed for global, investor-facing brands</span>
+          </div>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn-primary">
+              Schedule a Discovery Call →
+            </a>
+            <a href="index.html" class="btn-secondary">
+              Explore the Full DSH Ecosystem
+            </a>
+          </div>
+          <p class="hero-note">
+            Limited Elite slots per year to protect quality, creative energy, and
+            turnaround times.
+          </p>
+        </div>
+
+        <aside class="hero-card" aria-label="Pricing and value highlight">
+          <div class="hero-card-inner">
+            <div class="hero-price-tag">
+              <span class="hero-price-main">$3,500</span>
+              <span class="hero-price-note">per month · cancel anytime with 30 days notice</span>
+            </div>
+            <div class="value-chip">
+              Market value $12,000+ / month • You invest $3,500
+            </div>
+            <p class="hero-includes">
+              <strong>Includes monthly:</strong> 2 Signature D shoots, 6 reels,
+              40 edited photos, website + funnel support, product branding support,
+              identity & strategy sessions, and VIP priority access.
+            </p>
+            <div class="hero-features">
+              <span>Replaces multiple hires (photo, video, strategy, brand)</span>
+              <span>Covers both digital & product-based brands</span>
+              <span>Includes full-funnel and website support</span>
+              <span>Includes deep identity work via Orbit + Code</span>
+            </div>
+            <p class="hero-tagline">
+              One retainer. Every House at your service.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <!-- WHAT'S INCLUDED -->
+      <section id="included" class="section">
+        <p class="section-kicker">What you get every month</p>
+        <h2 class="section-title">A full creative empire behind your brand</h2>
+        <p class="section-intro">
+          The DSH Elite Retainer activates the FIRE, AIR, EARTH and AETHER Houses on your behalf —
+          every month. You receive cinematic visuals, ethical & product branding, business
+          infrastructure support, and identity alignment in one integrated partnership.
+        </p>
+
+        <div class="grid">
+          <!-- FIRE -->
+          <article class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-label">House Fire • Signature D</div>
+                <div class="card-title">Cinematic Visuals & Events</div>
+              </div>
+              <span class="pill-small">Approx. value $6,400+/mo</span>
+            </div>
+            <p class="card-sub">
+              Your brand is captured, expressed and refreshed visually every month,
+              so you never run out of high-end content.
+            </p>
+            <ul class="list">
+              <li><strong>2 full Signature D shoots / month</strong> (on-location or hybrid)</li>
+              <li><strong>6 cinematic reels</strong> optimized for IG / TikTok / Shorts / LinkedIn</li>
+              <li><strong>40 professionally edited photos</strong> with cinematic grading</li>
+              <li><strong>1 hour of event coverage</strong> for launches, team days, or activations</li>
+              <li>Monthly visual direction, moodboards & shotlists</li>
+              <li>Founder & team guidance on posing, wardrobe & locations</li>
+            </ul>
+            <p class="note">
+              Deliverables are batched for a full month of consistent presence
+              across platforms.
+            </p>
+          </article>
+
+          <!-- AIR -->
+          <article class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-label">House Air • Kadijah’s Mango</div>
+                <div class="card-title">Product, Fashion & Ethical Branding</div>
+              </div>
+              <span class="pill-small">Approx. value $1,500–$2,500/mo</span>
+            </div>
+            <p class="card-sub">
+              For brands with products, fashion, or ethical positioning, Kadijah’s Mango
+              keeps your product language and packaging sharp and globally friendly.
+            </p>
+            <ul class="list">
+              <li>Ongoing packaging & label copy updates (small changes included)</li>
+              <li>Product descriptions refreshed or created (up to 10 per month)</li>
+              <li>Campaign naming, seasonal storylines & product angles</li>
+              <li>Fashion/collection naming and micro copy for tags & labels</li>
+              <li>Social caption packs for launches and promotions</li>
+            </ul>
+            <p class="note">
+              Ideal for beauty, wellness, fashion, modest wear, and ethical product lines.
+            </p>
+          </article>
+
+          <!-- EARTH -->
+          <article class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-label">House Earth • DSH Business</div>
+                <div class="card-title">Brand, Website & Systems Backbone</div>
+              </div>
+              <span class="pill-small">Approx. value $1,800–$3,000/mo</span>
+            </div>
+            <p class="card-sub">
+              Your digital and operational foundation is maintained and upgraded
+              so your brand can actually handle the growth.
+            </p>
+            <ul class="list">
+              <li>Unlimited small website updates (copy, images, layout tweaks)</li>
+              <li><strong>1 new landing page or micro-site each quarter</strong></li>
+              <li>Monthly offer & funnel review (are you selling the right way?)</li>
+              <li>One 60-minute strategy session per month</li>
+              <li>Sales script & email template creation (2 per month)</li>
+            </ul>
+            <p class="note">
+              This is where we ensure your systems, offers and messaging actually support your goals.
+            </p>
+          </article>
+
+          <!-- AETHER -->
+          <article class="card">
+            <div class="card-header-row">
+              <div>
+                <div class="card-label">House Aether • Orbit & Signature Code</div>
+                <div class="card-title">Identity & Leadership Alignment</div>
+              </div>
+              <span class="pill-small">Approx. value $600–$1,200/mo</span>
+            </div>
+            <p class="card-sub">
+              Elite brands are built on aligned, emotionally clear leadership.
+              Aether keeps your inner architecture calibrated to your outer goals.
+            </p>
+            <ul class="list">
+              <li><strong>Signature Code™ Deep-Dive</strong> (once per quarter)</li>
+              <li>Orbit Identity Scans for key team members (as needed)</li>
+              <li>Monthly 15-minute Founder alignment check-in</li>
+              <li>Ongoing refinement of your brand story, language and positioning</li>
+            </ul>
+            <p class="note">
+              You don’t just look like a leader—you move, speak and decide like one.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- VALUE / COMPARISON -->
+      <section id="value" class="section">
+        <p class="section-kicker">Why this retainer exists</p>
+        <h2 class="section-title">Competes with an entire in-house team</h2>
+        <p class="section-intro">
+          Most brands piece together freelancers and agencies — a photographer here,
+          a web person there, a strategist somewhere in the background. The Elite
+          Retainer replaces that patchwork with one coherent, cinematic, and
+          psychologically intelligent engine.
+        </p>
+
+        <div class="compare">
+          <div class="card">
+            <div class="compare-tag">Typical pieced-together team</div>
+            <ul class="list">
+              <li>Freelance photographer: $2,000–$4,000/mo</li>
+              <li>Videographer/editor: $2,000–$3,000/mo</li>
+              <li>Branding agency: $2,500+/mo</li>
+              <li>Copywriter: $1,000+/mo</li>
+              <li>Business strategist / consultant: $1,500+/mo</li>
+              <li>Identity / leadership coach: $1,000+/mo</li>
+            </ul>
+            <p class="note">
+              Fragmented communication, inconsistent visual language, conflicting strategy,
+              slower timelines, and higher overall cost.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="compare-tag" style="border-color: rgba(157,231,184,0.7); background: rgba(7,35,21,0.95); color: var(--success);">
+              DSH Elite Retainer • $3,500/mo
+            </div>
+            <ul class="list">
+              <li>All core creative and business functions under one roof</li>
+              <li>Cross-House alignment (visuals, offers, product, identity)</li>
+              <li>Structured monthly rhythm & clear deliverables</li>
+              <li>Built for investor, bank, and grant conversations</li>
+              <li>Global-ready aesthetics & messaging</li>
+              <li>Human, ethical, story-driven approach</li>
+            </ul>
+            <p class="note">
+              One relationship. One ecosystem. One creative director. Multiple Houses powering your brand.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / CTA -->
+      <section id="contact" class="section">
+        <p class="section-kicker">Begin the partnership</p>
+        <h2 class="section-title">Ready to move like an elite brand?</h2>
+        <p class="section-intro">
+          The DSH Elite Retainer is offered to a limited number of clients per year
+          to protect creative quality, intimacy, and speed.
+          If you are ready for a full-empire partnership, start here.
+        </p>
+        <div class="hero-ctas" style="margin-bottom: 0.75rem;">
+          <a href="mailto:narinedevirn@gmail.com?subject=DSH%20Elite%20Retainer%20Inquiry" class="btn-primary">
+            Email DeVirn to Apply →
+          </a>
+          <a href="https://wa.me/14073196740?text=Hi%20DeVirn%2C%20I%E2%80%99m%20interested%20in%20the%20DSH%20Elite%20Retainer." class="btn-secondary">
+            WhatsApp Inquiry
+          </a>
+        </div>
+        <p class="hero-note">
+          You can also explore the full DeVirn Signature House, Inc. ecosystem at
+          <a href="index.html" style="color: var(--accent);">the main DSH site</a>,
+          then return here when you’re ready for the all-in option.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> DeVirn Signature House, Inc. • DSH Elite Retainer</div>
+        <div class="footer-links">
+          <a href="index.html">Back to DSH Home</a>
+          <a href="mailto:narinedevirn@gmail.com">Email</a>
+          <a href="https://wa.me/14073196740">WhatsApp</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
