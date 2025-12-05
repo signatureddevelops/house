@@ -122,24 +122,39 @@
       opacity: 0.85;
     }
 
-    .elite-link {
-      font-size: 10px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #5b4523;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(215,176,107,0.9);
-      background: linear-gradient(135deg, rgba(247,236,210,0.96), rgba(215,176,107,0.9));
-      box-shadow: 0 10px 22px rgba(140,116,79,0.35);
-      white-space: nowrap;
-      transition: var(--transition-med);
+    /* TOGGLE */
+    .view-toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px;
+      border-radius: 999px;
+      border: 1px solid rgba(215,176,107,0.6);
+      background: linear-gradient(135deg, rgba(250,244,231,0.98), rgba(232,217,194,0.96));
+      box-shadow: 0 10px 24px rgba(140,116,79,0.28);
+      gap: 3px;
     }
 
-    .elite-link:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(140,116,79,0.45);
+    .toggle-option {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: #7b6641;
+      background: transparent;
+      transition: var(--transition-med);
+      white-space: nowrap;
+    }
+
+    .toggle-option.active {
+      background: #fdfbf7;
+      color: #4a3820;
+      box-shadow: 0 6px 14px rgba(138,106,48,0.25);
+    }
+
+    .toggle-option:hover {
+      transform: translateY(-0.5px);
     }
 
     @media (max-width: 640px) {
@@ -655,10 +670,12 @@
           <span>FIVE ELEMENTS</span>
           <span>EMPIRE STRUCTURE</span>
         </div>
-        <!-- Elite Retainer link -->
-        <a href="elite-retainer.html" class="elite-link">
-          DSH ELITE RETAINER
-        </a>
+
+        <!-- VIEW TOGGLE -->
+        <div class="view-toggle">
+          <a href="houses.html" class="toggle-option active">House System</a>
+          <a href="elite-retainer.html" class="toggle-option">Elite Retainer</a>
+        </div>
       </div>
     </div>
 
