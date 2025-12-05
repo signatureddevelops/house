@@ -1,17 +1,103 @@
-.topline {
-display: flex;
-justify-content: space-between;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Five Houses | DSH House System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Five Houses of the DSH House System — FIRE, WATER, AIR, EARTH, and AETHER. Five worlds. One system. One standard." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      /* Base palette: soft luxury */
+      --page-bg: #f1eee8;        /* warm, light stone */
+      --shell-bg: #fdfbf7;       /* porcelain */
+      --ink: #171716;            /* deep ink */
+      --ink-soft: #6b6b6b;       /* soft grey */
+      --ink-softer: #9b9b9b;
+      --line-soft: #ded7cd;      /* warm silver line */
+      --line-strong: #c9c0b4;
+      --metal-gold: #d7b06b;     /* champagne gold */
+      --metal-platinum: #c5c9cf; /* brushed platinum */
+
+      /* House accents – used as thin, elegant hints only */
+      --fire-accent:  #f2c15b;   /* FIRE */
+      --water-accent: #8ecdf5;   /* WATER */
+      --air-accent:   #f4b47b;   /* AIR */
+      --earth-accent: #7b916e;   /* EARTH */
+      --aether-accent:#b6a4f4;   /* AETHER */
+
+      --radius-shell: 32px;
+      --radius-card: 22px;
+      --radius-pill: 999px;
+
+      --shadow-soft: 0 26px 60px rgba(130, 112, 90, 0.26);
+      --transition-med: 220ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.5), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(195,177,150,0.4), #e5ded3);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 12px;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: var(--shell-bg);
+      border-radius: var(--radius-shell);
+      border: 1px solid rgba(230, 222, 210, 0.95);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 30px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      /* soft metallic strip at top */
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 3px;
+      background: linear-gradient(90deg, rgba(215,176,107,0.95), rgba(197,202,210,0.9));
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .shell {
+        padding: 22px 18px 30px;
+        border-radius: 24px;
+      }
+    }
+
+    /* Top bar */
+    .topline {
+      display: flex;
+      justify-content: space-between;
       align-items: baseline;
       align-items: center;
-gap: 12px;
-margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 16px;
       flex-wrap: wrap;
-}
+    }
 
-.label-main {
+    .label-main {
 @@ -100,6 +101,13 @@
-white-space: nowrap;
-}
+      white-space: nowrap;
+    }
 
     .topline-right {
       display: flex;
@@ -20,12 +106,12 @@ white-space: nowrap;
       flex-wrap: wrap;
     }
 
-.sub-nav {
-font-size: 11px;
-letter-spacing: 0.22em;
+    .sub-nav {
+      font-size: 11px;
+      letter-spacing: 0.22em;
 @@ -114,9 +122,28 @@
-opacity: 0.85;
-}
+      opacity: 0.85;
+    }
 
     .elite-link {
       font-size: 10px;
@@ -47,15 +133,15 @@ opacity: 0.85;
       box-shadow: 0 16px 32px rgba(140,116,79,0.45);
     }
 
-@media (max-width: 640px) {
-.topline {
+    @media (max-width: 640px) {
+      .topline {
         flex-direction: column;
-align-items: flex-start;
-}
-}
+        align-items: flex-start;
+      }
+    }
 @@ -605,17 +632,33 @@
-display: block;
-}
+      display: block;
+    }
 
     .closing a {
       color: #8a6a30;
@@ -67,13 +153,13 @@ display: block;
     .closing a:hover {
       border-color: rgba(138,106,48,0.8);
     }
-</style>
+  </style>
 </head>
 <body>
-<main class="shell">
-<!-- Topline -->
-<div class="topline">
-<div class="label-main">DSH HOUSE SYSTEM</div>
+  <main class="shell">
+    <!-- Topline -->
+    <div class="topline">
+      <div class="label-main">DSH HOUSE SYSTEM</div>
       <div class="sub-nav">
         <span>HOUSE OVERVIEW</span>
         <span>FIVE ELEMENTS</span>
@@ -88,17 +174,17 @@ display: block;
         <a href="elite-retainer.html" class="elite-link">
           DSH ELITE RETAINER
         </a>
-</div>
-</div>
+      </div>
+    </div>
 
-@@ -1040,6 +1083,10 @@ <h2 class="section-title">How the Houses Move Together</h2>
-<section class="closing">
-<span>Each House stands complete, holding a world of standards, language, and practice.</span>
-<span>Together, the Houses form an ordered, elegant way to understand and elevate life, work, and legacy.</span>
+@@ -1040,6 +1083,10 @@
+    <section class="closing">
+      <span>Each House stands complete, holding a world of standards, language, and practice.</span>
+      <span>Together, the Houses form an ordered, elegant way to understand and elevate life, work, and legacy.</span>
       <span>
         For brands ready to activate multiple Houses at once, explore the
         <a href="elite-retainer.html">DSH Elite Retainer</a>.
       </span>
-</section>
-</main>
+    </section>
+  </main>
 </body>
