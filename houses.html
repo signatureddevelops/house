@@ -87,9 +87,10 @@
     .topline {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       gap: 12px;
       margin-bottom: 16px;
+      flex-wrap: wrap;
     }
 
     .label-main {
@@ -98,6 +99,13 @@
       text-transform: uppercase;
       color: var(--ink-soft);
       white-space: nowrap;
+    }
+
+    .topline-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
     .sub-nav {
@@ -114,9 +122,28 @@
       opacity: 0.85;
     }
 
+    .elite-link {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #5b4523;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(215,176,107,0.9);
+      background: linear-gradient(135deg, rgba(247,236,210,0.96), rgba(215,176,107,0.9));
+      box-shadow: 0 10px 22px rgba(140,116,79,0.35);
+      white-space: nowrap;
+      transition: var(--transition-med);
+    }
+
+    .elite-link:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(140,116,79,0.45);
+    }
+
     @media (max-width: 640px) {
       .topline {
-        flex-direction: column;
         align-items: flex-start;
       }
     }
@@ -605,6 +632,16 @@
       display: block;
     }
 
+    .closing a {
+      color: #8a6a30;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(138,106,48,0.4);
+      padding-bottom: 1px;
+    }
+
+    .closing a:hover {
+      border-color: rgba(138,106,48,0.8);
+    }
   </style>
 </head>
 <body>
@@ -612,10 +649,16 @@
     <!-- Topline -->
     <div class="topline">
       <div class="label-main">DSH HOUSE SYSTEM</div>
-      <div class="sub-nav">
-        <span>HOUSE OVERVIEW</span>
-        <span>FIVE ELEMENTS</span>
-        <span>EMPIRE STRUCTURE</span>
+      <div class="topline-right">
+        <div class="sub-nav">
+          <span>HOUSE OVERVIEW</span>
+          <span>FIVE ELEMENTS</span>
+          <span>EMPIRE STRUCTURE</span>
+        </div>
+        <!-- Elite Retainer link -->
+        <a href="elite-retainer.html" class="elite-link">
+          DSH ELITE RETAINER
+        </a>
       </div>
     </div>
 
@@ -1040,6 +1083,10 @@
     <section class="closing">
       <span>Each House stands complete, holding a world of standards, language, and practice.</span>
       <span>Together, the Houses form an ordered, elegant way to understand and elevate life, work, and legacy.</span>
+      <span>
+        For brands ready to activate multiple Houses at once, explore the
+        <a href="elite-retainer.html">DSH Elite Retainer</a>.
+      </span>
     </section>
   </main>
 </body>
